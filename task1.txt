@@ -1,0 +1,3251 @@
+
+
+DO NOT EVER ADD “WORKSPACE IN FILE PATH, start with src folder!” DO NOT ADD EM DASH! MUST CITE 5 real files in each section especially ideal answer!
+
+Make sure to obey these 100% “
+
+-  All answers should have  5+ meaningful sentences and clear as well 
+- Adding a few file references in the feedback section could strength the answer.
+- The ideal response could benefit from a dedicated file-list section summarizing all referenced files together.
+- Adding separate strength and weakness points inside summaries would enhance readability and make the evaluation feel more complete.
+
+
+1.new task, question is: “What's the plugin/extension architecture? How would I add a new plugin?
+
+2.here is model A's response:   I'll explore the codebase to understand the plugin/extension architecture.
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.json" | grep -E "(plugin|extension)" | head -20
+system
+Tool ran without output or errors
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend, excluding hidden items and node_modules:
+113M	/tmp/inputs/hospitalrun-frontend
+79K	/tmp/inputs/hospitalrun-frontend/CHANGELOG.md
+1.5K	/tmp/inputs/hospitalrun-frontend/LICENSE
+3.0K	/tmp/inputs/hospitalrun-frontend/README.md
+1.5K	/tmp/inputs/hospitalrun-frontend/SECURITY.md
+3.0K	/tmp/inputs/hospitalrun-frontend/azure.yaml
+512	/tmp/inputs/hospitalrun-frontend/commitlint.config.js
+3.0K	/tmp/inputs/hospitalrun-frontend/couchdb
+512	/tmp/inputs/hospitalrun-frontend/couchdb/Dockerfile
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/local.ini
+1.5K	/tmp/inputs/hospitalrun-frontend/docker-compose.yml
+512	/tmp/inputs/hospitalrun-frontend/docs
+512	/tmp/inputs/hospitalrun-frontend/docs/index.md
+512	/tmp/inputs/hospitalrun-frontend/jest.config.js
+512	/tmp/inputs/hospitalrun-frontend/mkdocs.yml
+512	/tmp/inputs/hospitalrun-frontend/nginx.conf
+5.5K	/tmp/inputs/hospitalrun-frontend/package.json
+20K	/tmp/inputs/hospitalrun-frontend/public
+1.5K	/tmp/inputs/hospitalrun-frontend/public/favicon.ico
+2.0K	/tmp/inputs/hospitalrun-frontend/public/index.html
+16K	/tmp/inputs/hospitalrun-frontend/public/logo.png
+512	/tmp/inputs/hospitalrun-frontend/public/manifest.json
+512	/tmp/inputs/hospitalrun-frontend/public/robots.txt
+3.5K	/tmp/inputs/hospitalrun-frontend/scripts
+2.5K	/tmp/inputs/hospitalrun-frontend/scripts/check-translations
+512	/tmp/inputs/hospitalrun-frontend/scripts/tsconfig.json
+1.2M	/tmp/inputs/hospitalrun-frontend/src
+2.0K	/tmp/inputs/hospitalrun-frontend/src/App.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__
+564K	/tmp/inputs/hospitalrun-frontend/src/__tests__
+1.5K	/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard
+17K	/tmp/inputs/hospitalrun-frontend/src/imagings
+29K	/tmp/inputs/hospitalrun-frontend/src/incidents
+2.0K	/tmp/inputs/hospitalrun-frontend/src/index.css
+1.0K	/tmp/inputs/hospitalrun-frontend/src/index.tsx
+28K	/tmp/inputs/hospitalrun-frontend/src/labs
+36K	/tmp/inputs/hospitalrun-frontend/src/medications
+6.5K	/tmp/inputs/hospitalrun-frontend/src/page-header
+192K	/tmp/inputs/hospitalrun-frontend/src/patients
+512	/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+30K	/tmp/inputs/hospitalrun-frontend/src/scheduling
+5.5K	/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings
+1.0K	/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user
+1.0K	/tmp/inputs/hospitalrun-frontend/tsconfig.json
+
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -type f \( -name "*.ts" -o -name "*.tsx" \) | xargs grep -l "plugin\|Plugin\|extension\|Extension" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts with line numbers:
+1	/* eslint-disable camelcase */
+2	declare namespace PouchDB {
+3	  interface SearchQuery<Content> {
+4	    // Search string
+5	    query?: string
+6
+7	    //  Or build the index
+8	    build?: true
+9
+10	    //  F ields to search over
+11	    fields: (keyof Content)[] | { [field in keyof Content]: number }
+12
+13	    limit?: number
+14	    skip?: number
+15
+16	    mm?: string
+17
+18	    filter?: (content: Content) => boolean
+19
+20	    highlighting?: boolean
+21	    include_docs?: boolean
+22	    highlighting_pre?: string
+23	    highlighting_post?: string
+24
+25	    stale?: 'update_after' | 'ok'
+26
+27	    language?: string | string[]
+28
+29	    destroy?: true
+30	  }
+31
+32	  interface SearchRow<T> {
+33	    id: string
+34	    score: number
+35	    doc: T & { _id: string; _rev: string }
+36	  }
+37
+38	  interface SearchResponse<T> {
+39	    rows: Array<SearchRow<T>>
+40
+41	    total_rows: number
+42	  }
+43
+44	  interface Database<Content extends Record<string, unknown> = Record<string, unknown>> {
+45	    search(query: SearchQuery<Content>): SearchResponse<Content>
+46	  }
+47	}
+48
+49	declare module 'pouchdb-quick-search' {
+50	  const plugin: PouchDB.Plugin
+51	  export = plugin
+52	}
+53
+54	declare module 'relational-pouch'
+55	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts with line numbers:
+1	/* eslint-disable @typescript-eslint/no-var-requires */
+2	/* eslint-disable camelcase */
+3	import PouchDB from 'pouchdb'
+4	import PouchAuth from 'pouchdb-authentication'
+5	import PouchdbFind from 'pouchdb-find'
+6	import RelationalPouch from 'relational-pouch'
+7
+8	const memoryAdapter = require('pouchdb-adapter-memory')
+9	const search = require('pouchdb-quick-search')
+10
+11	PouchDB.plugin(search)
+12	PouchDB.plugin(memoryAdapter)
+13	PouchDB.plugin(RelationalPouch)
+14	PouchDB.plugin(PouchdbFind)
+15	PouchDB.plugin(PouchAuth)
+16
+17	let serverDb
+18	let localDb
+19
+20	if (process.env.NODE_ENV === 'test') {
+21	  serverDb = new PouchDB('hospitalrun', { skip_setup: true, adapter: 'memory' })
+22	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true, adapter: 'memory' })
+23	} else {
+24	  serverDb = new PouchDB(`${process.env.REACT_APP_HOSPITALRUN_API}/hospitalrun`, {
+25	    skip_setup: true,
+26	  })
+27
+28	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true })
+29	  localDb.sync(serverDb, { live: true, retry: true })
+30	}
+31
+32	export const schema = [
+33	  {
+34	    singular: 'patient',
+35	    plural: 'patients',
+36	    relations: {
+37	      appointments: {
+38	        hasMany: { type: 'appointment', options: { queryInverse: 'patient', async: true } },
+39	      },
+40	      labs: { hasMany: { type: 'lab', options: { queryInverse: 'patient', async: true } } },
+41	      medications: {
+42	        hasMany: { type: 'medication', options: { queryInverse: 'patient', async: true } },
+43	      },
+44	      imagings: { hasMany: { type: 'imaging', options: { queryInverse: 'patient', async: true } } },
+45	    },
+46	  },
+47	  {
+48	    singular: 'appointment',
+49	    plural: 'appointments',
+50	    relations: { patient: { belongsTo: 'patient' } },
+51	  },
+52	  {
+53	    singular: 'incident',
+54	    plural: 'incidents',
+55	  },
+56	  {
+57	    singular: 'lab',
+58	    plural: 'labs',
+59	    relations: { patient: { belongsTo: 'patient' } },
+60	  },
+61	  {
+62	    singular: 'imaging',
+63	    plural: 'imagings',
+64	    relations: { patient: { belongsTo: 'patient' } },
+65	  },
+66	  {
+67	    singular: 'medication',
+68	    plural: 'medications',
+69	    relations: { patient: { belongsTo: 'patient' } },
+70	  },
+71	]
+72	export const relationalDb = localDb.setSchema(schema)
+73	export const remoteDb = serverDb as PouchDB.Database
+74	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx with line numbers:
+1	import { Toaster } from '@hospitalrun/components'
+2	import React from 'react'
+3	import { useSelector } from 'react-redux'
+4	import { Route, Switch } from 'react-router-dom'
+5
+6	import Dashboard from './dashboard/Dashboard'
+7	import Imagings from './imagings/Imagings'
+8	import Incidents from './incidents/Incidents'
+9	import Labs from './labs/Labs'
+10	import Medications from './medications/Medications'
+11	import Breadcrumbs from './page-header/breadcrumbs/Breadcrumbs'
+12	import { ButtonBarProvider } from './page-header/button-toolbar/ButtonBarProvider'
+13	import ButtonToolBar from './page-header/button-toolbar/ButtonToolBar'
+14	import { useTitle } from './page-header/title/TitleContext'
+15	import Patients from './patients/Patients'
+16	import Appointments from './scheduling/appointments/Appointments'
+17	import Settings from './settings/Settings'
+18	import Navbar from './shared/components/navbar/Navbar'
+19	import { NetworkStatusMessage } from './shared/components/network-status'
+20	import Sidebar from './shared/components/Sidebar'
+21	import { RootState } from './shared/store'
+22
+23	const HospitalRun = () => {
+24	  const { title } = useTitle()
+25	  const { sidebarCollapsed } = useSelector((state: RootState) => state.components)
+26
+27	  return (
+28	    <div>
+29	      <NetworkStatusMessage />
+30	      <Navbar />
+31	      <div className="container-fluid">
+32	        <div className="col-md-2">
+33	          <Sidebar />
+34	        </div>
+35	        <ButtonBarProvider>
+36	          <div className="row">
+37	            <main
+38	              role="main"
+39	              className={`${
+40	                sidebarCollapsed ? 'col-md-10 col-lg-11' : 'col-md-9 col-lg-10'
+41	              } ml-sm-auto px-4`}
+42	            >
+43	              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+44	                <h1 className="h2">{title}</h1>
+45	                <ButtonToolBar />
+46	              </div>
+47	              <Breadcrumbs />
+48	              <div>
+49	                <Switch>
+50	                  <Route exact path="/" component={Dashboard} />
+51	                  <Route path="/appointments" component={Appointments} />
+52	                  <Route path="/patients" component={Patients} />
+53	                  <Route path="/labs" component={Labs} />
+54	                  <Route path="/medications" component={Medications} />
+55	                  <Route path="/incidents" component={Incidents} />
+56	                  <Route path="/settings" component={Settings} />
+57	                  <Route path="/imaging" component={Imagings} />
+58	                </Switch>
+59	              </div>
+60	              <Toaster autoClose={5000} hideProgressBar draggable />
+61	            </main>
+62	          </div>
+63	        </ButtonBarProvider>
+64	      </div>
+65	    </div>
+66	  )
+67	}
+68
+69	export default HospitalRun
+70	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -type d | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src
+/tmp/inputs/hospitalrun-frontend/src/incidents
+/tmp/inputs/hospitalrun-frontend/src/incidents/report
+/tmp/inputs/hospitalrun-frontend/src/incidents/view
+/tmp/inputs/hospitalrun-frontend/src/incidents/model
+/tmp/inputs/hospitalrun-frontend/src/incidents/list
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks
+/tmp/inputs/hospitalrun-frontend/src/incidents/visualize
+/tmp/inputs/hospitalrun-frontend/src/incidents/util
+/tmp/inputs/hospitalrun-frontend/src/imagings
+/tmp/inputs/hospitalrun-frontend/src/imagings/model
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks
+/tmp/inputs/hospitalrun-frontend/src/imagings/search
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests
+/tmp/inputs/hospitalrun-frontend/src/imagings/util
+/tmp/inputs/hospitalrun-frontend/src/page-header
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs
+/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar
+/tmp/inputs/hospitalrun-frontend/src/page-header/title
+/tmp/inputs/hospitalrun-frontend/src/__tests__
+
+
+bash
+command
+ls -la /tmp/inputs/hospitalrun-frontend/src/
+output
+total 17
+drwxr-xr-x 15 argocd root  460 Dec 21 21:43 .
+drwxr-xr-x 10 argocd root  580 Dec 21 21:43 ..
+-rw-r--r--  1 argocd root 1579 Jan  1  1970 App.tsx
+-rw-r--r--  1 argocd root 2712 Jan  1  1970 HospitalRun.tsx
+drwxr-xr-x  2 argocd root  100 Dec 21 21:43 __mocks__
+drwxr-xr-x 13 argocd root  300 Dec 21 21:43 __tests__
+-rw-r--r--  1 argocd root 1076 Jan  1  1970 custom-pouchdb.d.ts
+drwxr-xr-x  2 argocd root   60 Dec 21 21:43 dashboard
+drwxr-xr-x  7 argocd root  160 Dec 21 21:43 imagings
+drwxr-xr-x  9 argocd root  220 Dec 21 21:43 incidents
+-rw-r--r--  1 argocd root 1931 Jan  1  1970 index.css
+-rw-r--r--  1 argocd root  625 Jan  1  1970 index.tsx
+drwxr-xr-x  6 argocd root  180 Dec 21 21:43 labs
+drwxr-xr-x  6 argocd root  180 Dec 21 21:43 medications
+drwxr-xr-x  5 argocd root  100 Dec 21 21:43 page-header
+drwxr-xr-x 20 argocd root  520 Dec 21 21:43 patients
+-rw-r--r--  1 argocd root   61 Jan  1  1970 react-app-env.d.ts
+drwxr-xr-x  4 argocd root   80 Dec 21 21:43 scheduling
+-rw-r--r--  1 argocd root 5194 Jan  1  1970 serviceWorker.ts
+drwxr-xr-x  2 argocd root   60 Dec 21 21:43 settings
+-rw-r--r--  1 argocd root  691 Jan  1  1970 setupTests.js
+drwxr-xr-x 11 argocd root  220 Dec 21 21:43 shared
+drwxr-xr-x  2 argocd root   60 Dec 21 21:43 user
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared, excluding hidden items and node_modules:
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+38K	/tmp/inputs/hospitalrun-frontend/src/shared/components
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/Loading.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/PrivateRoute.tsx
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/components/component-slice.ts
+8.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input
+7.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/navbar
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/network-status
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/config
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/config/i18n.ts
+2.5K	/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/db
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Search.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Sort.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/SortRequest.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/hooks
+512	/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useDebounce.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useTranslator.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useUpdateEffect.ts
+151K	/tmp/inputs/hospitalrun-frontend/src/shared/locales
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/README.md
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ar
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/de
+21K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/enUs
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/es
+12K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/fr
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/id
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/index.ts
+12K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/it
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ja
+12K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ptBr
+27K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ru
+22K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/tr
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/zhCN
+13K	/tmp/inputs/hospitalrun-frontend/src/shared/model
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/AbstractDBModel.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Allergy.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Appointment.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Breadcrumb.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/CareGoal.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/CarePlan.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/ContactInformation.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Diagnosis.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Imaging.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Incident.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Lab.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Medication.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Name.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Note.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/PatientHistoryRecord.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/RelatedPerson.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/User.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Visit.ts
+29K	/tmp/inputs/hospitalrun-frontend/src/shared/static
+29K	/tmp/inputs/hospitalrun-frontend/src/shared/static/images
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+3.0K	/tmp/inputs/hospitalrun-frontend/src/shared/util
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/util/DataHelpers.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/extractUsername.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/formatDate.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/generateCode.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/uuid.ts
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx with line numbers:
+1	import { List, ListItem, Icon } from '@hospitalrun/components'
+2	import React, { useState, CSSProperties } from 'react'
+3	import { useSelector, useDispatch } from 'react-redux'
+4	import { useLocation, useHistory } from 'react-router-dom'
+5
+6	import useTranslator from '../hooks/useTranslator'
+7	import Permissions from '../model/Permissions'
+8	import { RootState } from '../store'
+9	import { updateSidebar } from './component-slice'
+10
+11	const Sidebar = () => {
+12	  const dispatch = useDispatch()
+13	  const { sidebarCollapsed } = useSelector((state: RootState) => state.components)
+14	  const permissions = useSelector((state: RootState) => state.user.permissions)
+15
+16	  const { t } = useTranslator()
+17	  const path = useLocation()
+18	  const history = useHistory()
+19	  const { pathname } = path
+20	  const splittedPath = pathname.split('/')
+21
+22	  const navigateTo = (location: string) => {
+23	    history.push(location)
+24	  }
+25
+26	  const listItemStyle: CSSProperties = {
+27	    cursor: 'pointer',
+28	  }
+29
+30	  const expandibleArrow: CSSProperties = {
+31	    marginRight: '20px',
+32	  }
+33
+34	  const iconMargin: CSSProperties = {
+35	    marginRight: '10px',
+36	  }
+37
+38	  const [expandedItem, setExpandedItem] = useState(
+39	    splittedPath[1].includes('patients')
+40	      ? 'patient'
+41	      : splittedPath[1].includes('appointments')
+42	      ? 'appointment'
+43	      : splittedPath[1].includes('labs')
+44	      ? 'labs'
+45	      : splittedPath[1].includes('medications')
+46	      ? 'medications'
+47	      : splittedPath[1].includes('incidents')
+48	      ? 'incidents'
+49	      : splittedPath[1].includes('imagings')
+50	      ? 'imagings'
+51	      : 'none',
+52	  )
+53
+54	  const setExpansion = (item: string) => {
+55	    if (expandedItem === item) {
+56	      setExpandedItem('none')
+57	      return
+58	    }
+59
+60	    setExpandedItem(item.toString())
+61	  }
+62
+63	  const listSubItemStyle: CSSProperties = {
+64	    cursor: 'pointer',
+65	    fontSize: 'small',
+66	    borderBottomWidth: 0,
+67	    borderTopWidth: 0,
+68	    color: 'black',
+69	    padding: '.6rem 1.25rem',
+70	    backgroundColor: 'rgba(245,245,245,1)',
+71	  }
+72
+73	  const listSubItemStyleNew: CSSProperties = {
+74	    cursor: 'pointer',
+75	    fontSize: 'small',
+76	    borderBottomWidth: 0,
+77	    borderTopWidth: 0,
+78	    color: 'black',
+79	    padding: '.6rem 1.25rem',
+80	    backgroundColor: 'rgba(245,245,245,1)',
+81	  }
+82
+83	  const getDashboardLink = () => (
+84	    <>
+85	      <ListItem
+86	        active={pathname === '/'}
+87	        onClick={() => {
+88	          navigateTo('/')
+89	          setExpansion('none')
+90	        }}
+91	        className="nav-item"
+92	        style={listItemStyle}
+93	      >
+94	        <Icon icon="dashboard" /> {!sidebarCollapsed && t('dashboard.label')}
+95	      </ListItem>
+96	    </>
+97	  )
+98
+99	  const getPatientLinks = () => (
+100	    <>
+101	      <ListItem
+102	        active={splittedPath[1].includes('patient')}
+103	        onClick={() => {
+104	          navigateTo('/patients')
+105	          if (expandedItem === 'patient') {
+106	            setExpandedItem('none')
+107	            return
+108	          }
+109
+110	          setExpandedItem('patient')
+111	        }}
+112	        className="nav-item"
+113	        style={listItemStyle}
+114	      >
+115	        <Icon
+116	          icon={
+117	            splittedPath[1].includes('patient') && expandedItem === 'patient'
+118	              ? 'down-arrow'
+119	              : 'right-arrow'
+120	          }
+121	          style={expandibleArrow}
+122	        />
+123	        <Icon icon="patients" /> {!sidebarCollapsed && t('patients.label')}
+124	      </ListItem>
+125	      {splittedPath[1].includes('patient') && expandedItem === 'patient' && (
+126	        <List layout="flush">
+127	          {permissions.includes(Permissions.WritePatients) && (
+128	            <ListItem
+129	              className="nav-item"
+130	              style={listSubItemStyleNew}
+131	              onClick={() => navigateTo('/patients/new')}
+132	              active={splittedPath[1].includes('patients') && splittedPath.length > 2}
+133	            >
+134	              <Icon icon="patient-add" style={iconMargin} />
+135	              {!sidebarCollapsed && t('patients.newPatient')}
+136	            </ListItem>
+137	          )}
+138	          {permissions.includes(Permissions.ReadPatients) && (
+139	            <ListItem
+140	              className="nav-item"
+141	              style={listSubItemStyle}
+142	              onClick={() => navigateTo('/patients')}
+143	              active={splittedPath[1].includes('patients') && splittedPath.length < 3}
+144	            >
+145	              <Icon icon="incident" style={iconMargin} />
+146	              {!sidebarCollapsed && t('patients.patientsList')}
+147	            </ListItem>
+148	          )}
+149	        </List>
+150	      )}
+151	    </>
+152	  )
+153
+154	  const getAppointmentLinks = () => (
+155	    <>
+156	      <ListItem
+157	        active={splittedPath[1].includes('appointments')}
+158	        onClick={() => {
+159	          navigateTo('/appointments')
+160	          setExpansion('appointment')
+161	        }}
+162	        className="nav-item"
+163	        style={listItemStyle}
+164	      >
+165	        <Icon
+166	          icon={
+167	            splittedPath[1].includes('appointments') && expandedItem === 'appointment'
+168	              ? 'down-arrow'
+169	              : 'right-arrow'
+170	          }
+171	          style={expandibleArrow}
+172	        />
+173	        <Icon icon="appointment" /> {!sidebarCollapsed && t('scheduling.label')}
+174	      </ListItem>
+175	      {splittedPath[1].includes('appointment') && expandedItem === 'appointment' && (
+176	        <List layout="flush" className="nav flex-column">
+177	          {permissions.includes(Permissions.WriteAppointments) && (
+178	            <ListItem
+179	              className="nav-item"
+180	              style={listSubItemStyleNew}
+181	              onClick={() => navigateTo('/appointments/new')}
+182	              active={splittedPath[1].includes('appointments') && splittedPath.length > 2}
+183	            >
+184	              <Icon icon="appointment-add" style={iconMargin} />
+185	              {!sidebarCollapsed && t('scheduling.appointments.new')}
+186	            </ListItem>
+187	          )}
+188	          {permissions.includes(Permissions.ReadAppointments) && (
+189	            <ListItem
+190	              className="nav-item"
+191	              style={listSubItemStyle}
+192	              onClick={() => navigateTo('/appointments')}
+193	              active={splittedPath[1].includes('appointments') && splittedPath.length < 3}
+194	            >
+195	              <Icon icon="incident" style={iconMargin} />
+196	              {!sidebarCollapsed && t('scheduling.appointments.schedule')}
+197	            </ListItem>
+198	          )}
+199	        </List>
+200	      )}
+201	    </>
+202	  )
+203
+204	  const getLabLinks = () => (
+205	    <>
+206	      <ListItem
+207	        active={splittedPath[1].includes('labs')}
+208	        onClick={() => {
+209	          navigateTo('/labs')
+210	          setExpansion('labs')
+211	        }}
+212	        className="nav-item"
+213	        style={listItemStyle}
+214	      >
+215	        <Icon
+216	          icon={
+217	            splittedPath[1].includes('labs') && expandedItem === 'labs'
+218	              ? 'down-arrow'
+219	              : 'right-arrow'
+220	          }
+221	          style={expandibleArrow}
+222	        />
+223	        <Icon icon="lab" /> {!sidebarCollapsed && t('labs.label')}
+224	      </ListItem>
+225	      {splittedPath[1].includes('labs') && expandedItem === 'labs' && (
+226	        <List layout="flush" className="nav flex-column">
+227	          {permissions.includes(Permissions.RequestLab) && (
+228	            <ListItem
+229	              className="nav-item"
+230	              style={listSubItemStyleNew}
+231	              onClick={() => navigateTo('/labs/new')}
+232	              active={splittedPath[1].includes('labs') && splittedPath.length > 2}
+233	            >
+234	              <Icon icon="add" style={iconMargin} />
+235	              {!sidebarCollapsed && t('labs.requests.new')}
+236	            </ListItem>
+237	          )}
+238	          {permissions.includes(Permissions.ViewLabs) && (
+239	            <ListItem
+240	              className="nav-item"
+241	              style={listSubItemStyle}
+242	              onClick={() => navigateTo('/labs')}
+243	              active={splittedPath[1].includes('labs') && splittedPath.length < 3}
+244	            >
+245	              <Icon icon="incident" style={iconMargin} />
+246	              {!sidebarCollapsed && t('labs.requests.label')}
+247	            </ListItem>
+248	          )}
+249	        </List>
+250	      )}
+251	    </>
+252	  )
+253
+254	  const getMedicationLinks = () => (
+255	    <>
+256	      <ListItem
+257	        active={splittedPath[1].includes('medications')}
+258	        onClick={() => {
+259	          navigateTo('/medications')
+260	          setExpansion('medications')
+261	        }}
+262	        className="nav-item"
+263	        style={listItemStyle}
+264	      >
+265	        <Icon
+266	          icon={
+267	            splittedPath[1].includes('medications') && expandedItem === 'medications'
+268	              ? 'down-arrow'
+269	              : 'right-arrow'
+270	          }
+271	          style={expandibleArrow}
+272	        />
+273	        <Icon icon="medication" /> {!sidebarCollapsed && t('medications.label')}
+274	      </ListItem>
+275	      {splittedPath[1].includes('medications') && expandedItem === 'medications' && (
+276	        <List layout="flush" className="nav flex-column">
+277	          {permissions.includes(Permissions.RequestMedication) && (
+278	            <ListItem
+279	              className="nav-item"
+280	              style={listSubItemStyleNew}
+281	              onClick={() => navigateTo('/medications/new')}
+282	              active={splittedPath[1].includes('medications') && splittedPath.length > 2}
+283	            >
+284	              <Icon icon="add" style={iconMargin} />
+285	              {!sidebarCollapsed && t('medications.requests.new')}
+286	            </ListItem>
+287	          )}
+288	          {permissions.includes(Permissions.ViewMedications) && (
+289	            <ListItem
+290	              className="nav-item"
+291	              style={listSubItemStyle}
+292	              onClick={() => navigateTo('/medications')}
+293	              active={splittedPath[1].includes('medications') && splittedPath.length < 3}
+294	            >
+295	              <Icon icon="incident" style={iconMargin} />
+296	              {!sidebarCollapsed && t('medications.requests.label')}
+297	            </ListItem>
+298	          )}
+299	        </List>
+300	      )}
+301	    </>
+302	  )
+303
+304	  const getIncidentLinks = () => (
+305	    <>
+306	      <ListItem
+307	        active={splittedPath[1].includes('incidents')}
+308	        onClick={() => {
+309	          navigateTo('/incidents')
+310	          setExpansion('incidents')
+311	        }}
+312	        className="nav-item"
+313	        style={listItemStyle}
+314	      >
+315	        <Icon
+316	          icon={
+317	            splittedPath[1].includes('incidents') && expandedItem === 'incidents'
+318	              ? 'down-arrow'
+319	              : 'right-arrow'
+320	          }
+321	          style={expandibleArrow}
+322	        />
+323	        <Icon icon="incident" /> {!sidebarCollapsed && t('incidents.label')}
+324	      </ListItem>
+325	      {splittedPath[1].includes('incidents') && expandedItem === 'incidents' && (
+326	        <List layout="flush" className="nav flex-column">
+327	          {permissions.includes(Permissions.ReportIncident) && (
+328	            <ListItem
+329	              className="nav-item"
+330	              style={listSubItemStyleNew}
+331	              onClick={() => navigateTo('/incidents/new')}
+332	              active={splittedPath[1].includes('incidents') && splittedPath.length > 2}
+333	            >
+334	              <Icon icon="add" style={iconMargin} />
+335	              {!sidebarCollapsed && t('incidents.reports.new')}
+336	            </ListItem>
+337	          )}
+338	          {permissions.includes(Permissions.ViewIncidents) && (
+339	            <ListItem
+340	              className="nav-item"
+341	              style={listSubItemStyle}
+342	              onClick={() => navigateTo('/incidents')}
+343	              active={splittedPath[1].includes('incidents') && splittedPath.length < 3}
+344	            >
+345	              <Icon icon="incident" style={iconMargin} />
+346	              {!sidebarCollapsed && t('incidents.reports.label')}
+347	            </ListItem>
+348	          )}
+349	          {permissions.includes(Permissions.ViewIncidentWidgets) && (
+350	            <ListItem
+351	              className="nav-item"
+352	              style={listSubItemStyle}
+353	              onClick={() => navigateTo('/incidents/visualize')}
+354	              active={splittedPath[1].includes('incidents') && splittedPath.length < 3}
+355	            >
+356	              <Icon icon="incident" style={iconMargin} />
+357	              {!sidebarCollapsed && t('incidents.visualize.label')}
+358	            </ListItem>
+359	          )}
+360	        </List>
+361	      )}
+362	    </>
+363	  )
+364
+365	  const getImagingLinks = () => (
+366	    <>
+367	      <ListItem
+368	        active={splittedPath[1].includes('imaging')}
+369	        onClick={() => {
+370	          navigateTo('/imaging')
+371	          setExpansion('imagings')
+372	        }}
+373	        className="nav-item"
+374	        style={listItemStyle}
+375	      >
+376	        <Icon
+377	          icon={
+378	            splittedPath[1].includes('imaging') && expandedItem === 'imagings'
+379	              ? 'down-arrow'
+380	              : 'right-arrow'
+381	          }
+382	          style={expandibleArrow}
+383	        />
+384	        <Icon icon="image" /> {!sidebarCollapsed && t('imagings.label')}
+385	      </ListItem>
+386	      {splittedPath[1].includes('imaging') && expandedItem === 'imagings' && (
+387	        <List layout="flush" className="nav flex-column">
+388	          {permissions.includes(Permissions.RequestImaging) && (
+389	            <ListItem
+390	              className="nav-item"
+391	              style={listSubItemStyleNew}
+392	              onClick={() => navigateTo('/imaging/new')}
+393	              active={splittedPath[1].includes('imaging') && splittedPath.length > 2}
+394	            >
+395	              <Icon icon="add" style={iconMargin} />
+396	              {!sidebarCollapsed && t('imagings.requests.new')}
+397	            </ListItem>
+398	          )}
+399	          {permissions.includes(Permissions.ViewImagings) && (
+400	            <ListItem
+401	              className="nav-item"
+402	              style={listSubItemStyle}
+403	              onClick={() => navigateTo('/imaging')}
+404	              active={splittedPath[1].includes('imaging') && splittedPath.length < 3}
+405	            >
+406	              <Icon icon="image" style={iconMargin} />
+407	              {!sidebarCollapsed && t('imagings.requests.label')}
+408	            </ListItem>
+409	          )}
+410	        </List>
+411	      )}
+412	    </>
+413	  )
+414
+415	  return (
+416	    <nav
+417	      className="d-none d-md-block bg-light sidebar"
+418	      style={{ width: sidebarCollapsed ? '56px' : '' }}
+419	    >
+420	      <div className="sidebar-sticky">
+421	        <List layout="flush" className="nav flex-column">
+422	          <ListItem
+423	            onClick={() => dispatch(updateSidebar())}
+424	            className="nav-item"
+425	            style={listItemStyle}
+426	          >
+427	            <Icon
+428	              style={{ float: sidebarCollapsed ? 'left' : 'right' }}
+429	              icon={sidebarCollapsed ? 'right-arrow' : 'left-arrow'}
+430	            />
+431	          </ListItem>
+432	          {getDashboardLink()}
+433	          {getPatientLinks()}
+434	          {getAppointmentLinks()}
+435	          {getMedicationLinks()}
+436	          {getLabLinks()}
+437	          {getImagingLinks()}
+438	          {getIncidentLinks()}
+439	        </List>
+440	      </div>
+441	    </nav>
+442	  )
+443	}
+444
+445	export default Sidebar
+446	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/package.json
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/package.json with line numbers:
+1	{
+2	  "name": "@hospitalrun/frontend",
+3	  "version": "2.0.0-alpha.7",
+4	  "description": "React frontend for HospitalRun",
+5	  "private": false,
+6	  "license": "MIT",
+7	  "dependencies": {
+8	    "@hospitalrun/components": "~3.4.0",
+9	    "@reduxjs/toolkit": "~1.7.0",
+10	    "@types/escape-string-regexp": "~2.0.1",
+11	    "@types/json2csv": "~5.0.1",
+12	    "@types/pouchdb-find": "~6.3.4",
+13	    "bootstrap": "~5.1.0",
+14	    "date-fns": "~2.28.0",
+15	    "escape-string-regexp": "~4.0.0",
+16	    "i18next": "~21.6.0",
+17	    "i18next-browser-languagedetector": "~6.1.0",
+18	    "i18next-xhr-backend": "~3.2.2",
+19	    "json2csv": "~5.0.1",
+20	    "lodash": "^4.17.15",
+21	    "node-sass": "~7.0.0",
+22	    "pouchdb": "~7.2.1",
+23	    "pouchdb-adapter-memory": "~7.2.1",
+24	    "pouchdb-authentication": "~1.1.3",
+25	    "pouchdb-find": "~7.2.1",
+26	    "pouchdb-quick-search": "~1.3.0",
+27	    "react": "~17.0.1",
+28	    "react-bootstrap": "~1.6.0",
+29	    "react-bootstrap-typeahead": "~5.2.0",
+30	    "react-dom": "~16.13.0",
+31	    "react-i18next": "~11.15.0",
+32	    "react-query": "~2.25.2",
+33	    "react-query-devtools": "~2.6.0",
+34	    "react-redux": "~7.2.0",
+35	    "react-router": "~5.2.0",
+36	    "react-router-dom": "~5.3.0",
+37	    "react-scripts": "~3.4.0",
+38	    "redux": "~4.1.0",
+39	    "redux-thunk": "~2.4.0",
+40	    "relational-pouch": "~4.0.0",
+41	    "shortid": "^2.2.15",
+42	    "typescript": "~3.8.3",
+43	    "uuid": "^8.0.0",
+44	    "validator": "^13.0.0"
+45	  },
+46	  "resolutions": {
+47	    "moment": "2.24.0"
+48	  },
+49	  "comments": {
+50	    "resolutions": "Added this key as temp fix https://github.com/moment/moment/issues/5484"
+51	  },
+52	  "repository": {
+53	    "type": "git",
+54	    "url": "https://github.com/HospitalRun/hospitalrun-frontend.git"
+55	  },
+56	  "author": "Jack Meyer",
+57	  "contributors": [
+58	    "Maksim Sinik",
+59	    "Stefano Casasola"
+60	  ],
+61	  "devDependencies": {
+62	    "@commitlint/cli": "~16.1.0",
+63	    "@commitlint/config-conventional": "~16.0.0",
+64	    "@commitlint/core": "~16.0.0",
+65	    "@commitlint/prompt": "~16.1.0",
+66	    "@testing-library/dom": "~7.31.0",
+67	    "@testing-library/jest-dom": "~5.16.1",
+68	    "@testing-library/react": "~11.2.2",
+69	    "@testing-library/react-hooks": "~7.0.0",
+70	    "@testing-library/user-event": "~12.8.3",
+71	    "@types/jest": "~27.0.3",
+72	    "@types/lodash": "^4.14.150",
+73	    "@types/node": "~17.0.0",
+74	    "@types/pouchdb": "~6.4.0",
+75	    "@types/react": "~17.0.0",
+76	    "@types/react-dom": "~17.0.0",
+77	    "@types/react-redux": "~7.1.5",
+78	    "@types/react-router": "~5.1.2",
+79	    "@types/react-router-dom": "~5.3.0",
+80	    "@types/redux-mock-store": "~1.0.1",
+81	    "@types/shortid": "^0.0.29",
+82	    "@types/uuid": "^8.0.0",
+83	    "@types/validator": "~13.7.0",
+84	    "@typescript-eslint/eslint-plugin": "~3.10.0",
+85	    "@typescript-eslint/parser": "~3.10.0",
+86	    "chalk": "^5.0.0",
+87	    "commitizen": "~4.2.0",
+88	    "commitlint-config-cz": "~0.13.0",
+89	    "cross-env": "~7.0.0",
+90	    "cz-conventional-changelog": "~3.3.0",
+91	    "dateformat": "~5.0.2",
+92	    "eslint": "~6.8.0",
+93	    "eslint-config-airbnb": "~18.2.0",
+94	    "eslint-config-prettier": "~7.2.0",
+95	    "eslint-import-resolver-typescript": "~2.5.0",
+96	    "eslint-plugin-import": "~2.25.1",
+97	    "eslint-plugin-jest": "~26.1.0",
+98	    "eslint-plugin-jsx-a11y": "~6.5.1",
+99	    "eslint-plugin-prettier": "~3.4.0",
+100	    "eslint-plugin-react": "~7.28.0",
+101	    "eslint-plugin-react-hooks": "~4.3.0",
+102	    "history": "4.10.1",
+103	    "husky": "~7.0.0",
+104	    "jest-canvas-mock": "~2.3.0",
+105	    "jest-environment-jsdom-sixteen": "~2.0.0",
+106	    "lint-staged": "~12.3.3",
+107	    "memdown": "~6.1.0",
+108	    "prettier": "~2.2.0",
+109	    "react-select-event": "~5.3.0",
+110	    "react-test-renderer": "~17.0.1",
+111	    "redux-mock-store": "~1.5.4",
+112	    "rimraf": "~3.0.2",
+113	    "source-map-explorer": "^2.2.2",
+114	    "standard-version": "~9.3.0"
+115	  },
+116	  "scripts": {
+117	    "analyze": "source-map-explorer 'build/static/js/*.js'",
+118	    "commit": "npx git-cz",
+119	    "start": "npm run translation:check && react-scripts start",
+120	    "build": "react-scripts build",
+121	    "update": "npx npm-check -u",
+122	    "prepublishOnly": "npm run build",
+123	    "test": "npm run translation:check && react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --env=jest-environment-jsdom-sixteen",
+124	    "test:ci": "cross-env CI=true react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --passWithNoTests --env=jest-environment-jsdom-sixteen --maxWorkers=2",
+125	    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\"",
+126	    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\" --fix",
+127	    "lint-staged": "lint-staged",
+128	    "commitlint": "commitlint",
+129	    "coveralls": "npm run test:ci -- --coverage --watchAll=false && cat ./coverage/lcov.info",
+130	    "remove-compiled-translations": "rimraf ./bin/scripts/check-translations",
+131	    "pretranslation:check": "npm run remove-compiled-translations",
+132	    "translation:check": "tsc -p scripts/tsconfig.json && node ./bin/scripts/check-translations/index.js",
+133	    "posttranslation:check": "npm run remove-compiled-translations"
+134	  },
+135	  "browserslist": {
+136	    "production": [
+137	      ">0.2%",
+138	      "not dead",
+139	      "not op_mini all"
+140	    ],
+141	    "development": [
+142	      "last 1 chrome version",
+143	      "last 1 firefox version",
+144	      "last 1 safari version"
+145	    ]
+146	  },
+147	  "husky": {
+148	    "hooks": {
+149	      "pre-commit": "npm run lint-staged",
+150	      "commit-msg": "npm run commitlint -- -E HUSKY_GIT_PARAMS"
+151	    }
+152	  },
+153	  "config": {
+154	    "commitizen": {
+155	      "path": "./node_modules/cz-conventional-changelog"
+156	    }
+157	  },
+158	  "lint-staged": {
+159	    "**/*.{js,jsx,ts,tsx}": [
+160	      "npm run lint:fix",
+161	      "npm run test:ci",
+162	      "git add ."
+163	    ]
+164	  },
+165	  "jest": {
+166	    "restoreMocks": true
+167	  }
+168	}
+169	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -type f -name "*.tsx" -o -name "*.ts" | xargs grep -l "module\|Module" | head -10
+output
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+
+
+bash
+command
+ls -la /tmp/inputs/hospitalrun-frontend/src/patients/
+output
+total 24
+drwxr-xr-x 20 argocd root   520 Dec 21 21:43 .
+drwxr-xr-x 15 argocd root   460 Dec 21 21:43 ..
+-rw-r--r--  1 argocd root  4402 Jan  1  1970 ContactInfo.tsx
+-rw-r--r--  1 argocd root   156 Jan  1  1970 ContactInfoTypes.ts
+-rw-r--r--  1 argocd root 10726 Jan  1  1970 GeneralInformation.tsx
+-rw-r--r--  1 argocd root  1403 Jan  1  1970 Patients.tsx
+drwxr-xr-x  2 argocd root   120 Dec 21 21:43 allergies
+drwxr-xr-x  2 argocd root    60 Dec 21 21:43 appointments
+drwxr-xr-x  2 argocd root   160 Dec 21 21:43 care-goals
+drwxr-xr-x  2 argocd root   160 Dec 21 21:43 care-plans
+drwxr-xr-x  2 argocd root   160 Dec 21 21:43 diagnoses
+drwxr-xr-x  2 argocd root    60 Dec 21 21:43 edit
+drwxr-xr-x  3 argocd root   100 Dec 21 21:43 history
+drwxr-xr-x  2 argocd root   560 Dec 21 21:43 hooks
+drwxr-xr-x  2 argocd root    80 Dec 21 21:43 labs
+drwxr-xr-x  2 argocd root    80 Dec 21 21:43 medications
+drwxr-xr-x  2 argocd root    60 Dec 21 21:43 models
+drwxr-xr-x  2 argocd root    80 Dec 21 21:43 new
+drwxr-xr-x  2 argocd root   120 Dec 21 21:43 notes
+-rw-r--r--  1 argocd root  5033 Jan  1  1970 patient-slice.ts
+-rw-r--r--  1 argocd root  1725 Jan  1  1970 patients-slice.ts
+drwxr-xr-x  2 argocd root    80 Dec 21 21:43 related-persons
+drwxr-xr-x  2 argocd root   140 Dec 21 21:43 search
+drwxr-xr-x  2 argocd root   280 Dec 21 21:43 util
+drwxr-xr-x  2 argocd root    80 Dec 21 21:43 view
+drwxr-xr-x  2 argocd root   140 Dec 21 21:43 visits
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/Patients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/Patients.tsx with line numbers:
+1	import React from 'react'
+2	import { useSelector } from 'react-redux'
+3	import { Switch } from 'react-router-dom'
+4
+5	import PrivateRoute from '../shared/components/PrivateRoute'
+6	import Permissions from '../shared/model/Permissions'
+7	import { RootState } from '../shared/store'
+8	import EditPatient from './edit/EditPatient'
+9	import NewPatient from './new/NewPatient'
+10	import ViewPatients from './search/ViewPatients'
+11	import ViewPatient from './view/ViewPatient'
+12
+13	const Patients = () => {
+14	  const permissions = useSelector((state: RootState) => state.user.permissions)
+15	  return (
+16	    <Switch>
+17	      <PrivateRoute
+18	        isAuthenticated={permissions.includes(Permissions.ReadPatients)}
+19	        exact
+20	        path="/patients"
+21	        component={ViewPatients}
+22	      />
+23	      <PrivateRoute
+24	        isAuthenticated={permissions.includes(Permissions.WritePatients)}
+25	        exact
+26	        path="/patients/new"
+27	        component={NewPatient}
+28	      />
+29	      <PrivateRoute
+30	        isAuthenticated={
+31	          permissions.includes(Permissions.WritePatients) &&
+32	          permissions.includes(Permissions.ReadPatients)
+33	        }
+34	        exact
+35	        path="/patients/edit/:id"
+36	        component={EditPatient}
+37	      />
+38	      <PrivateRoute
+39	        isAuthenticated={permissions.includes(Permissions.ReadPatients)}
+40	        path="/patients/:id"
+41	        component={ViewPatient}
+42	      />
+43	    </Switch>
+44	  )
+45	}
+46
+47	export default Patients
+48	
+
+
+bash
+command
+grep -r "import.*from.*\(patients\|labs\|medications\)" /tmp/inputs/hospitalrun-frontend/src/*.tsx 2>/dev/null | head -10
+output
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx:import Labs from './labs/Labs'
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx:import Medications from './medications/Medications'
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx:import Patients from './patients/Patients'
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -name "README.md" -o -name "CONTRIBUTING.md" -o -name "*.md" | grep -v node_modules | grep -v CHANGELOG | head -10
+output
+/tmp/inputs/hospitalrun-frontend/README.md
+/tmp/inputs/hospitalrun-frontend/SECURITY.md
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/README.md
+/tmp/inputs/hospitalrun-frontend/.github/CODE_OF_CONDUCT.md
+/tmp/inputs/hospitalrun-frontend/.github/PULL_REQUEST_TEMPLATE.md
+/tmp/inputs/hospitalrun-frontend/.github/ISSUE_TEMPLATE.md
+/tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md
+/tmp/inputs/hospitalrun-frontend/.github/ISSUE_TEMPLATE/regression.md
+/tmp/inputs/hospitalrun-frontend/.github/ISSUE_TEMPLATE/bug.md
+/tmp/inputs/hospitalrun-frontend/.github/ISSUE_TEMPLATE/security.md
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/README.md
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/README.md with line numbers:
+1	# HospitalRun Frontend
+2
+3	<div align="center">
+4
+5	![Status](https://img.shields.io/badge/Status-developing-brightgree) [![Release](https://img.shields.io/github/release/HospitalRun/hospitalrun-frontend.svg)](https://github.com/HospitalRun/hospitalrun-frontend/releases) [![Version](https://img.shields.io/github/package-json/v/hospitalrun/hospitalrun-frontend)](https://github.com/HospitalRun/hospitalrun-frontend/releases)
+6	[![GitHub CI](https://github.com/HospitalRun/frontend/workflows/GitHub%20CI/badge.svg)](https://github.com/HospitalRun/frontend/actions) [![Coverage Status](https://coveralls.io/repos/github/HospitalRun/hospitalrun-frontend/badge.svg?branch=master)](https://coveralls.io/github/HospitalRun/hospitalrun-frontend?branch=master) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/HospitalRun/hospitalrun-frontend.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/HospitalRun/hospitalrun-frontend/context:javascript) ![Code scanning](https://github.com/HospitalRun/hospitalrun-frontend/workflows/Code%20scanning/badge.svg?branch=master) [![Documentation Status](https://readthedocs.org/projects/hospitalrun-frontend/badge/?version=latest)](https://hospitalrun-frontend.readthedocs.io)
+7	[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend?ref=badge_large) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+8	![dependabot](https://api.dependabot.com/badges/status?host=github&repo=HospitalRun/hospitalrun-frontend) [![Slack](https://hospitalrun-slack.herokuapp.com/badge.svg)](https://hospitalrun-slack.herokuapp.com)
+9
+10	</div>
+11
+12	React frontend for [HospitalRun](http://hospitalrun.io/): free software for developing world hospitals.
+13
+14	---
+15
+16	# Are you a user? If yes...
+17
+18	[Visit this page for general information on the HospitalRun application](https://github.com/HospitalRun/hospitalrun/blob/master/README.md) including:
+19
+20	- How can I deploy 1.0.0-beta?
+21	- Where do I report a bug or request a feature?
+22	- How can I contribute? (There are several other ways besides coding)
+23	- What is the project structure?
+24	- What is the application infrastructure?
+25	- Who is behind HospitalRun? etc.
+26
+27	# Would you like to contribute? If yes...
+28
+29	[Get started by checking out the Frontend Contributing Guide](https://github.com/HospitalRun/hospitalrun-frontend/blob/master/.github/CONTRIBUTING.md) for:
+30	- What's the tech stack?
+31	- Where can I become familiar with the technologies?
+32	- Where do I browse issues?
+33	- How do I set up my local environment?
+34	- How do I run tests locally?
+35	- How do I submit my changes?
+36	- etc.
+37
+38	# License
+39
+40	Released under the [MIT license](LICENSE).
+41	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md with line numbers:
+1	# Welcome to the Frontend Contributing Guide!
+2
+3	Before contributing, please read the [code of conduct](https://github.com/HospitalRun/hospitalrun/blob/master/.github/CODE_OF_CONDUCT.md).
+4
+5	## 1. Check out the [HospitalRun General Contributing Guide](https://github.com/HospitalRun/hospitalrun/blob/master/.github/CONTRIBUTING.md) for how to:
+6
+7	1.  Browse Issues
+8	2.  Get Assigned an Issue
+9	3.  Fork the Repository and Create a Branch
+10	4.  Commit Changes
+11	5.  Submit a Pull Request
+12
+13	## 2. After creating a local fork (step 3 above), follow these steps to configure CouchDB
+14
+15	CouchDB is the server side database which data from the frontend will sync from and to. CouchDB is required to login
+16	to HospitalRun. You could install and run CouchDB in any way you wish. For convienence, we have added a docker compose file in the
+17	root of this project to launch CouchDB. Below are the steps:
+18
+19	1. Start [Docker](https://docs.docker.com/get-docker/). Install it if you don't have it yet.
+20	2. Install [Docker Compose](https://docs.docker.com/compose/install/) if you don't have it yet.
+21	3. In the root directory run `./couchdb/couchdb-init.bat` on Windows or `./couchdb/couchdb-init.sh` on UNIX like systems.
+22
+23	This should launch a new CouchDB instance on `http://localhost:5984`, create system database, configure CouchDB as Single Node, enable CORS, create `hospitalrun` database, create a default admin with a username of `admin` and password of 'password', create a sample user with a username of `username` and password of 'password' to use new login page [#2137](https://github.com/HospitalRun/hospitalrun-frontend/pull/2137).
+24
+25	Go to `http://localhost:5984/_utils` in your browser to view Fauxton and perform administrative tasks.
+26
+27	**_Cleanup_**
+28	To delete the development database, go to the root of the project and run `./couchdb/couchdb-cleanup.bat` on Windows or `./couchdb/couchdb-cleanup.sh` on UNIX like systems.
+29
+30	### Install dependencies & start the application
+31
+32	1. Install dependencies: `npm install`
+33	2. Configure `REACT_APP_HOSPITALRUN_API=http://localhost:5984` environment variable in `.env`
+34	3. Run the application `npm start`
+35
+36	## 3. Start the application
+37
+38	```
+39	npm install
+40	npm run start
+41	```
+42
+43	Open a file named `.env` and add a line `REACT_APP_HOSPITALRUN_API=http://localhost:5984` if you don't have it yet.
+44
+45	_Note: To delete the development database, go to the root of the project and run `docker-compose down -v --rmi all --remove-orphans`_
+46
+47	If your branch's packages changed, reinstall the packages before starting the application:
+48
+49	```
+50	rm -fr node_modules
+51	rm yarn.lock (if you used yarn before)
+52	rm package-lock.json
+53	npm install
+54	npm run start
+55	```
+56
+57	_Note: We no longer support the use of yarn._
+58
+59	## 4. Before pushing your changes, check locally that your branch passes CI checks
+60
+61	### We use Jest + React Testing Library for Behavior-Driven Development Tests
+62
+63	`npm run test:ci` will run the entire test suite
+64
+65	`npm run test:ci <file name>` e.g. `npm run test:ci src/__tests__/HospitalRun.test.tsx` will run that specific test file
+66
+67	`npm run test` will run the test suite in watch mode
+68
+69	### We use ESLint for static program analysis
+70
+71	`npm run lint` will run the linter
+72
+73	`npm run lint:fix` will run the linter and fix fixable errors
+74
+75	## 5. Get familiar with documentation
+76
+77	- For a list of i18n language codes, see [this](https://github.com/HospitalRun/hospitalrun-frontend/tree/master/src/locales/README.md).
+78
+79	## [ Extra ] Resources to help get you ramped up on the tech stack!
+80
+81	### React
+82
+83	- [React Tutorial for Beginners by
+84	  Programming with Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0)
+85	- [Chrome React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+86	- [VSCode React Extension Pack](https://marketplace.visualstudio.com/items?itemName=jawandarajbir.react-vscode-extension-pack)
+87
+88	### Redux
+89
+90	- [Redux For Beginners | React Redux Tutorial by DevEd](https://youtu.be/CVpUuw9XSjY)
+91	- [Chrome Redux Developer Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+92
+93	### PouchDB
+94
+95	- [Getting started with PouchDB and CouchDB (tutorial) by Nolan Lawson](https://youtu.be/-Z7UF2TuSp0)
+96
+97	### React Testing Library
+98
+99	- [React Testing Library Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
+100	
+
+Now let me look at the structure more carefully to understand how modules/features are organized:
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx with line numbers:
+1	import React from 'react'
+2	import { useSelector } from 'react-redux'
+3	import { Switch } from 'react-router-dom'
+4
+5	import useAddBreadcrumbs from '../page-header/breadcrumbs/useAddBreadcrumbs'
+6	import PrivateRoute from '../shared/components/PrivateRoute'
+7	import Permissions from '../shared/model/Permissions'
+8	import { RootState } from '../shared/store'
+9	import NewLabRequest from './requests/NewLabRequest'
+10	import ViewLab from './ViewLab'
+11	import LabRequests from './ViewLabs'
+12
+13	const Labs = () => {
+14	  const { permissions } = useSelector((state: RootState) => state.user)
+15	  const breadcrumbs = [
+16	    {
+17	      i18nKey: 'labs.label',
+18	      location: `/labs`,
+19	    },
+20	  ]
+21	  useAddBreadcrumbs(breadcrumbs, true)
+22
+23	  return (
+24	    <Switch>
+25	      <PrivateRoute
+26	        isAuthenticated={permissions.includes(Permissions.ViewLabs)}
+27	        exact
+28	        path="/labs"
+29	        component={LabRequests}
+30	      />
+31	      <PrivateRoute
+32	        isAuthenticated={permissions.includes(Permissions.RequestLab)}
+33	        exact
+34	        path="/labs/new"
+35	        component={NewLabRequest}
+36	      />
+37	      <PrivateRoute
+38	        isAuthenticated={permissions.includes(Permissions.ViewLab)}
+39	        exact
+40	        path="/labs/:id"
+41	        component={ViewLab}
+42	      />
+43	    </Switch>
+44	  )
+45	}
+46
+47	export default Labs
+48	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts with line numbers:
+1	import { configureStore, combineReducers, Action } from '@reduxjs/toolkit'
+2	import ReduxThunk, { ThunkAction } from 'redux-thunk'
+3
+4	import medication from '../../medications/medication-slice'
+5	import breadcrumbs from '../../page-header/breadcrumbs/breadcrumbs-slice'
+6	import patient from '../../patients/patient-slice'
+7	import patients from '../../patients/patients-slice'
+8	import user from '../../user/user-slice'
+9	import components from '../components/component-slice'
+10
+11	const reducer = combineReducers({
+12	  patient,
+13	  patients,
+14	  user,
+15	  breadcrumbs,
+16	  components,
+17	  medication,
+18	})
+19
+20	const store = configureStore({
+21	  reducer,
+22	  middleware: [ReduxThunk],
+23	})
+24
+25	export type AppDispatch = typeof store.dispatch
+26	export type AppThunk = ThunkAction<void, RootState, null, Action<string>>
+27	export type RootState = ReturnType<typeof reducer>
+28
+29	export default store
+30	
+
+Based on my exploration of the codebase, I can now provide you with a comprehensive answer about the plugin/extension architecture.
+
+## Current Architecture
+
+HospitalRun Frontend doesn't have a formal plugin/extension architecture in the traditional sense. Instead, it uses a **modular feature-based architecture** where each major feature (patients, labs, medications, incidents, imaging, appointments) is organized as a self-contained module within the codebase.
+
+The only "plugin" concept you'll find is related to PouchDB plugins (like `pouchdb-quick-search`, `pouchdb-authentication`, `relational-pouch`) which are added in `src/shared/config/pouchdb.ts` using `PouchDB.plugin()`.
+
+## How Features/Modules are Currently Structured
+
+Each feature module follows this pattern:
+
+1. **Self-contained directory** under `/src/` (e.g., `/src/labs`, `/src/medications`, `/src/incidents`)
+2. **Main component** that acts as a router (e.g., `Labs.tsx`, `Medications.tsx`)
+3. **Subdirectories** for hooks, models, views, requests, utilities
+4. **Redux slice** (if needed) for state management
+5. **Integration points**:
+- Routes in `HospitalRun.tsx`
+- Sidebar navigation in `Sidebar.tsx`
+- Redux store in `src/shared/store/index.ts`
+- Database schema in `src/shared/config/pouchdb.ts`
+
+## How to Add a New Module/Feature
+
+To add something like a "Pharmacy" module, you would need to:
+
+1. **Create the module directory structure**: `/src/pharmacy/`
+- Create main router component: `Pharmacy.tsx`
+- Add subdirectories: `hooks/`, `models/`, `views/`, etc.
+
+2. **Add routing** in `src/HospitalRun.tsx`:
+```tsx
+import Pharmacy from './pharmacy/Pharmacy'
+// Then add route:
+<Route path="/pharmacy" component={Pharmacy} />
+```
+
+3. **Add sidebar navigation** in `src/shared/components/Sidebar.tsx`:
+- Create a function like `getPharmacyLinks()`
+- Add it to the sidebar render
+
+4. **Add Redux state** (if needed) in `src/shared/store/index.ts`:
+- Import your slice and add it to `combineReducers`
+
+5. **Add database schema** in `src/shared/config/pouchdb.ts`:
+- Add your entity to the schema array for relational data
+
+6. **Add permissions** in `src/shared/model/Permissions.ts`
+
+7. **Add translations** in `src/shared/locales/`
+
+This is more of a monolithic modular approach rather than a true plugin system. All features are compiled together, and there's no runtime plugin loading mechanism. If you wanted true plugin extensibility, you'd need to build a plugin system from scratch with dynamic module loading and a proper plugin API.
+
+3.here is model B’s response:   I'll explore the codebase to understand the plugin/extension architecture and how to add new plugins.
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*plugin*" -o -name "*extension*" | head -20
+system
+Tool ran without output or errors
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend, excluding hidden items and node_modules:
+113M	/tmp/inputs/hospitalrun-frontend
+79K	/tmp/inputs/hospitalrun-frontend/CHANGELOG.md
+1.5K	/tmp/inputs/hospitalrun-frontend/LICENSE
+3.0K	/tmp/inputs/hospitalrun-frontend/README.md
+1.5K	/tmp/inputs/hospitalrun-frontend/SECURITY.md
+3.0K	/tmp/inputs/hospitalrun-frontend/azure.yaml
+512	/tmp/inputs/hospitalrun-frontend/commitlint.config.js
+3.0K	/tmp/inputs/hospitalrun-frontend/couchdb
+512	/tmp/inputs/hospitalrun-frontend/couchdb/Dockerfile
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/local.ini
+1.5K	/tmp/inputs/hospitalrun-frontend/docker-compose.yml
+512	/tmp/inputs/hospitalrun-frontend/docs
+512	/tmp/inputs/hospitalrun-frontend/docs/index.md
+512	/tmp/inputs/hospitalrun-frontend/jest.config.js
+512	/tmp/inputs/hospitalrun-frontend/mkdocs.yml
+512	/tmp/inputs/hospitalrun-frontend/nginx.conf
+5.5K	/tmp/inputs/hospitalrun-frontend/package.json
+20K	/tmp/inputs/hospitalrun-frontend/public
+1.5K	/tmp/inputs/hospitalrun-frontend/public/favicon.ico
+2.0K	/tmp/inputs/hospitalrun-frontend/public/index.html
+16K	/tmp/inputs/hospitalrun-frontend/public/logo.png
+512	/tmp/inputs/hospitalrun-frontend/public/manifest.json
+512	/tmp/inputs/hospitalrun-frontend/public/robots.txt
+3.5K	/tmp/inputs/hospitalrun-frontend/scripts
+2.5K	/tmp/inputs/hospitalrun-frontend/scripts/check-translations
+512	/tmp/inputs/hospitalrun-frontend/scripts/tsconfig.json
+1.2M	/tmp/inputs/hospitalrun-frontend/src
+2.0K	/tmp/inputs/hospitalrun-frontend/src/App.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__
+564K	/tmp/inputs/hospitalrun-frontend/src/__tests__
+1.5K	/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard
+17K	/tmp/inputs/hospitalrun-frontend/src/imagings
+29K	/tmp/inputs/hospitalrun-frontend/src/incidents
+2.0K	/tmp/inputs/hospitalrun-frontend/src/index.css
+1.0K	/tmp/inputs/hospitalrun-frontend/src/index.tsx
+28K	/tmp/inputs/hospitalrun-frontend/src/labs
+36K	/tmp/inputs/hospitalrun-frontend/src/medications
+6.5K	/tmp/inputs/hospitalrun-frontend/src/page-header
+192K	/tmp/inputs/hospitalrun-frontend/src/patients
+512	/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+30K	/tmp/inputs/hospitalrun-frontend/src/scheduling
+5.5K	/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings
+1.0K	/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user
+1.0K	/tmp/inputs/hospitalrun-frontend/tsconfig.json
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/package.json
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/package.json with line numbers:
+1	{
+2	  "name": "@hospitalrun/frontend",
+3	  "version": "2.0.0-alpha.7",
+4	  "description": "React frontend for HospitalRun",
+5	  "private": false,
+6	  "license": "MIT",
+7	  "dependencies": {
+8	    "@hospitalrun/components": "~3.4.0",
+9	    "@reduxjs/toolkit": "~1.7.0",
+10	    "@types/escape-string-regexp": "~2.0.1",
+11	    "@types/json2csv": "~5.0.1",
+12	    "@types/pouchdb-find": "~6.3.4",
+13	    "bootstrap": "~5.1.0",
+14	    "date-fns": "~2.28.0",
+15	    "escape-string-regexp": "~4.0.0",
+16	    "i18next": "~21.6.0",
+17	    "i18next-browser-languagedetector": "~6.1.0",
+18	    "i18next-xhr-backend": "~3.2.2",
+19	    "json2csv": "~5.0.1",
+20	    "lodash": "^4.17.15",
+21	    "node-sass": "~7.0.0",
+22	    "pouchdb": "~7.2.1",
+23	    "pouchdb-adapter-memory": "~7.2.1",
+24	    "pouchdb-authentication": "~1.1.3",
+25	    "pouchdb-find": "~7.2.1",
+26	    "pouchdb-quick-search": "~1.3.0",
+27	    "react": "~17.0.1",
+28	    "react-bootstrap": "~1.6.0",
+29	    "react-bootstrap-typeahead": "~5.2.0",
+30	    "react-dom": "~16.13.0",
+31	    "react-i18next": "~11.15.0",
+32	    "react-query": "~2.25.2",
+33	    "react-query-devtools": "~2.6.0",
+34	    "react-redux": "~7.2.0",
+35	    "react-router": "~5.2.0",
+36	    "react-router-dom": "~5.3.0",
+37	    "react-scripts": "~3.4.0",
+38	    "redux": "~4.1.0",
+39	    "redux-thunk": "~2.4.0",
+40	    "relational-pouch": "~4.0.0",
+41	    "shortid": "^2.2.15",
+42	    "typescript": "~3.8.3",
+43	    "uuid": "^8.0.0",
+44	    "validator": "^13.0.0"
+45	  },
+46	  "resolutions": {
+47	    "moment": "2.24.0"
+48	  },
+49	  "comments": {
+50	    "resolutions": "Added this key as temp fix https://github.com/moment/moment/issues/5484"
+51	  },
+52	  "repository": {
+53	    "type": "git",
+54	    "url": "https://github.com/HospitalRun/hospitalrun-frontend.git"
+55	  },
+56	  "author": "Jack Meyer",
+57	  "contributors": [
+58	    "Maksim Sinik",
+59	    "Stefano Casasola"
+60	  ],
+61	  "devDependencies": {
+62	    "@commitlint/cli": "~16.1.0",
+63	    "@commitlint/config-conventional": "~16.0.0",
+64	    "@commitlint/core": "~16.0.0",
+65	    "@commitlint/prompt": "~16.1.0",
+66	    "@testing-library/dom": "~7.31.0",
+67	    "@testing-library/jest-dom": "~5.16.1",
+68	    "@testing-library/react": "~11.2.2",
+69	    "@testing-library/react-hooks": "~7.0.0",
+70	    "@testing-library/user-event": "~12.8.3",
+71	    "@types/jest": "~27.0.3",
+72	    "@types/lodash": "^4.14.150",
+73	    "@types/node": "~17.0.0",
+74	    "@types/pouchdb": "~6.4.0",
+75	    "@types/react": "~17.0.0",
+76	    "@types/react-dom": "~17.0.0",
+77	    "@types/react-redux": "~7.1.5",
+78	    "@types/react-router": "~5.1.2",
+79	    "@types/react-router-dom": "~5.3.0",
+80	    "@types/redux-mock-store": "~1.0.1",
+81	    "@types/shortid": "^0.0.29",
+82	    "@types/uuid": "^8.0.0",
+83	    "@types/validator": "~13.7.0",
+84	    "@typescript-eslint/eslint-plugin": "~3.10.0",
+85	    "@typescript-eslint/parser": "~3.10.0",
+86	    "chalk": "^5.0.0",
+87	    "commitizen": "~4.2.0",
+88	    "commitlint-config-cz": "~0.13.0",
+89	    "cross-env": "~7.0.0",
+90	    "cz-conventional-changelog": "~3.3.0",
+91	    "dateformat": "~5.0.2",
+92	    "eslint": "~6.8.0",
+93	    "eslint-config-airbnb": "~18.2.0",
+94	    "eslint-config-prettier": "~7.2.0",
+95	    "eslint-import-resolver-typescript": "~2.5.0",
+96	    "eslint-plugin-import": "~2.25.1",
+97	    "eslint-plugin-jest": "~26.1.0",
+98	    "eslint-plugin-jsx-a11y": "~6.5.1",
+99	    "eslint-plugin-prettier": "~3.4.0",
+100	    "eslint-plugin-react": "~7.28.0",
+101	    "eslint-plugin-react-hooks": "~4.3.0",
+102	    "history": "4.10.1",
+103	    "husky": "~7.0.0",
+104	    "jest-canvas-mock": "~2.3.0",
+105	    "jest-environment-jsdom-sixteen": "~2.0.0",
+106	    "lint-staged": "~12.3.3",
+107	    "memdown": "~6.1.0",
+108	    "prettier": "~2.2.0",
+109	    "react-select-event": "~5.3.0",
+110	    "react-test-renderer": "~17.0.1",
+111	    "redux-mock-store": "~1.5.4",
+112	    "rimraf": "~3.0.2",
+113	    "source-map-explorer": "^2.2.2",
+114	    "standard-version": "~9.3.0"
+115	  },
+116	  "scripts": {
+117	    "analyze": "source-map-explorer 'build/static/js/*.js'",
+118	    "commit": "npx git-cz",
+119	    "start": "npm run translation:check && react-scripts start",
+120	    "build": "react-scripts build",
+121	    "update": "npx npm-check -u",
+122	    "prepublishOnly": "npm run build",
+123	    "test": "npm run translation:check && react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --env=jest-environment-jsdom-sixteen",
+124	    "test:ci": "cross-env CI=true react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --passWithNoTests --env=jest-environment-jsdom-sixteen --maxWorkers=2",
+125	    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\"",
+126	    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\" --fix",
+127	    "lint-staged": "lint-staged",
+128	    "commitlint": "commitlint",
+129	    "coveralls": "npm run test:ci -- --coverage --watchAll=false && cat ./coverage/lcov.info",
+130	    "remove-compiled-translations": "rimraf ./bin/scripts/check-translations",
+131	    "pretranslation:check": "npm run remove-compiled-translations",
+132	    "translation:check": "tsc -p scripts/tsconfig.json && node ./bin/scripts/check-translations/index.js",
+133	    "posttranslation:check": "npm run remove-compiled-translations"
+134	  },
+135	  "browserslist": {
+136	    "production": [
+137	      ">0.2%",
+138	      "not dead",
+139	      "not op_mini all"
+140	    ],
+141	    "development": [
+142	      "last 1 chrome version",
+143	      "last 1 firefox version",
+144	      "last 1 safari version"
+145	    ]
+146	  },
+147	  "husky": {
+148	    "hooks": {
+149	      "pre-commit": "npm run lint-staged",
+150	      "commit-msg": "npm run commitlint -- -E HUSKY_GIT_PARAMS"
+151	    }
+152	  },
+153	  "config": {
+154	    "commitizen": {
+155	      "path": "./node_modules/cz-conventional-changelog"
+156	    }
+157	  },
+158	  "lint-staged": {
+159	    "**/*.{js,jsx,ts,tsx}": [
+160	      "npm run lint:fix",
+161	      "npm run test:ci",
+162	      "git add ."
+163	    ]
+164	  },
+165	  "jest": {
+166	    "restoreMocks": true
+167	  }
+168	}
+169	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx with line numbers:
+1	import { Toaster } from '@hospitalrun/components'
+2	import React from 'react'
+3	import { useSelector } from 'react-redux'
+4	import { Route, Switch } from 'react-router-dom'
+5
+6	import Dashboard from './dashboard/Dashboard'
+7	import Imagings from './imagings/Imagings'
+8	import Incidents from './incidents/Incidents'
+9	import Labs from './labs/Labs'
+10	import Medications from './medications/Medications'
+11	import Breadcrumbs from './page-header/breadcrumbs/Breadcrumbs'
+12	import { ButtonBarProvider } from './page-header/button-toolbar/ButtonBarProvider'
+13	import ButtonToolBar from './page-header/button-toolbar/ButtonToolBar'
+14	import { useTitle } from './page-header/title/TitleContext'
+15	import Patients from './patients/Patients'
+16	import Appointments from './scheduling/appointments/Appointments'
+17	import Settings from './settings/Settings'
+18	import Navbar from './shared/components/navbar/Navbar'
+19	import { NetworkStatusMessage } from './shared/components/network-status'
+20	import Sidebar from './shared/components/Sidebar'
+21	import { RootState } from './shared/store'
+22
+23	const HospitalRun = () => {
+24	  const { title } = useTitle()
+25	  const { sidebarCollapsed } = useSelector((state: RootState) => state.components)
+26
+27	  return (
+28	    <div>
+29	      <NetworkStatusMessage />
+30	      <Navbar />
+31	      <div className="container-fluid">
+32	        <div className="col-md-2">
+33	          <Sidebar />
+34	        </div>
+35	        <ButtonBarProvider>
+36	          <div className="row">
+37	            <main
+38	              role="main"
+39	              className={`${
+40	                sidebarCollapsed ? 'col-md-10 col-lg-11' : 'col-md-9 col-lg-10'
+41	              } ml-sm-auto px-4`}
+42	            >
+43	              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+44	                <h1 className="h2">{title}</h1>
+45	                <ButtonToolBar />
+46	              </div>
+47	              <Breadcrumbs />
+48	              <div>
+49	                <Switch>
+50	                  <Route exact path="/" component={Dashboard} />
+51	                  <Route path="/appointments" component={Appointments} />
+52	                  <Route path="/patients" component={Patients} />
+53	                  <Route path="/labs" component={Labs} />
+54	                  <Route path="/medications" component={Medications} />
+55	                  <Route path="/incidents" component={Incidents} />
+56	                  <Route path="/settings" component={Settings} />
+57	                  <Route path="/imaging" component={Imagings} />
+58	                </Switch>
+59	              </div>
+60	              <Toaster autoClose={5000} hideProgressBar draggable />
+61	            </main>
+62	          </div>
+63	        </ButtonBarProvider>
+64	      </div>
+65	    </div>
+66	  )
+67	}
+68
+69	export default HospitalRun
+70	
+
+
+bash
+command
+grep -r "plugin\|Plugin\|extension\|Extension" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" --include="*.js" | head -30
+output
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts:  const plugin: PouchDB.Plugin
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts:  export = plugin
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:PouchDB.plugin(search)
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:PouchDB.plugin(memoryAdapter)
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:PouchDB.plugin(RelationalPouch)
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:PouchDB.plugin(PouchdbFind)
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:PouchDB.plugin(PouchAuth)
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts with line numbers:
+1	/* eslint-disable @typescript-eslint/no-var-requires */
+2	/* eslint-disable camelcase */
+3	import PouchDB from 'pouchdb'
+4	import PouchAuth from 'pouchdb-authentication'
+5	import PouchdbFind from 'pouchdb-find'
+6	import RelationalPouch from 'relational-pouch'
+7
+8	const memoryAdapter = require('pouchdb-adapter-memory')
+9	const search = require('pouchdb-quick-search')
+10
+11	PouchDB.plugin(search)
+12	PouchDB.plugin(memoryAdapter)
+13	PouchDB.plugin(RelationalPouch)
+14	PouchDB.plugin(PouchdbFind)
+15	PouchDB.plugin(PouchAuth)
+16
+17	let serverDb
+18	let localDb
+19
+20	if (process.env.NODE_ENV === 'test') {
+21	  serverDb = new PouchDB('hospitalrun', { skip_setup: true, adapter: 'memory' })
+22	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true, adapter: 'memory' })
+23	} else {
+24	  serverDb = new PouchDB(`${process.env.REACT_APP_HOSPITALRUN_API}/hospitalrun`, {
+25	    skip_setup: true,
+26	  })
+27
+28	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true })
+29	  localDb.sync(serverDb, { live: true, retry: true })
+30	}
+31
+32	export const schema = [
+33	  {
+34	    singular: 'patient',
+35	    plural: 'patients',
+36	    relations: {
+37	      appointments: {
+38	        hasMany: { type: 'appointment', options: { queryInverse: 'patient', async: true } },
+39	      },
+40	      labs: { hasMany: { type: 'lab', options: { queryInverse: 'patient', async: true } } },
+41	      medications: {
+42	        hasMany: { type: 'medication', options: { queryInverse: 'patient', async: true } },
+43	      },
+44	      imagings: { hasMany: { type: 'imaging', options: { queryInverse: 'patient', async: true } } },
+45	    },
+46	  },
+47	  {
+48	    singular: 'appointment',
+49	    plural: 'appointments',
+50	    relations: { patient: { belongsTo: 'patient' } },
+51	  },
+52	  {
+53	    singular: 'incident',
+54	    plural: 'incidents',
+55	  },
+56	  {
+57	    singular: 'lab',
+58	    plural: 'labs',
+59	    relations: { patient: { belongsTo: 'patient' } },
+60	  },
+61	  {
+62	    singular: 'imaging',
+63	    plural: 'imagings',
+64	    relations: { patient: { belongsTo: 'patient' } },
+65	  },
+66	  {
+67	    singular: 'medication',
+68	    plural: 'medications',
+69	    relations: { patient: { belongsTo: 'patient' } },
+70	  },
+71	]
+72	export const relationalDb = localDb.setSchema(schema)
+73	export const remoteDb = serverDb as PouchDB.Database
+74	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -type d | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src
+/tmp/inputs/hospitalrun-frontend/src/incidents
+/tmp/inputs/hospitalrun-frontend/src/incidents/report
+/tmp/inputs/hospitalrun-frontend/src/incidents/view
+/tmp/inputs/hospitalrun-frontend/src/incidents/model
+/tmp/inputs/hospitalrun-frontend/src/incidents/list
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks
+/tmp/inputs/hospitalrun-frontend/src/incidents/visualize
+/tmp/inputs/hospitalrun-frontend/src/incidents/util
+/tmp/inputs/hospitalrun-frontend/src/imagings
+/tmp/inputs/hospitalrun-frontend/src/imagings/model
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks
+/tmp/inputs/hospitalrun-frontend/src/imagings/search
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests
+/tmp/inputs/hospitalrun-frontend/src/imagings/util
+/tmp/inputs/hospitalrun-frontend/src/page-header
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs
+/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar
+/tmp/inputs/hospitalrun-frontend/src/page-header/title
+/tmp/inputs/hospitalrun-frontend/src/__tests__
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx with line numbers:
+1	import { List, ListItem, Icon } from '@hospitalrun/components'
+2	import React, { useState, CSSProperties } from 'react'
+3	import { useSelector, useDispatch } from 'react-redux'
+4	import { useLocation, useHistory } from 'react-router-dom'
+5
+6	import useTranslator from '../hooks/useTranslator'
+7	import Permissions from '../model/Permissions'
+8	import { RootState } from '../store'
+9	import { updateSidebar } from './component-slice'
+10
+11	const Sidebar = () => {
+12	  const dispatch = useDispatch()
+13	  const { sidebarCollapsed } = useSelector((state: RootState) => state.components)
+14	  const permissions = useSelector((state: RootState) => state.user.permissions)
+15
+16	  const { t } = useTranslator()
+17	  const path = useLocation()
+18	  const history = useHistory()
+19	  const { pathname } = path
+20	  const splittedPath = pathname.split('/')
+21
+22	  const navigateTo = (location: string) => {
+23	    history.push(location)
+24	  }
+25
+26	  const listItemStyle: CSSProperties = {
+27	    cursor: 'pointer',
+28	  }
+29
+30	  const expandibleArrow: CSSProperties = {
+31	    marginRight: '20px',
+32	  }
+33
+34	  const iconMargin: CSSProperties = {
+35	    marginRight: '10px',
+36	  }
+37
+38	  const [expandedItem, setExpandedItem] = useState(
+39	    splittedPath[1].includes('patients')
+40	      ? 'patient'
+41	      : splittedPath[1].includes('appointments')
+42	      ? 'appointment'
+43	      : splittedPath[1].includes('labs')
+44	      ? 'labs'
+45	      : splittedPath[1].includes('medications')
+46	      ? 'medications'
+47	      : splittedPath[1].includes('incidents')
+48	      ? 'incidents'
+49	      : splittedPath[1].includes('imagings')
+50	      ? 'imagings'
+51	      : 'none',
+52	  )
+53
+54	  const setExpansion = (item: string) => {
+55	    if (expandedItem === item) {
+56	      setExpandedItem('none')
+57	      return
+58	    }
+59
+60	    setExpandedItem(item.toString())
+61	  }
+62
+63	  const listSubItemStyle: CSSProperties = {
+64	    cursor: 'pointer',
+65	    fontSize: 'small',
+66	    borderBottomWidth: 0,
+67	    borderTopWidth: 0,
+68	    color: 'black',
+69	    padding: '.6rem 1.25rem',
+70	    backgroundColor: 'rgba(245,245,245,1)',
+71	  }
+72
+73	  const listSubItemStyleNew: CSSProperties = {
+74	    cursor: 'pointer',
+75	    fontSize: 'small',
+76	    borderBottomWidth: 0,
+77	    borderTopWidth: 0,
+78	    color: 'black',
+79	    padding: '.6rem 1.25rem',
+80	    backgroundColor: 'rgba(245,245,245,1)',
+81	  }
+82
+83	  const getDashboardLink = () => (
+84	    <>
+85	      <ListItem
+86	        active={pathname === '/'}
+87	        onClick={() => {
+88	          navigateTo('/')
+89	          setExpansion('none')
+90	        }}
+91	        className="nav-item"
+92	        style={listItemStyle}
+93	      >
+94	        <Icon icon="dashboard" /> {!sidebarCollapsed && t('dashboard.label')}
+95	      </ListItem>
+96	    </>
+97	  )
+98
+99	  const getPatientLinks = () => (
+100	    <>
+101	      <ListItem
+102	        active={splittedPath[1].includes('patient')}
+103	        onClick={() => {
+104	          navigateTo('/patients')
+105	          if (expandedItem === 'patient') {
+106	            setExpandedItem('none')
+107	            return
+108	          }
+109
+110	          setExpandedItem('patient')
+111	        }}
+112	        className="nav-item"
+113	        style={listItemStyle}
+114	      >
+115	        <Icon
+116	          icon={
+117	            splittedPath[1].includes('patient') && expandedItem === 'patient'
+118	              ? 'down-arrow'
+119	              : 'right-arrow'
+120	          }
+121	          style={expandibleArrow}
+122	        />
+123	        <Icon icon="patients" /> {!sidebarCollapsed && t('patients.label')}
+124	      </ListItem>
+125	      {splittedPath[1].includes('patient') && expandedItem === 'patient' && (
+126	        <List layout="flush">
+127	          {permissions.includes(Permissions.WritePatients) && (
+128	            <ListItem
+129	              className="nav-item"
+130	              style={listSubItemStyleNew}
+131	              onClick={() => navigateTo('/patients/new')}
+132	              active={splittedPath[1].includes('patients') && splittedPath.length > 2}
+133	            >
+134	              <Icon icon="patient-add" style={iconMargin} />
+135	              {!sidebarCollapsed && t('patients.newPatient')}
+136	            </ListItem>
+137	          )}
+138	          {permissions.includes(Permissions.ReadPatients) && (
+139	            <ListItem
+140	              className="nav-item"
+141	              style={listSubItemStyle}
+142	              onClick={() => navigateTo('/patients')}
+143	              active={splittedPath[1].includes('patients') && splittedPath.length < 3}
+144	            >
+145	              <Icon icon="incident" style={iconMargin} />
+146	              {!sidebarCollapsed && t('patients.patientsList')}
+147	            </ListItem>
+148	          )}
+149	        </List>
+150	      )}
+151	    </>
+152	  )
+153
+154	  const getAppointmentLinks = () => (
+155	    <>
+156	      <ListItem
+157	        active={splittedPath[1].includes('appointments')}
+158	        onClick={() => {
+159	          navigateTo('/appointments')
+160	          setExpansion('appointment')
+161	        }}
+162	        className="nav-item"
+163	        style={listItemStyle}
+164	      >
+165	        <Icon
+166	          icon={
+167	            splittedPath[1].includes('appointments') && expandedItem === 'appointment'
+168	              ? 'down-arrow'
+169	              : 'right-arrow'
+170	          }
+171	          style={expandibleArrow}
+172	        />
+173	        <Icon icon="appointment" /> {!sidebarCollapsed && t('scheduling.label')}
+174	      </ListItem>
+175	      {splittedPath[1].includes('appointment') && expandedItem === 'appointment' && (
+176	        <List layout="flush" className="nav flex-column">
+177	          {permissions.includes(Permissions.WriteAppointments) && (
+178	            <ListItem
+179	              className="nav-item"
+180	              style={listSubItemStyleNew}
+181	              onClick={() => navigateTo('/appointments/new')}
+182	              active={splittedPath[1].includes('appointments') && splittedPath.length > 2}
+183	            >
+184	              <Icon icon="appointment-add" style={iconMargin} />
+185	              {!sidebarCollapsed && t('scheduling.appointments.new')}
+186	            </ListItem>
+187	          )}
+188	          {permissions.includes(Permissions.ReadAppointments) && (
+189	            <ListItem
+190	              className="nav-item"
+191	              style={listSubItemStyle}
+192	              onClick={() => navigateTo('/appointments')}
+193	              active={splittedPath[1].includes('appointments') && splittedPath.length < 3}
+194	            >
+195	              <Icon icon="incident" style={iconMargin} />
+196	              {!sidebarCollapsed && t('scheduling.appointments.schedule')}
+197	            </ListItem>
+198	          )}
+199	        </List>
+200	      )}
+201	    </>
+202	  )
+203
+204	  const getLabLinks = () => (
+205	    <>
+206	      <ListItem
+207	        active={splittedPath[1].includes('labs')}
+208	        onClick={() => {
+209	          navigateTo('/labs')
+210	          setExpansion('labs')
+211	        }}
+212	        className="nav-item"
+213	        style={listItemStyle}
+214	      >
+215	        <Icon
+216	          icon={
+217	            splittedPath[1].includes('labs') && expandedItem === 'labs'
+218	              ? 'down-arrow'
+219	              : 'right-arrow'
+220	          }
+221	          style={expandibleArrow}
+222	        />
+223	        <Icon icon="lab" /> {!sidebarCollapsed && t('labs.label')}
+224	      </ListItem>
+225	      {splittedPath[1].includes('labs') && expandedItem === 'labs' && (
+226	        <List layout="flush" className="nav flex-column">
+227	          {permissions.includes(Permissions.RequestLab) && (
+228	            <ListItem
+229	              className="nav-item"
+230	              style={listSubItemStyleNew}
+231	              onClick={() => navigateTo('/labs/new')}
+232	              active={splittedPath[1].includes('labs') && splittedPath.length > 2}
+233	            >
+234	              <Icon icon="add" style={iconMargin} />
+235	              {!sidebarCollapsed && t('labs.requests.new')}
+236	            </ListItem>
+237	          )}
+238	          {permissions.includes(Permissions.ViewLabs) && (
+239	            <ListItem
+240	              className="nav-item"
+241	              style={listSubItemStyle}
+242	              onClick={() => navigateTo('/labs')}
+243	              active={splittedPath[1].includes('labs') && splittedPath.length < 3}
+244	            >
+245	              <Icon icon="incident" style={iconMargin} />
+246	              {!sidebarCollapsed && t('labs.requests.label')}
+247	            </ListItem>
+248	          )}
+249	        </List>
+250	      )}
+251	    </>
+252	  )
+253
+254	  const getMedicationLinks = () => (
+255	    <>
+256	      <ListItem
+257	        active={splittedPath[1].includes('medications')}
+258	        onClick={() => {
+259	          navigateTo('/medications')
+260	          setExpansion('medications')
+261	        }}
+262	        className="nav-item"
+263	        style={listItemStyle}
+264	      >
+265	        <Icon
+266	          icon={
+267	            splittedPath[1].includes('medications') && expandedItem === 'medications'
+268	              ? 'down-arrow'
+269	              : 'right-arrow'
+270	          }
+271	          style={expandibleArrow}
+272	        />
+273	        <Icon icon="medication" /> {!sidebarCollapsed && t('medications.label')}
+274	      </ListItem>
+275	      {splittedPath[1].includes('medications') && expandedItem === 'medications' && (
+276	        <List layout="flush" className="nav flex-column">
+277	          {permissions.includes(Permissions.RequestMedication) && (
+278	            <ListItem
+279	              className="nav-item"
+280	              style={listSubItemStyleNew}
+281	              onClick={() => navigateTo('/medications/new')}
+282	              active={splittedPath[1].includes('medications') && splittedPath.length > 2}
+283	            >
+284	              <Icon icon="add" style={iconMargin} />
+285	              {!sidebarCollapsed && t('medications.requests.new')}
+286	            </ListItem>
+287	          )}
+288	          {permissions.includes(Permissions.ViewMedications) && (
+289	            <ListItem
+290	              className="nav-item"
+291	              style={listSubItemStyle}
+292	              onClick={() => navigateTo('/medications')}
+293	              active={splittedPath[1].includes('medications') && splittedPath.length < 3}
+294	            >
+295	              <Icon icon="incident" style={iconMargin} />
+296	              {!sidebarCollapsed && t('medications.requests.label')}
+297	            </ListItem>
+298	          )}
+299	        </List>
+300	      )}
+301	    </>
+302	  )
+303
+304	  const getIncidentLinks = () => (
+305	    <>
+306	      <ListItem
+307	        active={splittedPath[1].includes('incidents')}
+308	        onClick={() => {
+309	          navigateTo('/incidents')
+310	          setExpansion('incidents')
+311	        }}
+312	        className="nav-item"
+313	        style={listItemStyle}
+314	      >
+315	        <Icon
+316	          icon={
+317	            splittedPath[1].includes('incidents') && expandedItem === 'incidents'
+318	              ? 'down-arrow'
+319	              : 'right-arrow'
+320	          }
+321	          style={expandibleArrow}
+322	        />
+323	        <Icon icon="incident" /> {!sidebarCollapsed && t('incidents.label')}
+324	      </ListItem>
+325	      {splittedPath[1].includes('incidents') && expandedItem === 'incidents' && (
+326	        <List layout="flush" className="nav flex-column">
+327	          {permissions.includes(Permissions.ReportIncident) && (
+328	            <ListItem
+329	              className="nav-item"
+330	              style={listSubItemStyleNew}
+331	              onClick={() => navigateTo('/incidents/new')}
+332	              active={splittedPath[1].includes('incidents') && splittedPath.length > 2}
+333	            >
+334	              <Icon icon="add" style={iconMargin} />
+335	              {!sidebarCollapsed && t('incidents.reports.new')}
+336	            </ListItem>
+337	          )}
+338	          {permissions.includes(Permissions.ViewIncidents) && (
+339	            <ListItem
+340	              className="nav-item"
+341	              style={listSubItemStyle}
+342	              onClick={() => navigateTo('/incidents')}
+343	              active={splittedPath[1].includes('incidents') && splittedPath.length < 3}
+344	            >
+345	              <Icon icon="incident" style={iconMargin} />
+346	              {!sidebarCollapsed && t('incidents.reports.label')}
+347	            </ListItem>
+348	          )}
+349	          {permissions.includes(Permissions.ViewIncidentWidgets) && (
+350	            <ListItem
+351	              className="nav-item"
+352	              style={listSubItemStyle}
+353	              onClick={() => navigateTo('/incidents/visualize')}
+354	              active={splittedPath[1].includes('incidents') && splittedPath.length < 3}
+355	            >
+356	              <Icon icon="incident" style={iconMargin} />
+357	              {!sidebarCollapsed && t('incidents.visualize.label')}
+358	            </ListItem>
+359	          )}
+360	        </List>
+361	      )}
+362	    </>
+363	  )
+364
+365	  const getImagingLinks = () => (
+366	    <>
+367	      <ListItem
+368	        active={splittedPath[1].includes('imaging')}
+369	        onClick={() => {
+370	          navigateTo('/imaging')
+371	          setExpansion('imagings')
+372	        }}
+373	        className="nav-item"
+374	        style={listItemStyle}
+375	      >
+376	        <Icon
+377	          icon={
+378	            splittedPath[1].includes('imaging') && expandedItem === 'imagings'
+379	              ? 'down-arrow'
+380	              : 'right-arrow'
+381	          }
+382	          style={expandibleArrow}
+383	        />
+384	        <Icon icon="image" /> {!sidebarCollapsed && t('imagings.label')}
+385	      </ListItem>
+386	      {splittedPath[1].includes('imaging') && expandedItem === 'imagings' && (
+387	        <List layout="flush" className="nav flex-column">
+388	          {permissions.includes(Permissions.RequestImaging) && (
+389	            <ListItem
+390	              className="nav-item"
+391	              style={listSubItemStyleNew}
+392	              onClick={() => navigateTo('/imaging/new')}
+393	              active={splittedPath[1].includes('imaging') && splittedPath.length > 2}
+394	            >
+395	              <Icon icon="add" style={iconMargin} />
+396	              {!sidebarCollapsed && t('imagings.requests.new')}
+397	            </ListItem>
+398	          )}
+399	          {permissions.includes(Permissions.ViewImagings) && (
+400	            <ListItem
+401	              className="nav-item"
+402	              style={listSubItemStyle}
+403	              onClick={() => navigateTo('/imaging')}
+404	              active={splittedPath[1].includes('imaging') && splittedPath.length < 3}
+405	            >
+406	              <Icon icon="image" style={iconMargin} />
+407	              {!sidebarCollapsed && t('imagings.requests.label')}
+408	            </ListItem>
+409	          )}
+410	        </List>
+411	      )}
+412	    </>
+413	  )
+414
+415	  return (
+416	    <nav
+417	      className="d-none d-md-block bg-light sidebar"
+418	      style={{ width: sidebarCollapsed ? '56px' : '' }}
+419	    >
+420	      <div className="sidebar-sticky">
+421	        <List layout="flush" className="nav flex-column">
+422	          <ListItem
+423	            onClick={() => dispatch(updateSidebar())}
+424	            className="nav-item"
+425	            style={listItemStyle}
+426	          >
+427	            <Icon
+428	              style={{ float: sidebarCollapsed ? 'left' : 'right' }}
+429	              icon={sidebarCollapsed ? 'right-arrow' : 'left-arrow'}
+430	            />
+431	          </ListItem>
+432	          {getDashboardLink()}
+433	          {getPatientLinks()}
+434	          {getAppointmentLinks()}
+435	          {getMedicationLinks()}
+436	          {getLabLinks()}
+437	          {getImagingLinks()}
+438	          {getIncidentLinks()}
+439	        </List>
+440	      </div>
+441	    </nav>
+442	  )
+443	}
+444
+445	export default Sidebar
+446	
+
+
+bash
+command
+ls -la /tmp/inputs/hospitalrun-frontend/src/
+output
+total 17
+drwxr-xr-x 15 argocd root  460 Dec 21 21:42 .
+drwxr-xr-x 10 argocd root  580 Dec 21 21:42 ..
+-rw-r--r--  1 argocd root 1579 Jan  1  1970 App.tsx
+-rw-r--r--  1 argocd root 2712 Jan  1  1970 HospitalRun.tsx
+drwxr-xr-x  2 argocd root  100 Dec 21 21:42 __mocks__
+drwxr-xr-x 13 argocd root  300 Dec 21 21:42 __tests__
+-rw-r--r--  1 argocd root 1076 Jan  1  1970 custom-pouchdb.d.ts
+drwxr-xr-x  2 argocd root   60 Dec 21 21:42 dashboard
+drwxr-xr-x  7 argocd root  160 Dec 21 21:42 imagings
+drwxr-xr-x  9 argocd root  220 Dec 21 21:42 incidents
+-rw-r--r--  1 argocd root 1931 Jan  1  1970 index.css
+-rw-r--r--  1 argocd root  625 Jan  1  1970 index.tsx
+drwxr-xr-x  6 argocd root  180 Dec 21 21:42 labs
+drwxr-xr-x  6 argocd root  180 Dec 21 21:42 medications
+drwxr-xr-x  5 argocd root  100 Dec 21 21:42 page-header
+drwxr-xr-x 20 argocd root  520 Dec 21 21:42 patients
+-rw-r--r--  1 argocd root   61 Jan  1  1970 react-app-env.d.ts
+drwxr-xr-x  4 argocd root   80 Dec 21 21:42 scheduling
+-rw-r--r--  1 argocd root 5194 Jan  1  1970 serviceWorker.ts
+drwxr-xr-x  2 argocd root   60 Dec 21 21:42 settings
+-rw-r--r--  1 argocd root  691 Jan  1  1970 setupTests.js
+drwxr-xr-x 11 argocd root  220 Dec 21 21:42 shared
+drwxr-xr-x  2 argocd root   60 Dec 21 21:42 user
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -name "*.tsx" -o -name "*.ts" | grep -E "(store|slice|reducer)" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs/breadcrumbs-slice.ts
+/tmp/inputs/hospitalrun-frontend/src/__tests__/page-header/breadcrumbs/breadcrumbs-slice.test.ts
+/tmp/inputs/hospitalrun-frontend/src/__tests__/user/user-slice.test.ts
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/patients-slice.test.ts
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/patient-slice.test.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/components/component-slice.ts
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts
+/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts
+/tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts
+/tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts with line numbers:
+1	import { configureStore, combineReducers, Action } from '@reduxjs/toolkit'
+2	import ReduxThunk, { ThunkAction } from 'redux-thunk'
+3
+4	import medication from '../../medications/medication-slice'
+5	import breadcrumbs from '../../page-header/breadcrumbs/breadcrumbs-slice'
+6	import patient from '../../patients/patient-slice'
+7	import patients from '../../patients/patients-slice'
+8	import user from '../../user/user-slice'
+9	import components from '../components/component-slice'
+10
+11	const reducer = combineReducers({
+12	  patient,
+13	  patients,
+14	  user,
+15	  breadcrumbs,
+16	  components,
+17	  medication,
+18	})
+19
+20	const store = configureStore({
+21	  reducer,
+22	  middleware: [ReduxThunk],
+23	})
+24
+25	export type AppDispatch = typeof store.dispatch
+26	export type AppThunk = ThunkAction<void, RootState, null, Action<string>>
+27	export type RootState = ReturnType<typeof reducer>
+28
+29	export default store
+30	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/README.md
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/README.md with line numbers:
+1	# HospitalRun Frontend
+2
+3	<div align="center">
+4
+5	![Status](https://img.shields.io/badge/Status-developing-brightgree) [![Release](https://img.shields.io/github/release/HospitalRun/hospitalrun-frontend.svg)](https://github.com/HospitalRun/hospitalrun-frontend/releases) [![Version](https://img.shields.io/github/package-json/v/hospitalrun/hospitalrun-frontend)](https://github.com/HospitalRun/hospitalrun-frontend/releases)
+6	[![GitHub CI](https://github.com/HospitalRun/frontend/workflows/GitHub%20CI/badge.svg)](https://github.com/HospitalRun/frontend/actions) [![Coverage Status](https://coveralls.io/repos/github/HospitalRun/hospitalrun-frontend/badge.svg?branch=master)](https://coveralls.io/github/HospitalRun/hospitalrun-frontend?branch=master) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/HospitalRun/hospitalrun-frontend.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/HospitalRun/hospitalrun-frontend/context:javascript) ![Code scanning](https://github.com/HospitalRun/hospitalrun-frontend/workflows/Code%20scanning/badge.svg?branch=master) [![Documentation Status](https://readthedocs.org/projects/hospitalrun-frontend/badge/?version=latest)](https://hospitalrun-frontend.readthedocs.io)
+7	[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend?ref=badge_large) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+8	![dependabot](https://api.dependabot.com/badges/status?host=github&repo=HospitalRun/hospitalrun-frontend) [![Slack](https://hospitalrun-slack.herokuapp.com/badge.svg)](https://hospitalrun-slack.herokuapp.com)
+9
+10	</div>
+11
+12	React frontend for [HospitalRun](http://hospitalrun.io/): free software for developing world hospitals.
+13
+14	---
+15
+16	# Are you a user? If yes...
+17
+18	[Visit this page for general information on the HospitalRun application](https://github.com/HospitalRun/hospitalrun/blob/master/README.md) including:
+19
+20	- How can I deploy 1.0.0-beta?
+21	- Where do I report a bug or request a feature?
+22	- How can I contribute? (There are several other ways besides coding)
+23	- What is the project structure?
+24	- What is the application infrastructure?
+25	- Who is behind HospitalRun? etc.
+26
+27	# Would you like to contribute? If yes...
+28
+29	[Get started by checking out the Frontend Contributing Guide](https://github.com/HospitalRun/hospitalrun-frontend/blob/master/.github/CONTRIBUTING.md) for:
+30	- What's the tech stack?
+31	- Where can I become familiar with the technologies?
+32	- Where do I browse issues?
+33	- How do I set up my local environment?
+34	- How do I run tests locally?
+35	- How do I submit my changes?
+36	- etc.
+37
+38	# License
+39
+40	Released under the [MIT license](LICENSE).
+41	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -name "CONTRIBUTING.md" -o -name "contributing.md"
+output
+/tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md with line numbers:
+1	# Welcome to the Frontend Contributing Guide!
+2
+3	Before contributing, please read the [code of conduct](https://github.com/HospitalRun/hospitalrun/blob/master/.github/CODE_OF_CONDUCT.md).
+4
+5	## 1. Check out the [HospitalRun General Contributing Guide](https://github.com/HospitalRun/hospitalrun/blob/master/.github/CONTRIBUTING.md) for how to:
+6
+7	1.  Browse Issues
+8	2.  Get Assigned an Issue
+9	3.  Fork the Repository and Create a Branch
+10	4.  Commit Changes
+11	5.  Submit a Pull Request
+12
+13	## 2. After creating a local fork (step 3 above), follow these steps to configure CouchDB
+14
+15	CouchDB is the server side database which data from the frontend will sync from and to. CouchDB is required to login
+16	to HospitalRun. You could install and run CouchDB in any way you wish. For convienence, we have added a docker compose file in the
+17	root of this project to launch CouchDB. Below are the steps:
+18
+19	1. Start [Docker](https://docs.docker.com/get-docker/). Install it if you don't have it yet.
+20	2. Install [Docker Compose](https://docs.docker.com/compose/install/) if you don't have it yet.
+21	3. In the root directory run `./couchdb/couchdb-init.bat` on Windows or `./couchdb/couchdb-init.sh` on UNIX like systems.
+22
+23	This should launch a new CouchDB instance on `http://localhost:5984`, create system database, configure CouchDB as Single Node, enable CORS, create `hospitalrun` database, create a default admin with a username of `admin` and password of 'password', create a sample user with a username of `username` and password of 'password' to use new login page [#2137](https://github.com/HospitalRun/hospitalrun-frontend/pull/2137).
+24
+25	Go to `http://localhost:5984/_utils` in your browser to view Fauxton and perform administrative tasks.
+26
+27	**_Cleanup_**
+28	To delete the development database, go to the root of the project and run `./couchdb/couchdb-cleanup.bat` on Windows or `./couchdb/couchdb-cleanup.sh` on UNIX like systems.
+29
+30	### Install dependencies & start the application
+31
+32	1. Install dependencies: `npm install`
+33	2. Configure `REACT_APP_HOSPITALRUN_API=http://localhost:5984` environment variable in `.env`
+34	3. Run the application `npm start`
+35
+36	## 3. Start the application
+37
+38	```
+39	npm install
+40	npm run start
+41	```
+42
+43	Open a file named `.env` and add a line `REACT_APP_HOSPITALRUN_API=http://localhost:5984` if you don't have it yet.
+44
+45	_Note: To delete the development database, go to the root of the project and run `docker-compose down -v --rmi all --remove-orphans`_
+46
+47	If your branch's packages changed, reinstall the packages before starting the application:
+48
+49	```
+50	rm -fr node_modules
+51	rm yarn.lock (if you used yarn before)
+52	rm package-lock.json
+53	npm install
+54	npm run start
+55	```
+56
+57	_Note: We no longer support the use of yarn._
+58
+59	## 4. Before pushing your changes, check locally that your branch passes CI checks
+60
+61	### We use Jest + React Testing Library for Behavior-Driven Development Tests
+62
+63	`npm run test:ci` will run the entire test suite
+64
+65	`npm run test:ci <file name>` e.g. `npm run test:ci src/__tests__/HospitalRun.test.tsx` will run that specific test file
+66
+67	`npm run test` will run the test suite in watch mode
+68
+69	### We use ESLint for static program analysis
+70
+71	`npm run lint` will run the linter
+72
+73	`npm run lint:fix` will run the linter and fix fixable errors
+74
+75	## 5. Get familiar with documentation
+76
+77	- For a list of i18n language codes, see [this](https://github.com/HospitalRun/hospitalrun-frontend/tree/master/src/locales/README.md).
+78
+79	## [ Extra ] Resources to help get you ramped up on the tech stack!
+80
+81	### React
+82
+83	- [React Tutorial for Beginners by
+84	  Programming with Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0)
+85	- [Chrome React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+86	- [VSCode React Extension Pack](https://marketplace.visualstudio.com/items?itemName=jawandarajbir.react-vscode-extension-pack)
+87
+88	### Redux
+89
+90	- [Redux For Beginners | React Redux Tutorial by DevEd](https://youtu.be/CVpUuw9XSjY)
+91	- [Chrome Redux Developer Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+92
+93	### PouchDB
+94
+95	- [Getting started with PouchDB and CouchDB (tutorial) by Nolan Lawson](https://youtu.be/-Z7UF2TuSp0)
+96
+97	### React Testing Library
+98
+99	- [React Testing Library Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
+100	
+
+
+bash
+command
+ls -la /tmp/inputs/hospitalrun-frontend/src/labs/
+output
+total 15
+drwxr-xr-x  6 argocd root  180 Dec 21 21:42 .
+drwxr-xr-x 15 argocd root  460 Dec 21 21:42 ..
+-rw-r--r--  1 argocd root 1265 Jan  1  1970 Labs.tsx
+-rw-r--r--  1 argocd root 9074 Jan  1  1970 ViewLab.tsx
+-rw-r--r--  1 argocd root 4112 Jan  1  1970 ViewLabs.tsx
+drwxr-xr-x  2 argocd root  160 Dec 21 21:42 hooks
+drwxr-xr-x  2 argocd root   60 Dec 21 21:42 model
+drwxr-xr-x  2 argocd root   60 Dec 21 21:42 requests
+drwxr-xr-x  2 argocd root   60 Dec 21 21:42 utils
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx with line numbers:
+1	import React from 'react'
+2	import { useSelector } from 'react-redux'
+3	import { Switch } from 'react-router-dom'
+4
+5	import useAddBreadcrumbs from '../page-header/breadcrumbs/useAddBreadcrumbs'
+6	import PrivateRoute from '../shared/components/PrivateRoute'
+7	import Permissions from '../shared/model/Permissions'
+8	import { RootState } from '../shared/store'
+9	import NewLabRequest from './requests/NewLabRequest'
+10	import ViewLab from './ViewLab'
+11	import LabRequests from './ViewLabs'
+12
+13	const Labs = () => {
+14	  const { permissions } = useSelector((state: RootState) => state.user)
+15	  const breadcrumbs = [
+16	    {
+17	      i18nKey: 'labs.label',
+18	      location: `/labs`,
+19	    },
+20	  ]
+21	  useAddBreadcrumbs(breadcrumbs, true)
+22
+23	  return (
+24	    <Switch>
+25	      <PrivateRoute
+26	        isAuthenticated={permissions.includes(Permissions.ViewLabs)}
+27	        exact
+28	        path="/labs"
+29	        component={LabRequests}
+30	      />
+31	      <PrivateRoute
+32	        isAuthenticated={permissions.includes(Permissions.RequestLab)}
+33	        exact
+34	        path="/labs/new"
+35	        component={NewLabRequest}
+36	      />
+37	      <PrivateRoute
+38	        isAuthenticated={permissions.includes(Permissions.ViewLab)}
+39	        exact
+40	        path="/labs/:id"
+41	        component={ViewLab}
+42	      />
+43	    </Switch>
+44	  )
+45	}
+46
+47	export default Labs
+48	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/medications/Medications.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/medications/Medications.tsx with line numbers:
+1	import React from 'react'
+2	import { useSelector } from 'react-redux'
+3	import { Switch } from 'react-router-dom'
+4
+5	import useAddBreadcrumbs from '../page-header/breadcrumbs/useAddBreadcrumbs'
+6	import PrivateRoute from '../shared/components/PrivateRoute'
+7	import Permissions from '../shared/model/Permissions'
+8	import { RootState } from '../shared/store'
+9	import NewMedicationRequest from './requests/NewMedicationRequest'
+10	import MedicationRequests from './search/ViewMedications'
+11	import ViewMedication from './ViewMedication'
+12
+13	const Medications = () => {
+14	  const { permissions } = useSelector((state: RootState) => state.user)
+15	  const breadcrumbs = [
+16	    {
+17	      i18nKey: 'medications.label',
+18	      location: `/medications`,
+19	    },
+20	  ]
+21	  useAddBreadcrumbs(breadcrumbs, true)
+22
+23	  return (
+24	    <Switch>
+25	      <PrivateRoute
+26	        isAuthenticated={permissions.includes(Permissions.ViewMedications)}
+27	        exact
+28	        path="/medications"
+29	        component={MedicationRequests}
+30	      />
+31	      <PrivateRoute
+32	        isAuthenticated={permissions.includes(Permissions.RequestMedication)}
+33	        exact
+34	        path="/medications/new"
+35	        component={NewMedicationRequest}
+36	      />
+37	      <PrivateRoute
+38	        isAuthenticated={permissions.includes(Permissions.ViewMedication)}
+39	        exact
+40	        path="/medications/:id"
+41	        component={ViewMedication}
+42	      />
+43	    </Switch>
+44	  )
+45	}
+46
+47	export default Medications
+48	
+
+
+bash
+command
+grep -r "Permissions\." /tmp/inputs/hospitalrun-frontend/src/shared/model/ --include="*.ts"
+system
+Tool ran without output or errors
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/shared/model -name "*.ts"
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Lab.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Imaging.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Note.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/CareGoal.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Appointment.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Name.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/RelatedPerson.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/AbstractDBModel.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Medication.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/ContactInformation.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Diagnosis.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Incident.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Visit.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Allergy.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Breadcrumb.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/User.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/CarePlan.ts
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts with line numbers:
+1	enum Permissions {
+2	  ReadPatients = 'read:patients',
+3	  WritePatients = 'write:patients',
+4	  ReadAppointments = 'read:appointments',
+5	  WriteAppointments = 'write:appointments',
+6	  DeleteAppointment = 'delete:appointment',
+7	  AddAllergy = 'write:allergy',
+8	  AddDiagnosis = 'write:diagnosis',
+9	  RequestLab = 'write:labs',
+10	  CancelLab = 'cancel:lab',
+11	  CompleteLab = 'complete:lab',
+12	  ViewLab = 'read:lab',
+13	  ViewLabs = 'read:labs',
+14	  ViewIncidents = 'read:incidents',
+15	  ViewIncident = 'read:incident',
+16	  ReportIncident = 'write:incident',
+17	  ResolveIncident = 'resolve:incident',
+18	  AddCarePlan = 'write:care_plan',
+19	  ReadCarePlan = 'read:care_plan',
+20	  AddCareGoal = 'write:care_goal',
+21	  ReadCareGoal = 'read:care_goal',
+22	  RequestMedication = 'write:medications',
+23	  CancelMedication = 'cancel:medication',
+24	  CompleteMedication = 'complete:medication',
+25	  ViewMedication = 'read:medication',
+26	  ViewMedications = 'read:medications',
+27	  AddVisit = 'write:visit',
+28	  ReadVisits = 'read:visit',
+29	  RequestImaging = 'write:imaging',
+30	  ViewImagings = 'read:imagings',
+31	  ViewIncidentWidgets = 'read:incident_widgets',
+32	}
+33
+34	export default Permissions
+35	
+
+Now let me create a visual diagram to help explain the architecture:
+
+
+bash
+command
+cat > /tmp/inputs/plugin_architecture_overview.txt << 'EOF'
+HOSPITALRUN FRONTEND - PLUGIN/EXTENSION ARCHITECTURE ANALYSIS
+=============================================================
+
+CURRENT STATE: NO FORMAL PLUGIN SYSTEM
+--------------------------------------
+HospitalRun Frontend does NOT have a formal plugin/extension architecture. 
+The application follows a modular monolithic structure where features are 
+organized as separate modules but tightly integrated into the core application.
+
+CURRENT ARCHITECTURE PATTERN
+-----------------------------
+The application uses a feature-based modular structure:
+
+1. FEATURE MODULES (located in /src/):
+   - patients/
+   - appointments/ (in scheduling/)
+   - labs/
+   - medications/
+   - imagings/
+   - incidents/
+   - settings/
+   - dashboard/
+
+2. INTEGRATION POINTS:
+   
+   a) ROUTING (HospitalRun.tsx):
+      - All routes defined centrally in Switch statement
+      - Each module component added manually
+      
+   b) SIDEBAR NAVIGATION (Sidebar.tsx):
+      - Menu items hardcoded in component
+      - Each feature needs manual sidebar function (e.g., getLabLinks())
+      
+   c) REDUX STORE (shared/store/index.ts):
+      - Reducers imported and combined manually
+      - Each feature's slice must be added to combineReducers()
+      
+   d) DATABASE SCHEMA (shared/config/pouchdb.ts):
+      - Schema defined in array with relationships
+      - New entities must be added to schema array
+      
+   e) PERMISSIONS (shared/model/Permissions.ts):
+      - Enum with all permission strings
+      - New permissions must be added to enum
+
+HOW TO ADD A "NEW PLUGIN" (Feature Module)
+-------------------------------------------
+
+Step 1: CREATE MODULE STRUCTURE
+   /src/your-feature/
+   ├── YourFeature.tsx          (main component with routes)
+   ├── hooks/                    (custom hooks)
+   ├── model/                    (TypeScript interfaces)
+   ├── components/               (UI components)
+   └── your-feature-slice.ts    (Redux state, if needed)
+
+Step 2: ADD TO ROUTING (HospitalRun.tsx)
+   - Import your component
+   - Add Route to Switch:
+     <Route path="/your-feature" component={YourFeature} />
+
+Step 3: ADD TO SIDEBAR (shared/components/Sidebar.tsx)
+   - Create getYourFeatureLinks() function
+   - Add it to the sidebar render list
+   - Add to expandedItem state logic
+
+Step 4: ADD TO REDUX STORE (optional, shared/store/index.ts)
+   - Import your slice reducer
+   - Add to combineReducers()
+
+Step 5: ADD DATABASE SCHEMA (shared/config/pouchdb.ts)
+   - Add your entity to schema array with relations:
+     {
+       singular: 'yourEntity',
+       plural: 'yourEntities',
+       relations: { /* define relationships */ }
+     }
+
+Step 6: ADD PERMISSIONS (shared/model/Permissions.ts)
+   - Add permission enum values for your feature:
+     ViewYourFeature = 'read:your_feature',
+     WriteYourFeature = 'write:your_feature',
+
+Step 7: ADD TRANSLATIONS
+   - Add i18n keys to translation files
+
+EXAMPLE: Following the Labs Module Pattern
+-------------------------------------------
+
+1. Labs.tsx structure:
+   - Uses React Router Switch for sub-routes
+   - Uses PrivateRoute with permissions
+   - Imports sub-components (NewLabRequest, ViewLab, ViewLabs)
+   - Uses breadcrumbs hook
+
+2. Integration pattern visible in codebase:
+   - Sidebar: getLabLinks() function (lines 204-252)
+   - Routing: <Route path="/labs" component={Labs} /> (line 53)
+   - Schema: lab entity in schema array (lines 57-60)
+   - Permissions: RequestLab, ViewLab, ViewLabs (lines 9-13)
+
+WHY NO PLUGIN SYSTEM?
+---------------------
+This is a medical records system where:
+- Strong typing and compile-time checks are critical
+- Data integrity and relationships must be guaranteed
+- Security/permissions need tight integration
+- UI consistency is essential
+- The feature set is relatively stable and defined
+
+ALTERNATIVE: CREATING A TRUE PLUGIN SYSTEM
+------------------------------------------
+If you wanted to add a plugin architecture, you would need:
+
+1. Plugin Registry System
+2. Dynamic Route Registration
+3. Dynamic Redux Store Enhancement
+4. Dynamic Schema Extension
+5. Plugin Manifest Format (JSON/YAML)
+6. Plugin Lifecycle Hooks
+7. Isolated Plugin Contexts
+8. Plugin Communication API
+
+This would be a significant architectural change requiring:
+- Dynamic imports/code splitting
+- Plugin validation and sandboxing
+- Backward compatibility management
+- Plugin dependency resolution
+
+POUCHDB PLUGINS
+---------------
+The ONLY plugin system in use is for PouchDB (database layer):
+- PouchDB.plugin(search)
+- PouchDB.plugin(memoryAdapter)
+- PouchDB.plugin(RelationalPouch)
+- PouchDB.plugin(PouchdbFind)
+- PouchDB.plugin(PouchAuth)
+
+These extend database functionality, not application features.
+EOF
+cat /tmp/inputs/plugin_architecture_overview.txt
+
+output
+HOSPITALRUN FRONTEND - PLUGIN/EXTENSION ARCHITECTURE ANALYSIS
+=============================================================
+
+CURRENT STATE: NO FORMAL PLUGIN SYSTEM
+--------------------------------------
+HospitalRun Frontend does NOT have a formal plugin/extension architecture.
+The application follows a modular monolithic structure where features are
+organized as separate modules but tightly integrated into the core application.
+
+CURRENT ARCHITECTURE PATTERN
+-----------------------------
+The application uses a feature-based modular structure:
+
+1. FEATURE MODULES (located in /src/):
+- patients/
+- appointments/ (in scheduling/)
+- labs/
+- medications/
+- imagings/
+- incidents/
+- settings/
+- dashboard/
+
+2. INTEGRATION POINTS:
+
+a) ROUTING (HospitalRun.tsx):
+- All routes defined centrally in Switch statement
+- Each module component added manually
+
+b) SIDEBAR NAVIGATION (Sidebar.tsx):
+- Menu items hardcoded in component
+- Each feature needs manual sidebar function (e.g., getLabLinks())
+
+c) REDUX STORE (shared/store/index.ts):
+- Reducers imported and combined manually
+- Each feature's slice must be added to combineReducers()
+
+d) DATABASE SCHEMA (shared/config/pouchdb.ts):
+- Schema defined in array with relationships
+- New entities must be added to schema array
+
+e) PERMISSIONS (shared/model/Permissions.ts):
+- Enum with all permission strings
+- New permissions must be added to enum
+
+HOW TO ADD A "NEW PLUGIN" (Feature Module)
+-------------------------------------------
+
+Step 1: CREATE MODULE STRUCTURE
+/src/your-feature/
+├── YourFeature.tsx          (main component with routes)
+├── hooks/                    (custom hooks)
+├── model/                    (TypeScript interfaces)
+├── components/               (UI components)
+└── your-feature-slice.ts    (Redux state, if needed)
+
+Step 2: ADD TO ROUTING (HospitalRun.tsx)
+- Import your component
+- Add Route to Switch:
+<Route path="/your-feature" component={YourFeature} />
+
+Step 3: ADD TO SIDEBAR (shared/components/Sidebar.tsx)
+- Create getYourFeatureLinks() function
+- Add it to the sidebar render list
+- Add to expandedItem state logic
+
+Step 4: ADD TO REDUX STORE (optional, shared/store/index.ts)
+- Import your slice reducer
+- Add to combineReducers()
+
+Step 5: ADD DATABASE SCHEMA (shared/config/pouchdb.ts)
+- Add your entity to schema array with relations:
+{
+singular: 'yourEntity',
+plural: 'yourEntities',
+relations: { /* define relationships */ }
+}
+
+Step 6: ADD PERMISSIONS (shared/model/Permissions.ts)
+- Add permission enum values for your feature:
+ViewYourFeature = 'read:your_feature',
+WriteYourFeature = 'write:your_feature',
+
+Step 7: ADD TRANSLATIONS
+- Add i18n keys to translation files
+
+EXAMPLE: Following the Labs Module Pattern
+-------------------------------------------
+
+1. Labs.tsx structure:
+- Uses React Router Switch for sub-routes
+- Uses PrivateRoute with permissions
+- Imports sub-components (NewLabRequest, ViewLab, ViewLabs)
+- Uses breadcrumbs hook
+
+2. Integration pattern visible in codebase:
+- Sidebar: getLabLinks() function (lines 204-252)
+- Routing: <Route path="/labs" component={Labs} /> (line 53)
+- Schema: lab entity in schema array (lines 57-60)
+- Permissions: RequestLab, ViewLab, ViewLabs (lines 9-13)
+
+WHY NO PLUGIN SYSTEM?
+---------------------
+This is a medical records system where:
+- Strong typing and compile-time checks are critical
+- Data integrity and relationships must be guaranteed
+- Security/permissions need tight integration
+- UI consistency is essential
+- The feature set is relatively stable and defined
+
+ALTERNATIVE: CREATING A TRUE PLUGIN SYSTEM
+------------------------------------------
+If you wanted to add a plugin architecture, you would need:
+
+1. Plugin Registry System
+2. Dynamic Route Registration
+3. Dynamic Redux Store Enhancement
+4. Dynamic Schema Extension
+5. Plugin Manifest Format (JSON/YAML)
+6. Plugin Lifecycle Hooks
+7. Isolated Plugin Contexts
+8. Plugin Communication API
+
+This would be a significant architectural change requiring:
+- Dynamic imports/code splitting
+- Plugin validation and sandboxing
+- Backward compatibility management
+- Plugin dependency resolution
+
+POUCHDB PLUGINS
+---------------
+The ONLY plugin system in use is for PouchDB (database layer):
+- PouchDB.plugin(search)
+- PouchDB.plugin(memoryAdapter)
+- PouchDB.plugin(RelationalPouch)
+- PouchDB.plugin(PouchdbFind)
+- PouchDB.plugin(PouchAuth)
+
+These extend database functionality, not application features.
+
+Perfect! Now let me provide you with a comprehensive answer:
+
+## HospitalRun Frontend Plugin/Extension Architecture
+
+**The short answer**: HospitalRun doesn't have a formal plugin or extension architecture. It uses a modular monolithic structure where features are tightly integrated into the core application.
+
+### Current Architecture
+
+The application is organized as feature modules (patients, labs, medications, incidents, etc.), but each module must be manually wired into five key integration points:
+
+1. **Routing** in `HospitalRun.tsx` - You add a Route component in the central Switch statement
+2. **Sidebar Navigation** in `Sidebar.tsx` - Each feature needs a hardcoded sidebar function like `getLabLinks()`
+3. **Redux Store** in `shared/store/index.ts` - Reducers are manually imported and combined
+4. **Database Schema** in `shared/config/pouchdb.ts` - Entities and relationships are defined in a schema array
+5. **Permissions** in `shared/model/Permissions.ts` - Permission strings are defined as enum values
+
+### How to Add a New Feature (Module)
+
+If you want to add something like a new "Pharmacy" or "Radiology" module, you'd follow this pattern:
+
+1. Create your module structure under `/src/pharmacy/` with a main component, hooks, models, and a Redux slice if needed
+2. Import and add a Route in `HospitalRun.tsx`
+3. Create a `getPharmacyLinks()` function in `Sidebar.tsx` and call it in the render
+4. Add your reducer to `combineReducers()` in the store
+5. Define your database entities in the PouchDB schema array
+6. Add permission enums like `ViewPharmacy = 'read:pharmacy'`
+7. Add i18n translation keys
+
+The Labs module is a great example to follow - it shows the complete pattern with routing, permissions, breadcrumbs, and sub-routes.
+
+### Why No Plugin System?
+
+This is a medical records system where compile-time type safety, data integrity, security, and UI consistency are critical. The tightly-coupled architecture makes sense for this use case. A dynamic plugin system would introduce complexity and potential security/reliability issues that aren't worth the trade-off for a relatively stable feature set.
+
+The only "plugin" system in use is PouchDB's plugin mechanism for extending database functionality, not application features.
+plugin_architecture_overview.txt
+
+4. Now write the ideal answer, model a  summary, model a feedback,  model b summary model b feedback,justification. i want same level of details and evidence and writing style and lenght like this sample THIS IS SAMPLE FOR you below, READ CAREFULLY: 
+
+
+SUPER IMPORTANT RULE YOU MUST FOLLOW. YOU MUST WRITE SAME WAY SAME QUALITY SAME FORMAT SAME STYLE AS SAMPLE BELOW!@!!!!!!!
+
+——SAMPLE:—
+—Every below is sample—
+
+Ideal Response.
+
+This ideal answer should clearly describe how Spring Petclinic wires its components through dependency injection using common patterns like constructor based injection, component scanning, and configuration-driven bean factories ...etc, and even dive deeper to explain how controllers (e.g.,src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java) declare all the collaborators in the constructors rather than in the fields, how stereotype annotations make those classes eligible for autodetection, how the repository abstractions are injected as interfaces implemented by the Spring Data JPA, and how @Configuration classes expose shared infrastructure beans that all the other components consume.
+Model must explain that Spring Petclinic leans on constructor-based dependency injection to keep controllers explicit and testable. For example, it should explain controller like spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java is annotated with @Controller and declares a single constructor that takes an OwnerRepository, which has the role of letting Spring populate the dependency while preventing partially constructed instance. Model should point out that the controller never uses field injection or @Autowired on members, so the required collaborator is enforced at creation time. For example, in src/main/java/org/springframework/samples/petclinic/vet/VetController.java, whose constructor requires a VetRepository and assigns it to a final field, it is also relying on the container to supply the repository proxy. Even non-controller components follow this approach, for example src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, which is a @Component that exposes a Formatter<PetType> but takes its PetTypeRepository in the constructor, which is keeping parsing logic decoupled from storage details while still making the repository mandatory for instantiation.
+Model must also explain repository layer demonstrates interface-driven injection. Interfaces such as spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java extend Spring Data JPA’s JpaRepository, which is letting the framework auto-create runtime proxies that satisfy the dependency signatures declared in controllers and formatters.
+Overall, the dependency injection explanation should ideally go deep and cover how @SpringBootApplication bootstraps component scanning, constructors declare required collaborators, repositories are injected as interfaces backed by generated proxies, and @Configuration classes publish shared infrastructure as beans.
+
+
+
+Model A Response Summary
+
+Model A did pretty well because it correctly identifiy constructor-based injection as the major dominant pattern and notes the absence of @Autowired, aligning with controllers like OwnerController and VetController that declare single-argument constructors for their repositories, which are src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java and src/main/java/org/springframework/samples/petclinic/vet/VetController.java,. It also correctly observes that PetTypeFormatter uses constructor injection as a component, which matches the formatters’ constructor-driven PetTypeRepository dependency. It points out that in src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, the response highlights component scanning via the stereotype annotations and the role of repository interfaces that Spring Data implements at runtime, dynamically, and consistent with the JpaRepository extension inside src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java.  Overall, the summary gives good overview of the core DI patterns present in the codebase.
+Model A Response Feedback
+
+the answer is strong on constructor injection and the lack of @Autowired, both supported by the controller and formatter classes cited in summary above, which are very impressive findings in my opinion as tehy’re not that obvious. One area it could be improved is by referencing configuration-driven beans such as the cache and locale interceptors declared in CacheConfiguration and WebConfiguration , to show that DI also wires infrastructure services, not just repositories and controllers in files like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. Mentioning of @SpringBootApplication as the trigger for component scanning would further strengthen the explanation by tying bean discovery to the application entry point in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java. These additions would align the response even more tightly with the full range of DI patterns in the repo. But overall, the model did pretty well despite these issues.
+
+Model B Response Summary
+
+Model B repeats the constructor-injection narrative and cites the same controllers (OwnerController, PetController, VetController, VisitController) and the PetTypeFormatter component under main/java/org/springframework/samples/petclinic/*, matching their constructor-based repository dependencies.It notes the absence of @Autowired/@Inject and correctly attributes bean registration to stereotype annotations and Spring Data proxies for repositories like OwnerRepository in src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java†. The summary emphasizes constructor injection benefits but remains fairly high-level. Overall the model did not give an in-depth explanation and i believe the model did not really check the code thoroughly for the explanation. 
+Model B Response Feedback
+
+While this model is technically accurate about constructor injection and stereotype-based registration, but Model B stays generic and omits key DI elements present in the code which are obvious and should not be missed at all! It does not even mention the configuration classes that publish infrastructure beans (e.g., cache customization or locale handling), which are central examples of DI beyond the configurations like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. The response also overlooks the @SpringBootApplication entry point that enables component scanning for all these beans such as in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java.Compared to Model A, it provides less depth on how DI wiring spans both application endpoints and shared infrastructure.
+Overall Preference Justification
+
+Model A is way better because it balances correctness about constructor injection with explicit recognition of repository interfaces and the role of component scanning, closely matching the structure seen in controllers, formatters, and repositories...etc such as src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java,src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java,src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java, Although both models miss some configuration details, Model A surfaces more of the actual DI practices visible in the code and provides a clearer link between stereotypes and injection than Model B, which remains more generic and omits infrastructure wiring examples such as ,src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java.....etc. Therefore, Model A offers the stronger, more code-grounded explanation in my opinion.
