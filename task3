@@ -1,0 +1,1953 @@
+
+
+DO NOT EVER ADD “WORKSPACE IN FILE PATH, start with src folder!” DO NOT ADD EM DASH! MUST CITE 5 real files in each section especially ideal answer!
+
+Make sure to obey these 100% “
+
+-  All answers should have  5+ meaningful sentences and clear as well 
+- Adding a few file references in the feedback section could strength the answer.
+- The ideal response could benefit from a dedicated file-list section summarizing all referenced files together.
+- Adding separate strength and weakness points inside summaries would enhance readability and make the evaluation feel more complete.
+
+
+1.new task, question is: “How does the web app technically enforce that users cannot access data belonging to other users
+
+2.here is model A's response:  
+ I'll investigate how this web app enforces data access controls between users. Let me explore the codebase to understand the technical implementation.
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/jest.config.js
+/tmp/inputs/hospitalrun-frontend/.eslintrc.js
+/tmp/inputs/hospitalrun-frontend/commitlint.config.js
+/tmp/inputs/hospitalrun-frontend/src/index.tsx
+/tmp/inputs/hospitalrun-frontend/src/App.tsx
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/IncidentFilter.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncidentDetails.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/model/IncidentSearchRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncident.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend, excluding hidden items and node_modules:
+113M	/tmp/inputs/hospitalrun-frontend
+79K	/tmp/inputs/hospitalrun-frontend/CHANGELOG.md
+1.5K	/tmp/inputs/hospitalrun-frontend/LICENSE
+3.0K	/tmp/inputs/hospitalrun-frontend/README.md
+1.5K	/tmp/inputs/hospitalrun-frontend/SECURITY.md
+3.0K	/tmp/inputs/hospitalrun-frontend/azure.yaml
+512	/tmp/inputs/hospitalrun-frontend/commitlint.config.js
+3.0K	/tmp/inputs/hospitalrun-frontend/couchdb
+512	/tmp/inputs/hospitalrun-frontend/couchdb/Dockerfile
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/local.ini
+1.5K	/tmp/inputs/hospitalrun-frontend/docker-compose.yml
+512	/tmp/inputs/hospitalrun-frontend/docs
+512	/tmp/inputs/hospitalrun-frontend/docs/index.md
+512	/tmp/inputs/hospitalrun-frontend/jest.config.js
+512	/tmp/inputs/hospitalrun-frontend/mkdocs.yml
+512	/tmp/inputs/hospitalrun-frontend/nginx.conf
+5.5K	/tmp/inputs/hospitalrun-frontend/package.json
+20K	/tmp/inputs/hospitalrun-frontend/public
+1.5K	/tmp/inputs/hospitalrun-frontend/public/favicon.ico
+2.0K	/tmp/inputs/hospitalrun-frontend/public/index.html
+16K	/tmp/inputs/hospitalrun-frontend/public/logo.png
+512	/tmp/inputs/hospitalrun-frontend/public/manifest.json
+512	/tmp/inputs/hospitalrun-frontend/public/robots.txt
+3.5K	/tmp/inputs/hospitalrun-frontend/scripts
+2.5K	/tmp/inputs/hospitalrun-frontend/scripts/check-translations
+512	/tmp/inputs/hospitalrun-frontend/scripts/tsconfig.json
+1.2M	/tmp/inputs/hospitalrun-frontend/src
+2.0K	/tmp/inputs/hospitalrun-frontend/src/App.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__
+564K	/tmp/inputs/hospitalrun-frontend/src/__tests__
+1.5K	/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard
+17K	/tmp/inputs/hospitalrun-frontend/src/imagings
+29K	/tmp/inputs/hospitalrun-frontend/src/incidents
+2.0K	/tmp/inputs/hospitalrun-frontend/src/index.css
+1.0K	/tmp/inputs/hospitalrun-frontend/src/index.tsx
+28K	/tmp/inputs/hospitalrun-frontend/src/labs
+36K	/tmp/inputs/hospitalrun-frontend/src/medications
+6.5K	/tmp/inputs/hospitalrun-frontend/src/page-header
+192K	/tmp/inputs/hospitalrun-frontend/src/patients
+512	/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+30K	/tmp/inputs/hospitalrun-frontend/src/scheduling
+5.5K	/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings
+1.0K	/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user
+1.0K	/tmp/inputs/hospitalrun-frontend/tsconfig.json
+
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -type f \( -name "*auth*" -o -name "*permission*" -o -name "*user*" \) | grep -v __tests__ | grep -v node_modules
+output
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/shared -type f -name "*.ts" -o -name "*.tsx" | grep -v __tests__ | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/SortRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Search.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Sort.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Lab.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Imaging.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Note.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/CareGoal.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Appointment.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Name.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts with line numbers:
+1	enum Permissions {
+2	  ReadPatients = 'read:patients',
+3	  WritePatients = 'write:patients',
+4	  ReadAppointments = 'read:appointments',
+5	  WriteAppointments = 'write:appointments',
+6	  DeleteAppointment = 'delete:appointment',
+7	  AddAllergy = 'write:allergy',
+8	  AddDiagnosis = 'write:diagnosis',
+9	  RequestLab = 'write:labs',
+10	  CancelLab = 'cancel:lab',
+11	  CompleteLab = 'complete:lab',
+12	  ViewLab = 'read:lab',
+13	  ViewLabs = 'read:labs',
+14	  ViewIncidents = 'read:incidents',
+15	  ViewIncident = 'read:incident',
+16	  ReportIncident = 'write:incident',
+17	  ResolveIncident = 'resolve:incident',
+18	  AddCarePlan = 'write:care_plan',
+19	  ReadCarePlan = 'read:care_plan',
+20	  AddCareGoal = 'write:care_goal',
+21	  ReadCareGoal = 'read:care_goal',
+22	  RequestMedication = 'write:medications',
+23	  CancelMedication = 'cancel:medication',
+24	  CompleteMedication = 'complete:medication',
+25	  ViewMedication = 'read:medication',
+26	  ViewMedications = 'read:medications',
+27	  AddVisit = 'write:visit',
+28	  ReadVisits = 'read:visit',
+29	  RequestImaging = 'write:imaging',
+30	  ViewImagings = 'read:imagings',
+31	  ViewIncidentWidgets = 'read:incident_widgets',
+32	}
+33
+34	export default Permissions
+35	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts with line numbers:
+1	/* eslint-disable no-underscore-dangle */
+2	import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+3
+4	import { remoteDb } from '../shared/config/pouchdb'
+5	import Permissions from '../shared/model/Permissions'
+6	import User from '../shared/model/User'
+7	import { AppThunk } from '../shared/store'
+8
+9	export interface LoginError {
+10	  message?: string
+11	  username?: string
+12	  password?: string
+13	}
+14
+15	export interface UserState {
+16	  permissions: (Permissions | null)[]
+17	  user?: User
+18	  loginError?: LoginError
+19	}
+20
+21	const initialState: UserState = {
+22	  user: {
+23	    givenName: 'HospitalRun',
+24	    familyName: 'Test',
+25	    fullName: 'HospitalRun Test',
+26	    id: 'test-hospitalrun',
+27	  },
+28	  permissions: [
+29	    Permissions.ReadPatients,
+30	    Permissions.WritePatients,
+31	    Permissions.ReadAppointments,
+32	    Permissions.WriteAppointments,
+33	    Permissions.DeleteAppointment,
+34	    Permissions.AddAllergy,
+35	    Permissions.AddDiagnosis,
+36	    Permissions.ViewLabs,
+37	    Permissions.ViewLab,
+38	    Permissions.RequestLab,
+39	    Permissions.CompleteLab,
+40	    Permissions.CancelLab,
+41	    Permissions.ViewIncident,
+42	    Permissions.ViewIncidents,
+43	    Permissions.ReportIncident,
+44	    Permissions.ResolveIncident,
+45	    Permissions.ViewIncidentWidgets,
+46	    Permissions.AddCarePlan,
+47	    Permissions.ReadCarePlan,
+48	    Permissions.AddCareGoal,
+49	    Permissions.ReadCareGoal,
+50	    Permissions.RequestMedication,
+51	    Permissions.CompleteMedication,
+52	    Permissions.CancelMedication,
+53	    Permissions.ViewMedications,
+54	    Permissions.ViewMedication,
+55	    Permissions.AddVisit,
+56	    Permissions.ReadVisits,
+57	    Permissions.ViewImagings,
+58	    Permissions.RequestImaging,
+59	  ],
+60	}
+61
+62	const userSlice = createSlice({
+63	  name: 'user',
+64	  initialState,
+65	  reducers: {
+66	    fetchPermissions(state, { payload }: PayloadAction<Permissions[]>) {
+67	      state.permissions = payload
+68	    },
+69	    loginSuccess(
+70	      state,
+71	      { payload }: PayloadAction<{ user: User; permissions: (Permissions | null)[] }>,
+72	    ) {
+73	      state.user = payload.user
+74	      state.permissions = initialState.permissions
+75	    },
+76	    loginError(state, { payload }: PayloadAction<LoginError>) {
+77	      state.loginError = payload
+78	    },
+79	    logoutSuccess(state) {
+80	      state.user = undefined
+81	      state.permissions = []
+82	    },
+83	  },
+84	})
+85
+86	export const { fetchPermissions, loginError, loginSuccess, logoutSuccess } = userSlice.actions
+87
+88	export const getCurrentSession = (username: string): AppThunk => async (dispatch) => {
+89	  const user = await remoteDb.getUser(username)
+90	  dispatch(
+91	    loginSuccess({
+92	      user: {
+93	        id: user._id,
+94	        givenName: (user as any).metadata.givenName,
+95	        familyName: (user as any).metadata.familyName,
+96	      },
+97	      permissions: initialState.permissions,
+98	    }),
+99	  )
+100	}
+101
+102	export const login = (username: string, password: string): AppThunk => async (dispatch) => {
+103	  try {
+104	    const response = await remoteDb.logIn(username, password)
+105	    const user = await remoteDb.getUser(response.name)
+106	    dispatch(
+107	      loginSuccess({
+108	        user: {
+109	          id: user._id,
+110	          givenName: (user as any).metadata.givenName,
+111	          familyName: (user as any).metadata.familyName,
+112	        },
+113	        permissions: initialState.permissions,
+114	      }),
+115	    )
+116	  } catch (error) {
+117	    if (!username || !password) {
+118	      dispatch(
+119	        loginError({
+120	          message: 'user.login.error.message.required',
+121	          username: 'user.login.error.username.required',
+122	          password: 'user.login.error.password.required',
+123	        }),
+124	      )
+125	    } else if (error.status === 401) {
+126	      dispatch(
+127	        loginError({
+128	          message: 'user.login.error.message.incorrect',
+129	        }),
+130	      )
+131	    }
+132	  }
+133	}
+134
+135	export const logout = (): AppThunk => async (dispatch) => {
+136	  await remoteDb.logOut()
+137	  dispatch(logoutSuccess())
+138	}
+139
+140	export default userSlice.reducer
+141	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/shared -type f -name "*pouchdb*" -o -name "*config*" | head -10
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/config
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts with line numbers:
+1	/* eslint-disable @typescript-eslint/no-var-requires */
+2	/* eslint-disable camelcase */
+3	import PouchDB from 'pouchdb'
+4	import PouchAuth from 'pouchdb-authentication'
+5	import PouchdbFind from 'pouchdb-find'
+6	import RelationalPouch from 'relational-pouch'
+7
+8	const memoryAdapter = require('pouchdb-adapter-memory')
+9	const search = require('pouchdb-quick-search')
+10
+11	PouchDB.plugin(search)
+12	PouchDB.plugin(memoryAdapter)
+13	PouchDB.plugin(RelationalPouch)
+14	PouchDB.plugin(PouchdbFind)
+15	PouchDB.plugin(PouchAuth)
+16
+17	let serverDb
+18	let localDb
+19
+20	if (process.env.NODE_ENV === 'test') {
+21	  serverDb = new PouchDB('hospitalrun', { skip_setup: true, adapter: 'memory' })
+22	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true, adapter: 'memory' })
+23	} else {
+24	  serverDb = new PouchDB(`${process.env.REACT_APP_HOSPITALRUN_API}/hospitalrun`, {
+25	    skip_setup: true,
+26	  })
+27
+28	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true })
+29	  localDb.sync(serverDb, { live: true, retry: true })
+30	}
+31
+32	export const schema = [
+33	  {
+34	    singular: 'patient',
+35	    plural: 'patients',
+36	    relations: {
+37	      appointments: {
+38	        hasMany: { type: 'appointment', options: { queryInverse: 'patient', async: true } },
+39	      },
+40	      labs: { hasMany: { type: 'lab', options: { queryInverse: 'patient', async: true } } },
+41	      medications: {
+42	        hasMany: { type: 'medication', options: { queryInverse: 'patient', async: true } },
+43	      },
+44	      imagings: { hasMany: { type: 'imaging', options: { queryInverse: 'patient', async: true } } },
+45	    },
+46	  },
+47	  {
+48	    singular: 'appointment',
+49	    plural: 'appointments',
+50	    relations: { patient: { belongsTo: 'patient' } },
+51	  },
+52	  {
+53	    singular: 'incident',
+54	    plural: 'incidents',
+55	  },
+56	  {
+57	    singular: 'lab',
+58	    plural: 'labs',
+59	    relations: { patient: { belongsTo: 'patient' } },
+60	  },
+61	  {
+62	    singular: 'imaging',
+63	    plural: 'imagings',
+64	    relations: { patient: { belongsTo: 'patient' } },
+65	  },
+66	  {
+67	    singular: 'medication',
+68	    plural: 'medications',
+69	    relations: { patient: { belongsTo: 'patient' } },
+70	  },
+71	]
+72	export const relationalDb = localDb.setSchema(schema)
+73	export const remoteDb = serverDb as PouchDB.Database
+74	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts with line numbers:
+1	import { v4 as uuidv4 } from 'uuid'
+2
+3	import { schema } from '../config/pouchdb'
+4	import AbstractDBModel from '../model/AbstractDBModel'
+5	import SortRequest, { Unsorted } from './SortRequest'
+6
+7	export default class Repository<T extends AbstractDBModel> {
+8	  db: PouchDB.RelDatabase
+9
+10	  type: string
+11
+12	  pluralType: string
+13
+14	  constructor(type: string, db: PouchDB.RelDatabase) {
+15	    this.db = db
+16	    this.type = type
+17	    this.pluralType = schema.find((s) => s.singular === this.type)?.plural || ''
+18	  }
+19
+20	  async find(id: string): Promise<T> {
+21	    const documents = await this.db.rel.find(this.type, id)
+22	    const entity = documents[this.pluralType][0]
+23	    return entity
+24	  }
+25
+26	  async findAll(sort = Unsorted): Promise<T[]> {
+27	    const selector: any = {
+28	      _id: {
+29	        $regex: RegExp(this.type, 'i'),
+30	      },
+31	    }
+32
+33	    sort.sorts.forEach((s) => {
+34	      selector[`data.${s.field}`] = { $gt: null }
+35	    })
+36
+37	    // Adds an index to each of the fields coming from the sorting object
+38	    // allowing the algorithm to sort by any given SortRequest, by avoiding the default index error (lack of index)
+39
+40	    await Promise.all(
+41	      sort.sorts.map(
+42	        async (s): Promise<SortRequest> => {
+43	          await this.db.createIndex({
+44	            index: {
+45	              fields: [`data.${s.field}`],
+46	            },
+47	          })
+48
+49	          return sort
+50	        },
+51	      ),
+52	    )
+53
+54	    const result = await this.db.find({
+55	      selector,
+56	      sort:
+57	        sort.sorts.length > 0
+58	          ? sort.sorts.map((s) => ({ [`data.${s.field}`]: s.direction }))
+59	          : undefined,
+60	    })
+61	    const relDocs = await this.db.rel.parseRelDocs(this.type, result.docs)
+62	    return relDocs[this.pluralType]
+63	  }
+64
+65	  async count(): Promise<number> {
+66	    const result = await this.findAll()
+67	    return result.length
+68	  }
+69
+70	  async search(criteria: any): Promise<T[]> {
+71	    const response = await this.db.find({
+72	      selector: {
+73	        $and: [
+74	          {
+75	            _id: {
+76	              $regex: RegExp(this.type, 'i'),
+77	            },
+78	          },
+79	          { ...criteria.selector },
+80	        ],
+81	      },
+82	    })
+83	    const data = await this.db.rel.parseRelDocs(this.type, response.docs)
+84	    return data[this.pluralType]
+85	  }
+86
+87	  async save(entity: T): Promise<T> {
+88	    const currentTime = new Date().toISOString()
+89
+90	    const { id, rev, ...valuesToSave } = entity
+91	    const savedEntity = await this.db.rel.save(this.type, {
+92	      id: uuidv4(),
+93	      ...valuesToSave,
+94	      createdAt: currentTime,
+95	      updatedAt: currentTime,
+96	    })
+97	    return this.find(savedEntity.id)
+98	  }
+99
+100	  async saveOrUpdate(entity: T): Promise<T> {
+101	    if (!entity.id) {
+102	      return this.save(entity)
+103	    }
+104
+105	    const { id, rev, ...dataToSave } = entity
+106
+107	    try {
+108	      await this.find(entity.id)
+109	      const entityToUpdate = {
+110	        id,
+111	        rev,
+112	        ...dataToSave,
+113	        updatedAt: new Date().toISOString(),
+114	      }
+115
+116	      await this.db.rel.save(this.type, entityToUpdate)
+117	      return this.find(entity.id)
+118	    } catch (error) {
+119	      return this.save(entity)
+120	    }
+121	  }
+122
+123	  async delete(entity: T): Promise<T> {
+124	    const entityToDelete = await this.find(entity.id)
+125	    await this.db.rel.del(this.type, entity)
+126	    return entityToDelete
+127	  }
+128	}
+129	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts with line numbers:
+1	import escapeStringRegexp from 'escape-string-regexp'
+2
+3	import { relationalDb } from '../config/pouchdb'
+4	import Appointment from '../model/Appointment'
+5	import Lab from '../model/Lab'
+6	import Medication from '../model/Medication'
+7	import Patient from '../model/Patient'
+8	import generateCode from '../util/generateCode'
+9	import Repository from './Repository'
+10
+11	class PatientRepository extends Repository<Patient> {
+12	  constructor() {
+13	    super('patient', relationalDb)
+14	    relationalDb.createIndex({
+15	      index: { fields: ['_id', 'data.fullName', 'data.code'] },
+16	    })
+17	  }
+18
+19	  async search(text: string): Promise<Patient[]> {
+20	    const escapedString = escapeStringRegexp(text)
+21	    return super.search({
+22	      selector: {
+23	        $or: [
+24	          {
+25	            'data.fullName': {
+26	              $regex: RegExp(escapedString, 'i'),
+27	            },
+28	          },
+29	          {
+30	            'data.code': text,
+31	          },
+32	        ],
+33	      },
+34	    })
+35	  }
+36
+37	  async save(entity: Patient): Promise<Patient> {
+38	    const patientCode = generateCode('P')
+39	    entity.code = patientCode
+40	    const saveResult = await super.save(entity)
+41	    return this.find(saveResult.id)
+42	  }
+43
+44	  async createIndex() {
+45	    return this.db.createIndex({
+46	      index: { fields: ['index'] },
+47	    })
+48	  }
+49
+50	  async getAppointments(patientId: string): Promise<Appointment[]> {
+51	    const result = await this.db.rel.findHasMany('appointment', 'patient', patientId)
+52	    return result.appointments
+53	  }
+54
+55	  async getLabs(patientId: string): Promise<Lab[]> {
+56	    const result = await this.db.rel.findHasMany('lab', 'patient', patientId)
+57	    return result.labs
+58	  }
+59
+60	  async getMedications(patientId: string): Promise<Medication[]> {
+61	    const result = await this.db.rel.findHasMany('medication', 'patient', patientId)
+62	    return result.medications
+63	  }
+64	}
+65
+66	export default new PatientRepository()
+67	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -name "package.json" -type f | head -1 | xargs cat | grep -A 5 -B 5 "pouchdb"
+output
+  "dependencies": {
+"@hospitalrun/components": "~3.4.0",
+"@reduxjs/toolkit": "~1.7.0",
+"@types/escape-string-regexp": "~2.0.1",
+"@types/json2csv": "~5.0.1",
+"@types/pouchdb-find": "~6.3.4",
+"bootstrap": "~5.1.0",
+"date-fns": "~2.28.0",
+"escape-string-regexp": "~4.0.0",
+"i18next": "~21.6.0",
+"i18next-browser-languagedetector": "~6.1.0",
+"i18next-xhr-backend": "~3.2.2",
+"json2csv": "~5.0.1",
+"lodash": "^4.17.15",
+"node-sass": "~7.0.0",
+"pouchdb": "~7.2.1",
+"pouchdb-adapter-memory": "~7.2.1",
+"pouchdb-authentication": "~1.1.3",
+"pouchdb-find": "~7.2.1",
+"pouchdb-quick-search": "~1.3.0",
+"react": "~17.0.1",
+"react-bootstrap": "~1.6.0",
+"react-bootstrap-typeahead": "~5.2.0",
+"react-dom": "~16.13.0",
+"react-i18next": "~11.15.0",
+--
+"@testing-library/react-hooks": "~7.0.0",
+"@testing-library/user-event": "~12.8.3",
+"@types/jest": "~27.0.3",
+"@types/lodash": "^4.14.150",
+"@types/node": "~17.0.0",
+"@types/pouchdb": "~6.4.0",
+"@types/react": "~17.0.0",
+"@types/react-dom": "~17.0.0",
+"@types/react-redux": "~7.1.5",
+"@types/react-router": "~5.1.2",
+"@types/react-router-dom": "~5.3.0",
+
+
+bash
+command
+grep -r "remoteDb" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v __tests__ | grep -v "node_modules" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/App.tsx:import { remoteDb } from './shared/config/pouchdb'
+/tmp/inputs/hospitalrun-frontend/src/App.tsx:    remoteDb
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:export const remoteDb = serverDb as PouchDB.Database
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:import { remoteDb } from '../shared/config/pouchdb'
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:  const user = await remoteDb.getUser(username)
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:    const response = await remoteDb.logIn(username, password)
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:    const user = await remoteDb.getUser(response.name)
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:  await remoteDb.logOut()
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/App.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/App.tsx with line numbers:
+1	/* eslint-disable no-console */
+2
+3	import { Spinner } from '@hospitalrun/components'
+4	import React, { Suspense, useEffect, useState } from 'react'
+5	import { ReactQueryDevtools } from 'react-query-devtools'
+6	import { useDispatch } from 'react-redux'
+7	import { BrowserRouter, Route, Switch } from 'react-router-dom'
+8
+9	import HospitalRun from './HospitalRun'
+10	import { TitleProvider } from './page-header/title/TitleContext'
+11	import { remoteDb } from './shared/config/pouchdb'
+12	import { getCurrentSession } from './user/user-slice'
+13
+14	const App: React.FC = () => {
+15	  const dispatch = useDispatch()
+16	  const [loading, setLoading] = useState(true)
+17
+18	  useEffect(() => {
+19	    let cancelled = false
+20
+21	    remoteDb
+22	      .getSession()
+23	      .then((session) => {
+24	        if (cancelled) {
+25	          return
+26	        }
+27	        if (session.userCtx.name) {
+28	          dispatch(getCurrentSession(session.userCtx.name))
+29	        }
+30	      })
+31	      .catch((e) => {
+32	        console.log(e)
+33	      })
+34	      .finally(() => {
+35	        if (!cancelled) {
+36	          setLoading(false)
+37	        }
+38	      })
+39
+40	    return () => {
+41	      cancelled = true
+42	    }
+43	  }, [dispatch])
+44
+45	  if (loading) {
+46	    return null
+47	  }
+48
+49	  return (
+50	    <>
+51	      <BrowserRouter>
+52	        <Suspense fallback={<Spinner color="blue" loading size={[10, 25]} type="ScaleLoader" />}>
+53	          <Switch>
+54	            <TitleProvider>
+55	              <Route path="/" component={HospitalRun} />
+56	            </TitleProvider>
+57	          </Switch>
+58	        </Suspense>
+59	      </BrowserRouter>
+60	      <ReactQueryDevtools initialIsOpen={false} />
+61	    </>
+62	  )
+63	}
+64
+65	export default App
+66	
+
+
+bash
+command
+ls /tmp/inputs/hospitalrun-frontend/couchdb/
+output
+Dockerfile
+couchdb-cleanup.bat
+couchdb-cleanup.sh
+couchdb-init.bat
+couchdb-init.sh
+local.ini
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/couchdb/local.ini
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/couchdb/local.ini with line numbers:
+1	[couchdb]
+2	single_node=true
+3	users_db_security_editable = true
+4
+5	[httpd]
+6	enable_cors = true
+7	; Replace default WWW-Authenticate = Basic realm="administrator"
+8	WWW-Authenticate = Other realm="app"
+9
+10	[cors]
+11	origins = *
+12	credentials = true
+13
+14
+15	[chttpd]
+16	bind_address = 0.0.0.0
+17	
+
+
+bash
+command
+grep -r "validate_doc_update" /tmp/inputs/hospitalrun-frontend --include="*.js" --include="*.json" --include="*.ts"
+system
+Tool ran without output or errors
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -name "*.md" | xargs grep -l "security\|access\|permission" -i | head -5
+output
+/tmp/inputs/hospitalrun-frontend/CHANGELOG.md
+/tmp/inputs/hospitalrun-frontend/SECURITY.md
+/tmp/inputs/hospitalrun-frontend/.github/CODE_OF_CONDUCT.md
+/tmp/inputs/hospitalrun-frontend/.github/ISSUE_TEMPLATE/security.md
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/README.md
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/README.md with line numbers:
+1	# HospitalRun Frontend
+2
+3	<div align="center">
+4
+5	![Status](https://img.shields.io/badge/Status-developing-brightgree) [![Release](https://img.shields.io/github/release/HospitalRun/hospitalrun-frontend.svg)](https://github.com/HospitalRun/hospitalrun-frontend/releases) [![Version](https://img.shields.io/github/package-json/v/hospitalrun/hospitalrun-frontend)](https://github.com/HospitalRun/hospitalrun-frontend/releases)
+6	[![GitHub CI](https://github.com/HospitalRun/frontend/workflows/GitHub%20CI/badge.svg)](https://github.com/HospitalRun/frontend/actions) [![Coverage Status](https://coveralls.io/repos/github/HospitalRun/hospitalrun-frontend/badge.svg?branch=master)](https://coveralls.io/github/HospitalRun/hospitalrun-frontend?branch=master) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/HospitalRun/hospitalrun-frontend.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/HospitalRun/hospitalrun-frontend/context:javascript) ![Code scanning](https://github.com/HospitalRun/hospitalrun-frontend/workflows/Code%20scanning/badge.svg?branch=master) [![Documentation Status](https://readthedocs.org/projects/hospitalrun-frontend/badge/?version=latest)](https://hospitalrun-frontend.readthedocs.io)
+7	[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend?ref=badge_large) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+8	![dependabot](https://api.dependabot.com/badges/status?host=github&repo=HospitalRun/hospitalrun-frontend) [![Slack](https://hospitalrun-slack.herokuapp.com/badge.svg)](https://hospitalrun-slack.herokuapp.com)
+9
+10	</div>
+11
+12	React frontend for [HospitalRun](http://hospitalrun.io/): free software for developing world hospitals.
+13
+14	---
+15
+16	# Are you a user? If yes...
+17
+18	[Visit this page for general information on the HospitalRun application](https://github.com/HospitalRun/hospitalrun/blob/master/README.md) including:
+19
+20	- How can I deploy 1.0.0-beta?
+21	- Where do I report a bug or request a feature?
+22	- How can I contribute? (There are several other ways besides coding)
+23	- What is the project structure?
+24	- What is the application infrastructure?
+25	- Who is behind HospitalRun? etc.
+26
+27	# Would you like to contribute? If yes...
+28
+29	[Get started by checking out the Frontend Contributing Guide](https://github.com/HospitalRun/hospitalrun-frontend/blob/master/.github/CONTRIBUTING.md) for:
+30	- What's the tech stack?
+31	- Where can I become familiar with the technologies?
+32	- Where do I browse issues?
+33	- How do I set up my local environment?
+34	- How do I run tests locally?
+35	- How do I submit my changes?
+36	- etc.
+37
+38	# License
+39
+40	Released under the [MIT license](LICENSE).
+41	
+
+
+bash
+command
+grep -r "security" /tmp/inputs/hospitalrun-frontend/couchdb/ -i
+output
+/tmp/inputs/hospitalrun-frontend/couchdb/local.ini:users_db_security_editable = true
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/docker-compose.yml
+output
+# Dockerc compose only for developing purpose
+
+version: "3.8"
+
+services:
+couchdb:
+build:
+context: ./couchdb
+dockerfile: Dockerfile
+container_name: hr_couchdb
+ports:
+- "5984:5984"
+environment:
+- COUCHDB_USER=admin
+- COUCHDB_PASSWORD=password
+
+dbinit:
+image: curlimages/curl
+container_name: hr_couchdb_init
+depends_on:
+- couchdb
+command: >
+sh -c
+"sleep 5s &&
+curl -X PUT http://admin:password@couchdb:5984/_global_changes &&
+curl -X PUT http://admin:password@couchdb:5984/_users/_security -d '{}' &&
+curl -X PUT http://admin:password@couchdb:5984/hospitalrun?partitioned=false &&
+curl -X PUT http://admin:password@couchdb:5984/hospitalrun/_security -d '{\"members\": {}, \"admins\": {\"roles\": [\"_admin\"] }}' &&
+curl -X PUT http://admin:password@couchdb:5984/_users/org.couchdb.user:username -H \"Accept: application/json\" -H \"Content-Type: application/json\" -d '{\"name\": \"username\", \"password\": \"password\", \"metadata\": { \"givenName\": \"John\", \"familyName\": \"Doe\"}, \"roles\": [], \"type\": \"user\"}'"
+
+
+bash
+command
+grep -r "usePermissions\|hasPermission" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v __tests__ | head -20
+system
+Tool ran without output or errors
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/shared -type f -name "*.ts" -o -name "*.tsx" | grep -i hook
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useDebounce.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useUpdateEffect.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useTranslator.ts
+
+
+bash
+command
+grep -r "Permissions\." /tmp/inputs/hospitalrun-frontend/src --include="*.tsx" --include="*.ts" | grep -v __tests__ | grep -v "enum Permissions" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:        isAuthenticated={permissions.includes(Permissions.ViewIncidents)}
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:        isAuthenticated={permissions.includes(Permissions.ReportIncident)}
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:        isAuthenticated={permissions.includes(Permissions.ViewIncidentWidgets)}
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:        isAuthenticated={permissions.includes(Permissions.ViewIncident)}
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncidentDetails.tsx:    if (permissions.includes(Permissions.ResolveIncident)) {
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx:        isAuthenticated={permissions.includes(Permissions.ViewImagings)}
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx:        isAuthenticated={permissions.includes(Permissions.RequestImaging)}
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ViewImagings.tsx:    if (permissions.includes(Permissions.RequestImaging)) {
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.WritePatients) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.ReadPatients) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.WriteAppointments) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.ReadAppointments) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.RequestLab) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.ViewLabs) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.RequestMedication) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.ViewMedications) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.ReportIncident) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.ViewIncidents) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.ViewIncidentWidgets) && (
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:          {permissions.includes(Permissions.RequestImaging) && (
+
+
+bash
+command
+grep -r "PrivateRoute\|RouteGuard\|ProtectedRoute" /tmp/inputs/hospitalrun-frontend/src --include="*.tsx" --include="*.ts" | grep -v __tests__ | head -10
+output
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:import PrivateRoute from '../shared/components/PrivateRoute'
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:      <PrivateRoute
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:      <PrivateRoute
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:      <PrivateRoute
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:      <PrivateRoute
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx:import PrivateRoute from '../shared/components/PrivateRoute'
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx:      <PrivateRoute
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx:      <PrivateRoute
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PrivateRoute.tsx:const PrivateRoute = ({ component, isAuthenticated, ...rest }: any) => {
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PrivateRoute.tsx:export default PrivateRoute
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PrivateRoute.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/components/PrivateRoute.tsx with line numbers:
+1	import React from 'react'
+2	import { Route, Redirect } from 'react-router-dom'
+3
+4	const PrivateRoute = ({ component, isAuthenticated, ...rest }: any) => {
+5	  const routeComponent = (props: any) =>
+6	    isAuthenticated ? React.createElement(component, props) : <Redirect to={{ pathname: '/' }} />
+7	  return <Route {...rest} render={routeComponent} />
+8	}
+9
+10	export default PrivateRoute
+11	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx with line numbers:
+1	import React from 'react'
+2	import { useSelector } from 'react-redux'
+3	import { Switch } from 'react-router-dom'
+4
+5	import useAddBreadcrumbs from '../page-header/breadcrumbs/useAddBreadcrumbs'
+6	import PrivateRoute from '../shared/components/PrivateRoute'
+7	import Permissions from '../shared/model/Permissions'
+8	import { RootState } from '../shared/store'
+9	import ViewIncidents from './list/ViewIncidents'
+10	import ReportIncident from './report/ReportIncident'
+11	import ViewIncident from './view/ViewIncident'
+12	import VisualizeIncidents from './visualize/VisualizeIncidents'
+13
+14	const Incidents = () => {
+15	  const { permissions } = useSelector((state: RootState) => state.user)
+16	  const breadcrumbs = [
+17	    {
+18	      i18nKey: 'incidents.label',
+19	      location: `/incidents`,
+20	    },
+21	  ]
+22	  useAddBreadcrumbs(breadcrumbs, true)
+23
+24	  return (
+25	    <Switch>
+26	      <PrivateRoute
+27	        isAuthenticated={permissions.includes(Permissions.ViewIncidents)}
+28	        exact
+29	        path="/incidents"
+30	        component={ViewIncidents}
+31	      />
+32	      <PrivateRoute
+33	        isAuthenticated={permissions.includes(Permissions.ReportIncident)}
+34	        exact
+35	        path="/incidents/new"
+36	        component={ReportIncident}
+37	      />
+38	      <PrivateRoute
+39	        isAuthenticated={permissions.includes(Permissions.ViewIncidentWidgets)}
+40	        exact
+41	        path="/incidents/visualize"
+42	        component={VisualizeIncidents}
+43	      />
+44	      <PrivateRoute
+45	        isAuthenticated={permissions.includes(Permissions.ViewIncident)}
+46	        exact
+47	        path="/incidents/:id"
+48	        component={ViewIncident}
+49	      />
+50	    </Switch>
+51	  )
+52	}
+53
+54	export default Incidents
+55	
+
+
+bash
+command
+ls -la /tmp/inputs/hospitalrun-frontend/.github/ | head -20
+output
+total 20
+drwxr-xr-x  4 argocd root  220 Dec 22 05:22 .
+drwxr-xr-x 10 argocd root  580 Dec 22 05:22 ..
+-rw-r--r--  1 argocd root 7563 Jan  1  1970 CODE_OF_CONDUCT.md
+-rw-r--r--  1 argocd root 4329 Jan  1  1970 CONTRIBUTING.md
+-rw-r--r--  1 argocd root  674 Jan  1  1970 FUNDING.yml
+drwxr-xr-x  2 argocd root  120 Dec 22 05:22 ISSUE_TEMPLATE
+-rw-r--r--  1 argocd root 1160 Jan  1  1970 ISSUE_TEMPLATE.md
+-rw-r--r--  1 argocd root  741 Jan  1  1970 PULL_REQUEST_TEMPLATE.md
+-rw-r--r--  1 argocd root 3103 Jan  1  1970 dependabot.yml
+-rw-r--r--  1 argocd root  713 Jan  1  1970 stale.yml
+drwxr-xr-x  2 argocd root  100 Dec 22 05:22 workflows
+
+
+bash
+command
+grep -A 10 -B 5 "security" /tmp/inputs/hospitalrun-frontend/docker-compose.yml
+output
+      - couchdb
+command: >
+sh -c
+"sleep 5s &&
+curl -X PUT http://admin:password@couchdb:5984/_global_changes &&
+curl -X PUT http://admin:password@couchdb:5984/_users/_security -d '{}' &&
+curl -X PUT http://admin:password@couchdb:5984/hospitalrun?partitioned=false &&
+curl -X PUT http://admin:password@couchdb:5984/hospitalrun/_security -d '{\"members\": {}, \"admins\": {\"roles\": [\"_admin\"] }}' &&
+curl -X PUT http://admin:password@couchdb:5984/_users/org.couchdb.user:username -H \"Accept: application/json\" -H \"Content-Type: application/json\" -d '{\"name\": \"username\", \"password\": \"password\", \"metadata\": { \"givenName\": \"John\", \"familyName\": \"Doe\"}, \"roles\": [], \"type\": \"user\"}'"
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -name "*.md" -exec grep -l "CouchDB\|database" {} \; | head -5
+output
+/tmp/inputs/hospitalrun-frontend/CHANGELOG.md
+/tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/.github/CONTRIBUTING.md with line numbers:
+1	# Welcome to the Frontend Contributing Guide!
+2
+3	Before contributing, please read the [code of conduct](https://github.com/HospitalRun/hospitalrun/blob/master/.github/CODE_OF_CONDUCT.md).
+4
+5	## 1. Check out the [HospitalRun General Contributing Guide](https://github.com/HospitalRun/hospitalrun/blob/master/.github/CONTRIBUTING.md) for how to:
+6
+7	1.  Browse Issues
+8	2.  Get Assigned an Issue
+9	3.  Fork the Repository and Create a Branch
+10	4.  Commit Changes
+11	5.  Submit a Pull Request
+12
+13	## 2. After creating a local fork (step 3 above), follow these steps to configure CouchDB
+14
+15	CouchDB is the server side database which data from the frontend will sync from and to. CouchDB is required to login
+16	to HospitalRun. You could install and run CouchDB in any way you wish. For convienence, we have added a docker compose file in the
+17	root of this project to launch CouchDB. Below are the steps:
+18
+19	1. Start [Docker](https://docs.docker.com/get-docker/). Install it if you don't have it yet.
+20	2. Install [Docker Compose](https://docs.docker.com/compose/install/) if you don't have it yet.
+21	3. In the root directory run `./couchdb/couchdb-init.bat` on Windows or `./couchdb/couchdb-init.sh` on UNIX like systems.
+22
+23	This should launch a new CouchDB instance on `http://localhost:5984`, create system database, configure CouchDB as Single Node, enable CORS, create `hospitalrun` database, create a default admin with a username of `admin` and password of 'password', create a sample user with a username of `username` and password of 'password' to use new login page [#2137](https://github.com/HospitalRun/hospitalrun-frontend/pull/2137).
+24
+25	Go to `http://localhost:5984/_utils` in your browser to view Fauxton and perform administrative tasks.
+26
+27	**_Cleanup_**
+28	To delete the development database, go to the root of the project and run `./couchdb/couchdb-cleanup.bat` on Windows or `./couchdb/couchdb-cleanup.sh` on UNIX like systems.
+29
+30	### Install dependencies & start the application
+31
+32	1. Install dependencies: `npm install`
+33	2. Configure `REACT_APP_HOSPITALRUN_API=http://localhost:5984` environment variable in `.env`
+34	3. Run the application `npm start`
+35
+36	## 3. Start the application
+37
+38	```
+39	npm install
+40	npm run start
+41	```
+42
+43	Open a file named `.env` and add a line `REACT_APP_HOSPITALRUN_API=http://localhost:5984` if you don't have it yet.
+44
+45	_Note: To delete the development database, go to the root of the project and run `docker-compose down -v --rmi all --remove-orphans`_
+46
+47	If your branch's packages changed, reinstall the packages before starting the application:
+48
+49	```
+50	rm -fr node_modules
+51	rm yarn.lock (if you used yarn before)
+52	rm package-lock.json
+53	npm install
+54	npm run start
+55	```
+56
+57	_Note: We no longer support the use of yarn._
+58
+59	## 4. Before pushing your changes, check locally that your branch passes CI checks
+60
+61	### We use Jest + React Testing Library for Behavior-Driven Development Tests
+62
+63	`npm run test:ci` will run the entire test suite
+64
+65	`npm run test:ci <file name>` e.g. `npm run test:ci src/__tests__/HospitalRun.test.tsx` will run that specific test file
+66
+67	`npm run test` will run the test suite in watch mode
+68
+69	### We use ESLint for static program analysis
+70
+71	`npm run lint` will run the linter
+72
+73	`npm run lint:fix` will run the linter and fix fixable errors
+74
+75	## 5. Get familiar with documentation
+76
+77	- For a list of i18n language codes, see [this](https://github.com/HospitalRun/hospitalrun-frontend/tree/master/src/locales/README.md).
+78
+79	## [ Extra ] Resources to help get you ramped up on the tech stack!
+80
+81	### React
+82
+83	- [React Tutorial for Beginners by
+84	  Programming with Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0)
+85	- [Chrome React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
+86	- [VSCode React Extension Pack](https://marketplace.visualstudio.com/items?itemName=jawandarajbir.react-vscode-extension-pack)
+87
+88	### Redux
+89
+90	- [Redux For Beginners | React Redux Tutorial by DevEd](https://youtu.be/CVpUuw9XSjY)
+91	- [Chrome Redux Developer Tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en)
+92
+93	### PouchDB
+94
+95	- [Getting started with PouchDB and CouchDB (tutorial) by Nolan Lawson](https://youtu.be/-Z7UF2TuSp0)
+96
+97	### React Testing Library
+98
+99	- [React Testing Library Cheatsheet](https://testing-library.com/docs/react-testing-library/cheatsheet/)
+100	
+
+
+bash
+command
+grep -r "selector.*user\|createdBy\|userId\|owner" /tmp/inputs/hospitalrun-frontend/src/shared/db --include="*.ts" | head -20
+system
+Tool ran without output or errors
+
+
+bash
+command
+grep -r "_users" /tmp/inputs/hospitalrun-frontend --include="*.ts" --include="*.tsx" --include="*.sh" --include="*.ini"
+system
+Tool ran without output or errors
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.sh
+output
+#!/bin/sh
+
+docker-compose up --build -d
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/shared/model -name "*.ts" | xargs ls -1
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/model/AbstractDBModel.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Allergy.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Appointment.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Breadcrumb.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/CareGoal.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/CarePlan.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/ContactInformation.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Diagnosis.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Imaging.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Incident.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Lab.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Medication.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Name.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Note.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/RelatedPerson.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/User.ts
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Visit.ts
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts with line numbers:
+1	import AbstractDBModel from './AbstractDBModel'
+2	import Allergy from './Allergy'
+3	import CareGoal from './CareGoal'
+4	import CarePlan from './CarePlan'
+5	import ContactInformation from './ContactInformation'
+6	import Diagnosis from './Diagnosis'
+7	import Name from './Name'
+8	import Note from './Note'
+9	import RelatedPerson from './RelatedPerson'
+10	import Visit from './Visit'
+11
+12	export default interface Patient extends AbstractDBModel, Name, ContactInformation {
+13	  sex: string
+14	  dateOfBirth: string
+15	  isApproximateDateOfBirth: boolean
+16	  preferredLanguage?: string
+17	  occupation?: string
+18	  type?: string
+19	  code: string
+20	  relatedPersons?: RelatedPerson[]
+21	  allergies?: Allergy[]
+22	  diagnoses?: Diagnosis[]
+23	  notes?: Note[]
+24	  index: string
+25	  carePlans: CarePlan[]
+26	  careGoals: CareGoal[]
+27	  bloodType: string
+28	  visits: Visit[]
+29	}
+30	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Incident.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/model/Incident.ts with line numbers:
+1	import AbstractDBModel from './AbstractDBModel'
+2
+3	export default interface Incident extends AbstractDBModel {
+4	  reportedBy: string
+5	  reportedOn: string
+6	  code: string
+7	  date: string
+8	  department: string
+9	  category: string
+10	  categoryItem: string
+11	  description: string
+12	  status: 'reported' | 'resolved'
+13	  resolvedOn: string
+14	  patient?: string
+15	}
+16	
+
+Now let me check how data queries are actually executed and if there's any filtering based on user context:
+
+
+bash
+command
+grep -A 20 "search\|find\|findAll" /tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts | head -40
+output
+    this.pluralType = schema.find((s) => s.singular === this.type)?.plural || ''
+}
+
+async find(id: string): Promise<T> {
+const documents = await this.db.rel.find(this.type, id)
+const entity = documents[this.pluralType][0]
+return entity
+}
+
+async findAll(sort = Unsorted): Promise<T[]> {
+const selector: any = {
+_id: {
+$regex: RegExp(this.type, 'i'),
+},
+}
+
+sort.sorts.forEach((s) => {
+selector[`data.${s.field}`] = { $gt: null }
+})
+
+// Adds an index to each of the fields coming from the sorting object
+// allowing the algorithm to sort by any given SortRequest, by avoiding the default index error (lack of index)
+
+await Promise.all(
+sort.sorts.map(
+async (s): Promise<SortRequest> => {
+await this.db.createIndex({
+index: {
+fields: [`data.${s.field}`],
+},
+--
+const result = await this.db.find({
+selector,
+sort:
+sort.sorts.length > 0
+? sort.sorts.map((s) => ({ [`data.${s.field}`]: s.direction }))
+: undefined,
+})
+const relDocs = await this.db.rel.parseRelDocs(this.type, result.docs)
+return relDocs[this.pluralType]
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/SECURITY.md
+output
+# Responsible Disclosure Policy
+
+A responsible disclosure policy helps protect the project and its users from security vulnerabilities discovered in the project’s scope by employing a process where vulnerabilities are publicly disclosed after a reasonable time period to allow patching the vulnerability.
+
+All security bugs are taken seriously and are considered as top priority.
+Your efforts to responsibly disclose your findings are appreciated and will be taken into account to acknowledge your contributions.
+
+## Supported Versions
+
+This versions of HospitalRun project are currently being supported with security updates.
+
+| Version | Supported          |
+| ------- | ------------------ |
+| 2.0.0   | :white_check_mark: |
+| 1.0.0-beta   | :x:           |
+
+## Reporting a Vulnerability
+
+Report security bugs by opening a new [Security Issue](https://github.com/HospitalRun/hospitalrun-frontend/issues/new?template=security.md). You can also report a vulnerability by emailing security@hospitalrun.io.
+
+Report security bugs in third-party modules to the maintainer or team maintaining the module. 
+
+Based on my investigation of the HospitalRun frontend codebase, I can explain how data access control is technically enforced:
+
+## Summary of Access Control Implementation
+
+The web app relies primarily on **client-side permission checks and CouchDB authentication**, but has **significant security limitations** when it comes to enforcing data segregation between users.
+
+### What's Actually Implemented:
+
+**1. Frontend Permission Checks:**
+The app uses a permission-based routing system with a `PrivateRoute` component that checks if users have specific permissions (like `ReadPatients`, `WriteAppointments`, etc.) before allowing access to routes. However, these checks only control UI visibility - they don't prevent API access.
+
+**2. CouchDB Authentication:**
+The app uses PouchDB with CouchDB authentication plugin. Users must log in with credentials, and the app maintains authenticated sessions through CouchDB's built-in authentication system. The login flow is in `user-slice.ts` using `remoteDb.logIn()`.
+
+**3. Database Security Settings:**
+Looking at the docker-compose configuration, the CouchDB database is initialized with this security setting:
+```
+hospitalrun/_security -d '{"members": {}, "admins": {"roles": ["_admin"]}}'
+```
+
+This means the `hospitalrun` database has **empty members list**, which in CouchDB means **any authenticated user can read/write all documents**.
+
+### Critical Security Gap:
+
+**There is NO user-level data isolation.** The `Repository` class performs queries without any user context filtering. When you look at methods like `findAll()`, `find()`, and `search()` in `Repository.ts`, they query the database using only document type selectors - they never filter by user ID or ownership.
+
+For example, patient records don't have an "owner" or "createdBy" field that gets filtered in queries. All authenticated users with the right permissions can access all patient data through the shared PouchDB instance that syncs with CouchDB.
+
+### In Practice:
+
+This architecture works for HospitalRun's intended use case - it's designed as a **single-tenant hospital management system** where all authenticated staff members at a hospital should have access to all patient records (subject to their role permissions). It's not designed as a multi-tenant system where different hospitals or user groups have isolated data.
+
+If you needed true multi-user data isolation, you would need to implement server-side validation rules in CouchDB (validate_doc_update functions), per-user database filtering, or move to a proper backend API that enforces authorization rules before returning data.
+
+
+3.here is model B’s response:  
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx:57:  const onSave = async () => {
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx:160:              onSearch={async (query: string) => PatientRepository.search(query)}
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncidentDetails.tsx:32:  const onResolve = async () => {
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useReportIncident.tsx:29:    onSuccess: async () => {
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useResolveIncident.tsx:16:    onSuccess: async (data: Incident) => {
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useRequestImaging.tsx:18:  return async function requestImaging(request: ImagingRequest): Promise<void> {
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useRequestImaging.tsx:36:    onSuccess: async () => {
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests/NewImagingRequest.tsx:110:  const onSave = async () => {
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests/NewImagingRequest.tsx:146:                onSearch={async (query: string) => PatientRepository.search(query)}
+/tmp/inputs/hospitalrun-frontend/src/__tests__/App.test.tsx:12:it('renders without crashing', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/Incidents.test.tsx:62:      it('should not navigate to /incidents/new if the user does not have ReportIncident permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/Incidents.test.tsx:72:      it('The incident visualize screen when /incidents/visualize is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/Incidents.test.tsx:80:      it('should not navigate to /incidents/visualize if the user does not have ViewIncidentWidgets permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/Incidents.test.tsx:90:      it('The view incident screen when /incidents/:id is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/Incidents.test.tsx:96:      it('should not navigate to /incidents/:id if the user does not have ViewIncident permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx:59:  it('renders a department form element that allows user input', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx:70:  it('renders a category form element that allows user input', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx:81:  it('renders a category item form element that allows user input', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx:92:  it('renders a description formField element that allows user input', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx:104:  // it(' renders action save button after all the input fields are filled out', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx:125:  it('should display errors if validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx:168:    it('should navigate to /incidents', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:58:      it('should render the date of the incident', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:71:      it('should render the status of the incident', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:83:      it('should render who reported the incident', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:94:      it('should render the date the incident was reported', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:109:      it('should render the department input with label and display value', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:122:      it('should render the category input with label and display value', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:134:      it('should render the categoryItem input with label and display value', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:147:      it('should render the description input with label and display value', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx:166:      it('should mark the status as resolved and fill in the resolved date with the current time', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncident.test.tsx:55:it('should not render ViewIncidentDetails if there are no Permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncident.test.tsx:65:it('should not  ViewIncidentDetails no there is no ID', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx:46:  it('should display a table of incidents', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx:70:  it('should display a download button', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx:77:  it('should populate export data correctly', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx:112:  it('should navigate to the view incident screen when view button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidents.test.tsx:65:  it('should render a table with the incidents', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useIncident.test.tsx:7:  it('should get an incident by id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useResolvedIncident.test.tsx:9:  it('should mark incident as resolved and save', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useIncidents.test.tsx:9:  it('it should search incidents', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useReportIncident.test.tsx:17:  it('should save the incident with correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useReportIncident.test.tsx:48:  it('should throw an error if validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/util/validate-incident.test.ts:7:  it('should validate the required fields apart of an incident', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/util/validate-incident.test.ts:22:  it('should validate that the incident date is not a date in the future', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/Imagings.test.tsx:52:      it('should render the new imaging request screen when /imaging/new is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/Imagings.test.tsx:59:      it('should not navigate to /imagings/new if the user does not have RequestImaging permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/hooks/useRequestImaging.test.tsx:22:  it('should save the imaging request with correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/hooks/useRequestImaging.test.tsx:47:  it('should throw an error if validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/hooks/useImagingSearch.test.tsx:18:  it('it should search imaging requests', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/hooks/useImagingRequest.test.tsx:7:  it('should get an imaging request by id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/search/ImagingRequestTable.test.tsx:31:  it('should render a table of imaging requests', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/requests/NewImagingRequest.test.tsx:67:    it('Renders a dropdown list of visits', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/requests/NewImagingRequest.test.tsx:78:    it('Renders an image type input box', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/requests/NewImagingRequest.test.tsx:87:    it('Renders a status types select input field', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/requests/NewImagingRequest.test.tsx:107:    it('Renders a notes text field', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/requests/NewImagingRequest.test.tsx:119:    it('Navigate back to /imaging', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/requests/NewImagingRequest.test.tsx:133:    it('Save the imaging request and navigate to "/imaging"', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/util/validate-imaging-request.test.ts:5:  it('should validate the required fields apart of an incident', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:11:async function removeAllDocs() {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:13:  docs.patients.forEach(async (d: any) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:20:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:23:    it('should return a patient with the correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:35:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:39:    it('should escape all special chars from search text', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:52:    it('should return all records that patient code matches search text', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:72:    it('should return all records that fullName contains search text', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:96:    it('should match search criteria with case insensitive match', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:116:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:119:    it('should find all patients in the database sorted by their ids', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:132:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:136:    it('should generate an id that is a uuid for the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:144:    it('should generate a patient code', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:152:    it('should generate a timestamp for created date and last updated date', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:161:    it('should override the created date and last updated date even if one was passed in', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:175:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:179:    it('should save the patient if an id was not on the entity', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:187:    it('should update the patient if one was already existing', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:197:    it('should update the existing fields', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:208:    it('should add new fields without changing existing fields', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:220:    it('should update the last updated date', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:233:    it('should not update the created date', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:244:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/PatientRepository.test.ts:248:    it('should delete the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/AppointmentRepository.test.ts:13:    it('should create an id that is a uuid', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/AppointmentRepository.test.ts:21:    it('should find an appointment by id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/AppointmentRepository.test.ts:42:    it('should escape all special chars from search text', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/AppointmentRepository.test.ts:61:    it('should generate a timestamp for created date and last updated date', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:9:async function removeAllDocs() {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:11:  docs.imagings.forEach(async (d: any) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:18:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:22:    it('should return a imaging with the correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:34:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:38:    it('should generate an id that is a uuid for the imaging', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:49:    it('should generate a imaging code', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:61:    it('should generate a timestamp for created date and last updated date', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/ImagingRepository.test.ts:73:    it('should override the created date and last updated date even if one was passed in', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:29:async function removeAllDocs() {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:31:  docs.labs.forEach(async (d: any) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:38:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:40:      docs.labs.forEach(async (d: any) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:45:    it('should return a lab with the correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:56:    it('should generate a lab code', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:67:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:71:    it('should return all records that lab type matches search text', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:92:    it('should return all records that contains search text in the type', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:116:    it('should return all records that contains search text in code', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:142:    it('should match search criteria with case insesitive match', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:160:    it('should return all records that matches an specific status', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:192:    it('should return records with search text and specific status', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:211:    afterEach(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/shared/db/LabRepository.test.ts:215:    it('should find all labs in the database sorted by their requestedOn', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/user/user-slice.test.ts:74:    it('should login with the username and password', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/user/user-slice.test.ts:100:    it('should dispatch login error if login was not successful', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/user/user-slice.test.ts:126:    it('should logout the user', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/user/user-slice.test.ts:138:    it('should get the detail of the current user and update the store', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/hooks/useUpdateAppointment.test.tsx:17:  it('should update appointment', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/hooks/useScheduleAppointment.test.tsx:13:  it('should save the appointment with correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/hooks/useScheduleAppointment.test.tsx:34:  it('should throw an error if validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/hooks/useAppointments.test.tsx:7:  it('should get an appointment by id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/hooks/useDeleteAppointment.test.tsx:12:  it('should remove an appointment with the given id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/hooks/useAppointment.test.tsx:7:  it('should get an appointment by id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/Appointments.test.tsx:42:  it('should render the appointments screen when /appointments is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/Appointments.test.tsx:57:  it('should render the Dashboard when the user does not have read appointment privileges', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/Appointments.test.tsx:65:  it('should render the new appointment screen when /appointments/new is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/Appointments.test.tsx:81:  it('should render the Dashboard when the user does not have read appointment privileges', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/Appointments.test.tsx:89:  it('should render the edit appointment screen when /appointments/edit/:id is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/Appointments.test.tsx:97:  it('should render the Dashboard when the user does not have read appointment privileges', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/Appointments.test.tsx:103:  it('should render the Dashboard when the user does not have write appointment privileges', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/ViewAppointments.test.tsx:60:  it('should add a "New Appointment" button to the button tool bar', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/ViewAppointments.test.tsx:68:  it('should render a calendar with the proper events', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:86:  it('should add a "Edit Appointment" button to the button tool bar if has WriteAppointment permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:94:  it('should add a "Delete Appointment" button to the button tool bar if has DeleteAppointment permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:104:  it('button toolbar empty if has only ReadAppointments permission', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:114:  it('should call getAppointment by id if id is present', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:130:  it('should render an AppointmentDetailForm with the correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:159:  it('should delete the appointment after clicking the delete appointment button, and confirming in the delete confirmation modal', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:191:  it('should close the modal when the toggle button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/new/NewAppointment.test.tsx:80:    it('should render an Appointment Detail Component', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/new/NewAppointment.test.tsx:88:    it('should have error when error saving without patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/new/NewAppointment.test.tsx:122:    it('should have error when error saving with end time earlier than start time', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/new/NewAppointment.test.tsx:162:    it('should call AppointmentRepo.save when save button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/new/NewAppointment.test.tsx:220:    it('should navigate to /appointments/:id when a new appointment is created', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/new/NewAppointment.test.tsx:243:    it('should navigate back to /appointments', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/edit/EditAppointment.test.tsx:55:  const setup = async (mockAppointment: Appointment, mockPatient: Patient) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/edit/EditAppointment.test.tsx:83:  it('should load an appointment when component loads', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/edit/EditAppointment.test.tsx:94:  it('should updateAppointment when save button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/edit/EditAppointment.test.tsx:112:  it('should navigate to /appointments/:id when save is successful', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/edit/EditAppointment.test.tsx:124:  it('should navigate to /appointments/:id when cancel is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/edit/EditAppointment.test.tsx:138:  it('should render an edit appointment form', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:79:    it('should display the patients full name', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:90:  it('should display the medication ', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:102:  it('should display the requested on date', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:118:  it('should not display the canceled date if the medication is not canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:126:  it('should display the notes in the notes text field', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:140:    it('should display a warning badge if the status is draft', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:156:    it('should display a update medication and cancel medication button if the medication is in a draft state', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:171:    it('should display a danger badge if the status is canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:187:    it('should display the canceled on date if the medication request has been canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:203:    it('should not display cancel button if the medication is canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:214:    it('should not display an update button if the medication is canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:223:    it('should update the medication with the new information', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/ViewMedication.test.tsx:247:    it('should mark the status as canceled and fill in the cancelled on date with the current time', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/Medications.test.tsx:83:      it('should render the view medication screen when /medications/:id is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/Medications.test.tsx:89:      it('should not navigate to /medications/:id if the user does not have ViewMedication permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:47:      it('should set status to loading', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:72:      it('should set status to loading', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:94:      it('should set status to loading', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:125:      it('should set status to loading', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:162:    it('should fetch the medication and patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:191:    it('should cancel a medication', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:208:    it('should call on success callback if provided', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:235:    it('should request a new medication', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:260:    it('should execute the onSuccess callback if provided', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:292:    it('should update the medication', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/medication-slice.test.ts:303:    it('should call the onSuccess callback if successful', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/hooks/useMedicationSearch.test.tsx:18:  it('it should search medication requests', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/MedicationRequestSearch.test.tsx:20:  it('should render a select component with the default value', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/MedicationRequestTable.test.tsx:31:  it('should render a table with the correct columns', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/MedicationRequestTable.test.tsx:46:  it('should fetch medications and display it', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/MedicationRequestTable.test.tsx:62:  it('should navigate to the medication when the view button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/ViewMedications.test.tsx:23:  const setup = async (
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/ViewMedications.test.tsx:65:    it('should display button to add new medication request', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/ViewMedications.test.tsx:72:    it('should not display button to add new medication request if the user does not have permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/ViewMedications.test.tsx:81:    it('should render a table with data with the default search', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/ViewMedications.test.tsx:90:    it('should render a medication request search component', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/ViewMedications.test.tsx:98:    it('should update the table when the search changes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/requests/NewMedicationRequest.test.tsx:49:    it('should render a medication input box with label', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/requests/NewMedicationRequest.test.tsx:56:    it('render medication request status options', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/requests/NewMedicationRequest.test.tsx:76:    it('render medication intent options', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/requests/NewMedicationRequest.test.tsx:105:    it('render medication priorty select options', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/requests/NewMedicationRequest.test.tsx:130:    it('should render a notes text field', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/requests/NewMedicationRequest.test.tsx:165:    it('should navigate back to /medications', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/requests/NewMedicationRequest.test.tsx:179:    it('should save the medication request and navigate to "/medications/:id"', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/test-utils/use-mutation.util.ts:4:export default async function executeMutation<TResult>(
+/tmp/inputs/hospitalrun-frontend/src/__tests__/test-utils/use-mutation.util.ts:12:  await act(async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/test-utils/use-query.util.tsx:11:export default async function executeQuery<TResult>(
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/Labs.test.tsx:61:      it('should render the view labs screen when /labs is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/Labs.test.tsx:66:      it('should not navigate to /labs if the user does not have ViewLabs permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/Labs.test.tsx:73:      it('should render the new lab request screen when /labs/new is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/Labs.test.tsx:78:      it('should not navigate to /labs/new if the user does not have RequestLab permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/Labs.test.tsx:87:      it('should render the view lab screen when /labs/:id is accessed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/Labs.test.tsx:96:      it('should not navigate to /labs/:id if the user does not have ViewLab permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:54:  jest.spyOn(LabRepository, 'saveOrUpdate').mockImplementation(async (newOrUpdatedLab) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:96:    it("should display the patients' full name", async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:102:    it('should display the lab-type', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:108:    it('should display the requested on date', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:118:    it('should not display the completed date if the lab is not completed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:128:    it('should not display the cancelled date if the lab is not cancelled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:138:    it('should render a result text field', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:148:    it('should not display past notes if there is not', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:155:    it('should display the past notes that are not deleted', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:168:    it('should not display the past notes that are deleted', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:180:    it('should display the notes text field empty', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:186:    it('should display errors', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:207:      it('should display a warning badge if the status is requested', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:214:      it('should display a update lab, complete lab, and cancel lab button if the lab is in a requested state', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:228:      it('should display a danger badge if the status is canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:235:      it('should display the cancelled on date if the lab request has been cancelled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:248:      it('should not display update, complete, and cancel button if the lab is canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:260:      it('should not display notes text field if the status is canceled', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:269:      it('should display a primary badge if the status is completed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:276:      it('should display the completed on date if the lab request has been completed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:289:      it('should not display update, complete, and cancel buttons if the lab is completed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:301:      it('should not display notes text field if the status is completed', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:316:    it('should update the lab with the new information', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:340:    it('should be able delete an note from the lab', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:368:    it('should mark the status as completed and fill in the completed date with the current time', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:393:    it('should disallow deleting notes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:419:    it('should mark the status as canceled and redirect to /labs', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLab.test.tsx:440:    it('should disallow deleting notes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLabs.test.tsx:67:    it('should display button to add new lab request', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLabs.test.tsx:75:    it('should not display button to add new lab request if the user does not have permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLabs.test.tsx:83:    it('should render a table with data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs/ViewLabs.test.tsx:102:    it('should navigate to the lab when the view button is clicked', async () => {
+< truncated lines 236-334 >
+...ld render correct patient histories', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/history/HistoryTable.test.tsx:114:    it('render an action button', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/history/HistoryTable.test.tsx:128:    it('should navigate to lab record on lab history click', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/history/HistoryTable.test.tsx:136:    it('should navigate to appointment record on appointment history click', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/history/HistoryTable.test.tsx:146:    it('should render a warning message if there are no histories', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/history/HistoryTab.test.tsx:65:const setup = async (
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/history/HistoryTab.test.tsx:92:    it('should render patient history', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/new/NewPatient.test.tsx:60:  it('should render a general information form', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/new/NewPatient.test.tsx:65:  it('should pass the error object to general information', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/new/NewPatient.test.tsx:71:  it('should dispatch createPatient when save button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/new/NewPatient.test.tsx:81:  // it('should reveal modal (return true) when save button is clicked if an existing patient has the same information', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/new/NewPatient.test.tsx:99:  it('should navigate to /patients/:id and display a message after a new patient is successfully created', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/new/NewPatient.test.tsx:112:  it('should navigate to /patients when cancel is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientCarePlan.test.tsx:8:  it('should get patient patient care plans', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientRelatedPerson.test.tsx:15:  it('should throw an error if related person not specified', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientRelatedPerson.test.tsx:33:  it('should throw an error if the relation type is not specified', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientRelatedPerson.test.tsx:51:  it('should add the related person to the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientLabs.test.tsx:7:  it('should get patient labs', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddCarePlan.test.tsx:16:  it('should add a care plan to the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddCarePlan.test.tsx:48:  it('should throw an error if validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientVisit.test.tsx:14:  it('should add a visit to the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientVisit.test.tsx:49:  it('should throw an error if validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientNote.test.ts:15:  it('should throw an error if note validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientNote.test.ts:30:  it('should add the note to the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientAppointments.test.tsx:7:  it(`should return the should return the patient's appointments`, async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatient.test.tsx:7:  it('should return the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientMedications.test.tsx:7:  it('should get patient medications', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useVisit.test.tsx:7:  it(`should return the should return the patient's visit`, async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useRemovePatientRelatedPerson.test.tsx:13:  it('should remove a related person with the given id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientVisits.test.tsx:7:  it(`should return the should return the patient's visits`, async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientNote.test.ts:18:  it('should return a note given a patient id and note id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientNote.test.ts:31:  it('should throw an error if patient does not have note with id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddAllergy.test.tsx:15:  it('should throw an error if allergy validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddAllergy.test.tsx:30:  it('should add the allergy to the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useCarePlan.test.tsx:19:  it('should return a care plan  given a patient id and care plan id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useCarePlan.test.tsx:34:  it('should throw an error if patient does not have care plan with id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAllergy.test.tsx:18:  it('should return an allergy given a patient id and allergy id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAllergy.test.tsx:33:  it('should throw an error if patient does not have allergy with id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientNotes.test.ts:7:  it('should get patient notes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientAllergies.test.tsx:7:  it('should get patient allergies', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatientRelatedPersons.test.tsx:11:  it('should get the patient by id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddCareGoal.test.tsx:16:  it('should add a care goal to the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddCareGoal.test.tsx:59:  it('should throw an error if validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useDiagnosis.test.tsx:19:  it('should return a diagnosis successfully given a valid patient id and diagnosis id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useDiagnosis.test.tsx:34:  it('should throw an error if patient id is not valid', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useDiagnosis.test.tsx:49:  it('should throw an error if patient id is valid but diagnosis id is not', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientDiagnosis.test.tsx:15:  it('should throw an error if diagnosis validation fails', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/useAddPatientDiagnosis.test.tsx:33:  it('should add the diaganosis to the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/hooks/usePatients.test.tsx:8:  it('should search patients with the proper search request', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NotesList.test.tsx:29:  it('should render a list of notes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NotesList.test.tsx:56:  it('should display a warning when no notes are present', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NotesList.test.tsx:68:  it('should navigate to the note view when the note is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NewNoteModal.test.tsx:30:  it('should render a modal with the correct labels', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NewNoteModal.test.tsx:60:  it('should render note error', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NewNoteModal.test.tsx:83:    it('should call the onCloseButtonCLick function when the cancel button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NewNoteModal.test.tsx:96:    it('should dispatch add note', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/ViewNote.test.tsx:17:  it('should render a note input with the correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/edit/EditPatient.test.tsx:68:  it('should render an edit patient form', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/edit/EditPatient.test.tsx:74:  it('should load a Patient when component loads', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/edit/EditPatient.test.tsx:84:  it('should dispatch updatePatient when save button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/edit/EditPatient.test.tsx:94:  it('should navigate to /patients/:id when cancel is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/search/ViewPatientsTable.test.tsx:30:  it('should display no patients exist if total patient count is 0', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/search/ViewPatientsTable.test.tsx:35:  it('should render a table', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/search/SearchPatients.test.tsx:32:  it('should render a view patients table', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/search/SearchPatients.test.tsx:44:  it('should update view patients table search request when patient search input changes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/ViewDiagnoses.test.tsx:27:const setup = async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/ViewDiagnoses.test.tsx:44:  it('should render a diagnoses table with the patient id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/DiagnosisTable.test.tsx:29:const setup = async (patient = expectedPatient) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/DiagnosisTable.test.tsx:50:  it('should render a table', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/DiagnosisTable.test.tsx:65:  it('should navigate to the diagnosis view when the view details button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/DiagnosisTable.test.tsx:80:  it('should display a warning if there are no diagnoses', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/ViewDiagnosis.test.tsx:38:  it('should render the loading spinner only while diagnosis data is being fetched', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/ViewDiagnosis.test.tsx:46:  it('should render the diagnosis name', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/ViewDiagnosis.test.tsx:52:  it('should render a diagnosis form', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/AddDiagnosisModal.test.tsx:61:  it('should dispatch add diagnosis when the save button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/AddDiagnosisModal.test.tsx:91:  it('should call the on close function when the cancel button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/Diagnoses.test.tsx:26:const setup = async (patient = expectedPatient, permissions = [Permissions.AddDiagnosis]) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/Diagnoses.test.tsx:50:    it('should render an add diagnoses button', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/diagnoses/Diagnoses.test.tsx:70:    it('should open the Add Diagnosis Modal', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/ViewCareGoals.test.tsx:19:  const setup = async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/ViewCareGoals.test.tsx:35:  it('should render a care goals table', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTab.test.tsx:65:  it('should not render add care goal button if user does not have permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTab.test.tsx:73:  it('should be able to create a new care goal if user has permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTab.test.tsx:122:  it('should open and close the modal when the add care goal and close buttons are clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTab.test.tsx:134:  it('should render care goal table when on patients/:id/care-goals', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTab.test.tsx:140:  it('should render care goal view when on patients/:id/care-goals/:careGoalId', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/ViewCareGoal.test.tsx:32:  it('should render the care goal form', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTable.test.tsx:33:  const setup = async (expectedPatient = patient) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTable.test.tsx:49:  it('should render a table', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTable.test.tsx:69:  it('should navigate to the care goal view when the view details button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalTable.test.tsx:78:  it('should display a warning if there are no care goals', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalForm.test.tsx:58:  it('should call onChange handler when description changes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-goals/CareGoalForm.test.tsx:238:  it('should render the forms field in an error state', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTable.test.tsx:31:  const setup = async (expectedPatient = patient) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTable.test.tsx:46:  it('should render a table', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTable.test.tsx:67:  it('should navigate to the care plan view when the view details button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTable.test.tsx:81:  it('should display a warning if there are no care plans', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/ViewCarePlans.test.tsx:23:  const setup = async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/ViewCarePlans.test.tsx:39:  it('should render a care plans table with the patient id', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/ViewCarePlan.test.tsx:22:  const setup = async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/ViewCarePlan.test.tsx:37:  it('should render the care plan title', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/AddCarePlanModal.test.tsx:55:  it('should call the on close function when the cancel button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/AddCarePlanModal.test.tsx:66:  it('should save care plan when the save button is clicked and close', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanForm.test.tsx:82:  it('should render a condition selector with the diagnoses from the patient', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanForm.test.tsx:92:  it('should call the on change handler when condition changes', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTab.test.tsx:35:  const setup = async (route: string, permissions: Permissions[]) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTab.test.tsx:53:  it('should render an add care plan button if user has correct permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTab.test.tsx:61:  it('should open the add care plan modal on click', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTab.test.tsx:71:  it('should close the modal when the close button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTab.test.tsx:88:  it('should not render care plan button if user does not have permissions', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTab.test.tsx:98:  it('should render the care plans table when on /patient/:id/care-plans', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/care-plans/CarePlanTab.test.tsx:104:  it('should render the care plan view when on /patient/:id/care-plans/:carePlanId', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/VisitTable.test.tsx:44:  it('should render a table', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/VisitTable.test.tsx:77:  it('should navigate to the visit view when the view details button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/VisitTable.test.tsx:89:  it('should display a warning if there are no visits', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/AddVisitModal.test.tsx:57:  it('should save the visit when the save button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/ViewVisit.test.tsx:41:  it('should render the visit reason', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/ViewVisit.test.tsx:49:  it('should render a visit form with the correct data', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/VisitTab.test.tsx:69:  it('should close the modal when the close button is clicked', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/VisitTab.test.tsx:90:  it('should render the visits table when on /patient/:id/visits', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/visits/VisitTab.test.tsx:111:  it('should render the visit view when on /patient/:id/visits/:visitId', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments/AppointmentsList.test.tsx:63:    it('should render a list of appointments', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments/AppointmentsList.test.tsx:78:    it('should navigate to appointment profile on appointment click', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments/AppointmentsList.test.tsx:90:    it('should render a warning message if there are no appointments', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments/AppointmentsList.test.tsx:102:    it('should render a new appointment button if there is an appointment', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments/AppointmentsList.test.tsx:110:    it('should render a new appointment button if there are no appointments', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments/AppointmentsList.test.tsx:118:    it('should navigate to new appointment page', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/MedicationsList.test.tsx:44:const setup = async (patient = expectedPatient, medications = expectedMedications) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/MedicationsList.test.tsx:59:  it('should render patient medications table headers', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/MedicationsList.test.tsx:73:  it('should render patient medication list', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/MedicationsList.test.tsx:84:  it('render an action button', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/MedicationsList.test.tsx:98:  it('should navigate to medication view on medication click', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/MedicationsList.test.tsx:107:  it('should render a warning message if there are no medications', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/Medications.test.tsx:38:const setup = async (
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/Medications.test.tsx:64:    it('should render patient medications', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs/Labs.test.tsx:44:const setup = async (
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs/Labs.test.tsx:69:    it('should render patient labs', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs/LabsList.test.tsx:44:const setup = async (patient = expectedPatient, labs = expectedLabs) => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs/LabsList.test.tsx:59:  it('should render a list of labs', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs/LabsList.test.tsx:90:  it('should navigate to lab view on lab click', async () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs/LabsList.test.tsx:113:  it('should render a warning message if there are no labs', async () => {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:20:  async find(id: string): Promise<T> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:26:  async findAll(sort = Unsorted): Promise<T[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:42:        async (s): Promise<SortRequest> => {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:65:  async count(): Promise<number> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:70:  async search(criteria: any): Promise<T[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:87:  async save(entity: T): Promise<T> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:100:  async saveOrUpdate(entity: T): Promise<T> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts:123:  async delete(entity: T): Promise<T> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts:15:  async search(container: SearchContainer): Promise<Medication[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts:36:  async save(entity: Medication): Promise<Medication> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts:40:  async findAllByPatientId(patientId: string): Promise<Medication[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts:19:  async search(text: string): Promise<Patient[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts:37:  async save(entity: Patient): Promise<Patient> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts:44:  async createIndex() {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts:50:  async getAppointments(patientId: string): Promise<Appointment[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts:55:  async getLabs(patientId: string): Promise<Lab[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts:60:  async getMedications(patientId: string): Promise<Medication[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts:14:  async search(options: SearchOptions): Promise<Incident[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts:17:  async search(container: SearchContainer): Promise<Lab[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts:41:  async save(entity: Lab): Promise<Lab> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts:47:  async findAllByPatientId(patientId: string): Promise<Lab[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts:18:  async search(container: SearchContainer): Promise<Imaging[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts:42:  async save(entity: Imaging): Promise<Imaging> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts:18:  async searchPatientAppointments(patientId: string, text: string): Promise<Appointment[]> {
+/tmp/inputs/hospitalrun-frontend/src/shared/components/component-slice.ts:25:export const updateSidebar = (): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:29:  localDb.sync(serverDb, { live: true, retry: true })
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:38:        hasMany: { type: 'appointment', options: { queryInverse: 'patient', async: true } },
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:40:      labs: { hasMany: { type: 'lab', options: { queryInverse: 'patient', async: true } } },
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:42:        hasMany: { type: 'medication', options: { queryInverse: 'patient', async: true } },
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:44:      imagings: { hasMany: { type: 'imaging', options: { queryInverse: 'patient', async: true } } },
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:88:export const getCurrentSession = (username: string): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:102:export const login = (username: string, password: string): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts:135:export const logout = (): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useAppointments.tsx:6:async function fetchAppointments(): Promise<Appointment[]> {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useScheduleAppointment.tsx:14:async function createNewAppointment(appointment: Appointment): Promise<Appointment> {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useScheduleAppointment.tsx:24:    onSuccess: async () => {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useDeleteAppointment.tsx:10:async function deleteAppointment(request: deleteAppointmentRequest): Promise<Appointment> {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useDeleteAppointment.tsx:17:    onSuccess: async () => {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useUpdateAppointment.tsx:14:async function updateAppointment(appointment: Appointment): Promise<Appointment> {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useUpdateAppointment.tsx:21:    onSuccess: async () => {
+/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments/AppointmentDetailForm.tsx:58:              onSearch={async (query: string) => PatientRepository.search(query)}
+/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments/ViewAppointments.tsx:56:      appointments.map(async (appointment: Appointment) => {
+/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts:82:export const fetchMedication = (medicationId: string): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts:105:): AppThunk => async (dispatch, getState) => {
+/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts:128:): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts:144:): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/medications/ViewMedication.tsx:102:  const onUpdate = async () => {
+/tmp/inputs/hospitalrun-frontend/src/medications/ViewMedication.tsx:111:  const onCancel = async () => {
+/tmp/inputs/hospitalrun-frontend/src/medications/requests/NewMedicationRequest.tsx:114:  const onSave = async () => {
+/tmp/inputs/hospitalrun-frontend/src/medications/requests/NewMedicationRequest.tsx:139:            onSearch={async (query: string) => PatientRepository.search(query)}
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx:74:  const deleteNote = async (noteIdToDelete: string) => {
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx:96:  const onUpdate = async () => {
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx:123:  const onComplete = async () => {
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx:140:  const onCancel = async () => {
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx:222:                  <Button icon="remove" onClick={async () => deleteNote(note.id)} color="danger">
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useRequestLab.ts:21:    onSuccess: async () => {
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useCancelLab.ts:14:    onSuccess: async () => {
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useCompleteLab.ts:26:    onSuccess: async (data) => {
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useUpdateLab.ts:12:    onSuccess: async (data) => {
+/tmp/inputs/hospitalrun-frontend/src/labs/requests/NewLabRequest.tsx:109:  const onSave = async () => {
+/tmp/inputs/hospitalrun-frontend/src/labs/requests/NewLabRequest.tsx:156:                onSearch={async (query: string) => PatientRepository.search(query)}
+/tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts:41:export const fetchPatients = (sortRequest: SortRequest = Unsorted): AppThunk => async (
+/tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts:49:export const searchPatients = (searchString: string): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts:111:): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts:137:): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts:185:): AppThunk => async (dispatch) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/allergies/NewAllergyModal.tsx:32:  const onSaveButtonClick = async () => {
+/tmp/inputs/hospitalrun-frontend/src/patients/related-persons/AddRelatedPersonModal.tsx:58:  const onSearch = async (query: string) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/related-persons/AddRelatedPersonModal.tsx:63:  const onSaveButtonClick = async () => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useRemovePatientRelatedPerson.tsx:11:async function removeRelatedPerson(request: removeRelatedPersonRequest): Promise<RelatedPerson[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useRemovePatientRelatedPerson.tsx:26:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useRemovePatientRelatedPerson.tsx:28:        data.map(async (rp) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientDiagnosis.tsx:14:async function addDiagnosis(request: AddDiagnosisRequest): Promise<Diagnosis[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientDiagnosis.tsx:32:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCarePlans.tsx:6:async function fetchPatientCarePlans(_: string, patientId: string): Promise<CarePlan[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCareGoals.tsx:6:async function fetchPatientCareGoals(_: string, patientId: string): Promise<CareGoal[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientVisits.tsx:6:async function fetchPatientVisits(_: string, patientId: string): Promise<Visit[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientRelatedPersons.tsx:10:async function fetchPatientRelatedPersons(
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientRelatedPersons.tsx:17:    relatedPersons.map(async (person) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddAllergy.tsx:14:async function addAllergy(request: AddAllergyRequest): Promise<Allergy[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddAllergy.tsx:39:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useCarePlan.tsx:6:async function getCarePlan(_: string, patientId: string, allergyId: string): Promise<CarePlan> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useVisit.tsx:6:async function fetchVisit(
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCarePlan.tsx:14:async function addCarePlan(request: AddCarePlanRequest): Promise<CarePlan[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCarePlan.tsx:42:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientDiagnoses.tsx:6:async function fetchPatientDiagnoses(_: string, patientId: string): Promise<Diagnosis[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientNotes.tsx:6:async function fetchPatientNotes(_: string, patientId: string): Promise<Note[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientNote.tsx:14:async function addNote(request: AddNoteRequest): Promise<Note[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientNote.tsx:39:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddVisit.tsx:15:async function addVisit(request: AddVisitRequest): Promise<Visit[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddVisit.tsx:37:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientLabs.tsx:6:async function fetchPatientLabs(_: string, patientId: string): Promise<Lab[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCareGoal.tsx:14:async function addCareGoal(request: AddCareGoalRequest): Promise<CareGoal[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCareGoal.tsx:42:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientNote.tsx:6:async function getNote(_: string, patientId: string, noteId: string): Promise<Note> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAllergy.tsx:6:async function getAllergy(_: string, patientId: string, allergyId: string): Promise<Allergy> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useCareGoal.tsx:6:async function getCareGoal(_: string, patientId: string, careGoalId: string): Promise<CareGoal> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientAppointments.tsx:6:async function fetchPatientAppointments(_: string, patientId: string): Promise<Appointments[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientAllergies.tsx:6:async function fetchPatientAllergies(_: string, patientId: string): Promise<Allergy[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientRelatedPerson.tsx:14:async function addRelatedPerson(request: AddRelatedPersonRequest): Promise<RelatedPerson[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientRelatedPerson.tsx:39:    onSuccess: async (data, variables) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientRelatedPerson.tsx:41:        data.map(async (rp) => {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatients.tsx:12:async function fetchPatients(_: any, searchRequest: PatientSearchRequest): Promise<PatientsResult> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useDiagnosis.tsx:6:async function getDiagnosis(_: string, patientId: string, diagnosisId: string): Promise<Diagnosis> {
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientMedications.tsx:6:async function fetchPatientMedications(_: string, patientId: string): Promise<Medication[]> {
+/tmp/inputs/hospitalrun-frontend/src/patients/notes/NewNoteModal.tsx:33:  const onSaveButtonClick = async () => {
+/tmp/inputs/hospitalrun-frontend/src/patients/edit/EditPatient.tsx:61:  const onSave = async () => {
+/tmp/inputs/hospitalrun-frontend/src/patients/diagnoses/AddDiagnosisModal.tsx:41:  const onSaveButtonClick = async () => {
+/tmp/inputs/hospitalrun-frontend/src/patients/care-goals/AddCareGoalModal.tsx:47:  const onSaveButtonClick = async () => {
+/tmp/inputs/hospitalrun-frontend/src/patients/care-plans/AddCarePlanModal.tsx:48:  const onSaveButtonClick = async () => {
+/tmp/inputs/hospitalrun-frontend/src/patients/visits/AddVisitModal.tsx:45:  const onSaveButtonClick = async () => {
+4. Now write the ideal answer, model a  summary, model a feedback,  model b summary model b feedback,justification. i want same level of details and evidence and writing style and lenght like this sample THIS IS SAMPLE FOR you below, READ CAREFULLY: 
+
+
+SUPER IMPORTANT RULE YOU MUST FOLLOW. YOU MUST WRITE SAME WAY SAME QUALITY SAME FORMAT SAME STYLE AS SAMPLE BELOW!@!!!!!!!
+
+——SAMPLE:—
+—Every below is sample—
+
+Ideal Response.
+
+This ideal answer should clearly describe how Spring Petclinic wires its components through dependency injection using common patterns like constructor based injection, component scanning, and configuration-driven bean factories ...etc, and even dive deeper to explain how controllers (e.g.,src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java) declare all the collaborators in the constructors rather than in the fields, how stereotype annotations make those classes eligible for autodetection, how the repository abstractions are injected as interfaces implemented by the Spring Data JPA, and how @Configuration classes expose shared infrastructure beans that all the other components consume.
+Model must explain that Spring Petclinic leans on constructor-based dependency injection to keep controllers explicit and testable. For example, it should explain controller like spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java is annotated with @Controller and declares a single constructor that takes an OwnerRepository, which has the role of letting Spring populate the dependency while preventing partially constructed instance. Model should point out that the controller never uses field injection or @Autowired on members, so the required collaborator is enforced at creation time. For example, in src/main/java/org/springframework/samples/petclinic/vet/VetController.java, whose constructor requires a VetRepository and assigns it to a final field, it is also relying on the container to supply the repository proxy. Even non-controller components follow this approach, for example src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, which is a @Component that exposes a Formatter<PetType> but takes its PetTypeRepository in the constructor, which is keeping parsing logic decoupled from storage details while still making the repository mandatory for instantiation.
+Model must also explain repository layer demonstrates interface-driven injection. Interfaces such as spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java extend Spring Data JPA’s JpaRepository, which is letting the framework auto-create runtime proxies that satisfy the dependency signatures declared in controllers and formatters.
+Overall, the dependency injection explanation should ideally go deep and cover how @SpringBootApplication bootstraps component scanning, constructors declare required collaborators, repositories are injected as interfaces backed by generated proxies, and @Configuration classes publish shared infrastructure as beans.
+
+
+
+Model A Response Summary
+
+Model A did pretty well because it correctly identifiy constructor-based injection as the major dominant pattern and notes the absence of @Autowired, aligning with controllers like OwnerController and VetController that declare single-argument constructors for their repositories, which are src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java and src/main/java/org/springframework/samples/petclinic/vet/VetController.java,. It also correctly observes that PetTypeFormatter uses constructor injection as a component, which matches the formatters’ constructor-driven PetTypeRepository dependency. It points out that in src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, the response highlights component scanning via the stereotype annotations and the role of repository interfaces that Spring Data implements at runtime, dynamically, and consistent with the JpaRepository extension inside src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java.  Overall, the summary gives good overview of the core DI patterns present in the codebase.
+Model A Response Feedback
+
+the answer is strong on constructor injection and the lack of @Autowired, both supported by the controller and formatter classes cited in summary above, which are very impressive findings in my opinion as tehy’re not that obvious. One area it could be improved is by referencing configuration-driven beans such as the cache and locale interceptors declared in CacheConfiguration and WebConfiguration , to show that DI also wires infrastructure services, not just repositories and controllers in files like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. Mentioning of @SpringBootApplication as the trigger for component scanning would further strengthen the explanation by tying bean discovery to the application entry point in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java. These additions would align the response even more tightly with the full range of DI patterns in the repo. But overall, the model did pretty well despite these issues.
+
+Model B Response Summary
+
+Model B repeats the constructor-injection narrative and cites the same controllers (OwnerController, PetController, VetController, VisitController) and the PetTypeFormatter component under main/java/org/springframework/samples/petclinic/*, matching their constructor-based repository dependencies.It notes the absence of @Autowired/@Inject and correctly attributes bean registration to stereotype annotations and Spring Data proxies for repositories like OwnerRepository in src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java†. The summary emphasizes constructor injection benefits but remains fairly high-level. Overall the model did not give an in-depth explanation and i believe the model did not really check the code thoroughly for the explanation. 
+Model B Response Feedback
+
+While this model is technically accurate about constructor injection and stereotype-based registration, but Model B stays generic and omits key DI elements present in the code which are obvious and should not be missed at all! It does not even mention the configuration classes that publish infrastructure beans (e.g., cache customization or locale handling), which are central examples of DI beyond the configurations like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. The response also overlooks the @SpringBootApplication entry point that enables component scanning for all these beans such as in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java.Compared to Model A, it provides less depth on how DI wiring spans both application endpoints and shared infrastructure.
+Overall Preference Justification
+
+Model A is way better because it balances correctness about constructor injection with explicit recognition of repository interfaces and the role of component scanning, closely matching the structure seen in controllers, formatters, and repositories...etc such as src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java,src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java,src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java, Although both models miss some configuration details, Model A surfaces more of the actual DI practices visible in the code and provides a clearer link between stereotypes and injection than Model B, which remains more generic and omits infrastructure wiring examples such as ,src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java.....etc. Therefore, Model A offers the stronger, more code-grounded explanation in my opinion.
