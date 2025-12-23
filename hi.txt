@@ -1,0 +1,3608 @@
+
+
+DO NOT EVER ADD “WORKSPACE IN FILE PATH, start with src folder!” DO NOT ADD EM DASH! MUST CITE 5 real files in each section especially ideal answer!
+
+Make sure to obey these 100% “
+
+-  All answers should have  5+ meaningful sentences and clear as well 
+- Adding a few file references in the feedback section could strength the answer.
+- The ideal response could benefit from a dedicated file-list section summarizing all referenced files together.
+- Adding separate strength and weakness points inside summaries would enhance readability and make the evaluation feel more complete.
+
+
+1.new task, question is: “Does the frontend repo web app follows the MVC (which stands for Model-View-Controller) pattern for its architecture?
+
+2.here is model A's response:  
+ 
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" | head -50
+output
+/tmp/inputs/hospitalrun-frontend/src/index.tsx
+/tmp/inputs/hospitalrun-frontend/src/App.tsx
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/IncidentFilter.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncidentDetails.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/model/IncidentSearchRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useResolveIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/visualize/VisualizeIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/util/validate-incident.ts
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/model/ImagingSearchRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingSearch.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingRequest.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useRequestImaging.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ImagingRequestTable.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ViewImagings.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests/NewImagingRequest.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/util/validate-imaging-request.ts
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs/useAddBreadcrumbs.ts
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs/Breadcrumbs.tsx
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs/breadcrumbs-slice.ts
+/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar/ButtonToolBar.tsx
+/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar/ButtonBarProvider.tsx
+/tmp/inputs/hospitalrun-frontend/src/page-header/title/TitleContext.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/App.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/HospitalRun.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/Incidents.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidents.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useResolvedIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useIncidents.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useReportIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/util/validate-incident.test.ts
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/Imagings.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/hooks/useRequestImaging.test.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend, excluding hidden items and node_modules:
+113M	/tmp/inputs/hospitalrun-frontend
+79K	/tmp/inputs/hospitalrun-frontend/CHANGELOG.md
+1.5K	/tmp/inputs/hospitalrun-frontend/LICENSE
+3.0K	/tmp/inputs/hospitalrun-frontend/README.md
+1.5K	/tmp/inputs/hospitalrun-frontend/SECURITY.md
+3.0K	/tmp/inputs/hospitalrun-frontend/azure.yaml
+512	/tmp/inputs/hospitalrun-frontend/commitlint.config.js
+3.0K	/tmp/inputs/hospitalrun-frontend/couchdb
+512	/tmp/inputs/hospitalrun-frontend/couchdb/Dockerfile
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-cleanup.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.bat
+512	/tmp/inputs/hospitalrun-frontend/couchdb/couchdb-init.sh
+512	/tmp/inputs/hospitalrun-frontend/couchdb/local.ini
+1.5K	/tmp/inputs/hospitalrun-frontend/docker-compose.yml
+512	/tmp/inputs/hospitalrun-frontend/docs
+512	/tmp/inputs/hospitalrun-frontend/docs/index.md
+512	/tmp/inputs/hospitalrun-frontend/jest.config.js
+512	/tmp/inputs/hospitalrun-frontend/mkdocs.yml
+512	/tmp/inputs/hospitalrun-frontend/nginx.conf
+5.5K	/tmp/inputs/hospitalrun-frontend/package.json
+20K	/tmp/inputs/hospitalrun-frontend/public
+1.5K	/tmp/inputs/hospitalrun-frontend/public/favicon.ico
+2.0K	/tmp/inputs/hospitalrun-frontend/public/index.html
+16K	/tmp/inputs/hospitalrun-frontend/public/logo.png
+512	/tmp/inputs/hospitalrun-frontend/public/manifest.json
+512	/tmp/inputs/hospitalrun-frontend/public/robots.txt
+3.5K	/tmp/inputs/hospitalrun-frontend/scripts
+2.5K	/tmp/inputs/hospitalrun-frontend/scripts/check-translations
+512	/tmp/inputs/hospitalrun-frontend/scripts/tsconfig.json
+1.2M	/tmp/inputs/hospitalrun-frontend/src
+2.0K	/tmp/inputs/hospitalrun-frontend/src/App.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__
+564K	/tmp/inputs/hospitalrun-frontend/src/__tests__
+1.5K	/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard
+17K	/tmp/inputs/hospitalrun-frontend/src/imagings
+29K	/tmp/inputs/hospitalrun-frontend/src/incidents
+2.0K	/tmp/inputs/hospitalrun-frontend/src/index.css
+1.0K	/tmp/inputs/hospitalrun-frontend/src/index.tsx
+28K	/tmp/inputs/hospitalrun-frontend/src/labs
+36K	/tmp/inputs/hospitalrun-frontend/src/medications
+6.5K	/tmp/inputs/hospitalrun-frontend/src/page-header
+192K	/tmp/inputs/hospitalrun-frontend/src/patients
+512	/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+30K	/tmp/inputs/hospitalrun-frontend/src/scheduling
+5.5K	/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings
+1.0K	/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user
+1.0K	/tmp/inputs/hospitalrun-frontend/tsconfig.json
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src, excluding hidden items and node_modules:
+1.2M	/tmp/inputs/hospitalrun-frontend/src
+2.0K	/tmp/inputs/hospitalrun-frontend/src/App.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__
+512	/tmp/inputs/hospitalrun-frontend/src/__mocks__/i18next.js
+512	/tmp/inputs/hospitalrun-frontend/src/__mocks__/matchMediaMock.js
+2.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__/react-i18next.js
+564K	/tmp/inputs/hospitalrun-frontend/src/__tests__
+1.5K	/tmp/inputs/hospitalrun-frontend/src/__tests__/App.test.tsx
+6.5K	/tmp/inputs/hospitalrun-frontend/src/__tests__/HospitalRun.test.tsx
+17K	/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings
+35K	/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents
+43K	/tmp/inputs/hospitalrun-frontend/src/__tests__/labs
+45K	/tmp/inputs/hospitalrun-frontend/src/__tests__/medications
+11K	/tmp/inputs/hospitalrun-frontend/src/__tests__/page-header
+294K	/tmp/inputs/hospitalrun-frontend/src/__tests__/patients
+41K	/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling
+2.0K	/tmp/inputs/hospitalrun-frontend/src/__tests__/settings
+62K	/tmp/inputs/hospitalrun-frontend/src/__tests__/shared
+2.0K	/tmp/inputs/hospitalrun-frontend/src/__tests__/test-utils
+5.0K	/tmp/inputs/hospitalrun-frontend/src/__tests__/user
+1.5K	/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard/Dashboard.tsx
+17K	/tmp/inputs/hospitalrun-frontend/src/imagings
+1.5K	/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/imagings/hooks
+512	/tmp/inputs/hospitalrun-frontend/src/imagings/model
+7.0K	/tmp/inputs/hospitalrun-frontend/src/imagings/requests
+3.5K	/tmp/inputs/hospitalrun-frontend/src/imagings/search
+1.5K	/tmp/inputs/hospitalrun-frontend/src/imagings/util
+29K	/tmp/inputs/hospitalrun-frontend/src/incidents
+512	/tmp/inputs/hospitalrun-frontend/src/incidents/IncidentFilter.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx
+3.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/hooks
+6.0K	/tmp/inputs/hospitalrun-frontend/src/incidents/list
+512	/tmp/inputs/hospitalrun-frontend/src/incidents/model
+6.0K	/tmp/inputs/hospitalrun-frontend/src/incidents/report
+1.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/util
+5.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/view
+3.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/visualize
+2.0K	/tmp/inputs/hospitalrun-frontend/src/index.css
+1.0K	/tmp/inputs/hospitalrun-frontend/src/index.tsx
+28K	/tmp/inputs/hospitalrun-frontend/src/labs
+1.5K	/tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx
+9.0K	/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx
+4.5K	/tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx
+4.5K	/tmp/inputs/hospitalrun-frontend/src/labs/hooks
+512	/tmp/inputs/hospitalrun-frontend/src/labs/model
+6.5K	/tmp/inputs/hospitalrun-frontend/src/labs/requests
+1.5K	/tmp/inputs/hospitalrun-frontend/src/labs/utils
+36K	/tmp/inputs/hospitalrun-frontend/src/medications
+1.5K	/tmp/inputs/hospitalrun-frontend/src/medications/Medications.tsx
+11K	/tmp/inputs/hospitalrun-frontend/src/medications/ViewMedication.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/medications/hooks
+5.0K	/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/medications/models
+9.5K	/tmp/inputs/hospitalrun-frontend/src/medications/requests
+7.0K	/tmp/inputs/hospitalrun-frontend/src/medications/search
+6.5K	/tmp/inputs/hospitalrun-frontend/src/page-header
+3.0K	/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs
+2.0K	/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar
+1.5K	/tmp/inputs/hospitalrun-frontend/src/page-header/title
+192K	/tmp/inputs/hospitalrun-frontend/src/patients
+4.5K	/tmp/inputs/hospitalrun-frontend/src/patients/ContactInfo.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/ContactInfoTypes.ts
+11K	/tmp/inputs/hospitalrun-frontend/src/patients/GeneralInformation.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/Patients.tsx
+7.0K	/tmp/inputs/hospitalrun-frontend/src/patients/allergies
+3.5K	/tmp/inputs/hospitalrun-frontend/src/patients/appointments
+15K	/tmp/inputs/hospitalrun-frontend/src/patients/care-goals
+15K	/tmp/inputs/hospitalrun-frontend/src/patients/care-plans
+15K	/tmp/inputs/hospitalrun-frontend/src/patients/diagnoses
+3.0K	/tmp/inputs/hospitalrun-frontend/src/patients/edit
+6.0K	/tmp/inputs/hospitalrun-frontend/src/patients/history
+25K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks
+2.5K	/tmp/inputs/hospitalrun-frontend/src/patients/labs
+3.0K	/tmp/inputs/hospitalrun-frontend/src/patients/medications
+512	/tmp/inputs/hospitalrun-frontend/src/patients/models
+6.0K	/tmp/inputs/hospitalrun-frontend/src/patients/new
+7.5K	/tmp/inputs/hospitalrun-frontend/src/patients/notes
+5.0K	/tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts
+8.5K	/tmp/inputs/hospitalrun-frontend/src/patients/related-persons
+7.0K	/tmp/inputs/hospitalrun-frontend/src/patients/search
+16K	/tmp/inputs/hospitalrun-frontend/src/patients/util
+16K	/tmp/inputs/hospitalrun-frontend/src/patients/view
+12K	/tmp/inputs/hospitalrun-frontend/src/patients/visits
+512	/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+30K	/tmp/inputs/hospitalrun-frontend/src/scheduling
+25K	/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments
+5.0K	/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks
+5.5K	/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings/Settings.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+38K	/tmp/inputs/hospitalrun-frontend/src/shared/components
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/config
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/db
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/hooks
+151K	/tmp/inputs/hospitalrun-frontend/src/shared/locales
+13K	/tmp/inputs/hospitalrun-frontend/src/shared/model
+29K	/tmp/inputs/hospitalrun-frontend/src/shared/static
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store
+3.0K	/tmp/inputs/hospitalrun-frontend/src/shared/util
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared, excluding hidden items and node_modules:
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+38K	/tmp/inputs/hospitalrun-frontend/src/shared/components
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/Loading.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/PrivateRoute.tsx
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/components/component-slice.ts
+8.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input
+7.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/navbar
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/network-status
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/config
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/config/i18n.ts
+2.5K	/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/db
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Search.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Sort.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/SortRequest.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/hooks
+512	/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useDebounce.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useTranslator.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/hooks/useUpdateEffect.ts
+151K	/tmp/inputs/hospitalrun-frontend/src/shared/locales
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/README.md
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ar
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/de
+21K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/enUs
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/es
+12K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/fr
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/id
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/index.ts
+12K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/it
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ja
+12K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ptBr
+27K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/ru
+22K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/tr
+5.5K	/tmp/inputs/hospitalrun-frontend/src/shared/locales/zhCN
+13K	/tmp/inputs/hospitalrun-frontend/src/shared/model
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/AbstractDBModel.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Allergy.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Appointment.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Breadcrumb.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/CareGoal.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/CarePlan.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/ContactInformation.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Diagnosis.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Imaging.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Incident.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Lab.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Medication.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Name.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Note.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/PatientHistoryRecord.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/RelatedPerson.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/User.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Visit.ts
+29K	/tmp/inputs/hospitalrun-frontend/src/shared/static
+29K	/tmp/inputs/hospitalrun-frontend/src/shared/static/images
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+3.0K	/tmp/inputs/hospitalrun-frontend/src/shared/util
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/util/DataHelpers.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/extractUsername.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/formatDate.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/generateCode.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/util/uuid.ts
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts with line numbers:
+1	import { configureStore, combineReducers, Action } from '@reduxjs/toolkit'
+2	import ReduxThunk, { ThunkAction } from 'redux-thunk'
+3
+4	import medication from '../../medications/medication-slice'
+5	import breadcrumbs from '../../page-header/breadcrumbs/breadcrumbs-slice'
+6	import patient from '../../patients/patient-slice'
+7	import patients from '../../patients/patients-slice'
+8	import user from '../../user/user-slice'
+9	import components from '../components/component-slice'
+10
+11	const reducer = combineReducers({
+12	  patient,
+13	  patients,
+14	  user,
+15	  breadcrumbs,
+16	  components,
+17	  medication,
+18	})
+19
+20	const store = configureStore({
+21	  reducer,
+22	  middleware: [ReduxThunk],
+23	})
+24
+25	export type AppDispatch = typeof store.dispatch
+26	export type AppThunk = ThunkAction<void, RootState, null, Action<string>>
+27	export type RootState = ReturnType<typeof reducer>
+28
+29	export default store
+30	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts with line numbers:
+1	import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+2	import isEmpty from 'lodash/isEmpty'
+3
+4	import PatientRepository from '../shared/db/PatientRepository'
+5	import Diagnosis from '../shared/model/Diagnosis'
+6	import Patient from '../shared/model/Patient'
+7	import { AppThunk } from '../shared/store'
+8	import { uuid } from '../shared/util/uuid'
+9	import { cleanupPatient } from './util/set-patient-helper'
+10	import validatePatient from './util/validate-patient'
+11
+12	interface PatientState {
+13	  status: 'loading' | 'error' | 'completed'
+14	  isUpdatedSuccessfully: boolean
+15	  patient: Patient
+16	  relatedPersons: Patient[]
+17	  createError?: Error
+18	  updateError?: Error
+19	  allergyError?: AddAllergyError
+20	  diagnosisError?: AddDiagnosisError
+21	  relatedPersonError?: AddRelatedPersonError
+22	}
+23
+24	interface Error {
+25	  message?: string
+26	  givenName?: string
+27	  dateOfBirth?: string
+28	  suffix?: string
+29	  prefix?: string
+30	  familyName?: string
+31	  preferredLanguage?: string
+32	  emails?: (string | undefined)[]
+33	  phoneNumbers?: (string | undefined)[]
+34	}
+35
+36	interface AddRelatedPersonError {
+37	  message?: string
+38	  relatedPerson?: string
+39	  relationshipType?: string
+40	}
+41
+42	interface AddAllergyError {
+43	  message?: string
+44	  name?: string
+45	}
+46
+47	interface AddDiagnosisError {
+48	  message?: string
+49	  name?: string
+50	  date?: string
+51	  status?: string
+52	}
+53
+54	const initialState: PatientState = {
+55	  status: 'loading',
+56	  isUpdatedSuccessfully: false,
+57	  patient: {} as Patient,
+58	  relatedPersons: [],
+59	  createError: undefined,
+60	  updateError: undefined,
+61	  diagnosisError: undefined,
+62	  relatedPersonError: undefined,
+63	}
+64
+65	function start(state: PatientState) {
+66	  state.status = 'loading'
+67	  state.createError = {}
+68	}
+69
+70	const patientSlice = createSlice({
+71	  name: 'patient',
+72	  initialState,
+73	  reducers: {
+74	    createPatientStart: start,
+75	    createPatientSuccess(state) {
+76	      state.status = 'completed'
+77	    },
+78	    createPatientError(state, { payload }: PayloadAction<Error>) {
+79	      state.status = 'error'
+80	      state.createError = payload
+81	    },
+82	    updatePatientStart: start,
+83	    updatePatientSuccess(state, { payload }: PayloadAction<Patient>) {
+84	      state.status = 'completed'
+85	      state.patient = payload
+86	    },
+87	    updatePatientError(state, { payload }: PayloadAction<Error>) {
+88	      state.status = 'error'
+89	      state.updateError = payload
+90	    },
+91	    addDiagnosisError(state, { payload }: PayloadAction<AddDiagnosisError>) {
+92	      state.status = 'error'
+93	      state.diagnosisError = payload
+94	    },
+95	  },
+96	})
+97
+98	export const {
+99	  createPatientStart,
+100	  createPatientSuccess,
+101	  createPatientError,
+102	  updatePatientStart,
+103	  updatePatientSuccess,
+104	  updatePatientError,
+105	  addDiagnosisError,
+106	} = patientSlice.actions
+107
+108	export const createPatient = (
+109	  patient: Patient,
+110	  onSuccess?: (patient: Patient) => void,
+111	): AppThunk => async (dispatch) => {
+112	  dispatch(createPatientStart())
+113
+114	  const cleanPatient = cleanupPatient(patient)
+115	  const newPatientError = validatePatient(cleanPatient)
+116
+117	  if (!newPatientError) {
+118	    const newPatient = await PatientRepository.save(cleanPatient)
+119	    dispatch(createPatientSuccess())
+120
+121	    if (onSuccess) {
+122	      onSuccess(newPatient)
+123	    }
+124	  } else {
+125	    dispatch(
+126	      createPatientError({
+127	        ...newPatientError.fieldErrors,
+128	        message: 'patient.errors.createPatientError',
+129	      }),
+130	    )
+131	  }
+132	}
+133
+134	export const updatePatient = (
+135	  patient: Patient,
+136	  onSuccess?: (patient: Patient) => void,
+137	): AppThunk => async (dispatch) => {
+138	  dispatch(updatePatientStart())
+139
+140	  const cleanPatient = cleanupPatient(patient)
+141	  const updateError = validatePatient(cleanPatient)
+142
+143	  if (!updateError) {
+144	    const updatedPatient = await PatientRepository.saveOrUpdate(cleanPatient)
+145	    dispatch(updatePatientSuccess(updatedPatient))
+146
+147	    if (onSuccess) {
+148	      onSuccess(updatedPatient)
+149	    }
+150	  } else {
+151	    dispatch(
+152	      updatePatientError({
+153	        ...updateError.fieldErrors,
+154	        message: 'patient.errors.updatePatientError',
+155	      }),
+156	    )
+157	  }
+158	}
+159
+160	function validateDiagnosis(diagnosis: Diagnosis) {
+161	  const error: AddDiagnosisError = {}
+162
+163	  if (!diagnosis.name) {
+164	    error.name = 'patient.diagnoses.error.nameRequired'
+165	  }
+166
+167	  if (!diagnosis.diagnosisDate) {
+168	    error.date = 'patient.diagnoses.error.dateRequired'
+169	  }
+170
+171	  if (!diagnosis.onsetDate) {
+172	    error.date = 'patient.diagnoses.error.dateRequired'
+173	  }
+174
+175	  if (!diagnosis.status) {
+176	    error.status = 'patient.diagnoses.error.statusRequired'
+177	  }
+178	  return error
+179	}
+180
+181	export const addDiagnosis = (
+182	  patientId: string,
+183	  diagnosis: Diagnosis,
+184	  onSuccess?: (patient: Patient) => void,
+185	): AppThunk => async (dispatch) => {
+186	  const newDiagnosisError = validateDiagnosis(diagnosis)
+187
+188	  if (isEmpty(newDiagnosisError)) {
+189	    const patient = await PatientRepository.find(patientId)
+190	    const diagnoses = patient.diagnoses || []
+191	    diagnoses.push({ id: uuid(), ...diagnosis })
+192	    patient.diagnoses = diagnoses
+193
+194	    await dispatch(updatePatient(patient, onSuccess))
+195	  } else {
+196	    newDiagnosisError.message = 'patient.diagnoses.error.unableToAdd'
+197	    dispatch(addDiagnosisError(newDiagnosisError))
+198	  }
+199	}
+200
+201	export default patientSlice.reducer
+202	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts with line numbers:
+1	import AbstractDBModel from './AbstractDBModel'
+2	import Allergy from './Allergy'
+3	import CareGoal from './CareGoal'
+4	import CarePlan from './CarePlan'
+5	import ContactInformation from './ContactInformation'
+6	import Diagnosis from './Diagnosis'
+7	import Name from './Name'
+8	import Note from './Note'
+9	import RelatedPerson from './RelatedPerson'
+10	import Visit from './Visit'
+11
+12	export default interface Patient extends AbstractDBModel, Name, ContactInformation {
+13	  sex: string
+14	  dateOfBirth: string
+15	  isApproximateDateOfBirth: boolean
+16	  preferredLanguage?: string
+17	  occupation?: string
+18	  type?: string
+19	  code: string
+20	  relatedPersons?: RelatedPerson[]
+21	  allergies?: Allergy[]
+22	  diagnoses?: Diagnosis[]
+23	  notes?: Note[]
+24	  index: string
+25	  carePlans: CarePlan[]
+26	  careGoals: CareGoal[]
+27	  bloodType: string
+28	  visits: Visit[]
+29	}
+30	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts with line numbers:
+1	import { v4 as uuidv4 } from 'uuid'
+2
+3	import { schema } from '../config/pouchdb'
+4	import AbstractDBModel from '../model/AbstractDBModel'
+5	import SortRequest, { Unsorted } from './SortRequest'
+6
+7	export default class Repository<T extends AbstractDBModel> {
+8	  db: PouchDB.RelDatabase
+9
+10	  type: string
+11
+12	  pluralType: string
+13
+14	  constructor(type: string, db: PouchDB.RelDatabase) {
+15	    this.db = db
+16	    this.type = type
+17	    this.pluralType = schema.find((s) => s.singular === this.type)?.plural || ''
+18	  }
+19
+20	  async find(id: string): Promise<T> {
+21	    const documents = await this.db.rel.find(this.type, id)
+22	    const entity = documents[this.pluralType][0]
+23	    return entity
+24	  }
+25
+26	  async findAll(sort = Unsorted): Promise<T[]> {
+27	    const selector: any = {
+28	      _id: {
+29	        $regex: RegExp(this.type, 'i'),
+30	      },
+31	    }
+32
+33	    sort.sorts.forEach((s) => {
+34	      selector[`data.${s.field}`] = { $gt: null }
+35	    })
+36
+37	    // Adds an index to each of the fields coming from the sorting object
+38	    // allowing the algorithm to sort by any given SortRequest, by avoiding the default index error (lack of index)
+39
+40	    await Promise.all(
+41	      sort.sorts.map(
+42	        async (s): Promise<SortRequest> => {
+43	          await this.db.createIndex({
+44	            index: {
+45	              fields: [`data.${s.field}`],
+46	            },
+47	          })
+48
+49	          return sort
+50	        },
+51	      ),
+52	    )
+53
+54	    const result = await this.db.find({
+55	      selector,
+56	      sort:
+57	        sort.sorts.length > 0
+58	          ? sort.sorts.map((s) => ({ [`data.${s.field}`]: s.direction }))
+59	          : undefined,
+60	    })
+61	    const relDocs = await this.db.rel.parseRelDocs(this.type, result.docs)
+62	    return relDocs[this.pluralType]
+63	  }
+64
+65	  async count(): Promise<number> {
+66	    const result = await this.findAll()
+67	    return result.length
+68	  }
+69
+70	  async search(criteria: any): Promise<T[]> {
+71	    const response = await this.db.find({
+72	      selector: {
+73	        $and: [
+74	          {
+75	            _id: {
+76	              $regex: RegExp(this.type, 'i'),
+77	            },
+78	          },
+79	          { ...criteria.selector },
+80	        ],
+81	      },
+82	    })
+83	    const data = await this.db.rel.parseRelDocs(this.type, response.docs)
+84	    return data[this.pluralType]
+85	  }
+86
+87	  async save(entity: T): Promise<T> {
+88	    const currentTime = new Date().toISOString()
+89
+90	    const { id, rev, ...valuesToSave } = entity
+91	    const savedEntity = await this.db.rel.save(this.type, {
+92	      id: uuidv4(),
+93	      ...valuesToSave,
+94	      createdAt: currentTime,
+95	      updatedAt: currentTime,
+96	    })
+97	    return this.find(savedEntity.id)
+98	  }
+99
+100	  async saveOrUpdate(entity: T): Promise<T> {
+101	    if (!entity.id) {
+102	      return this.save(entity)
+103	    }
+104
+105	    const { id, rev, ...dataToSave } = entity
+106
+107	    try {
+108	      await this.find(entity.id)
+109	      const entityToUpdate = {
+110	        id,
+111	        rev,
+112	        ...dataToSave,
+113	        updatedAt: new Date().toISOString(),
+114	      }
+115
+116	      await this.db.rel.save(this.type, entityToUpdate)
+117	      return this.find(entity.id)
+118	    } catch (error) {
+119	      return this.save(entity)
+120	    }
+121	  }
+122
+123	  async delete(entity: T): Promise<T> {
+124	    const entityToDelete = await this.find(entity.id)
+125	    await this.db.rel.del(this.type, entity)
+126	    return entityToDelete
+127	  }
+128	}
+129	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/view
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/patients/view, excluding hidden items and node_modules:
+16K	/tmp/inputs/hospitalrun-frontend/src/patients/view
+8.5K	/tmp/inputs/hospitalrun-frontend/src/patients/view/ImportantPatientInfo.tsx
+7.0K	/tmp/inputs/hospitalrun-frontend/src/patients/view/ViewPatient.tsx
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/view/ViewPatient.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/view/ViewPatient.tsx with line numbers:
+1	import { Panel, Spinner, TabsHeader, Tab, Button } from '@hospitalrun/components'
+2	import React, { useEffect } from 'react'
+3	import { useSelector } from 'react-redux'
+4	import {
+5	  useParams,
+6	  withRouter,
+7	  Route,
+8	  useHistory,
+9	  useLocation,
+10	  useRouteMatch,
+11	} from 'react-router-dom'
+12
+13	import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+14	import { useButtonToolbarSetter } from '../../page-header/button-toolbar/ButtonBarProvider'
+15	import { useUpdateTitle } from '../../page-header/title/TitleContext'
+16	import useTranslator from '../../shared/hooks/useTranslator'
+17	import Permissions from '../../shared/model/Permissions'
+18	import { RootState } from '../../shared/store'
+19	import Allergies from '../allergies/Allergies'
+20	import AppointmentsList from '../appointments/AppointmentsList'
+21	import CareGoalTab from '../care-goals/CareGoalTab'
+22	import CarePlanTab from '../care-plans/CarePlanTab'
+23	import Diagnoses from '../diagnoses/Diagnoses'
+24	import GeneralInformation from '../GeneralInformation'
+25	import HistoryTab from '../history/HistoryTab'
+26	import usePatient from '../hooks/usePatient'
+27	import Labs from '../labs/Labs'
+28	import Medications from '../medications/Medications'
+29	import Note from '../notes/NoteTab'
+30	import RelatedPerson from '../related-persons/RelatedPersonTab'
+31	import { getPatientFullName } from '../util/patient-util'
+32	import VisitTab from '../visits/VisitTab'
+33	import ImportantPatientInfo from './ImportantPatientInfo'
+34
+35	const ViewPatient = () => {
+36	  const { t } = useTranslator()
+37	  const history = useHistory()
+38	  const location = useLocation()
+39	  const { path } = useRouteMatch()
+40	  const setButtonToolBar = useButtonToolbarSetter()
+41
+42	  const { id } = useParams()
+43	  const { permissions } = useSelector((state: RootState) => state.user)
+44	  const { data: patient, status } = usePatient(id)
+45
+46	  const updateTitle = useUpdateTitle()
+47	  useEffect(() => {
+48	    updateTitle(t('patient.label'))
+49	  }, [updateTitle, t])
+50
+51	  const breadcrumbs = [
+52	    { i18nKey: 'patients.label', location: '/patients' },
+53	    { text: getPatientFullName(patient), location: `/patients/${id}` },
+54	  ]
+55	  useAddBreadcrumbs(breadcrumbs, true)
+56
+57	  useEffect(() => {
+58	    const buttons = []
+59	    if (permissions.includes(Permissions.WritePatients)) {
+60	      buttons.push(
+61	        <Button
+62	          key="editPatientButton"
+63	          color="success"
+64	          icon="edit"
+65	          outlined
+66	          onClick={() => {
+67	            history.push(`/patients/edit/${id}`)
+68	          }}
+69	        >
+70	          {t('actions.edit')}
+71	        </Button>,
+72	      )
+73	    }
+74
+75	    setButtonToolBar(buttons)
+76
+77	    return () => {
+78	      setButtonToolBar([])
+79	    }
+80	  }, [setButtonToolBar, history, id, permissions, t])
+81
+82	  if (status === 'loading' || !patient) {
+83	    return <Spinner color="blue" loading size={[10, 25]} type="ScaleLoader" />
+84	  }
+85
+86	  return (
+87	    <div>
+88	      {' '}
+89	      <ImportantPatientInfo patient={patient} />
+90	      <div>
+91	        <TabsHeader>
+92	          <Tab
+93	            active={location.pathname === `/patients/${patient.id}`}
+94	            label={t('patient.generalInformation')}
+95	            onClick={() => history.push(`/patients/${patient.id}`)}
+96	          />
+97	          <Tab
+98	            active={location.pathname === `/patients/${patient.id}/relatedpersons`}
+99	            label={t('patient.relatedPersons.label')}
+100	            onClick={() => history.push(`/patients/${patient.id}/relatedpersons`)}
+101	          />
+102	          <Tab
+103	            active={location.pathname === `/patients/${patient.id}/appointments`}
+104	            label={t('scheduling.appointments.label')}
+105	            onClick={() => history.push(`/patients/${patient.id}/appointments`)}
+106	          />
+107	          <Tab
+108	            active={location.pathname.startsWith(`/patients/${patient.id}/allergies`)}
+109	            label={t('patient.allergies.label')}
+110	            onClick={() => history.push(`/patients/${patient.id}/allergies`)}
+111	          />
+112	          <Tab
+113	            active={location.pathname.startsWith(`/patients/${patient.id}/diagnoses`)}
+114	            label={t('patient.diagnoses.label')}
+115	            onClick={() => history.push(`/patients/${patient.id}/diagnoses`)}
+116	          />
+117	          <Tab
+118	            active={location.pathname.startsWith(`/patients/${patient.id}/notes`)}
+119	            label={t('patient.notes.label')}
+120	            onClick={() => history.push(`/patients/${patient.id}/notes`)}
+121	          />
+122	          <Tab
+123	            active={location.pathname === `/patients/${patient.id}/medications`}
+124	            label={t('patient.medications.label')}
+125	            onClick={() => history.push(`/patients/${patient.id}/medications`)}
+126	          />
+127	          <Tab
+128	            active={location.pathname === `/patients/${patient.id}/labs`}
+129	            label={t('patient.labs.label')}
+130	            onClick={() => history.push(`/patients/${patient.id}/labs`)}
+131	          />
+132	          <Tab
+133	            active={location.pathname.startsWith(`/patients/${patient.id}/care-plans`)}
+134	            label={t('patient.carePlan.label')}
+135	            onClick={() => history.push(`/patients/${patient.id}/care-plans`)}
+136	          />
+137	          <Tab
+138	            active={location.pathname.startsWith(`/patients/${patient.id}/care-goals`)}
+139	            label={t('patient.careGoal.label')}
+140	            onClick={() => history.push(`/patients/${patient.id}/care-goals`)}
+141	          />
+142	          <Tab
+143	            active={location.pathname.startsWith(`/patients/${patient.id}/visits`)}
+144	            label={t('patient.visits.label')}
+145	            onClick={() => history.push(`/patients/${patient.id}/visits`)}
+146	          />
+147	          <Tab
+148	            active={location.pathname.startsWith(`/patients/${patient.id}/history`)}
+149	            label={t('patient.history.label')}
+150	            onClick={() => history.push(`/patients/${patient.id}/history`)}
+151	          />
+152	        </TabsHeader>
+153	        <Panel>
+154	          <Route exact path={path}>
+155	            <GeneralInformation patient={patient} />
+156	          </Route>
+157	          <Route exact path={`${path}/relatedpersons`}>
+158	            <RelatedPerson patient={patient} />
+159	          </Route>
+160	          <Route exact path={`${path}/appointments`}>
+161	            <AppointmentsList patient={patient} />
+162	          </Route>
+163	          <Route path={`${path}/allergies`}>
+164	            <Allergies patient={patient} />
+165	          </Route>
+166	          <Route path={`${path}/diagnoses`}>
+167	            <Diagnoses />
+168	          </Route>
+169	          <Route exact path={`${path}/notes`}>
+170	            <Note patient={patient} />
+171	          </Route>
+172	          <Route exact path={`${path}/medications`}>
+173	            <Medications patient={patient} />
+174	          </Route>
+175	          <Route exact path={`${path}/labs`}>
+176	            <Labs patient={patient} />
+177	          </Route>
+178	          <Route path={`${path}/care-plans`}>
+179	            <CarePlanTab />
+180	          </Route>
+181	          <Route path={`${path}/care-goals`}>
+182	            <CareGoalTab />
+183	          </Route>
+184	          <Route path={`${path}/visits`}>
+185	            <VisitTab patientId={patient.id} />
+186	          </Route>
+187	          <Route path={`${path}/history`}>
+188	            <HistoryTab patientId={patient.id} />
+189	          </Route>
+190	        </Panel>
+191	      </div>
+192	    </div>
+193	  )
+194	}
+195
+196	export default withRouter(ViewPatient)
+197	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/patients/hooks, excluding hidden items and node_modules:
+25K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddAllergy.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCareGoal.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCarePlan.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientDiagnosis.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientNote.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientRelatedPerson.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddVisit.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAllergy.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useCareGoal.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useCarePlan.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useDiagnosis.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientAllergies.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientAppointments.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCareGoals.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCarePlans.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientDiagnoses.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientLabs.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientMedications.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientNote.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientNotes.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientRelatedPersons.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientVisits.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatients.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useRemovePatientRelatedPerson.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useVisit.tsx
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.tsx with line numbers:
+1	import { useQuery } from 'react-query'
+2
+3	import PatientRepository from '../../shared/db/PatientRepository'
+4	import Patient from '../../shared/model/Patient'
+5
+6	function fetchPatient(_: any, id?: string): Promise<Patient> {
+7	  return PatientRepository.find(id || '')
+8	}
+9
+10	export default function usePatient(id?: string) {
+11	  return useQuery(['patient', id], fetchPatient, { enabled: id })
+12	}
+13	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCareGoal.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCareGoal.tsx with line numbers:
+1	import isEmpty from 'lodash/isEmpty'
+2	import { queryCache, useMutation } from 'react-query'
+3
+4	import PatientRepository from '../../shared/db/PatientRepository'
+5	import CareGoal from '../../shared/model/CareGoal'
+6	import { uuid } from '../../shared/util/uuid'
+7	import validateCareGoal from '../util/validate-caregoal'
+8
+9	interface AddCareGoalRequest {
+10	  patientId: string
+11	  careGoal: Omit<CareGoal, 'id' | 'createdOn'>
+12	}
+13
+14	async function addCareGoal(request: AddCareGoalRequest): Promise<CareGoal[]> {
+15	  const error = validateCareGoal(request.careGoal)
+16
+17	  if (isEmpty(error)) {
+18	    const patient = await PatientRepository.find(request.patientId)
+19	    const careGoals = patient.careGoals ? [...patient.careGoals] : []
+20
+21	    const newCareGoal: CareGoal = {
+22	      id: uuid(),
+23	      createdOn: new Date(Date.now()).toISOString(),
+24	      ...request.careGoal,
+25	    }
+26	    careGoals.push(newCareGoal)
+27
+28	    await PatientRepository.saveOrUpdate({
+29	      ...patient,
+30	      careGoals,
+31	    })
+32
+33	    return careGoals
+34	  }
+35
+36	  error.message = 'patient.careGoal.error.unableToAdd'
+37	  throw error
+38	}
+39
+40	export default function useAddCareGoal() {
+41	  return useMutation(addCareGoal, {
+42	    onSuccess: async (data, variables) => {
+43	      await queryCache.setQueryData(['care-goals', variables.patientId], data)
+44	    },
+45	    throwOnError: true,
+46	  })
+47	}
+48	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/App.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/App.tsx with line numbers:
+1	/* eslint-disable no-console */
+2
+3	import { Spinner } from '@hospitalrun/components'
+4	import React, { Suspense, useEffect, useState } from 'react'
+5	import { ReactQueryDevtools } from 'react-query-devtools'
+6	import { useDispatch } from 'react-redux'
+7	import { BrowserRouter, Route, Switch } from 'react-router-dom'
+8
+9	import HospitalRun from './HospitalRun'
+10	import { TitleProvider } from './page-header/title/TitleContext'
+11	import { remoteDb } from './shared/config/pouchdb'
+12	import { getCurrentSession } from './user/user-slice'
+13
+14	const App: React.FC = () => {
+15	  const dispatch = useDispatch()
+16	  const [loading, setLoading] = useState(true)
+17
+18	  useEffect(() => {
+19	    let cancelled = false
+20
+21	    remoteDb
+22	      .getSession()
+23	      .then((session) => {
+24	        if (cancelled) {
+25	          return
+26	        }
+27	        if (session.userCtx.name) {
+28	          dispatch(getCurrentSession(session.userCtx.name))
+29	        }
+30	      })
+31	      .catch((e) => {
+32	        console.log(e)
+33	      })
+34	      .finally(() => {
+35	        if (!cancelled) {
+36	          setLoading(false)
+37	        }
+38	      })
+39
+40	    return () => {
+41	      cancelled = true
+42	    }
+43	  }, [dispatch])
+44
+45	  if (loading) {
+46	    return null
+47	  }
+48
+49	  return (
+50	    <>
+51	      <BrowserRouter>
+52	        <Suspense fallback={<Spinner color="blue" loading size={[10, 25]} type="ScaleLoader" />}>
+53	          <Switch>
+54	            <TitleProvider>
+55	              <Route path="/" component={HospitalRun} />
+56	            </TitleProvider>
+57	          </Switch>
+58	        </Suspense>
+59	      </BrowserRouter>
+60	      <ReactQueryDevtools initialIsOpen={false} />
+61	    </>
+62	  )
+63	}
+64
+65	export default App
+66	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx with line numbers:
+1	import { Toaster } from '@hospitalrun/components'
+2	import React from 'react'
+3	import { useSelector } from 'react-redux'
+4	import { Route, Switch } from 'react-router-dom'
+5
+6	import Dashboard from './dashboard/Dashboard'
+7	import Imagings from './imagings/Imagings'
+8	import Incidents from './incidents/Incidents'
+9	import Labs from './labs/Labs'
+10	import Medications from './medications/Medications'
+11	import Breadcrumbs from './page-header/breadcrumbs/Breadcrumbs'
+12	import { ButtonBarProvider } from './page-header/button-toolbar/ButtonBarProvider'
+13	import ButtonToolBar from './page-header/button-toolbar/ButtonToolBar'
+14	import { useTitle } from './page-header/title/TitleContext'
+15	import Patients from './patients/Patients'
+16	import Appointments from './scheduling/appointments/Appointments'
+17	import Settings from './settings/Settings'
+18	import Navbar from './shared/components/navbar/Navbar'
+19	import { NetworkStatusMessage } from './shared/components/network-status'
+20	import Sidebar from './shared/components/Sidebar'
+21	import { RootState } from './shared/store'
+22
+23	const HospitalRun = () => {
+24	  const { title } = useTitle()
+25	  const { sidebarCollapsed } = useSelector((state: RootState) => state.components)
+26
+27	  return (
+28	    <div>
+29	      <NetworkStatusMessage />
+30	      <Navbar />
+31	      <div className="container-fluid">
+32	        <div className="col-md-2">
+33	          <Sidebar />
+34	        </div>
+35	        <ButtonBarProvider>
+36	          <div className="row">
+37	            <main
+38	              role="main"
+39	              className={`${
+40	                sidebarCollapsed ? 'col-md-10 col-lg-11' : 'col-md-9 col-lg-10'
+41	              } ml-sm-auto px-4`}
+42	            >
+43	              <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+44	                <h1 className="h2">{title}</h1>
+45	                <ButtonToolBar />
+46	              </div>
+47	              <Breadcrumbs />
+48	              <div>
+49	                <Switch>
+50	                  <Route exact path="/" component={Dashboard} />
+51	                  <Route path="/appointments" component={Appointments} />
+52	                  <Route path="/patients" component={Patients} />
+53	                  <Route path="/labs" component={Labs} />
+54	                  <Route path="/medications" component={Medications} />
+55	                  <Route path="/incidents" component={Incidents} />
+56	                  <Route path="/settings" component={Settings} />
+57	                  <Route path="/imaging" component={Imagings} />
+58	                </Switch>
+59	              </div>
+60	              <Toaster autoClose={5000} hideProgressBar draggable />
+61	            </main>
+62	          </div>
+63	        </ButtonBarProvider>
+64	      </div>
+65	    </div>
+66	  )
+67	}
+68
+69	export default HospitalRun
+70	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts with line numbers:
+1	/* eslint-disable no-underscore-dangle */
+2	import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+3
+4	import { remoteDb } from '../shared/config/pouchdb'
+5	import Permissions from '../shared/model/Permissions'
+6	import User from '../shared/model/User'
+7	import { AppThunk } from '../shared/store'
+8
+9	export interface LoginError {
+10	  message?: string
+11	  username?: string
+12	  password?: string
+13	}
+14
+15	export interface UserState {
+16	  permissions: (Permissions | null)[]
+17	  user?: User
+18	  loginError?: LoginError
+19	}
+20
+21	const initialState: UserState = {
+22	  user: {
+23	    givenName: 'HospitalRun',
+24	    familyName: 'Test',
+25	    fullName: 'HospitalRun Test',
+26	    id: 'test-hospitalrun',
+27	  },
+28	  permissions: [
+29	    Permissions.ReadPatients,
+30	    Permissions.WritePatients,
+31	    Permissions.ReadAppointments,
+32	    Permissions.WriteAppointments,
+33	    Permissions.DeleteAppointment,
+34	    Permissions.AddAllergy,
+35	    Permissions.AddDiagnosis,
+36	    Permissions.ViewLabs,
+37	    Permissions.ViewLab,
+38	    Permissions.RequestLab,
+39	    Permissions.CompleteLab,
+40	    Permissions.CancelLab,
+41	    Permissions.ViewIncident,
+42	    Permissions.ViewIncidents,
+43	    Permissions.ReportIncident,
+44	    Permissions.ResolveIncident,
+45	    Permissions.ViewIncidentWidgets,
+46	    Permissions.AddCarePlan,
+47	    Permissions.ReadCarePlan,
+48	    Permissions.AddCareGoal,
+49	    Permissions.ReadCareGoal,
+50	    Permissions.RequestMedication,
+51	    Permissions.CompleteMedication,
+52	    Permissions.CancelMedication,
+53	    Permissions.ViewMedications,
+54	    Permissions.ViewMedication,
+55	    Permissions.AddVisit,
+56	    Permissions.ReadVisits,
+57	    Permissions.ViewImagings,
+58	    Permissions.RequestImaging,
+59	  ],
+60	}
+61
+62	const userSlice = createSlice({
+63	  name: 'user',
+64	  initialState,
+65	  reducers: {
+66	    fetchPermissions(state, { payload }: PayloadAction<Permissions[]>) {
+67	      state.permissions = payload
+68	    },
+69	    loginSuccess(
+70	      state,
+71	      { payload }: PayloadAction<{ user: User; permissions: (Permissions | null)[] }>,
+72	    ) {
+73	      state.user = payload.user
+74	      state.permissions = initialState.permissions
+75	    },
+76	    loginError(state, { payload }: PayloadAction<LoginError>) {
+77	      state.loginError = payload
+78	    },
+79	    logoutSuccess(state) {
+80	      state.user = undefined
+81	      state.permissions = []
+82	    },
+83	  },
+84	})
+85
+86	export const { fetchPermissions, loginError, loginSuccess, logoutSuccess } = userSlice.actions
+87
+88	export const getCurrentSession = (username: string): AppThunk => async (dispatch) => {
+89	  const user = await remoteDb.getUser(username)
+90	  dispatch(
+91	    loginSuccess({
+92	      user: {
+93	        id: user._id,
+94	        givenName: (user as any).metadata.givenName,
+95	        familyName: (user as any).metadata.familyName,
+96	      },
+97	      permissions: initialState.permissions,
+98	    }),
+99	  )
+100	}
+101
+102	export const login = (username: string, password: string): AppThunk => async (dispatch) => {
+103	  try {
+104	    const response = await remoteDb.logIn(username, password)
+105	    const user = await remoteDb.getUser(response.name)
+106	    dispatch(
+107	      loginSuccess({
+108	        user: {
+109	          id: user._id,
+110	          givenName: (user as any).metadata.givenName,
+111	          familyName: (user as any).metadata.familyName,
+112	        },
+113	        permissions: initialState.permissions,
+114	      }),
+115	    )
+116	  } catch (error) {
+117	    if (!username || !password) {
+118	      dispatch(
+119	        loginError({
+120	          message: 'user.login.error.message.required',
+121	          username: 'user.login.error.username.required',
+122	          password: 'user.login.error.password.required',
+123	        }),
+124	      )
+125	    } else if (error.status === 401) {
+126	      dispatch(
+127	        loginError({
+128	          message: 'user.login.error.message.incorrect',
+129	        }),
+130	      )
+131	    }
+132	  }
+133	}
+134
+135	export const logout = (): AppThunk => async (dispatch) => {
+136	  await remoteDb.logOut()
+137	  dispatch(logoutSuccess())
+138	}
+139
+140	export default userSlice.reducer
+141	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts with line numbers:
+1	import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+2
+3	import MedicationRepository from '../shared/db/MedicationRepository'
+4	import PatientRepository from '../shared/db/PatientRepository'
+5	import Medication from '../shared/model/Medication'
+6	import Patient from '../shared/model/Patient'
+7	import { AppThunk } from '../shared/store'
+8
+9	interface Error {
+10	  medication?: string
+11	  patient?: string
+12	  quantity?: string
+13	  quantityValue?: string
+14	  quantityUnit?: string
+15	  message?: string
+16	}
+17
+18	interface MedicationState {
+19	  error: Error
+20	  medication?: Medication
+21	  patient?: Patient
+22	  status: 'loading' | 'error' | 'completed'
+23	}
+24
+25	const initialState: MedicationState = {
+26	  error: {},
+27	  medication: undefined,
+28	  patient: undefined,
+29	  status: 'loading',
+30	}
+31
+32	function start(state: MedicationState) {
+33	  state.status = 'loading'
+34	}
+35
+36	function finish(state: MedicationState, { payload }: PayloadAction<Medication>) {
+37	  state.status = 'completed'
+38	  state.medication = payload
+39	  state.error = {}
+40	}
+41
+42	function error(state: MedicationState, { payload }: PayloadAction<Error>) {
+43	  state.status = 'error'
+44	  state.error = payload
+45	}
+46
+47	const medicationSlice = createSlice({
+48	  name: 'medication',
+49	  initialState,
+50	  reducers: {
+51	    fetchMedicationStart: start,
+52	    fetchMedicationSuccess: (
+53	      state: MedicationState,
+54	      { payload }: PayloadAction<{ medication: Medication; patient: Patient }>,
+55	    ) => {
+56	      state.status = 'completed'
+57	      state.medication = payload.medication
+58	      state.patient = payload.patient
+59	    },
+60	    updateMedicationStart: start,
+61	    updateMedicationSuccess: finish,
+62	    requestMedicationStart: start,
+63	    requestMedicationSuccess: finish,
+64	    requestMedicationError: error,
+65	    cancelMedicationStart: start,
+66	    cancelMedicationSuccess: finish,
+67	  },
+68	})
+69
+70	export const {
+71	  fetchMedicationStart,
+72	  fetchMedicationSuccess,
+73	  updateMedicationStart,
+74	  updateMedicationSuccess,
+75	  requestMedicationStart,
+76	  requestMedicationSuccess,
+77	  requestMedicationError,
+78	  cancelMedicationStart,
+79	  cancelMedicationSuccess,
+80	} = medicationSlice.actions
+81
+82	export const fetchMedication = (medicationId: string): AppThunk => async (dispatch) => {
+83	  dispatch(fetchMedicationStart())
+84	  const fetchedMedication = await MedicationRepository.find(medicationId)
+85	  const fetchedPatient = await PatientRepository.find(fetchedMedication.patient)
+86	  dispatch(fetchMedicationSuccess({ medication: fetchedMedication, patient: fetchedPatient }))
+87	}
+88
+89	const validateMedicationRequest = (newMedication: Medication): Error => {
+90	  const medicationRequestError: Error = {}
+91	  if (!newMedication.patient) {
+92	    medicationRequestError.patient = 'medications.requests.error.patientRequired'
+93	  }
+94
+95	  if (!newMedication.quantity) {
+96	    medicationRequestError.quantity = 'medications.requests.error.quantityRequired'
+97	  }
+98
+99	  return medicationRequestError
+100	}
+101
+102	export const requestMedication = (
+103	  newMedication: Medication,
+104	  onSuccess?: (medication: Medication) => void,
+105	): AppThunk => async (dispatch, getState) => {
+106	  dispatch(requestMedicationStart())
+107
+108	  const medicationRequestError = validateMedicationRequest(newMedication)
+109	  if (Object.keys(medicationRequestError).length > 0) {
+110	    medicationRequestError.message = 'medications.requests.error.unableToRequest'
+111	    dispatch(requestMedicationError(medicationRequestError))
+112	  } else {
+113	    newMedication.status = 'draft'
+114	    newMedication.requestedOn = new Date(Date.now().valueOf()).toISOString()
+115	    newMedication.requestedBy = getState().user?.user?.id || ''
+116	    const requestedMedication = await MedicationRepository.save(newMedication)
+117	    dispatch(requestMedicationSuccess(requestedMedication))
+118
+119	    if (onSuccess) {
+120	      onSuccess(requestedMedication)
+121	    }
+122	  }
+123	}
+124
+125	export const cancelMedication = (
+126	  medicationToCancel: Medication,
+127	  onSuccess?: (medication: Medication) => void,
+128	): AppThunk => async (dispatch) => {
+129	  dispatch(cancelMedicationStart())
+130
+131	  medicationToCancel.canceledOn = new Date(Date.now().valueOf()).toISOString()
+132	  medicationToCancel.status = 'canceled'
+133	  const canceledMedication = await MedicationRepository.saveOrUpdate(medicationToCancel)
+134	  dispatch(cancelMedicationSuccess(canceledMedication))
+135
+136	  if (onSuccess) {
+137	    onSuccess(canceledMedication)
+138	  }
+139	}
+140
+141	export const updateMedication = (
+142	  medicationToUpdate: Medication,
+143	  onSuccess?: (medication: Medication) => void,
+144	): AppThunk => async (dispatch) => {
+145	  dispatch(updateMedicationStart())
+146	  const updatedMedication = await MedicationRepository.saveOrUpdate(medicationToUpdate)
+147	  dispatch(updateMedicationSuccess(updatedMedication))
+148
+149	  if (onSuccess) {
+150	    onSuccess(updatedMedication)
+151	  }
+152	}
+153
+154	export default medicationSlice.reducer
+155	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/GeneralInformation.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/GeneralInformation.tsx with line numbers:
+1	import { Select, Label, Panel, Checkbox, Alert } from '@hospitalrun/components'
+2	import differenceInYears from 'date-fns/differenceInYears'
+3	import startOfDay from 'date-fns/startOfDay'
+4	import subYears from 'date-fns/subYears'
+5	import React, { ReactElement } from 'react'
+6
+7	import DatePickerWithLabelFormGroup from '../shared/components/input/DatePickerWithLabelFormGroup'
+8	import { SelectOption } from '../shared/components/input/SelectOption'
+9	import TextInputWithLabelFormGroup from '../shared/components/input/TextInputWithLabelFormGroup'
+10	import useTranslator from '../shared/hooks/useTranslator'
+11	import { ContactInfoPiece } from '../shared/model/ContactInformation'
+12	import Patient from '../shared/model/Patient'
+13	import ContactInfo from './ContactInfo'
+14
+15	interface Error {
+16	  message?: string
+17	  prefix?: string
+18	  givenName?: string
+19	  familyName?: string
+20	  suffix?: string
+21	  dateOfBirth?: string
+22	  preferredLanguage?: string
+23	  phoneNumbers?: (string | undefined)[]
+24	  emails?: (string | undefined)[]
+25	}
+26
+27	interface Props {
+28	  patient: Patient
+29	  isEditable?: boolean
+30	  onChange?: (newPatient: Partial<Patient>) => void
+31	  error?: Error
+32	}
+33
+34	const GeneralInformation = (props: Props): ReactElement => {
+35	  const { t } = useTranslator()
+36	  const { patient, isEditable, onChange, error } = props
+37
+38	  const onFieldChange = (name: string, value: string | boolean | ContactInfoPiece[]) => {
+39	    if (onChange) {
+40	      const newPatient = {
+41	        ...patient,
+42	        [name]: value,
+43	      }
+44	      onChange(newPatient)
+45	    }
+46	  }
+47
+48	  const guessDateOfBirthFromApproximateAge = (value: string) => {
+49	    const age = Number.isNaN(parseFloat(value)) ? 0 : parseFloat(value)
+50	    const dateOfBirth = subYears(new Date(Date.now()), age)
+51	    return startOfDay(dateOfBirth).toISOString()
+52	  }
+53
+54	  const onApproximateAgeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+55	    const { value } = event.currentTarget
+56	    onFieldChange('dateOfBirth', guessDateOfBirthFromApproximateAge(value))
+57	  }
+58
+59	  const onUnknownDateOfBirthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+60	    const { checked } = event.currentTarget
+61	    onFieldChange('isApproximateDateOfBirth', checked)
+62	  }
+63
+64	  const sexOptions: SelectOption[] = [
+65	    { label: t('sex.male'), value: 'male' },
+66	    { label: t('sex.female'), value: 'female' },
+67	    { label: t('sex.other'), value: 'other' },
+68	    { label: t('sex.unknown'), value: 'unknown' },
+69	  ]
+70
+71	  const typeOptions: SelectOption[] = [
+72	    { label: t('patient.types.charity'), value: 'charity' },
+73	    { label: t('patient.types.private'), value: 'private' },
+74	  ]
+75
+76	  const bloodTypeOptions: SelectOption[] = [
+77	    { label: t('bloodType.apositive'), value: 'A+' },
+78	    { label: t('bloodType.anegative'), value: 'A-' },
+79	    { label: t('bloodType.abpositive'), value: 'AB+' },
+80	    { label: t('bloodType.abnegative'), value: 'AB-' },
+81	    { label: t('bloodType.bpositive'), value: 'B+' },
+82	    { label: t('bloodType.bnegative'), value: 'B-' },
+83	    { label: t('bloodType.opositive'), value: 'O+' },
+84	    { label: t('bloodType.onegative'), value: 'O-' },
+85	    { label: t('bloodType.unknown'), value: 'unknown' },
+86	  ]
+87
+88	  return (
+89	    <div>
+90	      <Panel title={t('patient.basicInformation')} color="primary" collapsible>
+91	        {error?.message && <Alert className="alert" color="danger" message={t(error?.message)} />}
+92	        <div className="row">
+93	          <div className="col-md-2">
+94	            <TextInputWithLabelFormGroup
+95	              label={t('patient.prefix')}
+96	              name="prefix"
+97	              value={patient.prefix}
+98	              isEditable={isEditable}
+99	              onChange={(event) => onFieldChange('prefix', event.currentTarget.value)}
+100	              isInvalid={!!error?.prefix}
+101	              feedback={t(error?.prefix)}
+102	            />
+103	          </div>
+104	          <div className="col-md-4">
+105	            <TextInputWithLabelFormGroup
+106	              label={t('patient.givenName')}
+107	              name="givenName"
+108	              value={patient.givenName}
+109	              isEditable={isEditable}
+110	              onChange={(event) => onFieldChange('givenName', event.currentTarget.value)}
+111	              isRequired
+112	              isInvalid={!!error?.givenName}
+113	              feedback={t(error?.givenName)}
+114	            />
+115	          </div>
+116	          <div className="col-md-4">
+117	            <TextInputWithLabelFormGroup
+118	              label={t('patient.familyName')}
+119	              name="familyName"
+120	              value={patient.familyName}
+121	              isEditable={isEditable}
+122	              onChange={(event) => onFieldChange('familyName', event.currentTarget.value)}
+123	              isInvalid={!!error?.familyName}
+124	              feedback={t(error?.familyName)}
+125	            />
+126	          </div>
+127	          <div className="col-md-2">
+128	            <TextInputWithLabelFormGroup
+129	              label={t('patient.suffix')}
+130	              name="suffix"
+131	              value={patient.suffix}
+132	              isEditable={isEditable}
+133	              onChange={(event) => onFieldChange('suffix', event.currentTarget.value)}
+134	              isInvalid={!!error?.suffix}
+135	              feedback={t(error?.suffix)}
+136	            />
+137	          </div>
+138	        </div>
+139	        <div className="row">
+140	          <div className="col">
+141	            <div className="form-group" data-testid="sexSelect">
+142	              <Label text={t('patient.sex')} title="sex" />
+143	              <Select
+144	                id="sexSelect"
+145	                options={sexOptions}
+146	                defaultSelected={sexOptions.filter(({ value }) => value === patient.sex)}
+147	                onChange={(values) => onFieldChange('sex', values[0])}
+148	                disabled={!isEditable}
+149	              />
+150	            </div>
+151	          </div>
+152	          <div className="col">
+153	            <div className="form-group" data-testid="typeSelect">
+154	              <Label text={t('patient.type')} title="type" />
+155	              <Select
+156	                id="typeSelect"
+157	                options={typeOptions}
+158	                defaultSelected={typeOptions.filter(({ value }) => value === patient.type)}
+159	                onChange={(values) => onFieldChange('type', values[0])}
+160	                disabled={!isEditable}
+161	              />
+162	            </div>
+163	          </div>
+164	          <div className="col">
+165	            <div className="form-group" data-testid="bloodTypeSelect">
+166	              <Label text={t('patient.bloodType')} title="bloodType" />
+167	              <Select
+168	                id="bloodTypeSelect"
+169	                options={bloodTypeOptions}
+170	                defaultSelected={bloodTypeOptions.filter(
+171	                  ({ value }) => value === patient.bloodType,
+172	                )}
+173	                onChange={(values) => onFieldChange('bloodType', values[0])}
+174	                disabled={!isEditable}
+175	              />
+176	            </div>
+177	          </div>
+178	        </div>
+179	        <div className="row">
+180	          <div className="col-md-3">
+181	            {patient.isApproximateDateOfBirth ? (
+182	              <TextInputWithLabelFormGroup
+183	                label={t('patient.approximateAge')}
+184	                name="approximateAge"
+185	                type="number"
+186	                value={`${differenceInYears(new Date(Date.now()), new Date(patient.dateOfBirth))}`}
+187	                isEditable={isEditable}
+188	                onChange={onApproximateAgeChange}
+189	              />
+190	            ) : (
+191	              <DatePickerWithLabelFormGroup
+192	                name="dateOfBirth"
+193	                label={t('patient.dateOfBirth')}
+194	                isEditable={isEditable && !patient.isApproximateDateOfBirth}
+195	                value={
+196	                  patient.dateOfBirth && patient.dateOfBirth.length > 0
+197	                    ? new Date(patient.dateOfBirth)
+198	                    : undefined
+199	                }
+200	                maxDate={new Date(Date.now().valueOf())}
+201	                onChange={(date: Date) => onFieldChange('dateOfBirth', date.toISOString())}
+202	                isInvalid={!!error?.dateOfBirth}
+203	                feedback={t(error?.dateOfBirth)}
+204	              />
+205	            )}
+206	            <div className="form-group">
+207	              <Checkbox
+208	                label={t('patient.unknownDateOfBirth')}
+209	                name="unknown"
+210	                disabled={!isEditable}
+211	                onChange={onUnknownDateOfBirthChange}
+212	              />
+213	            </div>
+214	          </div>
+215	          <div className="col">
+216	            <TextInputWithLabelFormGroup
+217	              label={t('patient.occupation')}
+218	              name="occupation"
+219	              value={patient.occupation}
+220	              isEditable={isEditable}
+221	              onChange={(event) => onFieldChange('occupation', event.currentTarget.value)}
+222	            />
+223	          </div>
+224	          <div className="col">
+225	            <TextInputWithLabelFormGroup
+226	              label={t('patient.preferredLanguage')}
+227	              name="preferredLanguage"
+228	              value={patient.preferredLanguage}
+229	              isEditable={isEditable}
+230	              onChange={(event) => onFieldChange('preferredLanguage', event.currentTarget.value)}
+231	              isInvalid={!!error?.preferredLanguage}
+232	              feedback={t(error?.preferredLanguage)}
+233	            />
+234	          </div>
+235	        </div>
+236	      </Panel>
+237	      <br />
+238	      <Panel title={t('patient.contactInformation')} color="primary" collapsible>
+239	        <div className="mb-4">
+240	          <Panel title={t('patient.phoneNumber')} color="primary" collapsible>
+241	            <ContactInfo
+242	              component="TextInputWithLabelFormGroup"
+243	              data={patient.phoneNumbers}
+244	              errors={error?.phoneNumbers}
+245	              label="patient.phoneNumber"
+246	              name="phoneNumber"
+247	              isEditable={isEditable}
+248	              onChange={(newPhoneNumbers) => onFieldChange('phoneNumbers', newPhoneNumbers)}
+249	            />
+250	          </Panel>
+251	        </div>
+252	        <div className="mb-4">
+253	          <Panel title={t('patient.email')} color="primary" collapsible>
+254	            <ContactInfo
+255	              component="TextInputWithLabelFormGroup"
+256	              data={patient.emails}
+257	              errors={error?.emails}
+258	              label="patient.email"
+259	              name="email"
+260	              isEditable={isEditable}
+261	              onChange={(newEmails) => onFieldChange('emails', newEmails)}
+262	            />
+263	          </Panel>
+264	        </div>
+265	        <div>
+266	          <Panel title={t('patient.address')} color="primary" collapsible>
+267	            <ContactInfo
+268	              component="TextFieldWithLabelFormGroup"
+269	              data={patient.addresses}
+270	              label="patient.address"
+271	              name="address"
+272	              isEditable={isEditable}
+273	              onChange={(newAddresses) => onFieldChange('addresses', newAddresses)}
+274	            />
+275	          </Panel>
+276	        </div>
+277	      </Panel>
+278	    </div>
+279	  )
+280	}
+281
+282	export default GeneralInformation
+283	
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/package.json
+output
+{
+"name": "@hospitalrun/frontend",
+"version": "2.0.0-alpha.7",
+"description": "React frontend for HospitalRun",
+"private": false,
+"license": "MIT",
+"dependencies": {
+"@hospitalrun/components": "~3.4.0",
+"@reduxjs/toolkit": "~1.7.0",
+"@types/escape-string-regexp": "~2.0.1",
+"@types/json2csv": "~5.0.1",
+"@types/pouchdb-find": "~6.3.4",
+"bootstrap": "~5.1.0",
+"date-fns": "~2.28.0",
+"escape-string-regexp": "~4.0.0",
+"i18next": "~21.6.0",
+"i18next-browser-languagedetector": "~6.1.0",
+"i18next-xhr-backend": "~3.2.2",
+"json2csv": "~5.0.1",
+"lodash": "^4.17.15",
+"node-sass": "~7.0.0",
+"pouchdb": "~7.2.1",
+"pouchdb-adapter-memory": "~7.2.1",
+"pouchdb-authentication": "~1.1.3",
+"pouchdb-find": "~7.2.1",
+"pouchdb-quick-search": "~1.3.0",
+"react": "~17.0.1",
+"react-bootstrap": "~1.6.0",
+"react-bootstrap-typeahead": "~5.2.0",
+"react-dom": "~16.13.0",
+"react-i18next": "~11.15.0",
+"react-query": "~2.25.2",
+"react-query-devtools": "~2.6.0",
+"react-redux": "~7.2.0",
+"react-router": "~5.2.0",
+"react-router-dom": "~5.3.0",
+"react-scripts": "~3.4.0",
+"redux": "~4.1.0",
+"redux-thunk": "~2.4.0",
+"relational-pouch": "~4.0.0",
+"shortid": "^2.2.15",
+"typescript": "~3.8.3",
+"uuid": "^8.0.0",
+"validator": "^13.0.0"
+},
+"resolutions": {
+"moment": "2.24.0"
+},
+"comments": {
+"resolutions": "Added this key as temp fix https://github.com/moment/moment/issues/5484"
+},
+"repository": {
+"type": "git",
+"url": "https://github.com/HospitalRun/hospitalrun-frontend.git"
+},
+"author": "Jack Meyer",
+"contributors": [
+"Maksim Sinik",
+"Stefano Casasola"
+],
+"devDependencies": {
+"@commitlint/cli": "~16.1.0",
+"@commitlint/config-conventional": "~16.0.0",
+"@commitlint/core": "~16.0.0",
+"@commitlint/prompt": "~16.1.0",
+"@testing-library/dom": "~7.31.0",
+"@testing-library/jest-dom": "~5.16.1",
+"@testing-library/react": "~11.2.2",
+"@testing-library/react-hooks": "~7.0.0",
+"@testing-library/user-event": "~12.8.3",
+"@types/jest": "~27.0.3",
+"@types/lodash": "^4.14.150",
+"@types/node": "~17.0.0",
+"@types/pouchdb": "~6.4.0",
+"@types/react": "~17.0.0",
+"@types/react-dom": "~17.0.0",
+"@types/react-redux": "~7.1.5",
+"@types/react-router": "~5.1.2",
+"@types/react-router-dom": "~5.3.0",
+"@types/redux-mock-store": "~1.0.1",
+"@types/shortid": "^0.0.29",
+"@types/uuid": "^8.0.0",
+"@types/validator": "~13.7.0",
+"@typescript-eslint/eslint-plugin": "~3.10.0",
+"@typescript-eslint/parser": "~3.10.0",
+"chalk": "^5.0.0",
+"commitizen": "~4.2.0",
+"commitlint-config-cz": "~0.13.0",
+"cross-env": "~7.0.0",
+"cz-conventional-changelog": "~3.3.0",
+"dateformat": "~5.0.2",
+"eslint": "~6.8.0",
+"eslint-config-airbnb": "~18.2.0",
+"eslint-config-prettier": "~7.2.0",
+"eslint-import-resolver-typescript": "~2.5.0",
+"eslint-plugin-import": "~2.25.1",
+"eslint-plugin-jest": "~26.1.0",
+"eslint-plugin-jsx-a11y": "~6.5.1",
+"eslint-plugin-prettier": "~3.4.0",
+"eslint-plugin-react": "~7.28.0",
+"eslint-plugin-react-hooks": "~4.3.0",
+"history": "4.10.1",
+"husky": "~7.0.0",
+"jest-canvas-mock": "~2.3.0",
+"jest-environment-jsdom-sixteen": "~2.0.0",
+"lint-staged": "~12.3.3",
+"memdown": "~6.1.0",
+"prettier": "~2.2.0",
+"react-select-event": "~5.3.0",
+"react-test-renderer": "~17.0.1",
+"redux-mock-store": "~1.5.4",
+"rimraf": "~3.0.2",
+"source-map-explorer": "^2.2.2",
+"standard-version": "~9.3.0"
+},
+"scripts": {
+"analyze": "source-map-explorer 'build/static/js/*.js'",
+"commit": "npx git-cz",
+"start": "npm run translation:check && react-scripts start",
+"build": "react-scripts build",
+"update": "npx npm-check -u",
+"prepublishOnly": "npm run build",
+"test": "npm run translation:check && react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --env=jest-environment-jsdom-sixteen",
+"test:ci": "cross-env CI=true react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --passWithNoTests --env=jest-environment-jsdom-sixteen --maxWorkers=2",
+"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\"",
+"lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\" --fix",
+"lint-staged": "lint-staged",
+"commitlint": "commitlint",
+"coveralls": "npm run test:ci -- --coverage --watchAll=false && cat ./coverage/lcov.info",
+"remove-compiled-translations": "rimraf ./bin/scripts/check-translations",
+"pretranslation:check": "npm run remove-compiled-translations",
+"translation:check": "tsc -p scripts/tsconfig.json && node ./bin/scripts/check-translations/index.js",
+"posttranslation:check": "npm run remove-compiled-translations"
+},
+"browserslist": {
+"production": [
+">0.2%",
+"not dead",
+"not op_mini all"
+],
+"development": [
+"last 1 chrome version",
+"last 1 firefox version",
+"last 1 safari version"
+]
+},
+"husky": {
+"hooks": {
+"pre-commit": "npm run lint-staged",
+"commit-msg": "npm run commitlint -- -E HUSKY_GIT_PARAMS"
+}
+},
+"config": {
+"commitizen": {
+"path": "./node_modules/cz-conventional-changelog"
+}
+},
+"lint-staged": {
+"**/*.{js,jsx,ts,tsx}": [
+"npm run lint:fix",
+"npm run test:ci",
+"git add ."
+]
+},
+"jest": {
+"restoreMocks": true
+}
+}
+
+Now I have a good understanding of the codebase architecture. Let me provide you with a comprehensive answer.
+
+No, this HospitalRun frontend app does **not** follow the traditional MVC (Model-View-Controller) pattern. Instead, it follows a modern React/Redux architecture that's more accurately described as a combination of **Flux/Redux architecture** with **React component patterns**.
+
+Here's how it actually works:
+
+**Models (partial similarity)**: The codebase does have a `shared/model` folder containing TypeScript interfaces like `Patient.ts`, `Appointment.ts`, `Medication.ts`, etc. However, these are just type definitions (interfaces), not traditional MVC models with business logic. They define the shape of data rather than encapsulating behavior.
+
+**Views (React Components)**: The view layer is built with React functional components (`.tsx` files). Components like `ViewPatient.tsx`, `GeneralInformation.tsx`, and `Dashboard.tsx` render the UI. These are located throughout feature folders like `patients/view/`, `medications/`, `scheduling/`, etc.
+
+**No Traditional Controllers**: There's no controller layer in the MVC sense. Instead, the app uses:
+
+1. **Redux Slices** (e.g., `patient-slice.ts`, `user-slice.ts`, `medication-slice.ts`) - These use Redux Toolkit's `createSlice` to define state shape, reducers, and async thunk actions. They handle state mutations and side effects.
+
+2. **Custom React Hooks** (e.g., `usePatient.tsx`, `useAddCareGoal.tsx`) - These encapsulate data fetching and mutation logic using `react-query`, providing a clean interface for components to access data.
+
+3. **Repository Pattern** (`shared/db/Repository.ts`, `PatientRepository.ts`, etc.) - These handle data persistence with PouchDB, abstracting database operations.
+
+The data flow follows Redux's unidirectional pattern: Components dispatch actions → Reducers update store → Components receive new state via `useSelector`. For newer features, they're using `react-query` hooks which manage server state separately.
+
+So rather than MVC, this is a **component-based architecture with Redux state management** - a pattern much more common in modern React applications.
+
+
+3.here is model B’s response:   
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" | head -50
+output
+/tmp/inputs/hospitalrun-frontend/src/index.tsx
+/tmp/inputs/hospitalrun-frontend/src/App.tsx
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/IncidentFilter.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncidentDetails.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/model/IncidentSearchRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useResolveIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/visualize/VisualizeIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/util/validate-incident.ts
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/model/ImagingSearchRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingSearch.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingRequest.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useRequestImaging.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ImagingRequestTable.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ViewImagings.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests/NewImagingRequest.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/util/validate-imaging-request.ts
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs/useAddBreadcrumbs.ts
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs/Breadcrumbs.tsx
+/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs/breadcrumbs-slice.ts
+/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar/ButtonToolBar.tsx
+/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar/ButtonBarProvider.tsx
+/tmp/inputs/hospitalrun-frontend/src/page-header/title/TitleContext.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/App.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/HospitalRun.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/Incidents.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/report/ReportIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncidentDetails.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/view/ViewIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidents.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useResolvedIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useIncidents.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/hooks/useReportIncident.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/util/validate-incident.test.ts
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/Imagings.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/hooks/useRequestImaging.test.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src, excluding hidden items and node_modules:
+1.2M	/tmp/inputs/hospitalrun-frontend/src
+2.0K	/tmp/inputs/hospitalrun-frontend/src/App.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__
+512	/tmp/inputs/hospitalrun-frontend/src/__mocks__/i18next.js
+512	/tmp/inputs/hospitalrun-frontend/src/__mocks__/matchMediaMock.js
+2.0K	/tmp/inputs/hospitalrun-frontend/src/__mocks__/react-i18next.js
+564K	/tmp/inputs/hospitalrun-frontend/src/__tests__
+1.5K	/tmp/inputs/hospitalrun-frontend/src/__tests__/App.test.tsx
+6.5K	/tmp/inputs/hospitalrun-frontend/src/__tests__/HospitalRun.test.tsx
+17K	/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings
+35K	/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents
+43K	/tmp/inputs/hospitalrun-frontend/src/__tests__/labs
+45K	/tmp/inputs/hospitalrun-frontend/src/__tests__/medications
+11K	/tmp/inputs/hospitalrun-frontend/src/__tests__/page-header
+294K	/tmp/inputs/hospitalrun-frontend/src/__tests__/patients
+41K	/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling
+2.0K	/tmp/inputs/hospitalrun-frontend/src/__tests__/settings
+62K	/tmp/inputs/hospitalrun-frontend/src/__tests__/shared
+2.0K	/tmp/inputs/hospitalrun-frontend/src/__tests__/test-utils
+5.0K	/tmp/inputs/hospitalrun-frontend/src/__tests__/user
+1.5K	/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard
+512	/tmp/inputs/hospitalrun-frontend/src/dashboard/Dashboard.tsx
+17K	/tmp/inputs/hospitalrun-frontend/src/imagings
+1.5K	/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx
+3.0K	/tmp/inputs/hospitalrun-frontend/src/imagings/hooks
+512	/tmp/inputs/hospitalrun-frontend/src/imagings/model
+7.0K	/tmp/inputs/hospitalrun-frontend/src/imagings/requests
+3.5K	/tmp/inputs/hospitalrun-frontend/src/imagings/search
+1.5K	/tmp/inputs/hospitalrun-frontend/src/imagings/util
+29K	/tmp/inputs/hospitalrun-frontend/src/incidents
+512	/tmp/inputs/hospitalrun-frontend/src/incidents/IncidentFilter.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx
+3.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/hooks
+6.0K	/tmp/inputs/hospitalrun-frontend/src/incidents/list
+512	/tmp/inputs/hospitalrun-frontend/src/incidents/model
+6.0K	/tmp/inputs/hospitalrun-frontend/src/incidents/report
+1.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/util
+5.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/view
+3.5K	/tmp/inputs/hospitalrun-frontend/src/incidents/visualize
+2.0K	/tmp/inputs/hospitalrun-frontend/src/index.css
+1.0K	/tmp/inputs/hospitalrun-frontend/src/index.tsx
+28K	/tmp/inputs/hospitalrun-frontend/src/labs
+1.5K	/tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx
+9.0K	/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx
+4.5K	/tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx
+4.5K	/tmp/inputs/hospitalrun-frontend/src/labs/hooks
+512	/tmp/inputs/hospitalrun-frontend/src/labs/model
+6.5K	/tmp/inputs/hospitalrun-frontend/src/labs/requests
+1.5K	/tmp/inputs/hospitalrun-frontend/src/labs/utils
+36K	/tmp/inputs/hospitalrun-frontend/src/medications
+1.5K	/tmp/inputs/hospitalrun-frontend/src/medications/Medications.tsx
+11K	/tmp/inputs/hospitalrun-frontend/src/medications/ViewMedication.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/medications/hooks
+5.0K	/tmp/inputs/hospitalrun-frontend/src/medications/medication-slice.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/medications/models
+9.5K	/tmp/inputs/hospitalrun-frontend/src/medications/requests
+7.0K	/tmp/inputs/hospitalrun-frontend/src/medications/search
+6.5K	/tmp/inputs/hospitalrun-frontend/src/page-header
+3.0K	/tmp/inputs/hospitalrun-frontend/src/page-header/breadcrumbs
+2.0K	/tmp/inputs/hospitalrun-frontend/src/page-header/button-toolbar
+1.5K	/tmp/inputs/hospitalrun-frontend/src/page-header/title
+192K	/tmp/inputs/hospitalrun-frontend/src/patients
+4.5K	/tmp/inputs/hospitalrun-frontend/src/patients/ContactInfo.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/patients/ContactInfoTypes.ts
+11K	/tmp/inputs/hospitalrun-frontend/src/patients/GeneralInformation.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/Patients.tsx
+7.0K	/tmp/inputs/hospitalrun-frontend/src/patients/allergies
+3.5K	/tmp/inputs/hospitalrun-frontend/src/patients/appointments
+15K	/tmp/inputs/hospitalrun-frontend/src/patients/care-goals
+15K	/tmp/inputs/hospitalrun-frontend/src/patients/care-plans
+15K	/tmp/inputs/hospitalrun-frontend/src/patients/diagnoses
+3.0K	/tmp/inputs/hospitalrun-frontend/src/patients/edit
+6.0K	/tmp/inputs/hospitalrun-frontend/src/patients/history
+25K	/tmp/inputs/hospitalrun-frontend/src/patients/hooks
+2.5K	/tmp/inputs/hospitalrun-frontend/src/patients/labs
+3.0K	/tmp/inputs/hospitalrun-frontend/src/patients/medications
+512	/tmp/inputs/hospitalrun-frontend/src/patients/models
+6.0K	/tmp/inputs/hospitalrun-frontend/src/patients/new
+7.5K	/tmp/inputs/hospitalrun-frontend/src/patients/notes
+5.0K	/tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts
+8.5K	/tmp/inputs/hospitalrun-frontend/src/patients/related-persons
+7.0K	/tmp/inputs/hospitalrun-frontend/src/patients/search
+16K	/tmp/inputs/hospitalrun-frontend/src/patients/util
+16K	/tmp/inputs/hospitalrun-frontend/src/patients/view
+12K	/tmp/inputs/hospitalrun-frontend/src/patients/visits
+512	/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+30K	/tmp/inputs/hospitalrun-frontend/src/scheduling
+25K	/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments
+5.0K	/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks
+5.5K	/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings
+1.0K	/tmp/inputs/hospitalrun-frontend/src/settings/Settings.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+254K	/tmp/inputs/hospitalrun-frontend/src/shared
+38K	/tmp/inputs/hospitalrun-frontend/src/shared/components
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/config
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/db
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/hooks
+151K	/tmp/inputs/hospitalrun-frontend/src/shared/locales
+13K	/tmp/inputs/hospitalrun-frontend/src/shared/model
+29K	/tmp/inputs/hospitalrun-frontend/src/shared/static
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store
+3.0K	/tmp/inputs/hospitalrun-frontend/src/shared/util
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user
+4.0K	/tmp/inputs/hospitalrun-frontend/src/user/user-slice.ts
+
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/package.json
+output
+{
+"name": "@hospitalrun/frontend",
+"version": "2.0.0-alpha.7",
+"description": "React frontend for HospitalRun",
+"private": false,
+"license": "MIT",
+"dependencies": {
+"@hospitalrun/components": "~3.4.0",
+"@reduxjs/toolkit": "~1.7.0",
+"@types/escape-string-regexp": "~2.0.1",
+"@types/json2csv": "~5.0.1",
+"@types/pouchdb-find": "~6.3.4",
+"bootstrap": "~5.1.0",
+"date-fns": "~2.28.0",
+"escape-string-regexp": "~4.0.0",
+"i18next": "~21.6.0",
+"i18next-browser-languagedetector": "~6.1.0",
+"i18next-xhr-backend": "~3.2.2",
+"json2csv": "~5.0.1",
+"lodash": "^4.17.15",
+"node-sass": "~7.0.0",
+"pouchdb": "~7.2.1",
+"pouchdb-adapter-memory": "~7.2.1",
+"pouchdb-authentication": "~1.1.3",
+"pouchdb-find": "~7.2.1",
+"pouchdb-quick-search": "~1.3.0",
+"react": "~17.0.1",
+"react-bootstrap": "~1.6.0",
+"react-bootstrap-typeahead": "~5.2.0",
+"react-dom": "~16.13.0",
+"react-i18next": "~11.15.0",
+"react-query": "~2.25.2",
+"react-query-devtools": "~2.6.0",
+"react-redux": "~7.2.0",
+"react-router": "~5.2.0",
+"react-router-dom": "~5.3.0",
+"react-scripts": "~3.4.0",
+"redux": "~4.1.0",
+"redux-thunk": "~2.4.0",
+"relational-pouch": "~4.0.0",
+"shortid": "^2.2.15",
+"typescript": "~3.8.3",
+"uuid": "^8.0.0",
+"validator": "^13.0.0"
+},
+"resolutions": {
+"moment": "2.24.0"
+},
+"comments": {
+"resolutions": "Added this key as temp fix https://github.com/moment/moment/issues/5484"
+},
+"repository": {
+"type": "git",
+"url": "https://github.com/HospitalRun/hospitalrun-frontend.git"
+},
+"author": "Jack Meyer",
+"contributors": [
+"Maksim Sinik",
+"Stefano Casasola"
+],
+"devDependencies": {
+"@commitlint/cli": "~16.1.0",
+"@commitlint/config-conventional": "~16.0.0",
+"@commitlint/core": "~16.0.0",
+"@commitlint/prompt": "~16.1.0",
+"@testing-library/dom": "~7.31.0",
+"@testing-library/jest-dom": "~5.16.1",
+"@testing-library/react": "~11.2.2",
+"@testing-library/react-hooks": "~7.0.0",
+"@testing-library/user-event": "~12.8.3",
+"@types/jest": "~27.0.3",
+"@types/lodash": "^4.14.150",
+"@types/node": "~17.0.0",
+"@types/pouchdb": "~6.4.0",
+"@types/react": "~17.0.0",
+"@types/react-dom": "~17.0.0",
+"@types/react-redux": "~7.1.5",
+"@types/react-router": "~5.1.2",
+"@types/react-router-dom": "~5.3.0",
+"@types/redux-mock-store": "~1.0.1",
+"@types/shortid": "^0.0.29",
+"@types/uuid": "^8.0.0",
+"@types/validator": "~13.7.0",
+"@typescript-eslint/eslint-plugin": "~3.10.0",
+"@typescript-eslint/parser": "~3.10.0",
+"chalk": "^5.0.0",
+"commitizen": "~4.2.0",
+"commitlint-config-cz": "~0.13.0",
+"cross-env": "~7.0.0",
+"cz-conventional-changelog": "~3.3.0",
+"dateformat": "~5.0.2",
+"eslint": "~6.8.0",
+"eslint-config-airbnb": "~18.2.0",
+"eslint-config-prettier": "~7.2.0",
+"eslint-import-resolver-typescript": "~2.5.0",
+"eslint-plugin-import": "~2.25.1",
+"eslint-plugin-jest": "~26.1.0",
+"eslint-plugin-jsx-a11y": "~6.5.1",
+"eslint-plugin-prettier": "~3.4.0",
+"eslint-plugin-react": "~7.28.0",
+"eslint-plugin-react-hooks": "~4.3.0",
+"history": "4.10.1",
+"husky": "~7.0.0",
+"jest-canvas-mock": "~2.3.0",
+"jest-environment-jsdom-sixteen": "~2.0.0",
+"lint-staged": "~12.3.3",
+"memdown": "~6.1.0",
+"prettier": "~2.2.0",
+"react-select-event": "~5.3.0",
+"react-test-renderer": "~17.0.1",
+"redux-mock-store": "~1.5.4",
+"rimraf": "~3.0.2",
+"source-map-explorer": "^2.2.2",
+"standard-version": "~9.3.0"
+},
+"scripts": {
+"analyze": "source-map-explorer 'build/static/js/*.js'",
+"commit": "npx git-cz",
+"start": "npm run translation:check && react-scripts start",
+"build": "react-scripts build",
+"update": "npx npm-check -u",
+"prepublishOnly": "npm run build",
+"test": "npm run translation:check && react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --env=jest-environment-jsdom-sixteen",
+"test:ci": "cross-env CI=true react-scripts test  --testPathIgnorePatterns=src/__tests__/test-utils --passWithNoTests --env=jest-environment-jsdom-sixteen --maxWorkers=2",
+"lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\"",
+"lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" \"scripts/check-translations/**/*.{js,ts}\" --fix",
+"lint-staged": "lint-staged",
+"commitlint": "commitlint",
+"coveralls": "npm run test:ci -- --coverage --watchAll=false && cat ./coverage/lcov.info",
+"remove-compiled-translations": "rimraf ./bin/scripts/check-translations",
+"pretranslation:check": "npm run remove-compiled-translations",
+"translation:check": "tsc -p scripts/tsconfig.json && node ./bin/scripts/check-translations/index.js",
+"posttranslation:check": "npm run remove-compiled-translations"
+},
+"browserslist": {
+"production": [
+">0.2%",
+"not dead",
+"not op_mini all"
+],
+"development": [
+"last 1 chrome version",
+"last 1 firefox version",
+"last 1 safari version"
+]
+},
+"husky": {
+"hooks": {
+"pre-commit": "npm run lint-staged",
+"commit-msg": "npm run commitlint -- -E HUSKY_GIT_PARAMS"
+}
+},
+"config": {
+"commitizen": {
+"path": "./node_modules/cz-conventional-changelog"
+}
+},
+"lint-staged": {
+"**/*.{js,jsx,ts,tsx}": [
+"npm run lint:fix",
+"npm run test:ci",
+"git add ."
+]
+},
+"jest": {
+"restoreMocks": true
+}
+}
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/store
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared/store, excluding hidden items and node_modules:
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts
+output
+import { configureStore, combineReducers, Action } from '@reduxjs/toolkit'
+import ReduxThunk, { ThunkAction } from 'redux-thunk'
+
+import medication from '../../medications/medication-slice'
+import breadcrumbs from '../../page-header/breadcrumbs/breadcrumbs-slice'
+import patient from '../../patients/patient-slice'
+import patients from '../../patients/patients-slice'
+import user from '../../user/user-slice'
+import components from '../components/component-slice'
+
+const reducer = combineReducers({
+patient,
+patients,
+user,
+breadcrumbs,
+components,
+medication,
+})
+
+const store = configureStore({
+reducer,
+middleware: [ReduxThunk],
+})
+
+export type AppDispatch = typeof store.dispatch
+export type AppThunk = ThunkAction<void, RootState, null, Action<string>>
+export type RootState = ReturnType<typeof reducer>
+
+export default store
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/patients/patient-slice.ts
+output
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import isEmpty from 'lodash/isEmpty'
+
+import PatientRepository from '../shared/db/PatientRepository'
+import Diagnosis from '../shared/model/Diagnosis'
+import Patient from '../shared/model/Patient'
+import { AppThunk } from '../shared/store'
+import { uuid } from '../shared/util/uuid'
+import { cleanupPatient } from './util/set-patient-helper'
+import validatePatient from './util/validate-patient'
+
+interface PatientState {
+status: 'loading' | 'error' | 'completed'
+isUpdatedSuccessfully: boolean
+patient: Patient
+relatedPersons: Patient[]
+createError?: Error
+updateError?: Error
+allergyError?: AddAllergyError
+diagnosisError?: AddDiagnosisError
+relatedPersonError?: AddRelatedPersonError
+}
+
+interface Error {
+message?: string
+givenName?: string
+dateOfBirth?: string
+suffix?: string
+prefix?: string
+familyName?: string
+preferredLanguage?: string
+emails?: (string | undefined)[]
+phoneNumbers?: (string | undefined)[]
+}
+
+interface AddRelatedPersonError {
+message?: string
+relatedPerson?: string
+relationshipType?: string
+}
+
+interface AddAllergyError {
+message?: string
+name?: string
+}
+
+interface AddDiagnosisError {
+message?: string
+name?: string
+date?: string
+status?: string
+}
+
+const initialState: PatientState = {
+status: 'loading',
+isUpdatedSuccessfully: false,
+patient: {} as Patient,
+relatedPersons: [],
+createError: undefined,
+updateError: undefined,
+diagnosisError: undefined,
+relatedPersonError: undefined,
+}
+
+function start(state: PatientState) {
+state.status = 'loading'
+state.createError = {}
+}
+
+const patientSlice = createSlice({
+name: 'patient',
+initialState,
+reducers: {
+createPatientStart: start,
+createPatientSuccess(state) {
+state.status = 'completed'
+},
+createPatientError(state, { payload }: PayloadAction<Error>) {
+state.status = 'error'
+state.createError = payload
+},
+updatePatientStart: start,
+updatePatientSuccess(state, { payload }: PayloadAction<Patient>) {
+state.status = 'completed'
+state.patient = payload
+},
+updatePatientError(state, { payload }: PayloadAction<Error>) {
+state.status = 'error'
+state.updateError = payload
+},
+addDiagnosisError(state, { payload }: PayloadAction<AddDiagnosisError>) {
+state.status = 'error'
+state.diagnosisError = payload
+},
+},
+})
+
+export const {
+createPatientStart,
+createPatientSuccess,
+createPatientError,
+updatePatientStart,
+updatePatientSuccess,
+updatePatientError,
+addDiagnosisError,
+} = patientSlice.actions
+
+export const createPatient = (
+patient: Patient,
+onSuccess?: (patient: Patient) => void,
+): AppThunk => async (dispatch) => {
+dispatch(createPatientStart())
+
+const cleanPatient = cleanupPatient(patient)
+const newPatientError = validatePatient(cleanPatient)
+
+if (!newPatientError) {
+const newPatient = await PatientRepository.save(cleanPatient)
+dispatch(createPatientSuccess())
+
+if (onSuccess) {
+onSuccess(newPatient)
+}
+} else {
+dispatch(
+createPatientError({
+...newPatientError.fieldErrors,
+message: 'patient.errors.createPatientError',
+}),
+)
+}
+}
+
+export const updatePatient = (
+patient: Patient,
+onSuccess?: (patient: Patient) => void,
+): AppThunk => async (dispatch) => {
+dispatch(updatePatientStart())
+
+const cleanPatient = cleanupPatient(patient)
+const updateError = validatePatient(cleanPatient)
+
+if (!updateError) {
+const updatedPatient = await PatientRepository.saveOrUpdate(cleanPatient)
+dispatch(updatePatientSuccess(updatedPatient))
+
+if (onSuccess) {
+onSuccess(updatedPatient)
+}
+} else {
+dispatch(
+updatePatientError({
+...updateError.fieldErrors,
+message: 'patient.errors.updatePatientError',
+}),
+)
+}
+}
+
+function validateDiagnosis(diagnosis: Diagnosis) {
+const error: AddDiagnosisError = {}
+
+if (!diagnosis.name) {
+error.name = 'patient.diagnoses.error.nameRequired'
+}
+
+if (!diagnosis.diagnosisDate) {
+error.date = 'patient.diagnoses.error.dateRequired'
+}
+
+if (!diagnosis.onsetDate) {
+error.date = 'patient.diagnoses.error.dateRequired'
+}
+
+if (!diagnosis.status) {
+error.status = 'patient.diagnoses.error.statusRequired'
+}
+return error
+}
+
+export const addDiagnosis = (
+patientId: string,
+diagnosis: Diagnosis,
+onSuccess?: (patient: Patient) => void,
+): AppThunk => async (dispatch) => {
+const newDiagnosisError = validateDiagnosis(diagnosis)
+
+if (isEmpty(newDiagnosisError)) {
+const patient = await PatientRepository.find(patientId)
+const diagnoses = patient.diagnoses || []
+diagnoses.push({ id: uuid(), ...diagnosis })
+patient.diagnoses = diagnoses
+
+await dispatch(updatePatient(patient, onSuccess))
+} else {
+newDiagnosisError.message = 'patient.diagnoses.error.unableToAdd'
+dispatch(addDiagnosisError(newDiagnosisError))
+}
+}
+
+export default patientSlice.reducer
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/model
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared/model, excluding hidden items and node_modules:
+13K	/tmp/inputs/hospitalrun-frontend/src/shared/model
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/AbstractDBModel.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Allergy.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Appointment.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Breadcrumb.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/CareGoal.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/CarePlan.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/ContactInformation.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Diagnosis.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Imaging.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Incident.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Lab.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Medication.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Name.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Note.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/PatientHistoryRecord.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/model/Permissions.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/RelatedPerson.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/User.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/model/Visit.ts
+
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/shared/model/Patient.ts
+output
+import AbstractDBModel from './AbstractDBModel'
+import Allergy from './Allergy'
+import CareGoal from './CareGoal'
+import CarePlan from './CarePlan'
+import ContactInformation from './ContactInformation'
+import Diagnosis from './Diagnosis'
+import Name from './Name'
+import Note from './Note'
+import RelatedPerson from './RelatedPerson'
+import Visit from './Visit'
+
+export default interface Patient extends AbstractDBModel, Name, ContactInformation {
+sex: string
+dateOfBirth: string
+isApproximateDateOfBirth: boolean
+preferredLanguage?: string
+occupation?: string
+type?: string
+code: string
+relatedPersons?: RelatedPerson[]
+allergies?: Allergy[]
+diagnoses?: Diagnosis[]
+notes?: Note[]
+index: string
+carePlans: CarePlan[]
+careGoals: CareGoal[]
+bloodType: string
+visits: Visit[]
+}
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared/db, excluding hidden items and node_modules:
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/db
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Search.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Sort.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/SortRequest.ts
+
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+output
+import { v4 as uuidv4 } from 'uuid'
+
+import { schema } from '../config/pouchdb'
+import AbstractDBModel from '../model/AbstractDBModel'
+import SortRequest, { Unsorted } from './SortRequest'
+
+export default class Repository<T extends AbstractDBModel> {
+db: PouchDB.RelDatabase
+
+type: string
+
+pluralType: string
+
+constructor(type: string, db: PouchDB.RelDatabase) {
+this.db = db
+this.type = type
+this.pluralType = schema.find((s) => s.singular === this.type)?.plural || ''
+}
+
+async find(id: string): Promise<T> {
+const documents = await this.db.rel.find(this.type, id)
+const entity = documents[this.pluralType][0]
+return entity
+}
+
+async findAll(sort = Unsorted): Promise<T[]> {
+const selector: any = {
+_id: {
+$regex: RegExp(this.type, 'i'),
+},
+}
+
+sort.sorts.forEach((s) => {
+selector[`data.${s.field}`] = { $gt: null }
+})
+
+// Adds an index to each of the fields coming from the sorting object
+// allowing the algorithm to sort by any given SortRequest, by avoiding the default index error (lack of index)
+
+await Promise.all(
+sort.sorts.map(
+async (s): Promise<SortRequest> => {
+await this.db.createIndex({
+index: {
+fields: [`data.${s.field}`],
+},
+})
+
+return sort
+},
+),
+)
+
+const result = await this.db.find({
+selector,
+sort:
+sort.sorts.length > 0
+? sort.sorts.map((s) => ({ [`data.${s.field}`]: s.direction }))
+: undefined,
+})
+const relDocs = await this.db.rel.parseRelDocs(this.type, result.docs)
+return relDocs[this.pluralType]
+}
+
+async count(): Promise<number> {
+const result = await this.findAll()
+return result.length
+}
+
+async search(criteria: any): Promise<T[]> {
+const response = await this.db.find({
+selector: {
+$and: [
+{
+_id: {
+$regex: RegExp(this.type, 'i'),
+},
+},
+{ ...criteria.selector },
+],
+},
+})
+const data = await this.db.rel.parseRelDocs(this.type, response.docs)
+return data[this.pluralType]
+}
+
+async save(entity: T): Promise<T> {
+const currentTime = new Date().toISOString()
+
+const { id, rev, ...valuesToSave } = entity
+const savedEntity = await this.db.rel.save(this.type, {
+id: uuidv4(),
+...valuesToSave,
+createdAt: currentTime,
+updatedAt: currentTime,
+})
+return this.find(savedEntity.id)
+}
+
+async saveOrUpdate(entity: T): Promise<T> {
+if (!entity.id) {
+return this.save(entity)
+}
+
+const { id, rev, ...dataToSave } = entity
+
+try {
+await this.find(entity.id)
+const entityToUpdate = {
+id,
+rev,
+...dataToSave,
+updatedAt: new Date().toISOString(),
+}
+
+await this.db.rel.save(this.type, entityToUpdate)
+return this.find(entity.id)
+} catch (error) {
+return this.save(entity)
+}
+}
+
+async delete(entity: T): Promise<T> {
+const entityToDelete = await this.find(entity.id)
+await this.db.rel.del(this.type, entity)
+return entityToDelete
+}
+}
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.ts
+cat: /tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.ts: No such file or directory
+
+
+bash
+command
+ls -la /tmp/inputs/hospitalrun-frontend/src/patients/hooks/
+output
+total 25
+drwxr-xr-x  2 argocd root  560 Dec 23 05:50 .
+drwxr-xr-x 20 argocd root  520 Dec 23 05:50 ..
+-rw-r--r--  1 argocd root 1163 Jan  1  1970 useAddAllergy.tsx
+-rw-r--r--  1 argocd root 1305 Jan  1  1970 useAddCareGoal.tsx
+-rw-r--r--  1 argocd root 1305 Jan  1  1970 useAddCarePlan.tsx
+-rw-r--r--  1 argocd root 1185 Jan  1  1970 useAddPatientDiagnosis.tsx
+-rw-r--r--  1 argocd root 1088 Jan  1  1970 useAddPatientNote.tsx
+-rw-r--r--  1 argocd root 1530 Jan  1  1970 useAddPatientRelatedPerson.tsx
+-rw-r--r--  1 argocd root 1227 Jan  1  1970 useAddVisit.tsx
+-rw-r--r--  1 argocd root  621 Jan  1  1970 useAllergy.tsx
+-rw-r--r--  1 argocd root  638 Jan  1  1970 useCareGoal.tsx
+-rw-r--r--  1 argocd root  635 Jan  1  1970 useCarePlan.tsx
+-rw-r--r--  1 argocd root  667 Jan  1  1970 useDiagnosis.tsx
+-rw-r--r--  1 argocd root  382 Jan  1  1970 usePatient.tsx
+-rw-r--r--  1 argocd root  473 Jan  1  1970 usePatientAllergies.tsx
+-rw-r--r--  1 argocd root  463 Jan  1  1970 usePatientAppointments.tsx
+-rw-r--r--  1 argocd root  477 Jan  1  1970 usePatientCareGoals.tsx
+-rw-r--r--  1 argocd root  477 Jan  1  1970 usePatientCarePlans.tsx
+-rw-r--r--  1 argocd root  479 Jan  1  1970 usePatientDiagnoses.tsx
+-rw-r--r--  1 argocd root  442 Jan  1  1970 usePatientLabs.tsx
+-rw-r--r--  1 argocd root  512 Jan  1  1970 usePatientMedications.tsx
+-rw-r--r--  1 argocd root  579 Jan  1  1970 usePatientNote.tsx
+-rw-r--r--  1 argocd root  444 Jan  1  1970 usePatientNotes.tsx
+-rw-r--r--  1 argocd root  849 Jan  1  1970 usePatientRelatedPersons.tsx
+-rw-r--r--  1 argocd root  452 Jan  1  1970 usePatientVisits.tsx
+-rw-r--r--  1 argocd root  702 Jan  1  1970 usePatients.tsx
+-rw-r--r--  1 argocd root 1185 Jan  1  1970 useRemovePatientRelatedPerson.tsx
+-rw-r--r--  1 argocd root  529 Jan  1  1970 useVisit.tsx
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.tsx
+output
+import { useQuery } from 'react-query'
+
+import PatientRepository from '../../shared/db/PatientRepository'
+import Patient from '../../shared/model/Patient'
+
+function fetchPatient(_: any, id?: string): Promise<Patient> {
+return PatientRepository.find(id || '')
+}
+
+export default function usePatient(id?: string) {
+return useQuery(['patient', id], fetchPatient, { enabled: id })
+}
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/patients/view/ViewPatient.tsx
+output
+import { Panel, Spinner, TabsHeader, Tab, Button } from '@hospitalrun/components'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import {
+useParams,
+withRouter,
+Route,
+useHistory,
+useLocation,
+useRouteMatch,
+} from 'react-router-dom'
+
+import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+import { useButtonToolbarSetter } from '../../page-header/button-toolbar/ButtonBarProvider'
+import { useUpdateTitle } from '../../page-header/title/TitleContext'
+import useTranslator from '../../shared/hooks/useTranslator'
+import Permissions from '../../shared/model/Permissions'
+import { RootState } from '../../shared/store'
+import Allergies from '../allergies/Allergies'
+import AppointmentsList from '../appointments/AppointmentsList'
+import CareGoalTab from '../care-goals/CareGoalTab'
+import CarePlanTab from '../care-plans/CarePlanTab'
+import Diagnoses from '../diagnoses/Diagnoses'
+import GeneralInformation from '../GeneralInformation'
+import HistoryTab from '../history/HistoryTab'
+import usePatient from '../hooks/usePatient'
+import Labs from '../labs/Labs'
+import Medications from '../medications/Medications'
+import Note from '../notes/NoteTab'
+import RelatedPerson from '../related-persons/RelatedPersonTab'
+import { getPatientFullName } from '../util/patient-util'
+import VisitTab from '../visits/VisitTab'
+import ImportantPatientInfo from './ImportantPatientInfo'
+
+const ViewPatient = () => {
+const { t } = useTranslator()
+const history = useHistory()
+const location = useLocation()
+const { path } = useRouteMatch()
+const setButtonToolBar = useButtonToolbarSetter()
+
+const { id } = useParams()
+const { permissions } = useSelector((state: RootState) => state.user)
+const { data: patient, status } = usePatient(id)
+
+const updateTitle = useUpdateTitle()
+useEffect(() => {
+updateTitle(t('patient.label'))
+}, [updateTitle, t])
+
+const breadcrumbs = [
+{ i18nKey: 'patients.label', location: '/patients' },
+{ text: getPatientFullName(patient), location: `/patients/${id}` },
+]
+useAddBreadcrumbs(breadcrumbs, true)
+
+useEffect(() => {
+const buttons = []
+if (permissions.includes(Permissions.WritePatients)) {
+buttons.push(
+<Button
+key="editPatientButton"
+color="success"
+icon="edit"
+outlined
+onClick={() => {
+history.push(`/patients/edit/${id}`)
+}}
+>
+{t('actions.edit')}
+</Button>,
+)
+}
+
+setButtonToolBar(buttons)
+
+return () => {
+setButtonToolBar([])
+}
+}, [setButtonToolBar, history, id, permissions, t])
+
+if (status === 'loading' || !patient) {
+return <Spinner color="blue" loading size={[10, 25]} type="ScaleLoader" />
+}
+
+return (
+<div>
+{' '}
+<ImportantPatientInfo patient={patient} />
+<div>
+<TabsHeader>
+<Tab
+active={location.pathname === `/patients/${patient.id}`}
+label={t('patient.generalInformation')}
+onClick={() => history.push(`/patients/${patient.id}`)}
+/>
+<Tab
+active={location.pathname === `/patients/${patient.id}/relatedpersons`}
+label={t('patient.relatedPersons.label')}
+onClick={() => history.push(`/patients/${patient.id}/relatedpersons`)}
+/>
+<Tab
+active={location.pathname === `/patients/${patient.id}/appointments`}
+label={t('scheduling.appointments.label')}
+onClick={() => history.push(`/patients/${patient.id}/appointments`)}
+/>
+<Tab
+active={location.pathname.startsWith(`/patients/${patient.id}/allergies`)}
+label={t('patient.allergies.label')}
+onClick={() => history.push(`/patients/${patient.id}/allergies`)}
+/>
+<Tab
+active={location.pathname.startsWith(`/patients/${patient.id}/diagnoses`)}
+label={t('patient.diagnoses.label')}
+onClick={() => history.push(`/patients/${patient.id}/diagnoses`)}
+/>
+<Tab
+active={location.pathname.startsWith(`/patients/${patient.id}/notes`)}
+label={t('patient.notes.label')}
+onClick={() => history.push(`/patients/${patient.id}/notes`)}
+/>
+<Tab
+active={location.pathname === `/patients/${patient.id}/medications`}
+label={t('patient.medications.label')}
+onClick={() => history.push(`/patients/${patient.id}/medications`)}
+/>
+<Tab
+active={location.pathname === `/patients/${patient.id}/labs`}
+label={t('patient.labs.label')}
+onClick={() => history.push(`/patients/${patient.id}/labs`)}
+/>
+<Tab
+active={location.pathname.startsWith(`/patients/${patient.id}/care-plans`)}
+label={t('patient.carePlan.label')}
+onClick={() => history.push(`/patients/${patient.id}/care-plans`)}
+/>
+<Tab
+active={location.pathname.startsWith(`/patients/${patient.id}/care-goals`)}
+label={t('patient.careGoal.label')}
+onClick={() => history.push(`/patients/${patient.id}/care-goals`)}
+/>
+<Tab
+active={location.pathname.startsWith(`/patients/${patient.id}/visits`)}
+label={t('patient.visits.label')}
+onClick={() => history.push(`/patients/${patient.id}/visits`)}
+/>
+<Tab
+active={location.pathname.startsWith(`/patients/${patient.id}/history`)}
+label={t('patient.history.label')}
+onClick={() => history.push(`/patients/${patient.id}/history`)}
+/>
+</TabsHeader>
+<Panel>
+<Route exact path={path}>
+<GeneralInformation patient={patient} />
+</Route>
+<Route exact path={`${path}/relatedpersons`}>
+<RelatedPerson patient={patient} />
+</Route>
+<Route exact path={`${path}/appointments`}>
+<AppointmentsList patient={patient} />
+</Route>
+<Route path={`${path}/allergies`}>
+<Allergies patient={patient} />
+</Route>
+<Route path={`${path}/diagnoses`}>
+<Diagnoses />
+</Route>
+<Route exact path={`${path}/notes`}>
+<Note patient={patient} />
+</Route>
+<Route exact path={`${path}/medications`}>
+<Medications patient={patient} />
+</Route>
+<Route exact path={`${path}/labs`}>
+<Labs patient={patient} />
+</Route>
+<Route path={`${path}/care-plans`}>
+<CarePlanTab />
+</Route>
+<Route path={`${path}/care-goals`}>
+<CareGoalTab />
+</Route>
+<Route path={`${path}/visits`}>
+<VisitTab patientId={patient.id} />
+</Route>
+<Route path={`${path}/history`}>
+<HistoryTab patientId={patient.id} />
+</Route>
+</Panel>
+</div>
+</div>
+)
+}
+
+export default withRouter(ViewPatient)
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/App.tsx
+output
+/* eslint-disable no-console */
+
+import { Spinner } from '@hospitalrun/components'
+import React, { Suspense, useEffect, useState } from 'react'
+import { ReactQueryDevtools } from 'react-query-devtools'
+import { useDispatch } from 'react-redux'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+import HospitalRun from './HospitalRun'
+import { TitleProvider } from './page-header/title/TitleContext'
+import { remoteDb } from './shared/config/pouchdb'
+import { getCurrentSession } from './user/user-slice'
+
+const App: React.FC = () => {
+const dispatch = useDispatch()
+const [loading, setLoading] = useState(true)
+
+useEffect(() => {
+let cancelled = false
+
+remoteDb
+.getSession()
+.then((session) => {
+if (cancelled) {
+return
+}
+if (session.userCtx.name) {
+dispatch(getCurrentSession(session.userCtx.name))
+}
+})
+.catch((e) => {
+console.log(e)
+})
+.finally(() => {
+if (!cancelled) {
+setLoading(false)
+}
+})
+
+return () => {
+cancelled = true
+}
+}, [dispatch])
+
+if (loading) {
+return null
+}
+
+return (
+<>
+<BrowserRouter>
+<Suspense fallback={<Spinner color="blue" loading size={[10, 25]} type="ScaleLoader" />}>
+<Switch>
+<TitleProvider>
+<Route path="/" component={HospitalRun} />
+</TitleProvider>
+</Switch>
+</Suspense>
+</BrowserRouter>
+<ReactQueryDevtools initialIsOpen={false} />
+</>
+)
+}
+
+export default App
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+output
+import { Toaster } from '@hospitalrun/components'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Route, Switch } from 'react-router-dom'
+
+import Dashboard from './dashboard/Dashboard'
+import Imagings from './imagings/Imagings'
+import Incidents from './incidents/Incidents'
+import Labs from './labs/Labs'
+import Medications from './medications/Medications'
+import Breadcrumbs from './page-header/breadcrumbs/Breadcrumbs'
+import { ButtonBarProvider } from './page-header/button-toolbar/ButtonBarProvider'
+import ButtonToolBar from './page-header/button-toolbar/ButtonToolBar'
+import { useTitle } from './page-header/title/TitleContext'
+import Patients from './patients/Patients'
+import Appointments from './scheduling/appointments/Appointments'
+import Settings from './settings/Settings'
+import Navbar from './shared/components/navbar/Navbar'
+import { NetworkStatusMessage } from './shared/components/network-status'
+import Sidebar from './shared/components/Sidebar'
+import { RootState } from './shared/store'
+
+const HospitalRun = () => {
+const { title } = useTitle()
+const { sidebarCollapsed } = useSelector((state: RootState) => state.components)
+
+return (
+<div>
+<NetworkStatusMessage />
+<Navbar />
+<div className="container-fluid">
+<div className="col-md-2">
+<Sidebar />
+</div>
+<ButtonBarProvider>
+<div className="row">
+<main
+role="main"
+className={`${
+sidebarCollapsed ? 'col-md-10 col-lg-11' : 'col-md-9 col-lg-10'
+} ml-sm-auto px-4`}
+>
+<div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<h1 className="h2">{title}</h1>
+<ButtonToolBar />
+</div>
+<Breadcrumbs />
+<div>
+<Switch>
+<Route exact path="/" component={Dashboard} />
+<Route path="/appointments" component={Appointments} />
+<Route path="/patients" component={Patients} />
+<Route path="/labs" component={Labs} />
+<Route path="/medications" component={Medications} />
+<Route path="/incidents" component={Incidents} />
+<Route path="/settings" component={Settings} />
+<Route path="/imaging" component={Imagings} />
+</Switch>
+</div>
+<Toaster autoClose={5000} hideProgressBar draggable />
+</main>
+</div>
+</ButtonBarProvider>
+</div>
+</div>
+)
+}
+
+export default HospitalRun
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useReportIncident.tsx
+output
+import isEmpty from 'lodash/isEmpty'
+import { queryCache, useMutation } from 'react-query'
+import shortid from 'shortid'
+
+import IncidentRepository from '../../shared/db/IncidentRepository'
+import Incident from '../../shared/model/Incident'
+import validateIncident from '../util/validate-incident'
+
+const getIncidentCode = (): string => `I-${shortid.generate()}`
+
+export function reportIncident(incident: Incident): Promise<Incident> {
+const error = validateIncident(incident)
+if (isEmpty(error)) {
+const updatedIncident: Incident = {
+...incident,
+code: getIncidentCode(),
+status: 'reported',
+reportedBy: 'some user',
+reportedOn: new Date(Date.now()).toISOString(),
+}
+return IncidentRepository.save(updatedIncident)
+}
+
+throw error
+}
+
+export default function useReportIncident() {
+return useMutation(reportIncident, {
+onSuccess: async () => {
+await queryCache.invalidateQueries('incidents')
+},
+throwOnError: true,
+})
+}
+
+Now let me look at the component structure and how data flows:
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/shared/components/component-slice.ts
+output
+import { createSlice } from '@reduxjs/toolkit'
+
+import { AppThunk } from '../store'
+
+interface ComponentState {
+sidebarCollapsed: boolean
+}
+
+const initialState: ComponentState = {
+sidebarCollapsed: false,
+}
+
+const componentSlice = createSlice({
+name: 'components',
+initialState,
+reducers: {
+toggleSidebar(state) {
+state.sidebarCollapsed = !state.sidebarCollapsed
+},
+},
+})
+
+export const { toggleSidebar } = componentSlice.actions
+
+export const updateSidebar = (): AppThunk => async (dispatch) => {
+dispatch(toggleSidebar())
+}
+
+export default componentSlice.reducer
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx
+output
+import { Button, Row, Column, Typeahead, Label } from '@hospitalrun/components'
+import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+
+import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+import { useUpdateTitle } from '../../page-header/title/TitleContext'
+import DateTimePickerWithLabelFormGroup from '../../shared/components/input/DateTimePickerWithLabelFormGroup'
+import TextFieldWithLabelFormGroup from '../../shared/components/input/TextFieldWithLabelFormGroup'
+import TextInputWithLabelFormGroup from '../../shared/components/input/TextInputWithLabelFormGroup'
+import PatientRepository from '../../shared/db/PatientRepository'
+import useTranslator from '../../shared/hooks/useTranslator'
+import Incident from '../../shared/model/Incident'
+import Patient from '../../shared/model/Patient'
+import useReportIncident from '../hooks/useReportIncident'
+import { IncidentError } from '../util/validate-incident'
+
+const ReportIncident = () => {
+const [mutate] = useReportIncident()
+const history = useHistory()
+const { t } = useTranslator()
+const updateTitle = useUpdateTitle()
+useEffect(() => {
+updateTitle(t('incidents.reports.new'))
+})
+const breadcrumbs = [
+{
+i18nKey: 'incidents.reports.new',
+location: `/incidents/new`,
+},
+]
+useAddBreadcrumbs(breadcrumbs)
+const [incident, setIncident] = useState({
+date: new Date().toISOString(),
+department: '',
+category: '',
+categoryItem: '',
+description: '',
+patient: '',
+})
+
+const [error, setError] = useState<IncidentError | undefined>(undefined)
+
+const onDateChange = (newDate: Date) => {
+setIncident((prevState) => ({
+...prevState,
+date: newDate.toISOString(),
+}))
+}
+
+const onTextInputChange = (text: string, name: string) => {
+setIncident((prevState) => ({
+...prevState,
+[name]: text,
+}))
+}
+
+const onSave = async () => {
+try {
+const data = await mutate(incident as Incident)
+history.push(`/incidents/${data?.id}`)
+} catch (e) {
+setError(e)
+}
+}
+
+const onCancel = () => {
+history.push('/incidents')
+}
+
+const onPatientChange = (patient: Patient) => {
+if (patient) {
+setIncident((prevIncident) => ({
+...prevIncident,
+patient: patient.id,
+}))
+} else {
+setIncident((prevIncident) => ({
+...prevIncident,
+patient: '',
+}))
+}
+}
+
+return (
+<form aria-label="Report Incident form">
+<Row>
+<Column md={6}>
+<DateTimePickerWithLabelFormGroup
+name="dateOfIncident"
+label={t('incidents.reports.dateOfIncident')}
+isEditable
+isRequired
+onChange={onDateChange}
+value={new Date(incident.date)}
+isInvalid={!!error?.date}
+feedback={t(error?.date as string)}
+/>
+</Column>
+<Column md={6}>
+<TextInputWithLabelFormGroup
+label={t('incidents.reports.department')}
+name="department"
+isRequired
+isEditable
+value={incident.department}
+onChange={(event) => onTextInputChange(event.currentTarget.value, 'department')}
+isInvalid={!!error?.department}
+feedback={t(error?.department as string)}
+/>
+</Column>
+</Row>
+<Row>
+<Column md={6}>
+<TextInputWithLabelFormGroup
+name="category"
+label={t('incidents.reports.category')}
+isEditable
+isRequired
+value={incident.category}
+onChange={(event) => onTextInputChange(event.currentTarget.value, 'category')}
+isInvalid={!!error?.category}
+feedback={t(error?.category as string)}
+/>
+</Column>
+<Column md={6}>
+<TextInputWithLabelFormGroup
+label={t('incidents.reports.categoryItem')}
+name="categoryItem"
+isRequired
+isEditable
+value={incident.categoryItem}
+onChange={(event) => onTextInputChange(event.currentTarget.value, 'categoryItem')}
+isInvalid={!!error?.categoryItem}
+feedback={t(error?.categoryItem as string)}
+/>
+</Column>
+</Row>
+<Row>
+<Column md={12}>
+<TextFieldWithLabelFormGroup
+label={t('incidents.reports.description')}
+name="description"
+isRequired
+isEditable
+value={incident.description}
+onChange={(event) => onTextInputChange(event.currentTarget.value, 'description')}
+isInvalid={!!error?.description}
+feedback={t(error?.description as string)}
+/>
+</Column>
+</Row>
+<Row>
+<Column md={6}>
+<div className="form-group patient-typeahead">
+<Label htmlFor="patientTypeahead" text={t('incidents.reports.patient')} />
+<Typeahead
+id="patientTypeahead"
+placeholder={t('incidents.reports.patient')}
+onChange={(p: Patient[]) => onPatientChange(p[0])}
+onSearch={async (query: string) => PatientRepository.search(query)}
+searchAccessor="fullName"
+renderMenuItemChildren={(p: Patient) => <div>{`${p.fullName} (${p.code})`}</div>}
+/>
+</div>
+</Column>
+</Row>
+
+<div className="row float-right">
+<div className="btn-group btn-group-lg mt-3 mr-3">
+<Button className="mr-2" color="success" onClick={onSave}>
+{t('incidents.reports.new')}
+</Button>
+<Button color="danger" onClick={onCancel}>
+{t('actions.cancel')}
+</Button>
+</div>
+</div>
+</form>
+)
+}
+
+export default ReportIncident
+
+Based on my examination of the codebase, I can now give you a comprehensive answer.
+
+No, the HospitalRun frontend does not follow the traditional MVC (Model-View-Controller) pattern. Instead, it uses a modern React-based architecture that combines several patterns more commonly found in contemporary frontend applications:
+
+**What the codebase actually uses:**
+
+1. **React Components as Views** - The `.tsx` files in folders like `patients/view/`, `incidents/report/`, etc. are React functional components that handle rendering. These are views, but they don't follow the strict separation that MVC demands.
+
+2. **Redux Toolkit for State Management** - The app uses Redux with `@reduxjs/toolkit` (see `patient-slice.ts`, `user-slice.ts`, `medication-slice.ts`). These "slices" combine what would be both the Model and Controller in MVC - they define state shape, actions, and reducers together. This is closer to the Flux/Redux unidirectional data flow pattern.
+
+3. **React Query for Server State** - Many features use `react-query` with custom hooks like `usePatient`, `useIncidents`, `useReportIncident`. These hooks handle data fetching, caching, and mutations directly, blending data access with the component layer.
+
+4. **Repository Pattern for Data Access** - The `shared/db/` folder contains repository classes (`PatientRepository`, `IncidentRepository`, etc.) that abstract PouchDB interactions. This is a data access pattern but isn't a full MVC "Model" since models in this app are just TypeScript interfaces (like `Patient`, `Incident` in `shared/model/`).
+
+5. **Custom Hooks as Logic Layer** - The `hooks/` folders throughout the codebase (e.g., `patients/hooks/`, `incidents/hooks/`) contain custom React hooks that encapsulate business logic and data fetching, acting somewhat like controllers but tightly integrated with React's paradigm.
+
+**Why it's not MVC:**
+
+In true MVC, controllers receive user input and update models, which then notify views. Here, React components directly call hooks and dispatch Redux actions. State flows unidirectionally through Redux stores, and components subscribe to store slices via `useSelector`. The "controller" responsibilities are distributed across Redux thunks, custom hooks, and event handlers within components themselves.
+
+This architecture is better described as a **component-based architecture with Redux state management and a repository pattern for data access** - a common modern React pattern, but distinctly different from classical MVC.
+
+4. Now write the ideal answer, model a  summary, model a feedback,  model b summary model b feedback,justification. i want same level of details and evidence and writing style and lenght like this sample THIS IS SAMPLE FOR you below, READ CAREFULLY: 
+
+
+SUPER IMPORTANT RULE YOU MUST FOLLOW. YOU MUST WRITE SAME WAY SAME QUALITY SAME FORMAT SAME STYLE AS SAMPLE BELOW!@!!!!!!!
+
+——SAMPLE:—
+—Every below is sample—
+
+Ideal Response.
+
+This ideal answer should clearly describe how Spring Petclinic wires its components through dependency injection using common patterns like constructor based injection, component scanning, and configuration-driven bean factories ...etc, and even dive deeper to explain how controllers (e.g.,src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java) declare all the collaborators in the constructors rather than in the fields, how stereotype annotations make those classes eligible for autodetection, how the repository abstractions are injected as interfaces implemented by the Spring Data JPA, and how @Configuration classes expose shared infrastructure beans that all the other components consume.
+Model must explain that Spring Petclinic leans on constructor-based dependency injection to keep controllers explicit and testable. For example, it should explain controller like spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java is annotated with @Controller and declares a single constructor that takes an OwnerRepository, which has the role of letting Spring populate the dependency while preventing partially constructed instance. Model should point out that the controller never uses field injection or @Autowired on members, so the required collaborator is enforced at creation time. For example, in src/main/java/org/springframework/samples/petclinic/vet/VetController.java, whose constructor requires a VetRepository and assigns it to a final field, it is also relying on the container to supply the repository proxy. Even non-controller components follow this approach, for example src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, which is a @Component that exposes a Formatter<PetType> but takes its PetTypeRepository in the constructor, which is keeping parsing logic decoupled from storage details while still making the repository mandatory for instantiation.
+Model must also explain repository layer demonstrates interface-driven injection. Interfaces such as spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java extend Spring Data JPA’s JpaRepository, which is letting the framework auto-create runtime proxies that satisfy the dependency signatures declared in controllers and formatters.
+Overall, the dependency injection explanation should ideally go deep and cover how @SpringBootApplication bootstraps component scanning, constructors declare required collaborators, repositories are injected as interfaces backed by generated proxies, and @Configuration classes publish shared infrastructure as beans.
+
+
+
+Model A Response Summary
+
+Model A did pretty well because it correctly identifiy constructor-based injection as the major dominant pattern and notes the absence of @Autowired, aligning with controllers like OwnerController and VetController that declare single-argument constructors for their repositories, which are src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java and src/main/java/org/springframework/samples/petclinic/vet/VetController.java,. It also correctly observes that PetTypeFormatter uses constructor injection as a component, which matches the formatters’ constructor-driven PetTypeRepository dependency. It points out that in src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, the response highlights component scanning via the stereotype annotations and the role of repository interfaces that Spring Data implements at runtime, dynamically, and consistent with the JpaRepository extension inside src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java.  Overall, the summary gives good overview of the core DI patterns present in the codebase.
+Model A Response Feedback
+
+the answer is strong on constructor injection and the lack of @Autowired, both supported by the controller and formatter classes cited in summary above, which are very impressive findings in my opinion as tehy’re not that obvious. One area it could be improved is by referencing configuration-driven beans such as the cache and locale interceptors declared in CacheConfiguration and WebConfiguration , to show that DI also wires infrastructure services, not just repositories and controllers in files like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. Mentioning of @SpringBootApplication as the trigger for component scanning would further strengthen the explanation by tying bean discovery to the application entry point in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java. These additions would align the response even more tightly with the full range of DI patterns in the repo. But overall, the model did pretty well despite these issues.
+
+Model B Response Summary
+
+Model B repeats the constructor-injection narrative and cites the same controllers (OwnerController, PetController, VetController, VisitController) and the PetTypeFormatter component under main/java/org/springframework/samples/petclinic/*, matching their constructor-based repository dependencies.It notes the absence of @Autowired/@Inject and correctly attributes bean registration to stereotype annotations and Spring Data proxies for repositories like OwnerRepository in src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java†. The summary emphasizes constructor injection benefits but remains fairly high-level. Overall the model did not give an in-depth explanation and i believe the model did not really check the code thoroughly for the explanation. 
+Model B Response Feedback
+
+While this model is technically accurate about constructor injection and stereotype-based registration, but Model B stays generic and omits key DI elements present in the code which are obvious and should not be missed at all! It does not even mention the configuration classes that publish infrastructure beans (e.g., cache customization or locale handling), which are central examples of DI beyond the configurations like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. The response also overlooks the @SpringBootApplication entry point that enables component scanning for all these beans such as in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java.Compared to Model A, it provides less depth on how DI wiring spans both application endpoints and shared infrastructure.
+Overall Preference Justification
+
+Model A is way better because it balances correctness about constructor injection with explicit recognition of repository interfaces and the role of component scanning, closely matching the structure seen in controllers, formatters, and repositories...etc such as src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java,src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java,src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java, Although both models miss some configuration details, Model A surfaces more of the actual DI practices visible in the code and provides a clearer link between stereotypes and injection than Model B, which remains more generic and omits infrastructure wiring examples such as ,src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java.....etc. Therefore, Model A offers the stronger, more code-grounded explanation in my opinion.
