@@ -1,0 +1,3043 @@
+
+
+DO NOT EVER ADD “WORKSPACE IN FILE PATH, start with src folder!” DO NOT ADD EM DASH! MUST CITE 5 real files in each section especially ideal answer!
+
+Make sure to obey these 100% “
+
+-  All answers should have  5+ meaningful sentences and clear as well 
+- Adding a few file references in the feedback section could strength the answer.
+- The ideal response could benefit from a dedicated file-list section summarizing all referenced files together.
+- Adding separate strength and weakness points inside summaries would enhance readability and make the evaluation feel more complete.
+
+
+1.new task, question is: “How does the application handle pagination for large datasets?
+
+
+
+2.here is model A's response:    
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" | xargs grep -l -i "pagination\|paginate\|pagesize\|page.size\|perPage\|per.page" 2>/dev/null | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" | xargs grep -l -i "useQuery\|infinite\|scroll\|loadmore\|load.more" 2>/dev/null | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingSearch.tsx
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingRequest.tsx
+/tmp/inputs/hospitalrun-frontend/src/shared/components/input/DateTimePickerWithLabelFormGroup.tsx
+/tmp/inputs/hospitalrun-frontend/src/shared/components/input/DatePickerWithLabelFormGroup.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useAppointments.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useAppointment.tsx
+/tmp/inputs/hospitalrun-frontend/src/medications/hooks/useMedicationSearch.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLab.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLabsSearch.ts
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCarePlans.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCareGoals.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientVisits.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientRelatedPersons.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useCarePlan.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useVisit.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientDiagnoses.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientNotes.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.tsx
+
+
+bash
+command
+grep -r -i "page\|limit\|offset\|skip" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v "node_modules" | grep -v ".test." | head -40
+output
+/tmp/inputs/hospitalrun-frontend/src/App.tsx:import { TitleProvider } from './page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts:// will only see deployed updates on subsequent visits to a page, after all the
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts:// existing tabs open on the page have been closed, since previously cached
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts:      // from what our page is served on. This might happen if a CDN is used to
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts:                  "tabs for this page are closed. See https://bit.ly/CRA-PWA."
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts:  // Check if the service worker can be found. If it can't reload the page.
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts:        // No service worker found. Probably a different app. Reload the page.
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx:import Breadcrumbs from './page-header/breadcrumbs/Breadcrumbs'
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx:import { ButtonBarProvider } from './page-header/button-toolbar/ButtonBarProvider'
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx:import ButtonToolBar from './page-header/button-toolbar/ButtonToolBar'
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx:import { useTitle } from './page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts:    limit?: number
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts:    skip?: number
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx:import useAddBreadcrumbs from '../page-header/breadcrumbs/useAddBreadcrumbs'
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx:import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx:import { useUpdateTitle } from '../../page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncident.tsx:import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncident.tsx:import { useUpdateTitle } from '../../page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx:import { useButtonToolbarSetter } from '../../page-header/button-toolbar/ButtonBarProvider'
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx:import { useUpdateTitle } from '../../page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/incidents/visualize/VisualizeIncidents.tsx:import { useUpdateTitle } from '../../page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/imagings/Imagings.tsx:import useAddBreadcrumbs from '../page-header/breadcrumbs/useAddBreadcrumbs'
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ViewImagings.tsx:import { useButtonToolbarSetter } from '../../page-header/button-toolbar/ButtonBarProvider'
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ViewImagings.tsx:import { useUpdateTitle } from '../../page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests/NewImagingRequest.tsx:import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+/tmp/inputs/hospitalrun-frontend/src/imagings/requests/NewImagingRequest.tsx:import { useUpdateTitle } from '../../page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/dashboard/Dashboard.tsx:import { useUpdateTitle } from '../page-header/title/TitleContext'
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts:import breadcrumbs from '../../page-header/breadcrumbs/breadcrumbs-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:export default interface PageRequest {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:  nextPageInfo: { [key: string]: string | null } | undefined
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:  previousPageInfo: { [key: string]: string | null } | undefined
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:export const UnpagedRequest: PageRequest = {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:  nextPageInfo: undefined,
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:  previousPageInfo: undefined,
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:import PageRequest from './PageRequest'
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:export default interface Page<T extends AbstractDBModel> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:  pageRequest?: PageRequest
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:const pageSizes = [
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:export const defaultPageSize = pageSizes[0]
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:const PageComponent = ({
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared/db, excluding hidden items and node_modules:
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/db
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Search.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Sort.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/SortRequest.ts
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts with line numbers:
+1	export default interface PageRequest {
+2	  number: number | undefined
+3	  size: number | undefined
+4	  nextPageInfo: { [key: string]: string | null } | undefined
+5	  previousPageInfo: { [key: string]: string | null } | undefined
+6	  direction?: 'previous' | 'next'
+7	}
+8
+9	export const UnpagedRequest: PageRequest = {
+10	  number: undefined,
+11	  size: undefined,
+12	  nextPageInfo: undefined,
+13	  previousPageInfo: undefined,
+14	}
+15	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts with line numbers:
+1	import AbstractDBModel from '../model/AbstractDBModel'
+2	import PageRequest from './PageRequest'
+3
+4	export default interface Page<T extends AbstractDBModel> {
+5	  content: T[]
+6	  hasNext: boolean
+7	  hasPrevious: boolean
+8	  pageRequest?: PageRequest
+9	}
+10	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts with line numbers:
+1	import { v4 as uuidv4 } from 'uuid'
+2
+3	import { schema } from '../config/pouchdb'
+4	import AbstractDBModel from '../model/AbstractDBModel'
+5	import SortRequest, { Unsorted } from './SortRequest'
+6
+7	export default class Repository<T extends AbstractDBModel> {
+8	  db: PouchDB.RelDatabase
+9
+10	  type: string
+11
+12	  pluralType: string
+13
+14	  constructor(type: string, db: PouchDB.RelDatabase) {
+15	    this.db = db
+16	    this.type = type
+17	    this.pluralType = schema.find((s) => s.singular === this.type)?.plural || ''
+18	  }
+19
+20	  async find(id: string): Promise<T> {
+21	    const documents = await this.db.rel.find(this.type, id)
+22	    const entity = documents[this.pluralType][0]
+23	    return entity
+24	  }
+25
+26	  async findAll(sort = Unsorted): Promise<T[]> {
+27	    const selector: any = {
+28	      _id: {
+29	        $regex: RegExp(this.type, 'i'),
+30	      },
+31	    }
+32
+33	    sort.sorts.forEach((s) => {
+34	      selector[`data.${s.field}`] = { $gt: null }
+35	    })
+36
+37	    // Adds an index to each of the fields coming from the sorting object
+38	    // allowing the algorithm to sort by any given SortRequest, by avoiding the default index error (lack of index)
+39
+40	    await Promise.all(
+41	      sort.sorts.map(
+42	        async (s): Promise<SortRequest> => {
+43	          await this.db.createIndex({
+44	            index: {
+45	              fields: [`data.${s.field}`],
+46	            },
+47	          })
+48
+49	          return sort
+50	        },
+51	      ),
+52	    )
+53
+54	    const result = await this.db.find({
+55	      selector,
+56	      sort:
+57	        sort.sorts.length > 0
+58	          ? sort.sorts.map((s) => ({ [`data.${s.field}`]: s.direction }))
+59	          : undefined,
+60	    })
+61	    const relDocs = await this.db.rel.parseRelDocs(this.type, result.docs)
+62	    return relDocs[this.pluralType]
+63	  }
+64
+65	  async count(): Promise<number> {
+66	    const result = await this.findAll()
+67	    return result.length
+68	  }
+69
+70	  async search(criteria: any): Promise<T[]> {
+71	    const response = await this.db.find({
+72	      selector: {
+73	        $and: [
+74	          {
+75	            _id: {
+76	              $regex: RegExp(this.type, 'i'),
+77	            },
+78	          },
+79	          { ...criteria.selector },
+80	        ],
+81	      },
+82	    })
+83	    const data = await this.db.rel.parseRelDocs(this.type, response.docs)
+84	    return data[this.pluralType]
+85	  }
+86
+87	  async save(entity: T): Promise<T> {
+88	    const currentTime = new Date().toISOString()
+89
+90	    const { id, rev, ...valuesToSave } = entity
+91	    const savedEntity = await this.db.rel.save(this.type, {
+92	      id: uuidv4(),
+93	      ...valuesToSave,
+94	      createdAt: currentTime,
+95	      updatedAt: currentTime,
+96	    })
+97	    return this.find(savedEntity.id)
+98	  }
+99
+100	  async saveOrUpdate(entity: T): Promise<T> {
+101	    if (!entity.id) {
+102	      return this.save(entity)
+103	    }
+104
+105	    const { id, rev, ...dataToSave } = entity
+106
+107	    try {
+108	      await this.find(entity.id)
+109	      const entityToUpdate = {
+110	        id,
+111	        rev,
+112	        ...dataToSave,
+113	        updatedAt: new Date().toISOString(),
+114	      }
+115
+116	      await this.db.rel.save(this.type, entityToUpdate)
+117	      return this.find(entity.id)
+118	    } catch (error) {
+119	      return this.save(entity)
+120	    }
+121	  }
+122
+123	  async delete(entity: T): Promise<T> {
+124	    const entityToDelete = await this.find(entity.id)
+125	    await this.db.rel.del(this.type, entity)
+126	    return entityToDelete
+127	  }
+128	}
+129	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx with line numbers:
+1	import { Button, Select } from '@hospitalrun/components'
+2	import React from 'react'
+3
+4	import useTranslator from '../hooks/useTranslator'
+5
+6	const pageSizes = [
+7	  { label: '25', value: 25 },
+8	  { label: '50', value: 50 },
+9	  { label: '100', value: 100 },
+10	  { label: '200', value: 200 },
+11	  { label: 'All', value: undefined },
+12	]
+13
+14	export const defaultPageSize = pageSizes[0]
+15
+16	const PageComponent = ({
+17	  hasNext,
+18	  hasPrevious,
+19	  pageNumber,
+20	  setPreviousPageRequest,
+21	  setNextPageRequest,
+22	}: any) => {
+23	  const { t } = useTranslator()
+24
+25	  return (
+26	    <div style={{ textAlign: 'center' }}>
+27	      <Button
+28	        key="actions.previous"
+29	        outlined
+30	        disabled={!hasPrevious}
+31	        style={{ float: 'left', marginRight: '5px' }}
+32	        color="success"
+33	        onClick={setPreviousPageRequest}
+34	      >
+35	        {t('actions.previous')}
+36	      </Button>
+37	      <Button
+38	        key="actions.next"
+39	        outlined
+40	        style={{ float: 'left' }}
+41	        disabled={!hasNext}
+42	        color="success"
+43	        onClick={setNextPageRequest}
+44	      >
+45	        {t('actions.next')}
+46	      </Button>
+47	      <div style={{ display: 'inline-block' }}>
+48	        {t('actions.page')} {pageNumber}
+49	      </div>
+50	      <div className="row float-right">
+51	        <Select id="page" options={pageSizes} />
+52	      </div>
+53	    </div>
+54	  )
+55	}
+56	export default PageComponent
+57	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts with line numbers:
+1	import escapeStringRegexp from 'escape-string-regexp'
+2
+3	import { relationalDb } from '../config/pouchdb'
+4	import Appointment from '../model/Appointment'
+5	import Lab from '../model/Lab'
+6	import Medication from '../model/Medication'
+7	import Patient from '../model/Patient'
+8	import generateCode from '../util/generateCode'
+9	import Repository from './Repository'
+10
+11	class PatientRepository extends Repository<Patient> {
+12	  constructor() {
+13	    super('patient', relationalDb)
+14	    relationalDb.createIndex({
+15	      index: { fields: ['_id', 'data.fullName', 'data.code'] },
+16	    })
+17	  }
+18
+19	  async search(text: string): Promise<Patient[]> {
+20	    const escapedString = escapeStringRegexp(text)
+21	    return super.search({
+22	      selector: {
+23	        $or: [
+24	          {
+25	            'data.fullName': {
+26	              $regex: RegExp(escapedString, 'i'),
+27	            },
+28	          },
+29	          {
+30	            'data.code': text,
+31	          },
+32	        ],
+33	      },
+34	    })
+35	  }
+36
+37	  async save(entity: Patient): Promise<Patient> {
+38	    const patientCode = generateCode('P')
+39	    entity.code = patientCode
+40	    const saveResult = await super.save(entity)
+41	    return this.find(saveResult.id)
+42	  }
+43
+44	  async createIndex() {
+45	    return this.db.createIndex({
+46	      index: { fields: ['index'] },
+47	    })
+48	  }
+49
+50	  async getAppointments(patientId: string): Promise<Appointment[]> {
+51	    const result = await this.db.rel.findHasMany('appointment', 'patient', patientId)
+52	    return result.appointments
+53	  }
+54
+55	  async getLabs(patientId: string): Promise<Lab[]> {
+56	    const result = await this.db.rel.findHasMany('lab', 'patient', patientId)
+57	    return result.labs
+58	  }
+59
+60	  async getMedications(patientId: string): Promise<Medication[]> {
+61	    const result = await this.db.rel.findHasMany('medication', 'patient', patientId)
+62	    return result.medications
+63	  }
+64	}
+65
+66	export default new PatientRepository()
+67	
+
+
+bash
+command
+grep -r "PageComponent\|PageRequest\|Page<" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v ".test." | head -30
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:export default interface PageRequest {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:export const UnpagedRequest: PageRequest = {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:import PageRequest from './PageRequest'
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:export default interface Page<T extends AbstractDBModel> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:  pageRequest?: PageRequest
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:const PageComponent = ({
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:  setPreviousPageRequest,
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:  setNextPageRequest,
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:        onClick={setPreviousPageRequest}
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:        onClick={setNextPageRequest}
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:export default PageComponent
+
+
+bash
+command
+grep -r "import.*PageComponent\|import.*Page<\|import.*PageRequest" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v ".test."
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:import PageRequest from './PageRequest'
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatients.tsx with line numbers:
+1	import { Button } from '@hospitalrun/components'
+2	import React, { useEffect } from 'react'
+3	import { useDispatch } from 'react-redux'
+4	import { useHistory } from 'react-router'
+5
+6	import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+7	import { useButtonToolbarSetter } from '../../page-header/button-toolbar/ButtonBarProvider'
+8	import { useUpdateTitle } from '../../page-header/title/TitleContext'
+9	import useTranslator from '../../shared/hooks/useTranslator'
+10	import SearchPatients from './SearchPatients'
+11
+12	const breadcrumbs = [{ i18nKey: 'patients.label', location: '/patients' }]
+13
+14	const ViewPatients = () => {
+15	  const { t } = useTranslator()
+16	  const history = useHistory()
+17	  const updateTitle = useUpdateTitle()
+18	  useEffect(() => {
+19	    updateTitle(t('patients.label'))
+20	  })
+21	  const dispatch = useDispatch()
+22	  const setButtonToolBar = useButtonToolbarSetter()
+23
+24	  useAddBreadcrumbs(breadcrumbs, true)
+25
+26	  useEffect(() => {
+27	    setButtonToolBar([
+28	      <Button
+29	        key="newPatientButton"
+30	        outlined
+31	        color="success"
+32	        icon="patient-add"
+33	        onClick={() => history.push('/patients/new')}
+34	      >
+35	        {t('patients.newPatient')}
+36	      </Button>,
+37	    ])
+38	    return () => {
+39	      setButtonToolBar([])
+40	    }
+41	  }, [dispatch, setButtonToolBar, t, history])
+42
+43	  return <SearchPatients />
+44	}
+45
+46	export default ViewPatients
+47	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/search/SearchPatients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/search/SearchPatients.tsx with line numbers:
+1	import { Column, Container, Row } from '@hospitalrun/components'
+2	import React, { useCallback, useState } from 'react'
+3
+4	import PatientSearchRequest from '../models/PatientSearchRequest'
+5	import PatientSearchInput from './PatientSearchInput'
+6	import ViewPatientsTable from './ViewPatientsTable'
+7
+8	const SearchPatients = () => {
+9	  const [searchRequest, setSearchRequest] = useState<PatientSearchRequest>({ queryString: '' })
+10
+11	  const onSearchRequestChange = useCallback((newSearchRequest: PatientSearchRequest) => {
+12	    setSearchRequest(newSearchRequest)
+13	  }, [])
+14
+15	  return (
+16	    <div>
+17	      <Container>
+18	        <Row>
+19	          <Column md={12}>
+20	            <PatientSearchInput onChange={onSearchRequestChange} />
+21	          </Column>
+22	        </Row>
+23	        <Row>
+24	          <ViewPatientsTable searchRequest={searchRequest} />
+25	        </Row>
+26	      </Container>
+27	    </div>
+28	  )
+29	}
+30
+31	export default SearchPatients
+32	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatientsTable.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatientsTable.tsx with line numbers:
+1	import { Table } from '@hospitalrun/components'
+2	import React from 'react'
+3	import { useHistory } from 'react-router'
+4
+5	import Loading from '../../shared/components/Loading'
+6	import useTranslator from '../../shared/hooks/useTranslator'
+7	import { formatDate } from '../../shared/util/formatDate'
+8	import usePatients from '../hooks/usePatients'
+9	import PatientSearchRequest from '../models/PatientSearchRequest'
+10	import NoPatientsExist from './NoPatientsExist'
+11
+12	interface Props {
+13	  searchRequest: PatientSearchRequest
+14	}
+15
+16	const ViewPatientsTable = (props: Props) => {
+17	  const { searchRequest } = props
+18	  const { t } = useTranslator()
+19	  const history = useHistory()
+20	  const { data, status } = usePatients(searchRequest)
+21
+22	  if (data === undefined || status === 'loading') {
+23	    return <Loading />
+24	  }
+25
+26	  if (data.totalCount === 0) {
+27	    return <NoPatientsExist />
+28	  }
+29
+30	  return (
+31	    <Table
+32	      data={data.patients}
+33	      getID={(row) => row.id}
+34	      columns={[
+35	        { label: t('patient.code'), key: 'code' },
+36	        { label: t('patient.givenName'), key: 'givenName' },
+37	        { label: t('patient.familyName'), key: 'familyName' },
+38	        { label: t('patient.sex'), key: 'sex' },
+39	        {
+40	          label: t('patient.dateOfBirth'),
+41	          key: 'dateOfBirth',
+42	          formatter: (row) => formatDate(row.dateOfBirth),
+43	        },
+44	      ]}
+45	      actionsHeaderText={t('actions.label')}
+46	      actions={[{ label: t('actions.view'), action: (row) => history.push(`/patients/${row.id}`) }]}
+47	    />
+48	  )
+49	}
+50
+51	export default ViewPatientsTable
+52	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatients.tsx with line numbers:
+1	import { useQuery } from 'react-query'
+2
+3	import PatientRepository from '../../shared/db/PatientRepository'
+4	import Patient from '../../shared/model/Patient'
+5	import PatientSearchRequest from '../models/PatientSearchRequest'
+6
+7	interface PatientsResult {
+8	  totalCount: number
+9	  patients: Patient[]
+10	}
+11
+12	async function fetchPatients(_: any, searchRequest: PatientSearchRequest): Promise<PatientsResult> {
+13	  const patients = await PatientRepository.search(searchRequest.queryString)
+14	  const totalCount = await PatientRepository.count()
+15	  return { totalCount, patients }
+16	}
+17
+18	export default function usePatients(searchRequest: PatientSearchRequest) {
+19	  return useQuery(['patients', searchRequest], fetchPatients)
+20	}
+21	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLabsSearch.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLabsSearch.ts with line numbers:
+1	import { useQuery } from 'react-query'
+2
+3	import LabRepository from '../../shared/db/LabRepository'
+4	import SortRequest from '../../shared/db/SortRequest'
+5	import Lab from '../../shared/model/Lab'
+6	import LabSearchRequest from '../model/LabSearchRequest'
+7
+8	const defaultSortRequest: SortRequest = {
+9	  sorts: [
+10	    {
+11	      field: 'requestedOn',
+12	      direction: 'desc',
+13	    },
+14	  ],
+15	}
+16
+17	function fetchLabs(_: any, request: LabSearchRequest): Promise<Lab[]> {
+18	  if (request.text?.trim() === '' && request.status === 'all') {
+19	    return LabRepository.findAll(defaultSortRequest)
+20	  }
+21
+22	  return LabRepository.search({
+23	    ...request,
+24	    defaultSortRequest,
+25	  } as any)
+26	}
+27
+28	export default function useLabsSearch(request: LabSearchRequest) {
+29	  return useQuery(['labs', request], fetchLabs)
+30	}
+31	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts with line numbers:
+1	import { relationalDb } from '../config/pouchdb'
+2	import Lab from '../model/Lab'
+3	import generateCode from '../util/generateCode'
+4	import Repository from './Repository'
+5	import SortRequest from './SortRequest'
+6
+7	interface SearchContainer {
+8	  text: string
+9	  status: 'requested' | 'completed' | 'canceled' | 'all'
+10	  defaultSortRequest: SortRequest
+11	}
+12	class LabRepository extends Repository<Lab> {
+13	  constructor() {
+14	    super('lab', relationalDb)
+15	  }
+16
+17	  async search(container: SearchContainer): Promise<Lab[]> {
+18	    const searchValue = { $regex: RegExp(container.text, 'i') }
+19	    const selector = {
+20	      $and: [
+21	        {
+22	          $or: [
+23	            {
+24	              'data.type': searchValue,
+25	            },
+26	            {
+27	              'data.code': searchValue,
+28	            },
+29	          ],
+30	        },
+31	        ...(container.status !== 'all' ? [{ 'data.status': container.status }] : [undefined]),
+32	      ].filter((x) => x !== undefined),
+33	      sorts: container.defaultSortRequest,
+34	    }
+35
+36	    return super.search({
+37	      selector,
+38	    })
+39	  }
+40
+41	  async save(entity: Lab): Promise<Lab> {
+42	    const labCode = generateCode('L')
+43	    entity.code = labCode
+44	    return super.save(entity)
+45	  }
+46
+47	  async findAllByPatientId(patientId: string): Promise<Lab[]> {
+48	    return super.search({
+49	      selector: {
+50	        $and: [
+51	          {
+52	            patientId,
+53	          },
+54	        ],
+55	      },
+56	    })
+57	  }
+58	}
+59
+60	export default new LabRepository()
+61	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts with line numbers:
+1	/* eslint-disable camelcase */
+2	declare namespace PouchDB {
+3	  interface SearchQuery<Content> {
+4	    // Search string
+5	    query?: string
+6
+7	    //  Or build the index
+8	    build?: true
+9
+10	    //  F ields to search over
+11	    fields: (keyof Content)[] | { [field in keyof Content]: number }
+12
+13	    limit?: number
+14	    skip?: number
+15
+16	    mm?: string
+17
+18	    filter?: (content: Content) => boolean
+19
+20	    highlighting?: boolean
+21	    include_docs?: boolean
+22	    highlighting_pre?: string
+23	    highlighting_post?: string
+24
+25	    stale?: 'update_after' | 'ok'
+26
+27	    language?: string | string[]
+28
+29	    destroy?: true
+30	  }
+31
+32	  interface SearchRow<T> {
+33	    id: string
+34	    score: number
+35	    doc: T & { _id: string; _rev: string }
+36	  }
+37
+38	  interface SearchResponse<T> {
+39	    rows: Array<SearchRow<T>>
+40
+41	    total_rows: number
+42	  }
+43
+44	  interface Database<Content extends Record<string, unknown> = Record<string, unknown>> {
+45	    search(query: SearchQuery<Content>): SearchResponse<Content>
+46	  }
+47	}
+48
+49	declare module 'pouchdb-quick-search' {
+50	  const plugin: PouchDB.Plugin
+51	  export = plugin
+52	}
+53
+54	declare module 'relational-pouch'
+55	
+
+
+bash
+command
+grep -r "limit\|skip\|pageSize\|perPage" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v ".test." | grep -v "node_modules" | grep -v ".d.ts"
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:const pageSizes = [
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:export const defaultPageSize = pageSizes[0]
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:        <Select id="page" options={pageSizes} />
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:  serverDb = new PouchDB('hospitalrun', { skip_setup: true, adapter: 'memory' })
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:  localDb = new PouchDB('local_hospitalrun', { skip_setup: true, adapter: 'memory' })
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:    skip_setup: true,
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts:  localDb = new PouchDB('local_hospitalrun', { skip_setup: true })
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx with line numbers:
+1	import { Select, Label, Button, Table, Container, Row, Column } from '@hospitalrun/components'
+2	import format from 'date-fns/format'
+3	import React, { useState, useEffect, useCallback } from 'react'
+4	import { useSelector } from 'react-redux'
+5	import { useHistory } from 'react-router-dom'
+6
+7	import { useButtonToolbarSetter } from '../page-header/button-toolbar/ButtonBarProvider'
+8	import { useUpdateTitle } from '../page-header/title/TitleContext'
+9	import { SelectOption } from '../shared/components/input/SelectOption'
+10	import TextInputWithLabelFormGroup from '../shared/components/input/TextInputWithLabelFormGroup'
+11	import useDebounce from '../shared/hooks/useDebounce'
+12	import useTranslator from '../shared/hooks/useTranslator'
+13	import Lab from '../shared/model/Lab'
+14	import Permissions from '../shared/model/Permissions'
+15	import { RootState } from '../shared/store'
+16	import useLabsSearch from './hooks/useLabsSearch'
+17	import { LabFilter } from './model/LabSearchRequest'
+18
+19	const ViewLabs = () => {
+20	  const { t } = useTranslator()
+21	  const history = useHistory()
+22	  const setButtons = useButtonToolbarSetter()
+23	  const updateTitle = useUpdateTitle()
+24	  useEffect(() => {
+25	    updateTitle(t('labs.label'))
+26	  })
+27	  const { permissions } = useSelector((state: RootState) => state.user)
+28	  const [searchFilter, setSearchFilter] = useState<LabFilter>('all')
+29	  const [searchText, setSearchText] = useState<string>('')
+30	  const debouncedSearchText = useDebounce(searchText, 500)
+31	  const { data: labs } = useLabsSearch({
+32	    text: debouncedSearchText,
+33	    status: searchFilter,
+34	  })
+35
+36	  const getButtons = useCallback(() => {
+37	    const buttons: React.ReactNode[] = []
+38
+39	    if (permissions.includes(Permissions.RequestLab)) {
+40	      buttons.push(
+41	        <Button
+42	          icon="add"
+43	          onClick={() => history.push('/labs/new')}
+44	          outlined
+45	          color="success"
+46	          key="lab.requests.new"
+47	        >
+48	          {t('labs.requests.new')}
+49	        </Button>,
+50	      )
+51	    }
+52
+53	    return buttons
+54	  }, [permissions, history, t])
+55
+56	  useEffect(() => {
+57	    setButtons(getButtons())
+58	    return () => {
+59	      setButtons([])
+60	    }
+61	  }, [getButtons, setButtons])
+62
+63	  const onViewClick = (lab: Lab) => {
+64	    history.push(`/labs/${lab.id}`)
+65	  }
+66
+67	  const onSearchBoxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+68	    setSearchText(event.target.value)
+69	  }
+70
+71	  const filterOptions: SelectOption[] = [
+72	    { label: t('labs.status.requested'), value: 'requested' },
+73	    { label: t('labs.status.completed'), value: 'completed' },
+74	    { label: t('labs.status.canceled'), value: 'canceled' },
+75	    { label: t('labs.filter.all'), value: 'all' },
+76	  ]
+77
+78	  return (
+79	    <Container>
+80	      <Row>
+81	        <Column md={3} lg={2}>
+82	          <Label title="type" text={t('labs.filterTitle')} />
+83	          <Select
+84	            id="type"
+85	            options={filterOptions}
+86	            onChange={(values) => setSearchFilter(values[0] as LabFilter)}
+87	            defaultSelected={filterOptions.filter(({ value }) => value === searchFilter)}
+88	            disabled={false}
+89	          />
+90	        </Column>
+91	        <Column>
+92	          <TextInputWithLabelFormGroup
+93	            name="searchbox"
+94	            label={t('labs.search')}
+95	            placeholder={t('labs.search')}
+96	            value={searchText}
+97	            isEditable
+98	            onChange={onSearchBoxChange}
+99	          />
+100	        </Column>
+101	      </Row>
+102	      <Row>
+103	        <Table
+104	          getID={(row) => row.id}
+105	          columns={[
+106	            { label: t('labs.lab.code'), key: 'code' },
+107	            { label: t('labs.lab.type'), key: 'type' },
+108	            {
+109	              label: t('labs.lab.requestedOn'),
+110	              key: 'requestedOn',
+111	              formatter: (row) =>
+112	                row.requestedOn ? format(new Date(row.requestedOn), 'yyyy-MM-dd hh:mm a') : '',
+113	            },
+114	            { label: t('labs.lab.status'), key: 'status' },
+115	          ]}
+116	          data={labs || []}
+117	          actionsHeaderText={t('actions.label')}
+118	          actions={[{ label: t('actions.view'), action: (row) => onViewClick(row as Lab) }]}
+119	        />
+120	      </Row>
+121	    </Container>
+122	  )
+123	}
+124
+125	export default ViewLabs
+126	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx with line numbers:
+1	import { Select, Label, Button, Container, Row, Column } from '@hospitalrun/components'
+2	import React, { useEffect, useState } from 'react'
+3	import { useHistory } from 'react-router-dom'
+4
+5	import { useButtonToolbarSetter } from '../../page-header/button-toolbar/ButtonBarProvider'
+6	import { useUpdateTitle } from '../../page-header/title/TitleContext'
+7	import { SelectOption } from '../../shared/components/input/SelectOption'
+8	import useTranslator from '../../shared/hooks/useTranslator'
+9	import IncidentFilter from '../IncidentFilter'
+10	import ViewIncidentsTable from './ViewIncidentsTable'
+11
+12	const ViewIncidents = () => {
+13	  const { t } = useTranslator()
+14	  const history = useHistory()
+15	  const setButtonToolBar = useButtonToolbarSetter()
+16	  const updateTitle = useUpdateTitle()
+17	  useEffect(() => {
+18	    updateTitle(t('incidents.reports.label'))
+19	  })
+20	  const [searchFilter, setSearchFilter] = useState(IncidentFilter.reported)
+21
+22	  useEffect(() => {
+23	    setButtonToolBar([
+24	      <Button
+25	        key="newIncidentButton"
+26	        outlined
+27	        color="success"
+28	        icon="add"
+29	        onClick={() => history.push('/incidents/new')}
+30	      >
+31	        {t('incidents.reports.new')}
+32	      </Button>,
+33	    ])
+34
+35	    return () => {
+36	      setButtonToolBar([])
+37	    }
+38	  }, [setButtonToolBar, t, history])
+39
+40	  const filterOptions: SelectOption[] = Object.values(IncidentFilter).map((filter) => ({
+41	    label: t(`incidents.status.${filter}`),
+42	    value: `${filter}`,
+43	  }))
+44
+45	  return (
+46	    <Container>
+47	      <Row>
+48	        <Column md={3} lg={2}>
+49	          <Label text={t('incidents.filterTitle')} title="type" />
+50	          <Select
+51	            id="type"
+52	            options={filterOptions}
+53	            defaultSelected={filterOptions.filter(({ value }) => value === searchFilter)}
+54	            onChange={(values) => setSearchFilter(values[0] as IncidentFilter)}
+55	            disabled={false}
+56	          />
+57	        </Column>
+58	      </Row>
+59	      <Row>
+60	        <ViewIncidentsTable searchRequest={{ status: searchFilter }} />
+61	      </Row>
+62	    </Container>
+63	  )
+64	}
+65
+66	export default ViewIncidents
+67	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx with line numbers:
+1	import { Spinner, Table, Dropdown } from '@hospitalrun/components'
+2	import format from 'date-fns/format'
+3	import React from 'react'
+4	import { useHistory } from 'react-router'
+5
+6	import useTranslator from '../../shared/hooks/useTranslator'
+7	import { DownloadLink, getCSV } from '../../shared/util/DataHelpers'
+8	import { extractUsername } from '../../shared/util/extractUsername'
+9	import useIncidents from '../hooks/useIncidents'
+10	import IncidentSearchRequest from '../model/IncidentSearchRequest'
+11
+12	interface Props {
+13	  searchRequest: IncidentSearchRequest
+14	}
+15
+16	export function populateExportData(dataToPopulate: any, theData: any) {
+17	  let first = true
+18	  if (theData != null) {
+19	    theData.forEach((elm: any) => {
+20	      const entry = {
+21	        code: elm.code,
+22	        date: format(new Date(elm.date), 'yyyy-MM-dd hh:mm a'),
+23	        reportedBy: elm.reportedBy,
+24	        reportedOn: format(new Date(elm.reportedOn), 'yyyy-MM-dd hh:mm a'),
+25	        status: elm.status,
+26	      }
+27	      if (first) {
+28	        dataToPopulate[0] = entry
+29	        first = false
+30	      } else {
+31	        dataToPopulate.push(entry)
+32	      }
+33	    })
+34	  }
+35	}
+36
+37	function ViewIncidentsTable(props: Props) {
+38	  const { searchRequest } = props
+39	  const { t } = useTranslator()
+40	  const history = useHistory()
+41	  const { data, isLoading } = useIncidents(searchRequest)
+42
+43	  if (data === undefined || isLoading) {
+44	    return <Spinner type="DotLoader" loading />
+45	  }
+46
+47	  // filter data
+48	  const exportData = [{}]
+49
+50	  function downloadCSV() {
+51	    populateExportData(exportData, data)
+52
+53	    const csv = getCSV(exportData)
+54
+55	    const incidentsText = t('incidents.label')
+56
+57	    const filename = incidentsText
+58	      .concat('-')
+59	      .concat(format(new Date(Date.now()), 'yyyy-MM-dd--hh-mma'))
+60	      .concat('.csv')
+61
+62	    DownloadLink(csv, filename)
+63	  }
+64
+65	  const dropdownItems = [
+66	    {
+67	      onClick: function runfun() {
+68	        downloadCSV()
+69	      },
+70	      text: 'CSV',
+71	    },
+72	  ]
+73
+74	  const dropStyle = {
+75	    marginLeft: 'auto', // note the capital 'W' here
+76	    marginBottom: '4px', // 'ms' is the only lowercase vendor prefix
+77	  }
+78
+79	  return (
+80	    <>
+81	      <Dropdown
+82	        direction="down"
+83	        variant="secondary"
+84	        text={t('incidents.reports.download')}
+85	        style={dropStyle}
+86	        items={dropdownItems}
+87	      />
+88	      <Table
+89	        getID={(row) => row.id}
+90	        data={data}
+91	        columns={[
+92	          {
+93	            label: t('incidents.reports.code'),
+94	            key: 'code',
+95	          },
+96	          {
+97	            label: t('incidents.reports.dateOfIncident'),
+98	            key: 'date',
+99	            formatter: (row) => (row.date ? format(new Date(row.date), 'yyyy-MM-dd hh:mm a') : ''),
+100	          },
+101	          {
+102	            label: t('incidents.reports.reportedBy'),
+103	            key: 'reportedBy',
+104	            formatter: (row) => extractUsername(row.reportedBy),
+105	          },
+106	          {
+107	            label: t('incidents.reports.reportedOn'),
+108	            key: 'reportedOn',
+109	            formatter: (row) =>
+110	              row.reportedOn ? format(new Date(row.reportedOn), 'yyyy-MM-dd hh:mm a') : '',
+111	          },
+112	          {
+113	            label: t('incidents.reports.status'),
+114	            key: 'status',
+115	          },
+116	        ]}
+117	        actionsHeaderText={t('actions.label')}
+118	        actions={[
+119	          {
+120	            label: t('actions.view'),
+121	            action: (row) => history.push(`incidents/${row.id}`),
+122	          },
+123	        ]}
+124	      />
+125	    </>
+126	  )
+127	}
+128
+129	export default ViewIncidentsTable
+130	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncidents.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncidents.tsx with line numbers:
+1	import { useQuery } from 'react-query'
+2
+3	import IncidentRepository from '../../shared/db/IncidentRepository'
+4	import Incident from '../../shared/model/Incident'
+5	import IncidentSearchRequest from '../model/IncidentSearchRequest'
+6
+7	function fetchIncidents(_: string, searchRequest: IncidentSearchRequest): Promise<Incident[]> {
+8	  return IncidentRepository.search(searchRequest)
+9	}
+10
+11	export default function useIncidents(searchRequest: IncidentSearchRequest) {
+12	  return useQuery(['incidents', searchRequest], fetchIncidents)
+13	}
+14	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts with line numbers:
+1	import IncidentFilter from '../../incidents/IncidentFilter'
+2	import { relationalDb } from '../config/pouchdb'
+3	import Incident from '../model/Incident'
+4	import Repository from './Repository'
+5
+6	interface SearchOptions {
+7	  status: IncidentFilter
+8	}
+9	class IncidentRepository extends Repository<Incident> {
+10	  constructor() {
+11	    super('incident', relationalDb)
+12	  }
+13
+14	  async search(options: SearchOptions): Promise<Incident[]> {
+15	    return super.search(IncidentRepository.getSearchCriteria(options))
+16	  }
+17
+18	  private static getSearchCriteria(options: SearchOptions): any {
+19	    const statusFilter =
+20	      options.status !== IncidentFilter.all ? [{ 'data.status': options.status }] : []
+21	    const selector = {
+22	      $and: statusFilter,
+23	    }
+24	    return {
+25	      selector,
+26	    }
+27	  }
+28	}
+29
+30	export default new IncidentRepository()
+31	
+
+
+bash
+command
+grep -r "Table" /tmp/inputs/hospitalrun-frontend/src --include="*.tsx" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx:import { Spinner, Table, Dropdown } from '@hospitalrun/components'
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx:function ViewIncidentsTable(props: Props) {
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx:      <Table
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx:export default ViewIncidentsTable
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx:import ViewIncidentsTable from './ViewIncidentsTable'
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx:        <ViewIncidentsTable searchRequest={{ status: searchFilter }} />
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ImagingRequestTable.tsx:import { Table } from '@hospitalrun/components'
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ImagingRequestTable.tsx:const ImagingRequestTable = (props: Props) => {
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ImagingRequestTable.tsx:    <Table
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ImagingRequestTable.tsx:export default ImagingRequestTable
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ViewImagings.tsx:import ImagingRequestTable from './ImagingRequestTable'
+/tmp/inputs/hospitalrun-frontend/src/imagings/search/ViewImagings.tsx:        <ImagingRequestTable searchRequest={searchRequest} />
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx:import ViewIncidentsTable, { populateExportData } from '../../../incidents/list/ViewIncidentsTable'
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx:describe('View Incidents Table', () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/incidents/list/ViewIncidentsTable.test.tsx:          <ViewIncidentsTable searchRequest={expectedSearchRequest} />
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/search/ImagingRequestTable.test.tsx:import ImagingRequestTable from '../../../imagings/search/ImagingRequestTable'
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/search/ImagingRequestTable.test.tsx:describe('Imaging Request Table', () => {
+/tmp/inputs/hospitalrun-frontend/src/__tests__/imagings/search/ImagingRequestTable.test.tsx:    return render(<ImagingRequestTable searchRequest={searchRequest} />)
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/MedicationRequestTable.test.tsx:import MedicationRequestTable from '../../../medications/search/MedicationRequestTable'
+/tmp/inputs/hospitalrun-frontend/src/__tests__/medications/search/MedicationRequestTable.test.tsx:describe('Medication Request Table', () => {
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/package.json | grep -A5 -B5 "components"
+output
+  "version": "2.0.0-alpha.7",
+"description": "React frontend for HospitalRun",
+"private": false,
+"license": "MIT",
+"dependencies": {
+"@hospitalrun/components": "~3.4.0",
+"@reduxjs/toolkit": "~1.7.0",
+"@types/escape-string-regexp": "~2.0.1",
+"@types/json2csv": "~5.0.1",
+"@types/pouchdb-find": "~6.3.4",
+"bootstrap": "~5.1.0",
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" | xargs grep -l "useInfinite\|InfiniteScroll\|infinite" 2>/dev/null
+system
+Tool ran without output or errors
+
+
+bash
+command
+grep -rn "slice\|chunk" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v ".test." | grep -v "node_modules" | grep -v "breadcrumbs-slice"
+output
+/tmp/inputs/hospitalrun-frontend/src/App.tsx:12:import { getCurrentSession } from './user/user-slice'
+/tmp/inputs/hospitalrun-frontend/src/incidents/visualize/VisualizeIncidents.tsx:25:    Number(reportedOn.slice(5, 7)) - 1
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts:4:import medication from '../../medications/medication-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts:6:import patient from '../../patients/patient-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts:7:import patients from '../../patients/patients-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts:8:import user from '../../user/user-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/store/index.ts:9:import components from '../components/component-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx:9:import { updateSidebar } from './component-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/components/navbar/Navbar.tsx:6:import { logout } from '../../../user/user-slice'
+/tmp/inputs/hospitalrun-frontend/src/shared/util/extractUsername.ts:2:  username ? username.slice(username.lastIndexOf(':') + 1) : ''
+/tmp/inputs/hospitalrun-frontend/src/medications/ViewMedication.tsx:17:import { cancelMedication, updateMedication, fetchMedication } from './medication-slice'
+/tmp/inputs/hospitalrun-frontend/src/medications/requests/NewMedicationRequest.tsx:17:import { requestMedication } from '../medication-slice'
+/tmp/inputs/hospitalrun-frontend/src/patients/new/NewPatient.tsx:12:import { createPatient } from '../patient-slice'
+/tmp/inputs/hospitalrun-frontend/src/patients/edit/EditPatient.tsx:13:import { updatePatient } from '../patient-slice'
+
+Let me also check how the Table component works and if there's any other pagination pattern in place:
+
+bash
+command
+grep -rn "hasNext\|hasPrevious\|nextPage\|previousPage" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v ".test."
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:4:  nextPageInfo: { [key: string]: string | null } | undefined
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:5:  previousPageInfo: { [key: string]: string | null } | undefined
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:12:  nextPageInfo: undefined,
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:13:  previousPageInfo: undefined,
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:6:  hasNext: boolean
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:7:  hasPrevious: boolean
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:17:  hasNext,
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:18:  hasPrevious,
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:30:        disabled={!hasPrevious}
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:41:        disabled={!hasNext}
+
+
+bash
+command
+grep -rn "react-query" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | head -10
+output
+/tmp/inputs/hospitalrun-frontend/src/App.tsx:5:import { ReactQueryDevtools } from 'react-query-devtools'
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useReportIncident.tsx:2:import { queryCache, useMutation } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncident.tsx:1:import { useQuery } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncidents.tsx:1:import { useQuery } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useResolveIncident.tsx:1:import { queryCache, useMutation } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingSearch.tsx:1:import { useQuery } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useImagingRequest.tsx:1:import { useQuery } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/imagings/hooks/useRequestImaging.tsx:2:import { queryCache, useMutation } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/view/ViewAppointment.test.tsx:8:import { queryCache } from 'react-query'
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments/new/NewAppointment.test.tsx:8:import { ReactQueryConfigProvider } from 'react-query'
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/config/pouchdb.ts with line numbers:
+1	/* eslint-disable @typescript-eslint/no-var-requires */
+2	/* eslint-disable camelcase */
+3	import PouchDB from 'pouchdb'
+4	import PouchAuth from 'pouchdb-authentication'
+5	import PouchdbFind from 'pouchdb-find'
+6	import RelationalPouch from 'relational-pouch'
+7
+8	const memoryAdapter = require('pouchdb-adapter-memory')
+9	const search = require('pouchdb-quick-search')
+10
+11	PouchDB.plugin(search)
+12	PouchDB.plugin(memoryAdapter)
+13	PouchDB.plugin(RelationalPouch)
+14	PouchDB.plugin(PouchdbFind)
+15	PouchDB.plugin(PouchAuth)
+16
+17	let serverDb
+18	let localDb
+19
+20	if (process.env.NODE_ENV === 'test') {
+21	  serverDb = new PouchDB('hospitalrun', { skip_setup: true, adapter: 'memory' })
+22	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true, adapter: 'memory' })
+23	} else {
+24	  serverDb = new PouchDB(`${process.env.REACT_APP_HOSPITALRUN_API}/hospitalrun`, {
+25	    skip_setup: true,
+26	  })
+27
+28	  localDb = new PouchDB('local_hospitalrun', { skip_setup: true })
+29	  localDb.sync(serverDb, { live: true, retry: true })
+30	}
+31
+32	export const schema = [
+33	  {
+34	    singular: 'patient',
+35	    plural: 'patients',
+36	    relations: {
+37	      appointments: {
+38	        hasMany: { type: 'appointment', options: { queryInverse: 'patient', async: true } },
+39	      },
+40	      labs: { hasMany: { type: 'lab', options: { queryInverse: 'patient', async: true } } },
+41	      medications: {
+42	        hasMany: { type: 'medication', options: { queryInverse: 'patient', async: true } },
+43	      },
+44	      imagings: { hasMany: { type: 'imaging', options: { queryInverse: 'patient', async: true } } },
+45	    },
+46	  },
+47	  {
+48	    singular: 'appointment',
+49	    plural: 'appointments',
+50	    relations: { patient: { belongsTo: 'patient' } },
+51	  },
+52	  {
+53	    singular: 'incident',
+54	    plural: 'incidents',
+55	  },
+56	  {
+57	    singular: 'lab',
+58	    plural: 'labs',
+59	    relations: { patient: { belongsTo: 'patient' } },
+60	  },
+61	  {
+62	    singular: 'imaging',
+63	    plural: 'imagings',
+64	    relations: { patient: { belongsTo: 'patient' } },
+65	  },
+66	  {
+67	    singular: 'medication',
+68	    plural: 'medications',
+69	    relations: { patient: { belongsTo: 'patient' } },
+70	  },
+71	]
+72	export const relationalDb = localDb.setSchema(schema)
+73	export const remoteDb = serverDb as PouchDB.Database
+74	
+
+Based on my research of the codebase, here's how the application handles pagination for large datasets:
+
+**The short answer is: pagination is largely incomplete/not fully implemented in this codebase.**
+
+The application has some pagination infrastructure in place, but it's not actively being used in the current data fetching logic. Here's what I found:
+
+**Pagination Infrastructure (defined but unused):**
+
+1. **`PageRequest`** interface in `/src/shared/db/PageRequest.ts` defines the shape of pagination requests with `number`, `size`, `nextPageInfo`, `previousPageInfo`, and `direction` properties. There's also an `UnpagedRequest` constant for cases where pagination is skipped.
+
+2. **`Page<T>`** interface in `/src/shared/db/Page.ts` defines paginated results with `content` (the data array), `hasNext`, `hasPrevious`, and a `pageRequest` reference.
+
+3. **`PageComponent`** in `/src/shared/components/PageComponent.tsx` provides a UI with Previous/Next buttons and a page size dropdown (25, 50, 100, 200, or All options). However, this component isn't actually imported or used anywhere in the application.
+
+**What's Actually Happening:**
+
+The application uses `react-query` for data fetching, and all the hooks (like `usePatients`, `useIncidents`, `useLabsSearch`, etc.) fetch **all matching records at once** without any pagination parameters:
+
+- `PatientRepository.search()` returns all matching patients
+- `IncidentRepository.search()` returns all matching incidents
+- `LabRepository.findAll()` returns all labs
+
+The base `Repository` class's `findAll()` and `search()` methods don't accept or use any pagination parameters - they simply query PouchDB and return all results.
+
+**PouchDB Supports Pagination:**
+
+The type definitions in `custom-pouchdb.d.ts` show that PouchDB's search supports `limit` and `skip` parameters, but these aren't being utilized in the repository layer.
+
+**Summary:**
+
+This appears to be a work-in-progress or planned feature. The pagination data structures and UI component have been created, but the actual implementation connecting them to the data layer hasn't been completed. Currently, all list views will load the entire dataset into memory, which could cause performance issues with very large datasets. To properly support pagination, the team would need to wire up the `PageComponent` to the views and modify the repository methods to accept and use pagination parameters in their PouchDB queries.
+
+3. Here is model b’s response:
+B
+ I'll help you understand how pagination is handled for large datasets in this HospitalRun frontend application. Let me explore the codebase to find the pagination implementation.
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -type f -name "*.ts" -o -name "*.tsx" -o -name "*.js" -o -name "*.jsx" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/jest.config.js
+/tmp/inputs/hospitalrun-frontend/.eslintrc.js
+/tmp/inputs/hospitalrun-frontend/commitlint.config.js
+/tmp/inputs/hospitalrun-frontend/src/index.tsx
+/tmp/inputs/hospitalrun-frontend/src/App.tsx
+/tmp/inputs/hospitalrun-frontend/src/serviceWorker.ts
+/tmp/inputs/hospitalrun-frontend/src/HospitalRun.tsx
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+/tmp/inputs/hospitalrun-frontend/src/react-app-env.d.ts
+/tmp/inputs/hospitalrun-frontend/src/setupTests.js
+/tmp/inputs/hospitalrun-frontend/src/incidents/Incidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/IncidentFilter.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/report/ReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncidentDetails.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/view/ViewIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/model/IncidentSearchRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidentsTable.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/list/ViewIncidents.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useReportIncident.tsx
+/tmp/inputs/hospitalrun-frontend/src/incidents/hooks/useIncident.tsx
+
+
+bash
+command
+grep -r "pagination\|Pagination\|pageSize\|limit\|offset" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | head -30
+output
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts:    limit?: number
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:const pageSizes = [
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:export const defaultPageSize = pageSizes[0]
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:        <Select id="page" options={pageSizes} />
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/components
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared/components, excluding hidden items and node_modules:
+38K	/tmp/inputs/hospitalrun-frontend/src/shared/components
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/Loading.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/PrivateRoute.tsx
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/components/Sidebar.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/components/component-slice.ts
+8.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input/DatePickerWithLabelFormGroup.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input/DateTimePickerWithLabelFormGroup.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input/LanguageSelector.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/input/SelectOption.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input/TextFieldWithLabelFormGroup.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input/TextInputWithLabelFormGroup.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/components/input/index.tsx
+7.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/navbar
+5.0K	/tmp/inputs/hospitalrun-frontend/src/shared/components/navbar/Navbar.tsx
+2.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/navbar/pageMap.tsx
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/network-status
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/components/network-status/NetworkStatusMessage.tsx
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/network-status/index.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/components/network-status/types.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/components/network-status/useNetworkStatus.ts
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx with line numbers:
+1	import { Button, Select } from '@hospitalrun/components'
+2	import React from 'react'
+3
+4	import useTranslator from '../hooks/useTranslator'
+5
+6	const pageSizes = [
+7	  { label: '25', value: 25 },
+8	  { label: '50', value: 50 },
+9	  { label: '100', value: 100 },
+10	  { label: '200', value: 200 },
+11	  { label: 'All', value: undefined },
+12	]
+13
+14	export const defaultPageSize = pageSizes[0]
+15
+16	const PageComponent = ({
+17	  hasNext,
+18	  hasPrevious,
+19	  pageNumber,
+20	  setPreviousPageRequest,
+21	  setNextPageRequest,
+22	}: any) => {
+23	  const { t } = useTranslator()
+24
+25	  return (
+26	    <div style={{ textAlign: 'center' }}>
+27	      <Button
+28	        key="actions.previous"
+29	        outlined
+30	        disabled={!hasPrevious}
+31	        style={{ float: 'left', marginRight: '5px' }}
+32	        color="success"
+33	        onClick={setPreviousPageRequest}
+34	      >
+35	        {t('actions.previous')}
+36	      </Button>
+37	      <Button
+38	        key="actions.next"
+39	        outlined
+40	        style={{ float: 'left' }}
+41	        disabled={!hasNext}
+42	        color="success"
+43	        onClick={setNextPageRequest}
+44	      >
+45	        {t('actions.next')}
+46	      </Button>
+47	      <div style={{ display: 'inline-block' }}>
+48	        {t('actions.page')} {pageNumber}
+49	      </div>
+50	      <div className="row float-right">
+51	        <Select id="page" options={pageSizes} />
+52	      </div>
+53	    </div>
+54	  )
+55	}
+56	export default PageComponent
+57	
+
+
+bash
+command
+grep -r "PageComponent\|usePageRequest\|usePage" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v "test\|spec" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:const PageComponent = ({
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:export default PageComponent
+
+
+bash
+command
+grep -r "hasNext\|hasPrevious\|pageNumber" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v "test\|spec\|PageComponent" | head -30
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:  hasNext: boolean
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:  hasPrevious: boolean
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/shared/db, excluding hidden items and node_modules:
+15K	/tmp/inputs/hospitalrun-frontend/src/shared/db
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/ImagingRepository.ts
+1.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/IncidentRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+1.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/MedicationRepository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+2.0K	/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+3.5K	/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Search.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/Sort.ts
+512	/tmp/inputs/hospitalrun-frontend/src/shared/db/SortRequest.ts
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts with line numbers:
+1	import AbstractDBModel from '../model/AbstractDBModel'
+2	import PageRequest from './PageRequest'
+3
+4	export default interface Page<T extends AbstractDBModel> {
+5	  content: T[]
+6	  hasNext: boolean
+7	  hasPrevious: boolean
+8	  pageRequest?: PageRequest
+9	}
+10	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts with line numbers:
+1	export default interface PageRequest {
+2	  number: number | undefined
+3	  size: number | undefined
+4	  nextPageInfo: { [key: string]: string | null } | undefined
+5	  previousPageInfo: { [key: string]: string | null } | undefined
+6	  direction?: 'previous' | 'next'
+7	}
+8
+9	export const UnpagedRequest: PageRequest = {
+10	  number: undefined,
+11	  size: undefined,
+12	  nextPageInfo: undefined,
+13	  previousPageInfo: undefined,
+14	}
+15	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts with line numbers:
+1	import { v4 as uuidv4 } from 'uuid'
+2
+3	import { schema } from '../config/pouchdb'
+4	import AbstractDBModel from '../model/AbstractDBModel'
+5	import SortRequest, { Unsorted } from './SortRequest'
+6
+7	export default class Repository<T extends AbstractDBModel> {
+8	  db: PouchDB.RelDatabase
+9
+10	  type: string
+11
+12	  pluralType: string
+13
+14	  constructor(type: string, db: PouchDB.RelDatabase) {
+15	    this.db = db
+16	    this.type = type
+17	    this.pluralType = schema.find((s) => s.singular === this.type)?.plural || ''
+18	  }
+19
+20	  async find(id: string): Promise<T> {
+21	    const documents = await this.db.rel.find(this.type, id)
+22	    const entity = documents[this.pluralType][0]
+23	    return entity
+24	  }
+25
+26	  async findAll(sort = Unsorted): Promise<T[]> {
+27	    const selector: any = {
+28	      _id: {
+29	        $regex: RegExp(this.type, 'i'),
+30	      },
+31	    }
+32
+33	    sort.sorts.forEach((s) => {
+34	      selector[`data.${s.field}`] = { $gt: null }
+35	    })
+36
+37	    // Adds an index to each of the fields coming from the sorting object
+38	    // allowing the algorithm to sort by any given SortRequest, by avoiding the default index error (lack of index)
+39
+40	    await Promise.all(
+41	      sort.sorts.map(
+42	        async (s): Promise<SortRequest> => {
+43	          await this.db.createIndex({
+44	            index: {
+45	              fields: [`data.${s.field}`],
+46	            },
+47	          })
+48
+49	          return sort
+50	        },
+51	      ),
+52	    )
+53
+54	    const result = await this.db.find({
+55	      selector,
+56	      sort:
+57	        sort.sorts.length > 0
+58	          ? sort.sorts.map((s) => ({ [`data.${s.field}`]: s.direction }))
+59	          : undefined,
+60	    })
+61	    const relDocs = await this.db.rel.parseRelDocs(this.type, result.docs)
+62	    return relDocs[this.pluralType]
+63	  }
+64
+65	  async count(): Promise<number> {
+66	    const result = await this.findAll()
+67	    return result.length
+68	  }
+69
+70	  async search(criteria: any): Promise<T[]> {
+71	    const response = await this.db.find({
+72	      selector: {
+73	        $and: [
+74	          {
+75	            _id: {
+76	              $regex: RegExp(this.type, 'i'),
+77	            },
+78	          },
+79	          { ...criteria.selector },
+80	        ],
+81	      },
+82	    })
+83	    const data = await this.db.rel.parseRelDocs(this.type, response.docs)
+84	    return data[this.pluralType]
+85	  }
+86
+87	  async save(entity: T): Promise<T> {
+88	    const currentTime = new Date().toISOString()
+89
+90	    const { id, rev, ...valuesToSave } = entity
+91	    const savedEntity = await this.db.rel.save(this.type, {
+92	      id: uuidv4(),
+93	      ...valuesToSave,
+94	      createdAt: currentTime,
+95	      updatedAt: currentTime,
+96	    })
+97	    return this.find(savedEntity.id)
+98	  }
+99
+100	  async saveOrUpdate(entity: T): Promise<T> {
+101	    if (!entity.id) {
+102	      return this.save(entity)
+103	    }
+104
+105	    const { id, rev, ...dataToSave } = entity
+106
+107	    try {
+108	      await this.find(entity.id)
+109	      const entityToUpdate = {
+110	        id,
+111	        rev,
+112	        ...dataToSave,
+113	        updatedAt: new Date().toISOString(),
+114	      }
+115
+116	      await this.db.rel.save(this.type, entityToUpdate)
+117	      return this.find(entity.id)
+118	    } catch (error) {
+119	      return this.save(entity)
+120	    }
+121	  }
+122
+123	  async delete(entity: T): Promise<T> {
+124	    const entityToDelete = await this.find(entity.id)
+125	    await this.db.rel.del(this.type, entity)
+126	    return entityToDelete
+127	  }
+128	}
+129	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/PatientRepository.ts with line numbers:
+1	import escapeStringRegexp from 'escape-string-regexp'
+2
+3	import { relationalDb } from '../config/pouchdb'
+4	import Appointment from '../model/Appointment'
+5	import Lab from '../model/Lab'
+6	import Medication from '../model/Medication'
+7	import Patient from '../model/Patient'
+8	import generateCode from '../util/generateCode'
+9	import Repository from './Repository'
+10
+11	class PatientRepository extends Repository<Patient> {
+12	  constructor() {
+13	    super('patient', relationalDb)
+14	    relationalDb.createIndex({
+15	      index: { fields: ['_id', 'data.fullName', 'data.code'] },
+16	    })
+17	  }
+18
+19	  async search(text: string): Promise<Patient[]> {
+20	    const escapedString = escapeStringRegexp(text)
+21	    return super.search({
+22	      selector: {
+23	        $or: [
+24	          {
+25	            'data.fullName': {
+26	              $regex: RegExp(escapedString, 'i'),
+27	            },
+28	          },
+29	          {
+30	            'data.code': text,
+31	          },
+32	        ],
+33	      },
+34	    })
+35	  }
+36
+37	  async save(entity: Patient): Promise<Patient> {
+38	    const patientCode = generateCode('P')
+39	    entity.code = patientCode
+40	    const saveResult = await super.save(entity)
+41	    return this.find(saveResult.id)
+42	  }
+43
+44	  async createIndex() {
+45	    return this.db.createIndex({
+46	      index: { fields: ['index'] },
+47	    })
+48	  }
+49
+50	  async getAppointments(patientId: string): Promise<Appointment[]> {
+51	    const result = await this.db.rel.findHasMany('appointment', 'patient', patientId)
+52	    return result.appointments
+53	  }
+54
+55	  async getLabs(patientId: string): Promise<Lab[]> {
+56	    const result = await this.db.rel.findHasMany('lab', 'patient', patientId)
+57	    return result.labs
+58	  }
+59
+60	  async getMedications(patientId: string): Promise<Medication[]> {
+61	    const result = await this.db.rel.findHasMany('medication', 'patient', patientId)
+62	    return result.medications
+63	  }
+64	}
+65
+66	export default new PatientRepository()
+67	
+
+
+bash
+command
+grep -r "searchPatients\|searchAppointments\|searchIncidents" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v test | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts:export const searchPatients = (searchString: string): AppThunk => async (dispatch) => {
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/patients-slice.ts with line numbers:
+1	import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+2
+3	import PatientRepository from '../shared/db/PatientRepository'
+4	import SortRequest, { Unsorted } from '../shared/db/SortRequest'
+5	import Patient from '../shared/model/Patient'
+6	import { AppThunk } from '../shared/store'
+7
+8	interface PatientsState {
+9	  isLoading: boolean
+10	  patients: Patient[]
+11	  count: number
+12	}
+13
+14	const initialState: PatientsState = {
+15	  isLoading: false,
+16	  patients: [],
+17	  count: 0,
+18	}
+19
+20	function startLoading(state: PatientsState) {
+21	  state.isLoading = true
+22	}
+23
+24	const patientsSlice = createSlice({
+25	  name: 'patients',
+26	  initialState,
+27	  reducers: {
+28	    fetchPatientsStart: startLoading,
+29	    fetchPatientsSuccess(state, { payload }: PayloadAction<Patient[]>) {
+30	      state.isLoading = false
+31	      state.patients = payload
+32	    },
+33	    fetchCountSuccess(state, { payload }: PayloadAction<number>) {
+34	      state.count = payload
+35	    },
+36	  },
+37	})
+38
+39	export const { fetchPatientsStart, fetchPatientsSuccess, fetchCountSuccess } = patientsSlice.actions
+40
+41	export const fetchPatients = (sortRequest: SortRequest = Unsorted): AppThunk => async (
+42	  dispatch,
+43	) => {
+44	  dispatch(fetchPatientsStart())
+45	  const patients = await PatientRepository.findAll(sortRequest)
+46	  dispatch(fetchPatientsSuccess(patients))
+47	}
+48
+49	export const searchPatients = (searchString: string): AppThunk => async (dispatch) => {
+50	  dispatch(fetchPatientsStart())
+51
+52	  let patients
+53	  if (searchString.trim() === '') {
+54	    patients = await PatientRepository.findAll()
+55	  } else {
+56	    patients = await PatientRepository.search(searchString)
+57	  }
+58	  const count = await PatientRepository.count()
+59	  dispatch(fetchCountSuccess(count))
+60	  dispatch(fetchPatientsSuccess(patients))
+61	}
+62
+63	export default patientsSlice.reducer
+64	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -name "*list*" -o -name "*List*" | grep -i "\.tsx\|\.ts"
+output
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/allergies/AllergiesList.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/notes/NotesList.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments/AppointmentsList.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/medications/MedicationsList.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs/LabsList.test.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/allergies/AllergiesList.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/notes/NotesList.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/appointments/AppointmentsList.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/medications/MedicationsList.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/labs/LabsList.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/list
+The path /tmp/inputs/hospitalrun-frontend/src/patients/list does not exist. Please provide a valid path.
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/patients -name "*.tsx" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/patients/Patients.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/ContactInfo.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/GeneralInformation.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/allergies/ViewAllergy.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/allergies/Allergies.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/allergies/AllergiesList.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/allergies/NewAllergyModal.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/related-persons/AddRelatedPersonModal.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/related-persons/RelatedPersonTab.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/view/ImportantPatientInfo.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/view/ViewPatient.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/history/HistoryTab.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/history/HistoryTable.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/history/mappers/HistoryRecordsMapper.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/history/mappers/helpers.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/new/NewPatient.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/new/DuplicateNewPatientModal.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useRemovePatientRelatedPerson.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientDiagnosis.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCarePlans.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/Patients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/Patients.tsx with line numbers:
+1	import React from 'react'
+2	import { useSelector } from 'react-redux'
+3	import { Switch } from 'react-router-dom'
+4
+5	import PrivateRoute from '../shared/components/PrivateRoute'
+6	import Permissions from '../shared/model/Permissions'
+7	import { RootState } from '../shared/store'
+8	import EditPatient from './edit/EditPatient'
+9	import NewPatient from './new/NewPatient'
+10	import ViewPatients from './search/ViewPatients'
+11	import ViewPatient from './view/ViewPatient'
+12
+13	const Patients = () => {
+14	  const permissions = useSelector((state: RootState) => state.user.permissions)
+15	  return (
+16	    <Switch>
+17	      <PrivateRoute
+18	        isAuthenticated={permissions.includes(Permissions.ReadPatients)}
+19	        exact
+20	        path="/patients"
+21	        component={ViewPatients}
+22	      />
+23	      <PrivateRoute
+24	        isAuthenticated={permissions.includes(Permissions.WritePatients)}
+25	        exact
+26	        path="/patients/new"
+27	        component={NewPatient}
+28	      />
+29	      <PrivateRoute
+30	        isAuthenticated={
+31	          permissions.includes(Permissions.WritePatients) &&
+32	          permissions.includes(Permissions.ReadPatients)
+33	        }
+34	        exact
+35	        path="/patients/edit/:id"
+36	        component={EditPatient}
+37	      />
+38	      <PrivateRoute
+39	        isAuthenticated={permissions.includes(Permissions.ReadPatients)}
+40	        path="/patients/:id"
+41	        component={ViewPatient}
+42	      />
+43	    </Switch>
+44	  )
+45	}
+46
+47	export default Patients
+48	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/search
+output
+Here're the files and directories up to 2 levels deep in /tmp/inputs/hospitalrun-frontend/src/patients/search, excluding hidden items and node_modules:
+7.0K	/tmp/inputs/hospitalrun-frontend/src/patients/search
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/search/NoPatientsExist.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/search/PatientSearchInput.tsx
+1.0K	/tmp/inputs/hospitalrun-frontend/src/patients/search/SearchPatients.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatients.tsx
+1.5K	/tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatientsTable.tsx
+
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatients.tsx with line numbers:
+1	import { Button } from '@hospitalrun/components'
+2	import React, { useEffect } from 'react'
+3	import { useDispatch } from 'react-redux'
+4	import { useHistory } from 'react-router'
+5
+6	import useAddBreadcrumbs from '../../page-header/breadcrumbs/useAddBreadcrumbs'
+7	import { useButtonToolbarSetter } from '../../page-header/button-toolbar/ButtonBarProvider'
+8	import { useUpdateTitle } from '../../page-header/title/TitleContext'
+9	import useTranslator from '../../shared/hooks/useTranslator'
+10	import SearchPatients from './SearchPatients'
+11
+12	const breadcrumbs = [{ i18nKey: 'patients.label', location: '/patients' }]
+13
+14	const ViewPatients = () => {
+15	  const { t } = useTranslator()
+16	  const history = useHistory()
+17	  const updateTitle = useUpdateTitle()
+18	  useEffect(() => {
+19	    updateTitle(t('patients.label'))
+20	  })
+21	  const dispatch = useDispatch()
+22	  const setButtonToolBar = useButtonToolbarSetter()
+23
+24	  useAddBreadcrumbs(breadcrumbs, true)
+25
+26	  useEffect(() => {
+27	    setButtonToolBar([
+28	      <Button
+29	        key="newPatientButton"
+30	        outlined
+31	        color="success"
+32	        icon="patient-add"
+33	        onClick={() => history.push('/patients/new')}
+34	      >
+35	        {t('patients.newPatient')}
+36	      </Button>,
+37	    ])
+38	    return () => {
+39	      setButtonToolBar([])
+40	    }
+41	  }, [dispatch, setButtonToolBar, t, history])
+42
+43	  return <SearchPatients />
+44	}
+45
+46	export default ViewPatients
+47	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/search/SearchPatients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/search/SearchPatients.tsx with line numbers:
+1	import { Column, Container, Row } from '@hospitalrun/components'
+2	import React, { useCallback, useState } from 'react'
+3
+4	import PatientSearchRequest from '../models/PatientSearchRequest'
+5	import PatientSearchInput from './PatientSearchInput'
+6	import ViewPatientsTable from './ViewPatientsTable'
+7
+8	const SearchPatients = () => {
+9	  const [searchRequest, setSearchRequest] = useState<PatientSearchRequest>({ queryString: '' })
+10
+11	  const onSearchRequestChange = useCallback((newSearchRequest: PatientSearchRequest) => {
+12	    setSearchRequest(newSearchRequest)
+13	  }, [])
+14
+15	  return (
+16	    <div>
+17	      <Container>
+18	        <Row>
+19	          <Column md={12}>
+20	            <PatientSearchInput onChange={onSearchRequestChange} />
+21	          </Column>
+22	        </Row>
+23	        <Row>
+24	          <ViewPatientsTable searchRequest={searchRequest} />
+25	        </Row>
+26	      </Container>
+27	    </div>
+28	  )
+29	}
+30
+31	export default SearchPatients
+32	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatientsTable.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/search/ViewPatientsTable.tsx with line numbers:
+1	import { Table } from '@hospitalrun/components'
+2	import React from 'react'
+3	import { useHistory } from 'react-router'
+4
+5	import Loading from '../../shared/components/Loading'
+6	import useTranslator from '../../shared/hooks/useTranslator'
+7	import { formatDate } from '../../shared/util/formatDate'
+8	import usePatients from '../hooks/usePatients'
+9	import PatientSearchRequest from '../models/PatientSearchRequest'
+10	import NoPatientsExist from './NoPatientsExist'
+11
+12	interface Props {
+13	  searchRequest: PatientSearchRequest
+14	}
+15
+16	const ViewPatientsTable = (props: Props) => {
+17	  const { searchRequest } = props
+18	  const { t } = useTranslator()
+19	  const history = useHistory()
+20	  const { data, status } = usePatients(searchRequest)
+21
+22	  if (data === undefined || status === 'loading') {
+23	    return <Loading />
+24	  }
+25
+26	  if (data.totalCount === 0) {
+27	    return <NoPatientsExist />
+28	  }
+29
+30	  return (
+31	    <Table
+32	      data={data.patients}
+33	      getID={(row) => row.id}
+34	      columns={[
+35	        { label: t('patient.code'), key: 'code' },
+36	        { label: t('patient.givenName'), key: 'givenName' },
+37	        { label: t('patient.familyName'), key: 'familyName' },
+38	        { label: t('patient.sex'), key: 'sex' },
+39	        {
+40	          label: t('patient.dateOfBirth'),
+41	          key: 'dateOfBirth',
+42	          formatter: (row) => formatDate(row.dateOfBirth),
+43	        },
+44	      ]}
+45	      actionsHeaderText={t('actions.label')}
+46	      actions={[{ label: t('actions.view'), action: (row) => history.push(`/patients/${row.id}`) }]}
+47	    />
+48	  )
+49	}
+50
+51	export default ViewPatientsTable
+52	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/patients/hooks -name "*.tsx" -o -name "*.ts" | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useRemovePatientRelatedPerson.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientDiagnosis.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCarePlans.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientCareGoals.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientVisits.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientRelatedPersons.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddAllergy.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useCarePlan.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useVisit.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCarePlan.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientDiagnoses.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientNotes.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddPatientNote.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatient.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddVisit.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientLabs.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAddCareGoal.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatientNote.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useAllergy.tsx
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/useCareGoal.tsx
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/patients/hooks -name "*usePatients*"
+output
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatients.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatients.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/patients/hooks/usePatients.tsx with line numbers:
+1	import { useQuery } from 'react-query'
+2
+3	import PatientRepository from '../../shared/db/PatientRepository'
+4	import Patient from '../../shared/model/Patient'
+5	import PatientSearchRequest from '../models/PatientSearchRequest'
+6
+7	interface PatientsResult {
+8	  totalCount: number
+9	  patients: Patient[]
+10	}
+11
+12	async function fetchPatients(_: any, searchRequest: PatientSearchRequest): Promise<PatientsResult> {
+13	  const patients = await PatientRepository.search(searchRequest.queryString)
+14	  const totalCount = await PatientRepository.count()
+15	  return { totalCount, patients }
+16	}
+17
+18	export default function usePatients(searchRequest: PatientSearchRequest) {
+19	  return useQuery(['patients', searchRequest], fetchPatients)
+20	}
+21	
+
+
+bash
+command
+grep -r "limit\|skip\|bookmark" /tmp/inputs/hospitalrun-frontend/src/shared/db --include="*.ts"
+system
+Tool ran without output or errors
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/custom-pouchdb.d.ts with line numbers:
+1	/* eslint-disable camelcase */
+2	declare namespace PouchDB {
+3	  interface SearchQuery<Content> {
+4	    // Search string
+5	    query?: string
+6
+7	    //  Or build the index
+8	    build?: true
+9
+10	    //  F ields to search over
+11	    fields: (keyof Content)[] | { [field in keyof Content]: number }
+12
+13	    limit?: number
+14	    skip?: number
+15
+16	    mm?: string
+17
+18	    filter?: (content: Content) => boolean
+19
+20	    highlighting?: boolean
+21	    include_docs?: boolean
+22	    highlighting_pre?: string
+23	    highlighting_post?: string
+24
+25	    stale?: 'update_after' | 'ok'
+26
+27	    language?: string | string[]
+28
+29	    destroy?: true
+30	  }
+31
+32	  interface SearchRow<T> {
+33	    id: string
+34	    score: number
+35	    doc: T & { _id: string; _rev: string }
+36	  }
+37
+38	  interface SearchResponse<T> {
+39	    rows: Array<SearchRow<T>>
+40
+41	    total_rows: number
+42	  }
+43
+44	  interface Database<Content extends Record<string, unknown> = Record<string, unknown>> {
+45	    search(query: SearchQuery<Content>): SearchResponse<Content>
+46	  }
+47	}
+48
+49	declare module 'pouchdb-quick-search' {
+50	  const plugin: PouchDB.Plugin
+51	  export = plugin
+52	}
+53
+54	declare module 'relational-pouch'
+55	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/appointments -name "*.tsx" -o -name "*.ts" | head -10
+find: ‘/tmp/inputs/hospitalrun-frontend/src/appointments’: No such file or directory
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -type d -name "appointments" -o -name "labs" -o -name "imaging" | head -10
+output
+/tmp/inputs/hospitalrun-frontend/src/__tests__/scheduling/appointments
+/tmp/inputs/hospitalrun-frontend/src/__tests__/labs
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/appointments
+/tmp/inputs/hospitalrun-frontend/src/__tests__/patients/labs
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/zhCN/translations/labs
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/tr/translations/labs
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/enUs/translations/labs
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/es/translations/labs
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/fr/translations/labs
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/id/translations/labs
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -type d -maxdepth 1 | head -20
+output
+/tmp/inputs/hospitalrun-frontend/src
+/tmp/inputs/hospitalrun-frontend/src/incidents
+/tmp/inputs/hospitalrun-frontend/src/imagings
+/tmp/inputs/hospitalrun-frontend/src/page-header
+/tmp/inputs/hospitalrun-frontend/src/__tests__
+/tmp/inputs/hospitalrun-frontend/src/dashboard
+/tmp/inputs/hospitalrun-frontend/src/shared
+/tmp/inputs/hospitalrun-frontend/src/user
+/tmp/inputs/hospitalrun-frontend/src/scheduling
+/tmp/inputs/hospitalrun-frontend/src/medications
+/tmp/inputs/hospitalrun-frontend/src/__mocks__
+/tmp/inputs/hospitalrun-frontend/src/settings
+/tmp/inputs/hospitalrun-frontend/src/labs
+/tmp/inputs/hospitalrun-frontend/src/patients
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/scheduling -name "*.tsx" | head -10
+output
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useAppointments.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useScheduleAppointment.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useAppointment.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useDeleteAppointment.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useUpdateAppointment.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments/AppointmentDetailForm.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments/ViewAppointments.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments/Appointments.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments/view/ViewAppointment.tsx
+/tmp/inputs/hospitalrun-frontend/src/scheduling/appointments/new/NewAppointment.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useAppointments.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/scheduling/hooks/useAppointments.tsx with line numbers:
+1	import { useQuery } from 'react-query'
+2
+3	import AppointmentRepository from '../../shared/db/AppointmentRepository'
+4	import Appointment from '../../shared/model/Appointment'
+5
+6	async function fetchAppointments(): Promise<Appointment[]> {
+7	  const fetchedAppointments = await AppointmentRepository.findAll()
+8	  return fetchedAppointments || []
+9	}
+10
+11	export default function useAppointments() {
+12	  return useQuery(['appointments'], fetchAppointments)
+13	}
+14	
+
+
+bash
+command
+grep -r "Page<\|PageRequest" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v test | grep -v "\.d\.ts"
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:export default interface PageRequest {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/PageRequest.ts:export const UnpagedRequest: PageRequest = {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:import PageRequest from './PageRequest'
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:export default interface Page<T extends AbstractDBModel> {
+/tmp/inputs/hospitalrun-frontend/src/shared/db/Page.ts:  pageRequest?: PageRequest
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:  setPreviousPageRequest,
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:  setNextPageRequest,
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:        onClick={setPreviousPageRequest}
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx:        onClick={setNextPageRequest}
+
+
+bash
+command
+grep -r "import.*PageComponent\|usePageComponent" /tmp/inputs/hospitalrun-frontend/src --include="*.ts" --include="*.tsx" | grep -v test
+system
+Tool ran without output or errors
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src -name "*.tsx" -exec grep -l "PageComponent" {} \;
+output
+/tmp/inputs/hospitalrun-frontend/src/shared/components/PageComponent.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/AppointmentRepository.ts with line numbers:
+1	import escapeStringRegexp from 'escape-string-regexp'
+2
+3	import { relationalDb } from '../config/pouchdb'
+4	import Appointment from '../model/Appointment'
+5	import Repository from './Repository'
+6
+7	class AppointmentRepository extends Repository<Appointment> {
+8	  constructor() {
+9	    super('appointment', relationalDb)
+10	    this.db.createIndex({
+11	      index: {
+12	        fields: ['data.patient', '_id'],
+13	      },
+14	    })
+15	  }
+16
+17	  // Fuzzy search for patient appointments. Used for patient appointment search bar
+18	  async searchPatientAppointments(patientId: string, text: string): Promise<Appointment[]> {
+19	    const escapedString = escapeStringRegexp(text)
+20	    return super.search({
+21	      selector: {
+22	        $and: [
+23	          {
+24	            'data.patient': patientId,
+25	          },
+26	          {
+27	            $or: [
+28	              {
+29	                'data.location': {
+30	                  $regex: RegExp(escapedString, 'i'),
+31	                },
+32	              },
+33	              {
+34	                'data.reason': {
+35	                  $regex: RegExp(escapedString, 'i'),
+36	                },
+37	              },
+38	              {
+39	                'data.type': {
+40	                  $regex: RegExp(escapedString, 'i'),
+41	                },
+42	              },
+43	            ],
+44	          },
+45	        ],
+46	      },
+47	    })
+48	  }
+49	}
+50
+51	export default new AppointmentRepository()
+52	
+
+
+bash
+command
+grep -r "\.find\|\.search\|\.findAll" /tmp/inputs/hospitalrun-frontend/src/shared/db/Repository.ts
+output
+    this.pluralType = schema.find((s) => s.singular === this.type)?.plural || ''
+const documents = await this.db.rel.find(this.type, id)
+const result = await this.db.find({
+const result = await this.findAll()
+const response = await this.db.find({
+return this.find(savedEntity.id)
+await this.find(entity.id)
+return this.find(entity.id)
+const entityToDelete = await this.find(entity.id)
+
+
+bash
+command
+cat /tmp/inputs/hospitalrun-frontend/package.json | grep -A5 -B5 "pouchdb"
+output
+  "dependencies": {
+"@hospitalrun/components": "~3.4.0",
+"@reduxjs/toolkit": "~1.7.0",
+"@types/escape-string-regexp": "~2.0.1",
+"@types/json2csv": "~5.0.1",
+"@types/pouchdb-find": "~6.3.4",
+"bootstrap": "~5.1.0",
+"date-fns": "~2.28.0",
+"escape-string-regexp": "~4.0.0",
+"i18next": "~21.6.0",
+"i18next-browser-languagedetector": "~6.1.0",
+"i18next-xhr-backend": "~3.2.2",
+"json2csv": "~5.0.1",
+"lodash": "^4.17.15",
+"node-sass": "~7.0.0",
+"pouchdb": "~7.2.1",
+"pouchdb-adapter-memory": "~7.2.1",
+"pouchdb-authentication": "~1.1.3",
+"pouchdb-find": "~7.2.1",
+"pouchdb-quick-search": "~1.3.0",
+"react": "~17.0.1",
+"react-bootstrap": "~1.6.0",
+"react-bootstrap-typeahead": "~5.2.0",
+"react-dom": "~16.13.0",
+"react-i18next": "~11.15.0",
+--
+"@testing-library/react-hooks": "~7.0.0",
+"@testing-library/user-event": "~12.8.3",
+"@types/jest": "~27.0.3",
+"@types/lodash": "^4.14.150",
+"@types/node": "~17.0.0",
+"@types/pouchdb": "~6.4.0",
+"@types/react": "~17.0.0",
+"@types/react-dom": "~17.0.0",
+"@types/react-redux": "~7.1.5",
+"@types/react-router": "~5.1.2",
+"@types/react-router-dom": "~5.3.0",
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/labs -name "*.tsx" | head -5
+output
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/requests/NewLabRequest.tsx
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx with line numbers:
+1	import { Select, Label, Button, Table, Container, Row, Column } from '@hospitalrun/components'
+2	import format from 'date-fns/format'
+3	import React, { useState, useEffect, useCallback } from 'react'
+4	import { useSelector } from 'react-redux'
+5	import { useHistory } from 'react-router-dom'
+6
+7	import { useButtonToolbarSetter } from '../page-header/button-toolbar/ButtonBarProvider'
+8	import { useUpdateTitle } from '../page-header/title/TitleContext'
+9	import { SelectOption } from '../shared/components/input/SelectOption'
+10	import TextInputWithLabelFormGroup from '../shared/components/input/TextInputWithLabelFormGroup'
+11	import useDebounce from '../shared/hooks/useDebounce'
+12	import useTranslator from '../shared/hooks/useTranslator'
+13	import Lab from '../shared/model/Lab'
+14	import Permissions from '../shared/model/Permissions'
+15	import { RootState } from '../shared/store'
+16	import useLabsSearch from './hooks/useLabsSearch'
+17	import { LabFilter } from './model/LabSearchRequest'
+18
+19	const ViewLabs = () => {
+20	  const { t } = useTranslator()
+21	  const history = useHistory()
+22	  const setButtons = useButtonToolbarSetter()
+23	  const updateTitle = useUpdateTitle()
+24	  useEffect(() => {
+25	    updateTitle(t('labs.label'))
+26	  })
+27	  const { permissions } = useSelector((state: RootState) => state.user)
+28	  const [searchFilter, setSearchFilter] = useState<LabFilter>('all')
+29	  const [searchText, setSearchText] = useState<string>('')
+30	  const debouncedSearchText = useDebounce(searchText, 500)
+31	  const { data: labs } = useLabsSearch({
+32	    text: debouncedSearchText,
+33	    status: searchFilter,
+34	  })
+35
+36	  const getButtons = useCallback(() => {
+37	    const buttons: React.ReactNode[] = []
+38
+39	    if (permissions.includes(Permissions.RequestLab)) {
+40	      buttons.push(
+41	        <Button
+42	          icon="add"
+43	          onClick={() => history.push('/labs/new')}
+44	          outlined
+45	          color="success"
+46	          key="lab.requests.new"
+47	        >
+48	          {t('labs.requests.new')}
+49	        </Button>,
+50	      )
+51	    }
+52
+53	    return buttons
+54	  }, [permissions, history, t])
+55
+56	  useEffect(() => {
+57	    setButtons(getButtons())
+58	    return () => {
+59	      setButtons([])
+60	    }
+61	  }, [getButtons, setButtons])
+62
+63	  const onViewClick = (lab: Lab) => {
+64	    history.push(`/labs/${lab.id}`)
+65	  }
+66
+67	  const onSearchBoxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+68	    setSearchText(event.target.value)
+69	  }
+70
+71	  const filterOptions: SelectOption[] = [
+72	    { label: t('labs.status.requested'), value: 'requested' },
+73	    { label: t('labs.status.completed'), value: 'completed' },
+74	    { label: t('labs.status.canceled'), value: 'canceled' },
+75	    { label: t('labs.filter.all'), value: 'all' },
+76	  ]
+77
+78	  return (
+79	    <Container>
+80	      <Row>
+81	        <Column md={3} lg={2}>
+82	          <Label title="type" text={t('labs.filterTitle')} />
+83	          <Select
+84	            id="type"
+85	            options={filterOptions}
+86	            onChange={(values) => setSearchFilter(values[0] as LabFilter)}
+87	            defaultSelected={filterOptions.filter(({ value }) => value === searchFilter)}
+88	            disabled={false}
+89	          />
+90	        </Column>
+91	        <Column>
+92	          <TextInputWithLabelFormGroup
+93	            name="searchbox"
+94	            label={t('labs.search')}
+95	            placeholder={t('labs.search')}
+96	            value={searchText}
+97	            isEditable
+98	            onChange={onSearchBoxChange}
+99	          />
+100	        </Column>
+101	      </Row>
+102	      <Row>
+103	        <Table
+104	          getID={(row) => row.id}
+105	          columns={[
+106	            { label: t('labs.lab.code'), key: 'code' },
+107	            { label: t('labs.lab.type'), key: 'type' },
+108	            {
+109	              label: t('labs.lab.requestedOn'),
+110	              key: 'requestedOn',
+111	              formatter: (row) =>
+112	                row.requestedOn ? format(new Date(row.requestedOn), 'yyyy-MM-dd hh:mm a') : '',
+113	            },
+114	            { label: t('labs.lab.status'), key: 'status' },
+115	          ]}
+116	          data={labs || []}
+117	          actionsHeaderText={t('actions.label')}
+118	          actions={[{ label: t('actions.view'), action: (row) => onViewClick(row as Lab) }]}
+119	        />
+120	      </Row>
+121	    </Container>
+122	  )
+123	}
+124
+125	export default ViewLabs
+126	
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/labs/hooks -name "*.tsx"
+system
+Tool ran without output or errors
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend/src/labs -name "*.tsx" -o -name "*.ts"
+output
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLabs.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/Labs.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/ViewLab.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/model/LabSearchRequest.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useRequestLab.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useCancelLab.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useCompleteLab.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLab.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLabsSearch.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useUpdateLab.ts
+/tmp/inputs/hospitalrun-frontend/src/labs/requests/NewLabRequest.tsx
+/tmp/inputs/hospitalrun-frontend/src/labs/utils/validate-lab.ts
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLabsSearch.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/labs/hooks/useLabsSearch.ts with line numbers:
+1	import { useQuery } from 'react-query'
+2
+3	import LabRepository from '../../shared/db/LabRepository'
+4	import SortRequest from '../../shared/db/SortRequest'
+5	import Lab from '../../shared/model/Lab'
+6	import LabSearchRequest from '../model/LabSearchRequest'
+7
+8	const defaultSortRequest: SortRequest = {
+9	  sorts: [
+10	    {
+11	      field: 'requestedOn',
+12	      direction: 'desc',
+13	    },
+14	  ],
+15	}
+16
+17	function fetchLabs(_: any, request: LabSearchRequest): Promise<Lab[]> {
+18	  if (request.text?.trim() === '' && request.status === 'all') {
+19	    return LabRepository.findAll(defaultSortRequest)
+20	  }
+21
+22	  return LabRepository.search({
+23	    ...request,
+24	    defaultSortRequest,
+25	  } as any)
+26	}
+27
+28	export default function useLabsSearch(request: LabSearchRequest) {
+29	  return useQuery(['labs', request], fetchLabs)
+30	}
+31	
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/src/shared/db/LabRepository.ts with line numbers:
+1	import { relationalDb } from '../config/pouchdb'
+2	import Lab from '../model/Lab'
+3	import generateCode from '../util/generateCode'
+4	import Repository from './Repository'
+5	import SortRequest from './SortRequest'
+6
+7	interface SearchContainer {
+8	  text: string
+9	  status: 'requested' | 'completed' | 'canceled' | 'all'
+10	  defaultSortRequest: SortRequest
+11	}
+12	class LabRepository extends Repository<Lab> {
+13	  constructor() {
+14	    super('lab', relationalDb)
+15	  }
+16
+17	  async search(container: SearchContainer): Promise<Lab[]> {
+18	    const searchValue = { $regex: RegExp(container.text, 'i') }
+19	    const selector = {
+20	      $and: [
+21	        {
+22	          $or: [
+23	            {
+24	              'data.type': searchValue,
+25	            },
+26	            {
+27	              'data.code': searchValue,
+28	            },
+29	          ],
+30	        },
+31	        ...(container.status !== 'all' ? [{ 'data.status': container.status }] : [undefined]),
+32	      ].filter((x) => x !== undefined),
+33	      sorts: container.defaultSortRequest,
+34	    }
+35
+36	    return super.search({
+37	      selector,
+38	    })
+39	  }
+40
+41	  async save(entity: Lab): Promise<Lab> {
+42	    const labCode = generateCode('L')
+43	    entity.code = labCode
+44	    return super.save(entity)
+45	  }
+46
+47	  async findAllByPatientId(patientId: string): Promise<Lab[]> {
+48	    return super.search({
+49	      selector: {
+50	        $and: [
+51	          {
+52	            patientId,
+53	          },
+54	        ],
+55	      },
+56	    })
+57	  }
+58	}
+59
+60	export default new LabRepository()
+61	
+
+
+bash
+command
+grep -r "react-query" /tmp/inputs/hospitalrun-frontend/package.json
+output
+    "react-query": "~2.25.2",
+"react-query-devtools": "~2.6.0",
+
+
+bash
+command
+find /tmp/inputs/hospitalrun-frontend -name "README*" -o -name "readme*" | head -5
+output
+/tmp/inputs/hospitalrun-frontend/README.md
+/tmp/inputs/hospitalrun-frontend/src/shared/locales/README.md
+
+
+str_replace_based_edit_tool
+command
+view
+path
+/tmp/inputs/hospitalrun-frontend/README.md
+view_range
+[1, 100]
+output
+Here's the content of /tmp/inputs/hospitalrun-frontend/README.md with line numbers (which has a total of 41 lines) with view_range=[1, 100]:
+1	# HospitalRun Frontend
+2
+3	<div align="center">
+4
+5	![Status](https://img.shields.io/badge/Status-developing-brightgree) [![Release](https://img.shields.io/github/release/HospitalRun/hospitalrun-frontend.svg)](https://github.com/HospitalRun/hospitalrun-frontend/releases) [![Version](https://img.shields.io/github/package-json/v/hospitalrun/hospitalrun-frontend)](https://github.com/HospitalRun/hospitalrun-frontend/releases)
+6	[![GitHub CI](https://github.com/HospitalRun/frontend/workflows/GitHub%20CI/badge.svg)](https://github.com/HospitalRun/frontend/actions) [![Coverage Status](https://coveralls.io/repos/github/HospitalRun/hospitalrun-frontend/badge.svg?branch=master)](https://coveralls.io/github/HospitalRun/hospitalrun-frontend?branch=master) [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/HospitalRun/hospitalrun-frontend.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/HospitalRun/hospitalrun-frontend/context:javascript) ![Code scanning](https://github.com/HospitalRun/hospitalrun-frontend/workflows/Code%20scanning/badge.svg?branch=master) [![Documentation Status](https://readthedocs.org/projects/hospitalrun-frontend/badge/?version=latest)](https://hospitalrun-frontend.readthedocs.io)
+7	[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FHospitalRun%2Fhospitalrun-frontend?ref=badge_large) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+8	![dependabot](https://api.dependabot.com/badges/status?host=github&repo=HospitalRun/hospitalrun-frontend) [![Slack](https://hospitalrun-slack.herokuapp.com/badge.svg)](https://hospitalrun-slack.herokuapp.com)
+9
+10	</div>
+11
+12	React frontend for [HospitalRun](http://hospitalrun.io/): free software for developing world hospitals.
+13
+14	---
+15
+16	# Are you a user? If yes...
+17
+18	[Visit this page for general information on the HospitalRun application](https://github.com/HospitalRun/hospitalrun/blob/master/README.md) including:
+19
+20	- How can I deploy 1.0.0-beta?
+21	- Where do I report a bug or request a feature?
+22	- How can I contribute? (There are several other ways besides coding)
+23	- What is the project structure?
+24	- What is the application infrastructure?
+25	- Who is behind HospitalRun? etc.
+26
+27	# Would you like to contribute? If yes...
+28
+29	[Get started by checking out the Frontend Contributing Guide](https://github.com/HospitalRun/hospitalrun-frontend/blob/master/.github/CONTRIBUTING.md) for:
+30	- What's the tech stack?
+31	- Where can I become familiar with the technologies?
+32	- Where do I browse issues?
+33	- How do I set up my local environment?
+34	- How do I run tests locally?
+35	- How do I submit my changes?
+36	- etc.
+37
+38	# License
+39
+40	Released under the [MIT license](LICENSE).
+41	
+
+Based on my exploration of the HospitalRun frontend codebase, I can explain how the application handles pagination for large datasets.
+
+## Pagination Implementation
+
+The HospitalRun frontend has a **pagination infrastructure in place, but it's largely unused** in the current implementation. Here's what I found:
+
+**Pagination Components Available:**
+
+The application has defined pagination interfaces and a UI component:
+- `Page<T>` interface that contains content array, hasNext/hasPrevious flags, and an optional pageRequest
+- `PageRequest` interface with properties for page number, size, direction, and navigation info (nextPageInfo/previousPageInfo)
+- `PageComponent.tsx` - a reusable UI component with Previous/Next buttons and page size selector (25, 50, 100, 200, or "All")
+
+**Current Reality:**
+
+Despite having these pagination structures, the application **does not actually implement pagination** for large datasets. Instead:
+
+1. **All data is loaded at once** - Methods like `PatientRepository.findAll()`, `AppointmentRepository.findAll()`, and `LabRepository.findAll()` retrieve all records from the database without any limit or offset parameters.
+
+2. **Search operations are unbound** - The `search()` methods in repositories use PouchDB's `find()` API but don't pass any `limit` or `skip` parameters, even though PouchDB supports them (as seen in the `custom-pouchdb.d.ts` type definitions).
+
+3. **React Query for caching** - The app uses React Query v2 to cache the full datasets client-side, which helps with performance but doesn't solve the initial load problem for large datasets.
+
+4. **No pagination UI in use** - The `PageComponent` isn't imported or used anywhere in the actual application views like ViewPatients, ViewLabs, or ViewAppointments.
+
+**Why This Approach:**
+
+This is likely because HospitalRun is designed for smaller medical facilities where patient counts and records remain manageable. The PouchDB backend (a local-first database) is optimized for offline-first scenarios rather than massive datasets. For typical use cases in developing world hospitals, loading all records at once is acceptable.
+
+**If Pagination Were Needed:**
+
+To implement true pagination, you'd need to modify the Repository class to accept PageRequest parameters, use PouchDB's `limit` and `skip` options, and integrate the PageComponent into the list views. The infrastructure is there, just not activated.
+
+4. Now write the ideal answer, model a  summary, model a feedback,  model b summary model b feedback,justification. i want same level of details and evidence and writing style and lenght like this sample THIS IS SAMPLE FOR you below, READ CAREFULLY: 
+
+
+SUPER IMPORTANT RULE YOU MUST FOLLOW. YOU MUST WRITE SAME WAY SAME QUALITY SAME FORMAT SAME STYLE AS SAMPLE BELOW!@!!!!!!!
+
+——SAMPLE:—
+—Every below is sample—
+
+Ideal Response.
+
+This ideal answer should clearly describe how Spring Petclinic wires its components through dependency injection using common patterns like constructor based injection, component scanning, and configuration-driven bean factories ...etc, and even dive deeper to explain how controllers (e.g.,src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java) declare all the collaborators in the constructors rather than in the fields, how stereotype annotations make those classes eligible for autodetection, how the repository abstractions are injected as interfaces implemented by the Spring Data JPA, and how @Configuration classes expose shared infrastructure beans that all the other components consume.
+Model must explain that Spring Petclinic leans on constructor-based dependency injection to keep controllers explicit and testable. For example, it should explain controller like spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java is annotated with @Controller and declares a single constructor that takes an OwnerRepository, which has the role of letting Spring populate the dependency while preventing partially constructed instance. Model should point out that the controller never uses field injection or @Autowired on members, so the required collaborator is enforced at creation time. For example, in src/main/java/org/springframework/samples/petclinic/vet/VetController.java, whose constructor requires a VetRepository and assigns it to a final field, it is also relying on the container to supply the repository proxy. Even non-controller components follow this approach, for example src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, which is a @Component that exposes a Formatter<PetType> but takes its PetTypeRepository in the constructor, which is keeping parsing logic decoupled from storage details while still making the repository mandatory for instantiation.
+Model must also explain repository layer demonstrates interface-driven injection. Interfaces such as spring-petclinic/src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java extend Spring Data JPA’s JpaRepository, which is letting the framework auto-create runtime proxies that satisfy the dependency signatures declared in controllers and formatters.
+Overall, the dependency injection explanation should ideally go deep and cover how @SpringBootApplication bootstraps component scanning, constructors declare required collaborators, repositories are injected as interfaces backed by generated proxies, and @Configuration classes publish shared infrastructure as beans.
+
+
+
+Model A Response Summary
+
+Model A did pretty well because it correctly identifiy constructor-based injection as the major dominant pattern and notes the absence of @Autowired, aligning with controllers like OwnerController and VetController that declare single-argument constructors for their repositories, which are src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java and src/main/java/org/springframework/samples/petclinic/vet/VetController.java,. It also correctly observes that PetTypeFormatter uses constructor injection as a component, which matches the formatters’ constructor-driven PetTypeRepository dependency. It points out that in src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java, the response highlights component scanning via the stereotype annotations and the role of repository interfaces that Spring Data implements at runtime, dynamically, and consistent with the JpaRepository extension inside src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java.  Overall, the summary gives good overview of the core DI patterns present in the codebase.
+Model A Response Feedback
+
+the answer is strong on constructor injection and the lack of @Autowired, both supported by the controller and formatter classes cited in summary above, which are very impressive findings in my opinion as tehy’re not that obvious. One area it could be improved is by referencing configuration-driven beans such as the cache and locale interceptors declared in CacheConfiguration and WebConfiguration , to show that DI also wires infrastructure services, not just repositories and controllers in files like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. Mentioning of @SpringBootApplication as the trigger for component scanning would further strengthen the explanation by tying bean discovery to the application entry point in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java. These additions would align the response even more tightly with the full range of DI patterns in the repo. But overall, the model did pretty well despite these issues.
+
+Model B Response Summary
+
+Model B repeats the constructor-injection narrative and cites the same controllers (OwnerController, PetController, VetController, VisitController) and the PetTypeFormatter component under main/java/org/springframework/samples/petclinic/*, matching their constructor-based repository dependencies.It notes the absence of @Autowired/@Inject and correctly attributes bean registration to stereotype annotations and Spring Data proxies for repositories like OwnerRepository in src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java†. The summary emphasizes constructor injection benefits but remains fairly high-level. Overall the model did not give an in-depth explanation and i believe the model did not really check the code thoroughly for the explanation. 
+Model B Response Feedback
+
+While this model is technically accurate about constructor injection and stereotype-based registration, but Model B stays generic and omits key DI elements present in the code which are obvious and should not be missed at all! It does not even mention the configuration classes that publish infrastructure beans (e.g., cache customization or locale handling), which are central examples of DI beyond the configurations like src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java. The response also overlooks the @SpringBootApplication entry point that enables component scanning for all these beans such as in src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java.Compared to Model A, it provides less depth on how DI wiring spans both application endpoints and shared infrastructure.
+Overall Preference Justification
+
+Model A is way better because it balances correctness about constructor injection with explicit recognition of repository interfaces and the role of component scanning, closely matching the structure seen in controllers, formatters, and repositories...etc such as src/main/java/org/springframework/samples/petclinic/owner/OwnerController.java,src/main/java/org/springframework/samples/petclinic/owner/PetTypeFormatter.java,src/main/java/org/springframework/samples/petclinic/owner/OwnerRepository.java, Although both models miss some configuration details, Model A surfaces more of the actual DI practices visible in the code and provides a clearer link between stereotypes and injection than Model B, which remains more generic and omits infrastructure wiring examples such as ,src/main/java/org/springframework/samples/petclinic/system/CacheConfiguration.java,src/main/java/org/springframework/samples/petclinic/system/WebConfiguration.java.....etc. Therefore, Model A offers the stronger, more code-grounded explanation in my opinion.
